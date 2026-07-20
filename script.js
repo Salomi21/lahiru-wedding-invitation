@@ -239,3 +239,35 @@ window.addEventListener("load", function() {
         audio.play().catch(function() {});
     }
 });
+
+// ================================================================
+// 🎯 LIGHTBOX FUNCTIONS
+// ================================================================
+
+function openLightbox(element) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    
+    // Get image source from clicked element
+    const imgSrc = element.querySelector('img').src;
+    const imgAlt = element.querySelector('img').alt || 'Memory';
+    
+    img.src = imgSrc;
+    caption.textContent = imgAlt;
+    lightbox.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+// Close lightbox with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    }
+});
