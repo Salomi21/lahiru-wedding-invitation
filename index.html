@@ -90,7 +90,7 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- INVITATION MODAL - Pink & White Theme         -->
+    <!-- INVITATION MODAL - WITH PHOTO GALLERY         -->
     <!-- ============================================== -->
     <div id="invitationModal" class="modal">
         <div class="modal-content">
@@ -123,6 +123,65 @@
                     We invite you to join us in celebrating this special moment as we begin our new life together. Your presence will make our homecoming even more memorable.
                 </p>
             </div>
+
+            <!-- ============================================================ -->
+            <!-- 🎯 PHOTO GALLERY - Our Memories                            -->
+            <!-- ============================================================ -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">📸 අපගේ සිහිවටන</h3>
+                <p class="gallery-sub">Our Memories</p>
+                
+                <div class="gallery-grid">
+                    <!-- Gallery Item 1 -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="gallery-1.webp" alt="Memory 1" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon">🔍</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 2 -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="gallery-2.webp" alt="Memory 2" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon">🔍</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 3 -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="gallery-3.webp" alt="Memory 3" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon">🔍</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 4 -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="gallery-4.webp" alt="Memory 4" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon">🔍</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 5 -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="gallery-5.webp" alt="Memory 5" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon">🔍</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Gallery Item 6 -->
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="gallery-6.webp" alt="Memory 6" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
+                        <div class="gallery-overlay">
+                            <span class="gallery-icon">🔍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================ -->
 
             <!-- Schedule Card -->
             <div class="schedule-card">
@@ -223,6 +282,16 @@
             </div>
 
         </div>
+    </div>
+    <!-- ============================================== -->
+
+    <!-- ============================================== -->
+    <!-- 🎯 LIGHTBOX - Full Screen Image Viewer        -->
+    <!-- ============================================== -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Memory" />
+        <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
     <!-- ============================================== -->
 
