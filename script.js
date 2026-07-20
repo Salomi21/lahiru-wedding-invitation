@@ -140,7 +140,7 @@ function sendWhatsApp() {
     if (!validateForm()) return;
     
     const { name, phone, attendance, notes } = getFormData();
-    const whatsappNumber = '94716521119';
+    const whatsappNumber = '94716516444';
     
     let message = `🎉 *Homecoming RSVP Confirmation* 🎉\n\n`;
     message += `👤 *Name:* ${name}\n`;
@@ -151,7 +151,7 @@ function sendWhatsApp() {
         message += `📝 *Notes:* ${notes}\n`;
     }
     
-    message += `\n🏠 *Lahiru & Salomi Homecoming - 20 Sep 2026*`;
+    message += `\n🏠 *Lahiru & Salomi Homecoming - 15 Sep 2026*`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -165,7 +165,7 @@ function sendEmail() {
     if (!validateForm()) return;
     
     const { name, phone, attendance, notes } = getFormData();
-    const emailAddress = 'salomirechali9999@gmail.com';
+    const emailAddress = 'lahirusujith9999@gmail.com';
     const subject = `Homecoming RSVP - ${name}`;
     
     let body = `Homecoming RSVP Confirmation\n`;
@@ -191,7 +191,7 @@ function sendEmail() {
 // ----- 8. SHARE INVITATION -----
 function shareInvitation() {
     const url = window.location.href;
-    const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 20 September 2026\n📍 123/A, Main Street, Anamaduwa\n\nView Invitation: ${url}`;
+    const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 15 September 2026\n📍 123/A, Main Street, Anamaduwa\n\nView Invitation: ${url}`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
