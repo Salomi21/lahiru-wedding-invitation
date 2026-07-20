@@ -178,7 +178,7 @@ function sendEmail() {
         body += `\nSpecial Notes:\n${notes}\n`;
     }
     
-    body += `\n\n--\nLahiru & Salomi Homecoming\n20 September 2026`;
+    body += `\n\n--\nLahiru & Salomi Homecoming\n15 September 2026`;
     
     const encodedSubject = encodeURIComponent(subject);
     const encodedBody = encodeURIComponent(body);
@@ -198,8 +198,8 @@ function shareInvitation() {
     window.open(whatsappURL, '_blank');
 }
 
-// ----- 9. COUNTDOWN TIMER -----
-var homecomingDate = new Date("Sep 20, 2026 00:00:00").getTime();
+// ----- 9. COUNTDOWN TIMER - SEPTEMBER 15 -----
+var homecomingDate = new Date("Sep 15, 2026 00:00:00").getTime();
 
 var countdownInterval = setInterval(function() {
     var now = new Date().getTime();
