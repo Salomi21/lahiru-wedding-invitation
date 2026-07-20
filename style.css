@@ -217,7 +217,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 TITLE - GOLD & PINK MIX                                    */
+/* 🎯 TITLE - HOMECOMING (GOLD & PINK MIX)                       */
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
@@ -239,21 +239,31 @@ body::after {
     animation: goldPinkShine 4s ease-in-out infinite;
 }
 
+/* ----- SUBTITLE - LAHIRU & SALOMI (GOLD & PINK MIX) ----- */
+.subtitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 28px;
+    background: linear-gradient(135deg, 
+        #ffd700 0%,
+        #f9a825 20%,
+        #f472b6 50%,
+        #ec4899 70%,
+        #ffd700 100%
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 4px 25px rgba(255, 215, 0, 0.15));
+    animation: goldPinkShine 4s ease-in-out infinite;
+    letter-spacing: 2px;
+    font-weight: 400;
+}
+
 @keyframes goldPinkShine {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
-}
-
-/* ----- SUBTITLE ----- */
-.subtitle {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: #f9a8d4;
-    margin-bottom: 12px;
-    opacity: 0.8;
 }
 
 /* ----- DIVIDER ----- */
@@ -687,7 +697,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL TITLE - GOLD & PINK MIX                             */
+/* 🎯 MODAL TITLE - HOMECOMING (GOLD & PINK MIX)                */
 /* ================================================================ */
 .modal-title {
     font-family: 'Great Vibes', cursive;
@@ -708,13 +718,25 @@ body::after {
     animation: goldPinkShine 5s ease-in-out infinite;
 }
 
+/* ----- MODAL SUBTITLE - LAHIRU & SALOMI (GOLD & PINK MIX) ----- */
 .modal-subtitle {
-    font-family: 'Playfair Display', serif;
-    font-size: 14px;
-    color: #f9a8d4;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    opacity: 0.8;
+    font-family: 'Great Vibes', cursive;
+    font-size: 26px;
+    background: linear-gradient(135deg, 
+        #ffd700 0%,
+        #f9a825 20%,
+        #f472b6 50%,
+        #ec4899 70%,
+        #ffd700 100%
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2px;
+    filter: drop-shadow(0 4px 30px rgba(255, 215, 0, 0.12));
+    animation: goldPinkShine 5s ease-in-out infinite;
+    letter-spacing: 2px;
 }
 
 .modal-divider {
@@ -1095,7 +1117,7 @@ body::after {
     }
     
     .title { font-size: 34px; }
-    .subtitle { font-size: 13px; letter-spacing: 3px; }
+    .subtitle { font-size: 22px; }
     #countdown { font-size: 20px; padding: 8px 14px; min-width: 170px; }
     .date { font-size: 19px; }
     .venue { font-size: 14px; }
@@ -1115,7 +1137,7 @@ body::after {
         max-height: 85vh;
     }
     .modal-title { font-size: 30px; }
-    .modal-subtitle { font-size: 12px; letter-spacing: 3px; }
+    .modal-subtitle { font-size: 20px; }
     .invitation-text { font-size: 18px; }
     .invitation-subtext { font-size: 13px; }
     .form-buttons { flex-direction: column; gap: 8px; }
@@ -1167,6 +1189,7 @@ body::after {
 @media (min-width: 481px) and (max-width: 768px) {
     .container { padding: 35px 22px 45px 22px; max-width: 400px; }
     .title { font-size: 38px; }
+    .subtitle { font-size: 24px; }
     #countdown { font-size: 22px; min-width: 180px; }
     .modal-content { padding: 28px 22px 24px 22px; max-width: 420px; }
     .form-buttons { flex-direction: row; }
@@ -1175,11 +1198,13 @@ body::after {
 @media (min-width: 769px) and (max-width: 1024px) {
     .container { max-width: 460px; padding: 45px 30px 55px 30px; }
     .title { font-size: 44px; }
+    .subtitle { font-size: 26px; }
 }
 
 @media (min-width: 1025px) {
     .container { max-width: 500px; padding: 50px 35px 60px 35px; }
     .title { font-size: 48px; }
+    .subtitle { font-size: 28px; }
     #countdown { font-size: 26px; min-width: 220px; }
 }
 
@@ -1189,7 +1214,7 @@ body::after {
         margin: 10px auto;
     }
     .title { font-size: 28px; }
-    .subtitle { font-size: 11px; letter-spacing: 3px; margin-bottom: 5px; }
+    .subtitle { font-size: 18px; }
     #countdown { font-size: 16px; padding: 5px 12px; min-width: 150px; }
     .date { font-size: 16px; }
     .venue { font-size: 12px; margin-bottom: 10px; }
