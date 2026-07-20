@@ -217,16 +217,18 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 TITLE - Homecoming (Gold & Pink Mix)                       */
+/* 🎯 TITLE - Homecoming (MORE GOLD, LESS PINK + GOLDEN GLOW)    */
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
     font-size: 44px;
     background: linear-gradient(135deg, 
         #ffd700 0%,
-        #f9a825 20%,
-        #f472b6 50%,
-        #ec4899 70%,
+        #ffb300 15%,
+        #ffd700 30%,
+        #f9a825 50%,
+        #f472b6 70%,
+        #ffd700 85%,
         #ffd700 100%
     );
     background-size: 300% 300%;
@@ -234,12 +236,14 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 4px 25px rgba(255, 215, 0, 0.2));
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4)) 
+            drop-shadow(0 0 60px rgba(255, 215, 0, 0.15))
+            drop-shadow(0 4px 25px rgba(255, 215, 0, 0.2));
     line-height: 1.2;
     animation: goldPinkShine 4s ease-in-out infinite;
 }
 
-/* ----- SUBTITLE - Lahiru & Salomi (Playfair Display + Gold & Pink Mix) ----- */
+/* ----- SUBTITLE - Lahiru & Salomi (MORE GOLD, LESS PINK + GOLDEN GLOW) ----- */
 .subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -248,9 +252,10 @@ body::after {
     text-transform: uppercase;
     background: linear-gradient(135deg, 
         #ffd700 0%,
-        #f9a825 20%,
-        #f472b6 50%,
-        #ec4899 70%,
+        #ffb300 20%,
+        #ffd700 40%,
+        #f9a825 60%,
+        #f472b6 80%,
         #ffd700 100%
     );
     background-size: 300% 300%;
@@ -258,7 +263,9 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 12px;
-    filter: drop-shadow(0 4px 15px rgba(255, 215, 0, 0.1));
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3))
+            drop-shadow(0 0 40px rgba(255, 215, 0, 0.1))
+            drop-shadow(0 4px 15px rgba(255, 215, 0, 0.1));
     animation: goldPinkShine 4s ease-in-out infinite;
 }
 
@@ -698,16 +705,18 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL TITLE - Homecoming (Gold & Pink Mix)                 */
+/* 🎯 MODAL TITLE - Homecoming (MORE GOLD, LESS PINK + GOLDEN GLOW) */
 /* ================================================================ */
 .modal-title {
     font-family: 'Great Vibes', cursive;
     font-size: 38px;
     background: linear-gradient(135deg, 
         #ffd700 0%,
-        #f9a825 20%,
-        #f472b6 50%,
-        #ec4899 70%,
+        #ffb300 15%,
+        #ffd700 30%,
+        #f9a825 50%,
+        #f472b6 70%,
+        #ffd700 85%,
         #ffd700 100%
     );
     background-size: 300% 300%;
@@ -715,11 +724,13 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 4px 30px rgba(255, 215, 0, 0.15));
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.35))
+            drop-shadow(0 0 50px rgba(255, 215, 0, 0.12))
+            drop-shadow(0 4px 30px rgba(255, 215, 0, 0.15));
     animation: goldPinkShine 5s ease-in-out infinite;
 }
 
-/* ----- MODAL SUBTITLE - Lahiru & Salomi (Playfair Display + Gold & Pink Mix) ----- */
+/* ----- MODAL SUBTITLE - Lahiru & Salomi (MORE GOLD, LESS PINK + GOLDEN GLOW) ----- */
 .modal-subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -728,9 +739,10 @@ body::after {
     text-transform: uppercase;
     background: linear-gradient(135deg, 
         #ffd700 0%,
-        #f9a825 20%,
-        #f472b6 50%,
-        #ec4899 70%,
+        #ffb300 20%,
+        #ffd700 40%,
+        #f9a825 60%,
+        #f472b6 80%,
         #ffd700 100%
     );
     background-size: 300% 300%;
@@ -738,7 +750,9 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 4px 20px rgba(255, 215, 0, 0.08));
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.25))
+            drop-shadow(0 0 40px rgba(255, 215, 0, 0.08))
+            drop-shadow(0 4px 20px rgba(255, 215, 0, 0.08));
     animation: goldPinkShine 5s ease-in-out infinite;
 }
 
