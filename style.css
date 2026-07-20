@@ -47,7 +47,7 @@ body::after {
     pointer-events: none;
 }
 
-/* ----- SPARKLE PARTICLES - Rose Pink & White ----- */
+/* ----- SPARKLE PARTICLES - Pink & White ----- */
 #sparkle-container {
     position: fixed;
     top: 0;
@@ -86,7 +86,7 @@ body::after {
     100% { transform: translateY(-10vh) scale(0) rotate(360deg); opacity: 0; }
 }
 
-/* ----- FLOATING HEARTS - Rose Pink & White ----- */
+/* ----- FLOATING HEARTS - Pink & White ----- */
 #hearts-container {
     position: fixed;
     top: 0;
@@ -140,7 +140,7 @@ body::after {
 }
 
 /* =========================================== */
-/* 🎯 MAIN CARD - ROSE PINK & WHITE THEME     */
+/* 🎯 MAIN CARD - PINK & WHITE THEME          */
 /* =========================================== */
 .container {
     position: relative;
@@ -172,7 +172,7 @@ body::after {
         0 0 50px rgba(244, 114, 182, 0.06);
 }
 
-/* Card Border - Rose Pink Glow */
+/* Card Border - Pink Glow */
 .container::before {
     content: "";
     position: absolute;
@@ -194,7 +194,7 @@ body::after {
     opacity: 0.15;
 }
 
-/* ----- HOME ICON - Rose Pink Pulse ----- */
+/* ----- HOME ICON - Pink Pulse ----- */
 .home-icon {
     font-size: 34px;
     margin-bottom: 5px;
@@ -217,7 +217,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 TITLE - ROSE PINK & WHITE GRADIENT                         */
+/* 🎯 TITLE - PINK & WHITE GRADIENT                              */
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
@@ -309,7 +309,7 @@ body::after {
     line-height: 1.6;
 }
 
-/* ----- COUNTDOWN - Rose Pink Theme ----- */
+/* ----- COUNTDOWN - Pink Theme ----- */
 #countdown {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -326,7 +326,7 @@ body::after {
     min-width: 200px;
 }
 
-/* ----- BUTTONS - Rose Pink Theme ----- */
+/* ----- BUTTONS - Pink Theme ----- */
 .btn-primary {
     margin-top: 18px;
     padding: 14px 35px;
@@ -402,7 +402,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 PHOTO FRAME - Rose Pink Theme                               */
+/* 🎯 PHOTO FRAME - Pink Theme                                    */
 /* ================================================================ */
 .photo-frame {
     width: 130px;
@@ -463,7 +463,7 @@ body::after {
     50% { opacity: 0.6; transform: scale(1.04); }
 }
 
-/* ----- STICKER OVERLAY - Rose Pink ----- */
+/* ----- STICKER OVERLAY - Pink ----- */
 .sticker-overlay {
     position: absolute;
     bottom: -8px;
@@ -499,7 +499,7 @@ body::after {
     50% { transform: scale(1.1); }
 }
 
-/* ----- TRADITIONAL ICONS ----- */
+/* ----- TRADITIONAL ICONS - Pink & White ----- */
 .traditional-icons {
     display: flex;
     justify-content: center;
@@ -526,7 +526,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL - ROSE PINK & WHITE THEME                             */
+/* 🎯 MODAL - PINK & WHITE THEME                                 */
 /* ================================================================ */
 .modal {
     display: none;
@@ -587,7 +587,7 @@ body::after {
     50% { transform: translateY(-3px); }
 }
 
-/* Modal Border - Rose Pink Glow */
+/* Modal Border - Pink Glow */
 .modal-content::before {
     content: "";
     position: absolute;
@@ -737,7 +737,7 @@ body::after {
     50% { opacity: 0.8; transform: scale(1.3); }
 }
 
-/* ----- INVITATION MESSAGE - Rose Pink Theme ----- */
+/* ----- INVITATION MESSAGE - Pink Theme ----- */
 .invitation-message {
     background: rgba(236, 72, 153, 0.06);
     padding: 20px 22px;
@@ -896,7 +896,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 LOCATION, RSVP, MODAL FOOTER - Rose Pink Theme              */
+/* 🎯 LOCATION, RSVP, MODAL FOOTER - Pink Theme                  */
 /* ================================================================ */
 .location-section {
     margin: 5px 0 15px 0;
