@@ -1,241 +1,231 @@
-// ----- 1. FLOATING HEARTS - PINK & WHITE -----
-function createHeart() {
-    const container = document.getElementById('hearts-container');
-    if (!container) return;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>🏠 Homecoming - Lahiru & Salomi</title>
 
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    
-    const isPink = Math.random() > 0.5;
-    
-    if (isPink) {
-        heart.classList.add('pink');
-        heart.innerHTML = '💗';
-        heart.style.color = '#f472b6';
-        heart.style.textShadow = '0 0 20px rgba(244, 114, 182, 0.4)';
-    } else {
-        heart.classList.add('white');
-        heart.innerHTML = '🤍';
-        heart.style.color = '#ffffff';
-        heart.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.3)';
-    }
-    
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.fontSize = (Math.random() * 14 + 12) + 'px';
-    heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
-    heart.style.opacity = Math.random() * 0.6 + 0.4;
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-    container.appendChild(heart);
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container"></div>
 
-    setTimeout(() => {
-        if (heart.parentNode) {
-            heart.remove();
-        }
-    }, 14000);
-}
+    <!-- Sparkle Particles -->
+    <div id="sparkle-container"></div>
 
-setInterval(createHeart, 350);
+    <!-- Top Decoration -->
+    <div class="top-decoration">💗 ✦ 💗 ✦ 💗</div>
 
-window.addEventListener('load', () => {
-    for (let i = 0; i < 6; i++) {
-        setTimeout(createHeart, i * 200);
-    }
-});
+    <!-- ============================================ -->
+    <!-- MAIN CARD - Pink & White Theme               -->
+    <!-- ============================================ -->
+    <div class="container">
 
-// ----- 2. SPARKLE PARTICLES - PINK & WHITE -----
-function createSparkle() {
-    const container = document.getElementById('sparkle-container');
-    if (!container) return;
+        <!-- Traditional Icons -->
+        <div class="traditional-icons">
+            <span class="icon-item">💗</span>
+            <span class="icon-item">✨</span>
+            <span class="icon-item">🏠</span>
+            <span class="icon-item">✨</span>
+            <span class="icon-item">💗</span>
+        </div>
 
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-    sparkle.classList.add(Math.random() > 0.5 ? 'pink' : 'white');
-    sparkle.style.left = Math.random() * 100 + '%';
-    sparkle.style.width = (Math.random() * 6 + 3) + 'px';
-    sparkle.style.height = sparkle.style.width;
-    sparkle.style.animationDuration = (Math.random() * 10 + 6) + 's';
-    sparkle.style.animationDelay = (Math.random() * 5) + 's';
+        <div class="decorative-line">✦ ✦ ✦</div>
 
-    container.appendChild(sparkle);
+        <!-- Homecoming Photo Frame -->
+        <div class="photo-frame">
+            <img src="wedding-photo.webp" alt="Lahiru & Salomi" onerror="this.style.display='none'; this.parentElement.innerHTML='🏠'" />
+            <div class="frame-ring"></div>
+            <div class="frame-glow"></div>
+            
+            <!-- 💗 Sticker Overlay -->
+            <div class="sticker-overlay">
+                <span class="sticker-emoji">💗</span>
+            </div>
+        </div>
 
-    setTimeout(() => {
-        if (sparkle.parentNode) {
-            sparkle.remove();
-        }
-    }, 16000);
-}
+        <!-- Home Icon -->
+        <div class="home-icon">🏠</div>
 
-setInterval(createSparkle, 300);
+        <h1 class="title">Homecoming</h1>
+        <p class="subtitle">Lahiru &amp; Salomi</p>
 
-window.addEventListener('load', () => {
-    for (let i = 0; i < 8; i++) {
-        setTimeout(createSparkle, i * 150);
-    }
-});
+        <div class="divider">
+            <span class="divider-icon">💗</span>
+            <span class="divider-icon">🏠</span>
+            <span class="divider-icon">💗</span>
+        </div>
 
-// ----- 3. OPEN INVITATION MODAL -----
-function openInvitation() {
-    const modal = document.getElementById('invitationModal');
-    if (modal) {
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-}
+        <h2 class="date">📅 20 September 2026</h2>
+        <p class="venue">📍 123/A, Main Street, Anamaduwa</p>
 
-// ----- 4. CLOSE INVITATION MODAL -----
-function closeInvitation() {
-    const modal = document.getElementById('invitationModal');
-    if (modal) {
-        modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    }
-}
+        <div id="countdown"></div>
 
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('invitationModal');
-    if (event.target === modal) {
-        closeInvitation();
-    }
-});
+        <!-- Description -->
+        <p class="description">
+            💗 අපි ආයෙත් ඔබ හමුවීමට එනවා!<br />
+            <span style="font-size: 14px; color: #f9a8d4;">
+                We are coming home! Join us to celebrate our new journey.
+            </span>
+        </p>
 
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeInvitation();
-    }
-});
+        <!-- View Invitation Button -->
+        <button onclick="openInvitation()" class="btn-primary">
+            <span>🏠</span> View Invitation
+        </button>
 
-// ----- 5. GET FORM DATA -----
-function getFormData() {
-    const name = document.getElementById('rsvpName').value.trim();
-    const phone = document.getElementById('rsvpPhone').value.trim();
-    const attendance = document.getElementById('rsvpAttendance').value;
-    const notes = document.getElementById('rsvpNotes').value.trim();
-    
-    return { name, phone, attendance, notes };
-}
+        <!-- Share on WhatsApp Button -->
+        <button onclick="shareInvitation()" class="btn-whatsapp">
+            <span>📤</span> Share on WhatsApp
+        </button>
 
-function validateForm() {
-    const { name, phone, attendance } = getFormData();
-    
-    if (name === '') {
-        alert('🙏 කරුණාකර ඔබගේ නම ඇතුලත් කරන්න.');
-        return false;
-    }
-    
-    if (phone === '') {
-        alert('📱 කරුණාකර දුරකථන අංකය ඇතුලත් කරන්න.');
-        return false;
-    }
-    
-    if (attendance === '') {
-        alert('📌 කරුණාකර පැමිණීම තෝරන්න.');
-        return false;
-    }
-    
-    return true;
-}
+        <p class="footer-quote">"Home is where the heart is..."</p>
 
-// ----- 6. SEND VIA WHATSAPP -----
-function sendWhatsApp() {
-    if (!validateForm()) return;
-    
-    const { name, phone, attendance, notes } = getFormData();
-    const whatsappNumber = '94716521119';
-    
-    let message = `🎉 *Homecoming RSVP Confirmation* 🎉\n\n`;
-    message += `👤 *Name:* ${name}\n`;
-    message += `📱 *Phone:* ${phone}\n`;
-    message += `📌 *Attendance:* ${attendance}\n`;
-    
-    if (notes) {
-        message += `📝 *Notes:* ${notes}\n`;
-    }
-    
-    message += `\n🏠 *Lahiru & Salomi Homecoming - 20 Sep 2026*`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
-    window.open(whatsappURL, '_blank');
-    document.getElementById('rsvpForm').reset();
-}
+        <audio id="music" loop>
+            <source src="music.mp3" type="audio/mp3" />
+        </audio>
+    </div>
 
-// ----- 7. SEND VIA EMAIL -----
-function sendEmail() {
-    if (!validateForm()) return;
-    
-    const { name, phone, attendance, notes } = getFormData();
-    const emailAddress = 'salomirechali9999@gmail.com';
-    const subject = `Homecoming RSVP - ${name}`;
-    
-    let body = `Homecoming RSVP Confirmation\n`;
-    body += `==========================\n\n`;
-    body += `Name: ${name}\n`;
-    body += `Phone: ${phone}\n`;
-    body += `Attendance: ${attendance}\n`;
-    
-    if (notes) {
-        body += `\nSpecial Notes:\n${notes}\n`;
-    }
-    
-    body += `\n\n--\nLahiru & Salomi Homecoming\n20 September 2026`;
-    
-    const encodedSubject = encodeURIComponent(subject);
-    const encodedBody = encodeURIComponent(body);
-    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=${encodedSubject}&body=${encodedBody}`;
-    
-    window.open(gmailURL, '_blank');
-    document.getElementById('rsvpForm').reset();
-}
+    <!-- ============================================== -->
+    <!-- INVITATION MODAL - Pink & White Theme         -->
+    <!-- ============================================== -->
+    <div id="invitationModal" class="modal">
+        <div class="modal-content">
 
-// ----- 8. SHARE INVITATION -----
-function shareInvitation() {
-    const url = window.location.href;
-    const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 20 September 2026\n📍 123/A, Main Street, Anamaduwa\n\nView Invitation: ${url}`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
-    window.open(whatsappURL, '_blank');
-}
+            <span class="close-btn" onclick="closeInvitation()">&times;</span>
 
-// ----- 9. COUNTDOWN TIMER -----
-var homecomingDate = new Date("Sep 20, 2026 00:00:00").getTime();
+            <div class="modal-top-deco">
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">🏠</span>
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">🏠</span>
+                <span class="deco-icon">💗</span>
+            </div>
 
-var countdownInterval = setInterval(function() {
-    var now = new Date().getTime();
-    var distance = homecomingDate - now;
+            <div class="modal-header">
+                <div class="modal-rings">🏠</div>
+                <h1 class="modal-title">Homecoming</h1>
+                <p class="modal-subtitle">Lahiru &amp; Salomi</p>
+                <div class="modal-divider">
+                    <span>✦</span> <span>💗</span> <span>🏠</span> <span>💗</span> <span>✦</span>
+                </div>
+            </div>
 
-    if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "🏠 අදම Homecoming! 🏠";
-        clearInterval(countdownInterval);
-        return;
-    }
+            <div class="invitation-message">
+                <div class="msg-icon">💗</div>
+                <p class="invitation-text">
+                    💗 After our wedding, we are coming home!
+                </p>
+                <p class="invitation-subtext">
+                    We invite you to join us in celebrating this special moment as we begin our new life together. Your presence will make our homecoming even more memorable.
+                </p>
+            </div>
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            <!-- Schedule Card -->
+            <div class="schedule-card">
+                <div class="schedule-card-header">
+                    <div class="schedule-icon">⏰</div>
+                    <h3 class="schedule-title">උත්සව කාලසටහන</h3>
+                    <p class="schedule-sub">Event Schedule</p>
+                </div>
+                
+                <div class="schedule-timeline">
+                    <div class="schedule-item">
+                        <div class="schedule-time">06:00 PM</div>
+                        <div class="schedule-dot"></div>
+                        <div class="schedule-content">
+                            <div class="schedule-event">🏠 පිළිගැනීම</div>
+                            <div class="schedule-desc">Welcome Ceremony</div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="schedule-time">06:30 PM</div>
+                        <div class="schedule-dot"></div>
+                        <div class="schedule-content">
+                            <div class="schedule-event">💐 මල් පිදීම</div>
+                            <div class="schedule-desc">Flower Offering</div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="schedule-time">07:00 PM</div>
+                        <div class="schedule-dot"></div>
+                        <div class="schedule-content">
+                            <div class="schedule-event">🍽️ රාත්‍රී ආහාරය</div>
+                            <div class="schedule-desc">Dinner</div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item">
+                        <div class="schedule-time">08:30 PM</div>
+                        <div class="schedule-dot"></div>
+                        <div class="schedule-content">
+                            <div class="schedule-event">🎶 සංගීත උත්සවය</div>
+                            <div class="schedule-desc">Music & Celebration</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    document.getElementById("countdown").innerHTML =
-        days + "d " + 
-        String(hours).padStart(2, '0') + "h " + 
-        String(minutes).padStart(2, '0') + "m " + 
-        String(seconds).padStart(2, '0') + "s";
+            <!-- Location Section -->
+            <div class="location-section">
+                <h3>📍 ස්ථානය / Location</h3>
+                <p class="location-name"><strong>123/A, Main Street, Anamaduwa</strong></p>
+                <p class="location-desc">
+                    මංගල යුවලගේ නිවසට ඔබ සැවොම සාදරයෙන් පිළිගනිමු.
+                </p>
+                <a href="https://www.google.com/maps/dir//Anamaduwa" target="_blank" class="map-btn">
+                    🧭 Get Directions
+                </a>
+            </div>
 
-}, 1000);
+            <!-- RSVP Section -->
+            <div class="rsvp-section">
+                <h3>💌 RSVP</h3>
+                <p class="rsvp-sub">
+                    කරුණාකර ඔබගේ පැමිණීම WhatsApp හෝ Email මගින් දන්වන්න
+                </p>
+                <form id="rsvpForm">
+                    <input type="text" id="rsvpName" placeholder="ඔබගේ නම / Your Name" required />
+                    <input type="tel" id="rsvpPhone" placeholder="දුරකථන අංකය / Phone Number" required />
+                    <select id="rsvpAttendance" required>
+                        <option value="">පැමිණීම / Attendance</option>
+                        <option value="Coming">එනවා (Coming)</option>
+                        <option value="Not Coming">එන්නේ නැහැ (Not Coming)</option>
+                    </select>
+                    <textarea id="rsvpNotes" rows="2" placeholder="අමතර සටහන්... / Special Notes..."></textarea>
+                    
+                    <div class="form-buttons">
+                        <button type="button" onclick="sendWhatsApp()" class="btn-rsvp-whatsapp">
+                            💬 WhatsApp
+                        </button>
+                        <button type="button" onclick="sendEmail()" class="btn-rsvp-email">
+                            📧 Email
+                        </button>
+                    </div>
+                    
+                    <p class="form-footer">
+                        ඔබගේ ප්‍රියතම ක්‍රමය තෝරන්න
+                    </p>
+                </form>
+            </div>
 
-// ----- 10. MUSIC AUTOPLAY -----
-document.addEventListener("click", function playMusic() {
-    var audio = document.getElementById("music");
-    if (audio && audio.paused) {
-        audio.play().catch(function() {});
-    }
-    document.removeEventListener("click", playMusic);
-});
+            <div class="modal-footer">
+                <div class="footer-deco">
+                    <span>💗</span> <span>🏠</span> <span>💗</span> <span>🏠</span> <span>💗</span>
+                </div>
+                <p class="modal-footer-quote">"Home is where the heart is..."</p>
+                <p class="modal-footer-love">We can't wait to welcome you home! 💗🏠</p>
+            </div>
 
-window.addEventListener("load", function() {
-    var audio = document.getElementById("music");
-    if (audio) {
-        audio.play().catch(function() {});
-    }
-});
+        </div>
+    </div>
+    <!-- ============================================== -->
+
+    <script src="script.js"></script>
+</body>
+</html>
