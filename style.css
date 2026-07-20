@@ -217,29 +217,29 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 TITLE - PINK & WHITE GRADIENT                              */
+/* 🎯 TITLE - GOLD & PINK MIX                                    */
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
     font-size: 44px;
     background: linear-gradient(135deg, 
-        #ffffff 0%,
-        #f472b6 30%,
-        #ec4899 50%,
-        #f472b6 70%,
-        #ffffff 100%
+        #ffd700 0%,
+        #f9a825 20%,
+        #f472b6 50%,
+        #ec4899 70%,
+        #ffd700 100%
     );
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 4px 25px rgba(236, 72, 153, 0.2));
+    filter: drop-shadow(0 4px 25px rgba(255, 215, 0, 0.2));
     line-height: 1.2;
-    animation: pinkShine 4s ease-in-out infinite;
+    animation: goldPinkShine 4s ease-in-out infinite;
 }
 
-@keyframes pinkShine {
+@keyframes goldPinkShine {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
 }
@@ -686,23 +686,26 @@ body::after {
     75% { transform: scale(1.1) rotate(-5deg); }
 }
 
+/* ================================================================ */
+/* 🎯 MODAL TITLE - GOLD & PINK MIX                             */
+/* ================================================================ */
 .modal-title {
     font-family: 'Great Vibes', cursive;
     font-size: 38px;
     background: linear-gradient(135deg, 
-        #ffffff 0%,
-        #f472b6 30%,
-        #ec4899 50%,
-        #f472b6 70%,
-        #ffffff 100%
+        #ffd700 0%,
+        #f9a825 20%,
+        #f472b6 50%,
+        #ec4899 70%,
+        #ffd700 100%
     );
     background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 4px 30px rgba(236, 72, 153, 0.15));
-    animation: pinkShine 5s ease-in-out infinite;
+    filter: drop-shadow(0 4px 30px rgba(255, 215, 0, 0.15));
+    animation: goldPinkShine 5s ease-in-out infinite;
 }
 
 .modal-subtitle {
