@@ -1,4 +1,4 @@
-// ----- 1. FLOATING HEARTS - ROSE PINK & WHITE -----
+// ----- 1. FLOATING HEARTS - PINK & WHITE -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
     if (!container) return;
@@ -10,7 +10,7 @@ function createHeart() {
     
     if (isPink) {
         heart.classList.add('pink');
-        heart.innerHTML = '🌸';
+        heart.innerHTML = '💗';
         heart.style.color = '#f472b6';
         heart.style.textShadow = '0 0 20px rgba(244, 114, 182, 0.4)';
     } else {
@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// ----- 2. SPARKLE PARTICLES - ROSE PINK & WHITE -----
+// ----- 2. SPARKLE PARTICLES - PINK & WHITE -----
 function createSparkle() {
     const container = document.getElementById('sparkle-container');
     if (!container) return;
