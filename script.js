@@ -1,4 +1,4 @@
-// ----- 1. FLOATING HEARTS - ROSE PINK & WHITE -----
+// ----- 1. FLOATING HEARTS - PINK & WHITE -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
     if (!container) return;
@@ -10,7 +10,7 @@ function createHeart() {
     
     if (isPink) {
         heart.classList.add('pink');
-        heart.innerHTML = '🌸';
+        heart.innerHTML = '💗';
         heart.style.color = '#f472b6';
         heart.style.textShadow = '0 0 20px rgba(244, 114, 182, 0.4)';
     } else {
@@ -42,7 +42,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// ----- 2. SPARKLE PARTICLES - ROSE PINK & WHITE -----
+// ----- 2. SPARKLE PARTICLES - PINK & WHITE -----
 function createSparkle() {
     const container = document.getElementById('sparkle-container');
     if (!container) return;
@@ -140,7 +140,7 @@ function sendWhatsApp() {
     if (!validateForm()) return;
     
     const { name, phone, attendance, notes } = getFormData();
-    const whatsappNumber = '94716521119';
+    const whatsappNumber = '94716516444';
     
     let message = `🎉 *Homecoming RSVP Confirmation* 🎉\n\n`;
     message += `👤 *Name:* ${name}\n`;
@@ -151,7 +151,7 @@ function sendWhatsApp() {
         message += `📝 *Notes:* ${notes}\n`;
     }
     
-    message += `\n🏠 *Lahiru & Salomi Homecoming - 20 Sep 2026*`;
+    message += `\n🏠 *Lahiru & Salomi Homecoming - 15 Sep 2026*`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -165,7 +165,7 @@ function sendEmail() {
     if (!validateForm()) return;
     
     const { name, phone, attendance, notes } = getFormData();
-    const emailAddress = 'salomirechali9999@gmail.com';
+    const emailAddress = 'lahirusujith9999@gmail.com';
     const subject = `Homecoming RSVP - ${name}`;
     
     let body = `Homecoming RSVP Confirmation\n`;
@@ -178,7 +178,7 @@ function sendEmail() {
         body += `\nSpecial Notes:\n${notes}\n`;
     }
     
-    body += `\n\n--\nLahiru & Salomi Homecoming\n20 September 2026`;
+    body += `\n\n--\nLahiru & Salomi Homecoming\n15 September 2026`;
     
     const encodedSubject = encodeURIComponent(subject);
     const encodedBody = encodeURIComponent(body);
@@ -191,15 +191,15 @@ function sendEmail() {
 // ----- 8. SHARE INVITATION -----
 function shareInvitation() {
     const url = window.location.href;
-    const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 20 September 2026\n📍 123/A, Main Street, Anamaduwa\n\nView Invitation: ${url}`;
+    const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 15 September 2026\n📍 123/A, Main Street, Anamaduwa\n\nView Invitation: ${url}`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
 
-// ----- 9. COUNTDOWN TIMER -----
-var homecomingDate = new Date("Sep 20, 2026 00:00:00").getTime();
+// ----- 9. COUNTDOWN TIMER - SEPTEMBER 15 -----
+var homecomingDate = new Date("Sep 15, 2026 00:00:00").getTime();
 
 var countdownInterval = setInterval(function() {
     var now = new Date().getTime();
@@ -237,5 +237,37 @@ window.addEventListener("load", function() {
     var audio = document.getElementById("music");
     if (audio) {
         audio.play().catch(function() {});
+    }
+});
+
+// ================================================================
+// 🎯 LIGHTBOX FUNCTIONS
+// ================================================================
+
+function openLightbox(element) {
+    const lightbox = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    const caption = document.getElementById('lightbox-caption');
+    
+    // Get image source from clicked element
+    const imgSrc = element.querySelector('img').src;
+    const imgAlt = element.querySelector('img').alt || 'Memory';
+    
+    img.src = imgSrc;
+    caption.textContent = imgAlt;
+    lightbox.classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('show');
+    document.body.style.overflow = 'auto';
+}
+
+// Close lightbox with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
     }
 });
