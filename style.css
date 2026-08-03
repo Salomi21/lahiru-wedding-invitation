@@ -243,7 +243,7 @@ body::after {
     animation: goldPinkShine 4s ease-in-out infinite;
 }
 
-/* ----- SUBTITLE - Lahiru & Salomi (MORE GOLD, LESS PINK + GOLDEN GLOW) ----- */
+/* ----- SUBTITLE - Lahiru & Salomi (GOLD & PINK MIX - CLEAR) ----- */
 .subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -301,14 +301,15 @@ body::after {
 .divider-icon:nth-child(2) { color: #f472b6; }
 .divider-icon:nth-child(3) { color: #ffffff; }
 
-/* ----- DATE & VENUE ----- */
+/* ----- DATE & VENUE - CLEAR WHITE ----- */
 .date {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 24px;
-    color: #f5edff;
+    color: #ffffff;
     margin-bottom: 4px;
     letter-spacing: 0.5px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .venue {
@@ -317,34 +318,42 @@ body::after {
     color: #f9a8d4;
     letter-spacing: 1px;
     margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
-/* ----- DESCRIPTION ----- */
+/* ----- DESCRIPTION - CLEAR ----- */
 .description {
     font-size: 16px;
-    color: #f5edff;
+    color: #f0e0e8;
     margin: 10px 0 15px 0;
     line-height: 1.6;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
-/* ----- COUNTDOWN - Pink Theme ----- */
+.description span {
+    color: #f9a8d4 !important;
+    font-weight: 400;
+}
+
+/* ----- COUNTDOWN - CLEAR PINK ----- */
 #countdown {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 24px;
-    background: rgba(236, 72, 153, 0.08);
+    background: rgba(236, 72, 153, 0.12);
     padding: 10px 20px;
     border-radius: 50px;
     display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     margin: 8px 0 12px 0;
     letter-spacing: 2px;
     color: #f472b6;
     width: auto;
     min-width: 200px;
+    text-shadow: 0 0 20px rgba(244, 114, 182, 0.15);
 }
 
-/* ----- BUTTONS - Pink Theme ----- */
+/* ----- BUTTONS ----- */
 .btn-primary {
     margin-top: 18px;
     padding: 14px 35px;
@@ -409,7 +418,7 @@ body::after {
 .btn-whatsapp:active { transform: scale(0.97); }
 .btn-whatsapp span { font-size: 18px; }
 
-/* ----- FOOTER QUOTE ----- */
+/* ----- FOOTER QUOTE - CLEAR ----- */
 .footer-quote {
     margin-top: 25px;
     font-family: 'Great Vibes', cursive;
@@ -417,6 +426,7 @@ body::after {
     color: #f9a8d4;
     border-top: 1px solid rgba(255, 255, 255, 0.04);
     padding-top: 15px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 /* ================================================================ */
@@ -882,7 +892,7 @@ body::after {
     animation: goldPinkShine 5s ease-in-out infinite;
 }
 
-/* ----- MODAL SUBTITLE - Lahiru & Salomi (MORE GOLD, LESS PINK + GOLDEN GLOW) ----- */
+/* ----- MODAL SUBTITLE - Lahiru & Salomi (CLEAR) ----- */
 .modal-subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
