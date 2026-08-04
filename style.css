@@ -150,7 +150,6 @@ body::after {
     width: 100%;
     margin: 30px auto;
     padding: 40px 25px 50px 25px;
-    /* REDUCED PINK - More neutral/white background */
     background: linear-gradient(145deg, 
         rgba(255, 255, 255, 0.06),
         rgba(255, 255, 255, 0.02)
@@ -302,7 +301,9 @@ body::after {
 .divider-icon:nth-child(2) { color: #f472b6; text-shadow: 0 0 30px rgba(244,114,182,0.3); }
 .divider-icon:nth-child(3) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
 
-/* ----- DATE - BRIGHT WHITE ----- */
+/* ================================================================ */
+/* 📅 DATE - CLEAN WITHOUT ICON                                   */
+/* ================================================================ */
 .date {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -314,37 +315,16 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🔥 VENUE HIGHLIGHTED - BRIGHT PINK GLOW                        */
+/* 📍 VENUE - NORMAL TEXT WITHOUT BUTTON STYLING                  */
 /* ================================================================ */
-.venue-highlighted {
-    font-size: 18px;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-    padding: 10px 20px;
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(244, 114, 182, 0.06));
-    border-radius: 50px;
-    border: 2px solid rgba(244, 114, 182, 0.3);
-    display: inline-block;
-    animation: venueGlow 2.5s ease-in-out infinite;
-    text-shadow: 0 0 30px rgba(244, 114, 182, 0.25);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 0 30px rgba(244, 114, 182, 0.1);
-}
-
-@keyframes venueGlow {
-    0%, 100% { 
-        box-shadow: 0 0 20px rgba(244, 114, 182, 0.15), 0 0 40px rgba(244, 114, 182, 0.04);
-        border-color: rgba(244, 114, 182, 0.3);
-        transform: scale(1);
-    }
-    50% { 
-        box-shadow: 0 0 50px rgba(244, 114, 182, 0.35), 0 0 80px rgba(244, 114, 182, 0.08);
-        border-color: rgba(244, 114, 182, 0.6);
-        transform: scale(1.02);
-    }
+.venue-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: #f9a8d4;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    padding: 4px 0;
+    text-shadow: 0 0 20px rgba(244, 114, 182, 0.1);
 }
 
 /* ================================================================ */
@@ -817,7 +797,6 @@ body::after {
 }
 
 .modal-content {
-    /* REDUCED PINK - More neutral background */
     background: linear-gradient(145deg, 
         rgba(255, 255, 255, 0.06),
         rgba(255, 255, 255, 0.02)
@@ -1383,7 +1362,7 @@ body::after {
     .subtitle { font-size: 13px; letter-spacing: 4px; }
     #countdown { font-size: 20px; padding: 10px 16px; min-width: 170px; }
     .date { font-size: 19px; }
-    .venue-highlighted { font-size: 14px; padding: 8px 14px; }
+    .venue-text { font-size: 14px; }
     .description-highlighted { font-size: 15px; padding: 10px 12px; }
     .highlight-text { font-size: 14px; padding: 3px 12px; }
     .btn-primary, .btn-whatsapp { font-size: 13px; padding: 12px 20px; max-width: 100%; }
@@ -1493,7 +1472,7 @@ body::after {
     .schedule-event {
         font-size: 12px;
     }
-    .venue-highlighted { font-size: 12px; padding: 6px 10px; }
+    .venue-text { font-size: 12px; }
     #countdown { font-size: 16px; min-width: 140px; padding: 8px 12px; }
     .highlight-text { font-size: 12px; padding: 2px 10px; }
 }
@@ -1503,7 +1482,7 @@ body::after {
     .title { font-size: 38px; }
     .subtitle { font-size: 14px; letter-spacing: 5px; }
     #countdown { font-size: 22px; min-width: 180px; }
-    .venue-highlighted { font-size: 16px; }
+    .venue-text { font-size: 16px; }
     .modal-content { padding: 28px 22px 24px 22px; max-width: 420px; }
     .form-buttons { flex-direction: row; }
 }
@@ -1530,7 +1509,7 @@ body::after {
     .subtitle { font-size: 12px; letter-spacing: 4px; }
     #countdown { font-size: 16px; padding: 6px 12px; min-width: 150px; }
     .date { font-size: 16px; }
-    .venue-highlighted { font-size: 12px; padding: 5px 12px; margin-bottom: 8px; }
+    .venue-text { font-size: 12px; margin-bottom: 6px; }
     .description-highlighted { font-size: 13px; padding: 6px 10px; margin: 5px 0 8px 0; }
     .highlight-text { font-size: 12px; padding: 2px 10px; }
     .btn-primary, .btn-whatsapp { font-size: 11px; padding: 8px 16px; margin-top: 8px; }
