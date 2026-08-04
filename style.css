@@ -26,11 +26,11 @@ body::before {
     width: 100%;
     height: 100%;
     background: url("bg.jpg") center/cover fixed no-repeat;
-    filter: blur(2px) brightness(0.75) saturate(1.1);
+    filter: blur(2px) brightness(0.65) saturate(1.1);
     transform: scale(1.02);
     z-index: 0;
     pointer-events: none;
-    opacity: 0.9;
+    opacity: 0.85;
 }
 
 body::after {
@@ -41,8 +41,8 @@ body::after {
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(ellipse at 20% 30%, rgba(244, 114, 182, 0.12) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 70%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+        radial-gradient(ellipse at 20% 30%, rgba(244, 114, 182, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
     z-index: 1;
     pointer-events: none;
 }
@@ -70,19 +70,19 @@ body::after {
 
 .sparkle.pink {
     background: radial-gradient(circle, #f472b6, #ec4899);
-    box-shadow: 0 0 15px rgba(244, 114, 182, 0.3);
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.5);
 }
 
 .sparkle.white {
-    background: radial-gradient(circle, #ffffff, rgba(255, 255, 255, 0.4));
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    background: radial-gradient(circle, #ffffff, rgba(255, 255, 255, 0.5));
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 @keyframes sparkleFloat {
     0% { transform: translateY(100vh) scale(0) rotate(0deg); opacity: 0; }
     20% { opacity: 1; transform: translateY(75vh) scale(1.2) rotate(72deg); }
-    50% { opacity: 0.8; transform: translateY(50vh) scale(1) rotate(180deg); }
-    80% { opacity: 0.4; transform: translateY(25vh) scale(0.8) rotate(288deg); }
+    50% { opacity: 0.9; transform: translateY(50vh) scale(1) rotate(180deg); }
+    80% { opacity: 0.5; transform: translateY(25vh) scale(0.8) rotate(288deg); }
     100% { transform: translateY(-10vh) scale(0) rotate(360deg); opacity: 0; }
 }
 
@@ -108,12 +108,12 @@ body::after {
 
 .heart.pink {
     color: #f472b6;
-    text-shadow: 0 0 20px rgba(244, 114, 182, 0.4);
+    text-shadow: 0 0 30px rgba(244, 114, 182, 0.6);
 }
 
 .heart.white {
     color: #ffffff;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
 @keyframes floatHeart {
@@ -134,9 +134,10 @@ body::after {
     font-size: 14px;
     letter-spacing: 15px;
     z-index: 10;
-    opacity: 0.3;
+    opacity: 0.4;
     pointer-events: none;
     color: #f472b6;
+    text-shadow: 0 0 20px rgba(244, 114, 182, 0.3);
 }
 
 /* =========================================== */
@@ -150,26 +151,26 @@ body::after {
     margin: 30px auto;
     padding: 40px 25px 50px 25px;
     background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.06),
-        rgba(244, 114, 182, 0.04)
+        rgba(255, 255, 255, 0.08),
+        rgba(244, 114, 182, 0.06)
     );
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-radius: 28px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.35),
-        0 0 40px rgba(244, 114, 182, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(244, 114, 182, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container:hover {
     transform: translateY(-3px);
     box-shadow: 
-        0 25px 70px rgba(0, 0, 0, 0.4),
-        0 0 50px rgba(244, 114, 182, 0.06);
+        0 25px 70px rgba(0, 0, 0, 0.55),
+        0 0 80px rgba(244, 114, 182, 0.08);
 }
 
 /* Card Border - Pink Glow */
@@ -191,7 +192,7 @@ body::after {
     );
     border-radius: 29px;
     z-index: -1;
-    opacity: 0.15;
+    opacity: 0.2;
 }
 
 /* ----- HOME ICON - Pink Pulse ----- */
@@ -204,7 +205,7 @@ body::after {
 
 @keyframes pinkPulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.08); }
 }
 
 /* ----- DECORATIVE LINE ----- */
@@ -213,11 +214,12 @@ body::after {
     letter-spacing: 10px;
     color: #f472b6;
     margin-bottom: 5px;
-    opacity: 0.5;
+    opacity: 0.6;
+    text-shadow: 0 0 20px rgba(244, 114, 182, 0.2);
 }
 
 /* ================================================================ */
-/* 🎯 TITLE - Homecoming (MORE GOLD, LESS PINK + GOLDEN GLOW)    */
+/* 🎯 TITLE - Homecoming (GOLD & PINK - BRIGHT)                   */
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
@@ -236,14 +238,14 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4)) 
-            drop-shadow(0 0 60px rgba(255, 215, 0, 0.15))
-            drop-shadow(0 4px 25px rgba(255, 215, 0, 0.2));
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.5)) 
+            drop-shadow(0 0 80px rgba(255, 215, 0, 0.2))
+            drop-shadow(0 4px 30px rgba(255, 215, 0, 0.25));
     line-height: 1.2;
     animation: goldPinkShine 4s ease-in-out infinite;
 }
 
-/* ----- SUBTITLE - Lahiru & Salomi (GOLD & PINK MIX - CLEAR) ----- */
+/* ----- SUBTITLE - Lahiru & Salomi (BRIGHT) ----- */
 .subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -263,9 +265,9 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 12px;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3))
-            drop-shadow(0 0 40px rgba(255, 215, 0, 0.1))
-            drop-shadow(0 4px 15px rgba(255, 215, 0, 0.1));
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4))
+            drop-shadow(0 0 60px rgba(255, 215, 0, 0.15))
+            drop-shadow(0 4px 20px rgba(255, 215, 0, 0.15));
     animation: goldPinkShine 4s ease-in-out infinite;
 }
 
@@ -289,19 +291,19 @@ body::after {
 .divider::after {
     content: "";
     flex: 1;
-    height: 1px;
+    height: 1.5px;
     background: linear-gradient(90deg, transparent, #f472b6, transparent);
 }
 
 .divider-icon {
-    font-size: 16px;
+    font-size: 18px;
 }
 
-.divider-icon:nth-child(1) { color: #ffffff; }
-.divider-icon:nth-child(2) { color: #f472b6; }
-.divider-icon:nth-child(3) { color: #ffffff; }
+.divider-icon:nth-child(1) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.3); }
+.divider-icon:nth-child(2) { color: #f472b6; text-shadow: 0 0 30px rgba(244,114,182,0.4); }
+.divider-icon:nth-child(3) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.3); }
 
-/* ----- DATE - CLEAR WHITE ----- */
+/* ----- DATE - BRIGHT WHITE ----- */
 .date {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -309,110 +311,118 @@ body::after {
     color: #ffffff;
     margin-bottom: 4px;
     letter-spacing: 0.5px;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
 /* ================================================================ */
-/* 🔥 VENUE HIGHLIGHTED - Pink Glow + Animation                    */
+/* 🔥 VENUE HIGHLIGHTED - BRIGHT PINK GLOW                        */
 /* ================================================================ */
 .venue-highlighted {
     font-size: 18px;
     font-weight: 700;
-    color: #f472b6;
+    color: #ffffff;
     letter-spacing: 1px;
     margin-bottom: 15px;
-    padding: 8px 16px;
-    background: rgba(236, 72, 153, 0.08);
+    padding: 10px 20px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(244, 114, 182, 0.1));
     border-radius: 50px;
-    border: 1.5px solid rgba(244, 114, 182, 0.25);
+    border: 2px solid rgba(244, 114, 182, 0.4);
     display: inline-block;
     animation: venueGlow 2.5s ease-in-out infinite;
-    text-shadow: 0 0 20px rgba(244, 114, 182, 0.2);
-    backdrop-filter: blur(4px);
+    text-shadow: 0 0 30px rgba(244, 114, 182, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 0 30px rgba(244, 114, 182, 0.15);
 }
 
 @keyframes venueGlow {
     0%, 100% { 
-        box-shadow: 0 0 15px rgba(244, 114, 182, 0.15);
-        border-color: rgba(244, 114, 182, 0.25);
+        box-shadow: 0 0 20px rgba(244, 114, 182, 0.2), 0 0 40px rgba(244, 114, 182, 0.05);
+        border-color: rgba(244, 114, 182, 0.4);
         transform: scale(1);
     }
     50% { 
-        box-shadow: 0 0 35px rgba(244, 114, 182, 0.35);
-        border-color: rgba(244, 114, 182, 0.5);
+        box-shadow: 0 0 50px rgba(244, 114, 182, 0.4), 0 0 80px rgba(244, 114, 182, 0.1);
+        border-color: rgba(244, 114, 182, 0.7);
         transform: scale(1.02);
     }
 }
 
 /* ================================================================ */
-/* 🔥 COUNTDOWN HIGHLIGHTED - Pink Glow + Animation               */
+/* 🔥 COUNTDOWN HIGHLIGHTED - BRIGHT PINK GLOW                   */
 /* ================================================================ */
 #countdown {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 26px;
-    background: rgba(236, 72, 153, 0.12);
-    padding: 12px 25px;
+    font-size: 28px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(244, 114, 182, 0.08));
+    padding: 14px 28px;
     border-radius: 50px;
     display: inline-block;
-    border: 1.5px solid rgba(244, 114, 182, 0.25);
+    border: 2px solid rgba(244, 114, 182, 0.35);
     margin: 8px 0 12px 0;
-    letter-spacing: 2px;
-    color: #f472b6;
+    letter-spacing: 3px;
+    color: #ffffff;
     width: auto;
-    min-width: 220px;
-    text-shadow: 0 0 30px rgba(244, 114, 182, 0.2);
+    min-width: 230px;
+    text-shadow: 0 0 40px rgba(244, 114, 182, 0.3), 0 0 80px rgba(244, 114, 182, 0.1);
     animation: countdownGlow 2s ease-in-out infinite;
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 0 30px rgba(244, 114, 182, 0.1);
 }
 
 @keyframes countdownGlow {
     0%, 100% { 
-        box-shadow: 0 0 20px rgba(244, 114, 182, 0.12);
-        border-color: rgba(244, 114, 182, 0.2);
+        box-shadow: 0 0 25px rgba(244, 114, 182, 0.15), 0 0 50px rgba(244, 114, 182, 0.05);
+        border-color: rgba(244, 114, 182, 0.3);
     }
     50% { 
-        box-shadow: 0 0 40px rgba(244, 114, 182, 0.3);
-        border-color: rgba(244, 114, 182, 0.5);
+        box-shadow: 0 0 60px rgba(244, 114, 182, 0.35), 0 0 100px rgba(244, 114, 182, 0.1);
+        border-color: rgba(244, 114, 182, 0.6);
     }
 }
 
 /* ================================================================ */
-/* 🔥 DESCRIPTION HIGHLIGHTED - Pink Glow + Animation             */
+/* 🔥 DESCRIPTION HIGHLIGHTED - BRIGHT PINK GLOW                 */
 /* ================================================================ */
 .description-highlighted {
-    font-size: 17px;
-    color: #f0e0e8;
+    font-size: 18px;
+    color: #f5edff;
     margin: 10px 0 15px 0;
     line-height: 1.8;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.03);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+    padding: 14px 18px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(244, 114, 182, 0.04));
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .highlight-text {
     display: inline-block;
-    font-size: 16px;
-    font-weight: 600;
-    color: #f472b6 !important;
-    text-shadow: 0 0 25px rgba(244, 114, 182, 0.3);
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff !important;
+    text-shadow: 0 0 40px rgba(244, 114, 182, 0.4), 0 0 80px rgba(244, 114, 182, 0.15);
     animation: highlightPulse 2.8s ease-in-out infinite;
-    padding: 2px 10px;
-    background: rgba(236, 72, 153, 0.06);
+    padding: 4px 16px;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(244, 114, 182, 0.08));
     border-radius: 30px;
     letter-spacing: 0.5px;
+    border: 1px solid rgba(244, 114, 182, 0.2);
+    backdrop-filter: blur(4px);
 }
 
 @keyframes highlightPulse {
     0%, 100% { 
-        color: #f472b6;
-        text-shadow: 0 0 20px rgba(244, 114, 182, 0.2);
+        color: #ffffff;
+        text-shadow: 0 0 30px rgba(244, 114, 182, 0.3);
+        border-color: rgba(244, 114, 182, 0.2);
     }
     50% { 
         color: #f9a8d4;
-        text-shadow: 0 0 40px rgba(244, 114, 182, 0.4);
+        text-shadow: 0 0 60px rgba(244, 114, 182, 0.5), 0 0 100px rgba(244, 114, 182, 0.2);
+        border-color: rgba(244, 114, 182, 0.5);
     }
 }
 
@@ -437,12 +447,13 @@ body::after {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.2);
+    box-shadow: 0 4px 25px rgba(236, 72, 153, 0.3);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.2);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(236, 72, 153, 0.35);
+    box-shadow: 0 8px 40px rgba(236, 72, 153, 0.45);
     background: linear-gradient(145deg, #db2777, #be185d);
 }
 
@@ -469,27 +480,28 @@ body::after {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.15);
 }
 
 .btn-whatsapp:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 8px 35px rgba(37, 211, 102, 0.4);
     background: linear-gradient(145deg, #128C7E, #075E54);
 }
 
 .btn-whatsapp:active { transform: scale(0.97); }
 .btn-whatsapp span { font-size: 18px; }
 
-/* ----- FOOTER QUOTE - CLEAR ----- */
+/* ----- FOOTER QUOTE - BRIGHT ----- */
 .footer-quote {
     margin-top: 25px;
     font-family: 'Great Vibes', cursive;
     font-size: 20px;
     color: #f9a8d4;
-    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
     padding-top: 15px;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.08);
 }
 
 /* ================================================================ */
@@ -502,11 +514,12 @@ body::after {
     border-radius: 50%;
     border: 3px solid #f472b6;
     box-shadow: 
-        0 0 0 5px rgba(236, 72, 153, 0.08),
-        0 10px 30px rgba(0, 0, 0, 0.2);
+        0 0 0 8px rgba(236, 72, 153, 0.1),
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(244, 114, 182, 0.1);
     overflow: visible;
     position: relative;
-    background: rgba(20, 10, 18, 0.8);
+    background: rgba(20, 10, 18, 0.9);
 }
 
 .photo-frame img {
@@ -524,7 +537,7 @@ body::after {
     width: calc(100% + 10px);
     height: calc(100% + 10px);
     border-radius: 50%;
-    border: 1.5px dashed rgba(255, 255, 255, 0.1);
+    border: 1.5px dashed rgba(255, 255, 255, 0.15);
     animation: spin 20s linear infinite;
     pointer-events: none;
 }
@@ -537,7 +550,7 @@ body::after {
     height: calc(100% + 20px);
     border-radius: 50%;
     background: radial-gradient(circle, 
-        rgba(244, 114, 182, 0.05), 
+        rgba(244, 114, 182, 0.08), 
         transparent 70%
     );
     animation: glowPulse 4s ease-in-out infinite;
@@ -550,8 +563,8 @@ body::after {
 }
 
 @keyframes glowPulse {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.04); }
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.06); }
 }
 
 /* ----- STICKER OVERLAY - Pink ----- */
@@ -563,7 +576,7 @@ body::after {
     height: 55px;
     z-index: 5;
     animation: stickerFloat 2.5s ease-in-out infinite;
-    filter: drop-shadow(0 4px 15px rgba(244, 114, 182, 0.3));
+    filter: drop-shadow(0 4px 20px rgba(244, 114, 182, 0.4));
 }
 
 .sticker-emoji {
@@ -572,10 +585,10 @@ body::after {
     animation: heartPulse 2s ease-in-out infinite;
     text-align: center;
     line-height: 1;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
     border-radius: 50%;
     padding: 4px;
-    border: 2px solid rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
 @keyframes stickerFloat {
@@ -587,7 +600,7 @@ body::after {
 
 @keyframes heartPulse {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+    50% { transform: scale(1.12); }
 }
 
 /* ----- TRADITIONAL ICONS - Pink & White ----- */
@@ -605,15 +618,15 @@ body::after {
     display: inline-block;
 }
 
-.icon-item:nth-child(1) { animation-delay: 0s; color: #f472b6; }
-.icon-item:nth-child(2) { animation-delay: 0.6s; color: #ffffff; opacity: 0.7; }
-.icon-item:nth-child(3) { animation-delay: 1.2s; color: #f472b6; }
-.icon-item:nth-child(4) { animation-delay: 1.8s; color: #ffffff; opacity: 0.7; }
-.icon-item:nth-child(5) { animation-delay: 2.4s; color: #f472b6; }
+.icon-item:nth-child(1) { animation-delay: 0s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.3); }
+.icon-item:nth-child(2) { animation-delay: 0.6s; color: #ffffff; opacity: 0.8; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+.icon-item:nth-child(3) { animation-delay: 1.2s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.3); }
+.icon-item:nth-child(4) { animation-delay: 1.8s; color: #ffffff; opacity: 0.8; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+.icon-item:nth-child(5) { animation-delay: 2.4s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.3); }
 
 @keyframes lightFloat {
     0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-5px) scale(1.05); }
+    50% { transform: translateY(-6px) scale(1.08); }
 }
 
 /* ================================================================ */
@@ -631,6 +644,7 @@ body::after {
     text-align: center;
     margin-bottom: 2px;
     letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(244,114,182,0.2);
 }
 
 .gallery-sub {
@@ -654,14 +668,14 @@ body::after {
     overflow: hidden;
     cursor: pointer;
     aspect-ratio: 1;
-    border: 2px solid rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(255, 255, 255, 0.06);
     transition: all 0.3s ease;
 }
 
 .gallery-item:hover {
-    transform: scale(1.03);
-    border-color: rgba(244, 114, 182, 0.3);
-    box-shadow: 0 8px 30px rgba(244, 114, 182, 0.15);
+    transform: scale(1.05);
+    border-color: rgba(244, 114, 182, 0.4);
+    box-shadow: 0 8px 40px rgba(244, 114, 182, 0.2);
 }
 
 .gallery-item img {
@@ -673,7 +687,7 @@ body::after {
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .gallery-overlay {
@@ -682,13 +696,13 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -696,9 +710,9 @@ body::after {
 }
 
 .gallery-icon {
-    font-size: 24px;
+    font-size: 28px;
     color: #fff;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
 }
 
 /* ================================================================ */
@@ -712,7 +726,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.92);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 9999;
     align-items: center;
     justify-content: center;
@@ -750,8 +764,8 @@ body::after {
     max-width: 80%;
     max-height: 80%;
     border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    border: 2px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.08);
 }
 
 .lightbox-caption {
@@ -761,8 +775,8 @@ body::after {
     transform: translateX(-50%);
     color: #f9a8d4;
     font-size: 14px;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 8px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 24px;
     border-radius: 30px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -778,7 +792,7 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 999;
@@ -805,8 +819,8 @@ body::after {
 
 .modal-content {
     background: linear-gradient(145deg, 
-        rgba(255, 255, 255, 0.06),
-        rgba(236, 72, 153, 0.04)
+        rgba(255, 255, 255, 0.08),
+        rgba(236, 72, 153, 0.06)
     );
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
@@ -817,8 +831,8 @@ body::after {
     padding: 35px 25px 30px 25px;
     border-radius: 28px;
     box-shadow: 
-        0 30px 80px rgba(0, 0, 0, 0.5),
-        0 0 60px rgba(236, 72, 153, 0.05);
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 80px rgba(236, 72, 153, 0.06);
     position: relative;
     color: #f0e6f6;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -851,7 +865,7 @@ body::after {
     border-radius: 30px;
     z-index: -1;
     animation: borderGlow 6s ease-in-out infinite;
-    opacity: 0.2;
+    opacity: 0.25;
 }
 
 @keyframes borderGlow {
@@ -873,7 +887,7 @@ body::after {
 .modal-top-deco .deco-icon {
     font-size: 12px;
     color: #f472b6;
-    opacity: 0.3;
+    opacity: 0.4;
     animation: decoPulse 3s ease-in-out infinite;
 }
 
@@ -881,8 +895,8 @@ body::after {
 .modal-top-deco .deco-icon:nth-child(4) { animation-delay: 1.5s; color: #ffffff; }
 
 @keyframes decoPulse {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.2); }
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
 }
 
 /* ----- CLOSE BUTTON ----- */
@@ -930,7 +944,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL TITLE - Homecoming (MORE GOLD, LESS PINK + GOLDEN GLOW) */
+/* 🎯 MODAL TITLE - Homecoming (BRIGHT GOLD & PINK)              */
 /* ================================================================ */
 .modal-title {
     font-family: 'Great Vibes', cursive;
@@ -949,13 +963,13 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.35))
-            drop-shadow(0 0 50px rgba(255, 215, 0, 0.12))
-            drop-shadow(0 4px 30px rgba(255, 215, 0, 0.15));
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.4))
+            drop-shadow(0 0 80px rgba(255, 215, 0, 0.15))
+            drop-shadow(0 4px 30px rgba(255, 215, 0, 0.2));
     animation: goldPinkShine 5s ease-in-out infinite;
 }
 
-/* ----- MODAL SUBTITLE - Lahiru & Salomi (CLEAR) ----- */
+/* ----- MODAL SUBTITLE - Lahiru & Salomi (BRIGHT) ----- */
 .modal-subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -975,9 +989,9 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.25))
-            drop-shadow(0 0 40px rgba(255, 215, 0, 0.08))
-            drop-shadow(0 4px 20px rgba(255, 215, 0, 0.08));
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3))
+            drop-shadow(0 0 60px rgba(255, 215, 0, 0.1))
+            drop-shadow(0 4px 20px rgba(255, 215, 0, 0.1));
     animation: goldPinkShine 5s ease-in-out infinite;
 }
 
@@ -989,7 +1003,7 @@ body::after {
     margin: 8px auto;
     font-size: 12px;
     color: #f472b6;
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .modal-divider span {
@@ -1000,13 +1014,13 @@ body::after {
 .modal-divider span:nth-child(4) { animation-delay: 1.5s; color: #ffffff; }
 
 @keyframes dividerPulse {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.3); }
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.3); }
 }
 
 /* ----- INVITATION MESSAGE - Pink Theme ----- */
 .invitation-message {
-    background: rgba(236, 72, 153, 0.06);
+    background: rgba(236, 72, 153, 0.08);
     padding: 20px 22px;
     border-radius: 16px;
     margin-bottom: 20px;
@@ -1022,7 +1036,7 @@ body::after {
     right: -50%;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.03), transparent 70%);
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.05), transparent 70%);
     pointer-events: none;
 }
 
@@ -1041,10 +1055,11 @@ body::after {
 .invitation-text {
     font-family: 'Great Vibes', cursive;
     font-size: 22px;
-    color: #f5edff;
+    color: #ffffff;
     text-align: center;
     margin-bottom: 6px;
     line-height: 1.3;
+    text-shadow: 0 0 30px rgba(255,255,255,0.05);
 }
 
 .invitation-subtext {
@@ -1055,10 +1070,10 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 SCHEDULE CARD - NO EFFECTS (Simple)                         */
+/* 🎯 SCHEDULE CARD - Simple                                      */
 /* ================================================================ */
 .schedule-card {
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     padding: 16px 16px 14px 16px;
     margin: 8px 0 14px 0;
@@ -1084,6 +1099,7 @@ body::after {
     color: #f472b6;
     margin-bottom: 2px;
     letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(244,114,182,0.1);
 }
 
 .schedule-sub {
@@ -1106,7 +1122,7 @@ body::after {
     top: 5px;
     bottom: 5px;
     width: 2px;
-    background: rgba(236, 72, 153, 0.15);
+    background: rgba(236, 72, 153, 0.2);
     border-radius: 10px;
 }
 
@@ -1130,6 +1146,7 @@ body::after {
     color: #f472b6;
     min-width: 68px;
     padding-top: 2px;
+    text-shadow: 0 0 15px rgba(244,114,182,0.1);
 }
 
 .schedule-dot {
@@ -1139,9 +1156,10 @@ body::after {
     margin-top: 4px;
     border-radius: 50%;
     background: #ec4899;
-    border: 2px solid rgba(255, 255, 255, 0.06);
+    border: 2px solid rgba(255, 255, 255, 0.08);
     position: relative;
     z-index: 2;
+    box-shadow: 0 0 20px rgba(236,72,153,0.2);
 }
 
 .schedule-content {
@@ -1152,8 +1170,9 @@ body::after {
 .schedule-event {
     font-size: 14px;
     font-weight: 600;
-    color: #f5edff;
+    color: #ffffff;
     line-height: 1.3;
+    text-shadow: 0 0 20px rgba(255,255,255,0.05);
 }
 
 .schedule-desc {
@@ -1173,10 +1192,11 @@ body::after {
 .rsvp-section h3 {
     font-size: 17px;
     color: #f472b6;
-    border-bottom: 2px solid rgba(236, 72, 153, 0.08);
+    border-bottom: 2px solid rgba(236, 72, 153, 0.1);
     padding-bottom: 10px;
     margin: 0 0 12px 0;
     font-weight: 700;
+    text-shadow: 0 0 20px rgba(244,114,182,0.1);
 }
 
 .location-section p {
@@ -1185,8 +1205,9 @@ body::after {
 
 .location-name {
     font-size: 16px;
-    color: #f5edff;
+    color: #ffffff;
     font-weight: 600;
+    text-shadow: 0 0 20px rgba(255,255,255,0.05);
 }
 
 .location-desc {
@@ -1205,12 +1226,13 @@ body::after {
     font-size: 13px;
     font-weight: 600;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.15);
+    box-shadow: 0 4px 20px rgba(236, 72, 153, 0.2);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.1);
 }
 
 .map-btn:hover {
     transform: scale(1.03);
-    box-shadow: 0 6px 25px rgba(236, 72, 153, 0.25);
+    box-shadow: 0 6px 35px rgba(236, 72, 153, 0.3);
     background: linear-gradient(145deg, #db2777, #be185d);
 }
 
@@ -1231,20 +1253,20 @@ body::after {
     width: 100%;
     padding: 13px 16px;
     margin-bottom: 12px;
-    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     font-family: 'Lato', sans-serif;
     font-size: 14px;
     transition: all 0.3s ease;
     box-sizing: border-box;
     color: #f0e6f6;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
 }
 
 .rsvp-section input::placeholder,
 .rsvp-section select::placeholder,
 .rsvp-section textarea::placeholder {
-    color: #6a4a4a;
+    color: #8a6a7a;
 }
 
 .rsvp-section input:focus,
@@ -1252,8 +1274,8 @@ body::after {
 .rsvp-section textarea:focus {
     border-color: #ec4899;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.05);
-    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.08);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .rsvp-section select option {
@@ -1284,7 +1306,8 @@ body::after {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 10px rgba(0,0,0,0.1);
 }
 
 .btn-rsvp-whatsapp {
@@ -1293,7 +1316,7 @@ body::after {
 
 .btn-rsvp-whatsapp:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.3);
+    box-shadow: 0 6px 35px rgba(37, 211, 102, 0.35);
     background: #128C7E;
 }
 
@@ -1303,7 +1326,7 @@ body::after {
 
 .btn-rsvp-email:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(234, 67, 53, 0.3);
+    box-shadow: 0 6px 35px rgba(234, 67, 53, 0.35);
     background: #C5221F;
 }
 
@@ -1313,7 +1336,7 @@ body::after {
 
 .form-footer {
     font-size: 11px;
-    color: #6a4a4a;
+    color: #8a6a7a;
     margin-top: 12px;
     text-align: center;
 }
@@ -1329,7 +1352,7 @@ body::after {
     font-size: 11px;
     letter-spacing: 10px;
     color: #f472b6;
-    opacity: 0.3;
+    opacity: 0.4;
     margin-bottom: 8px;
 }
 
@@ -1341,7 +1364,7 @@ body::after {
 
 .modal-footer-love {
     font-size: 13px;
-    color: #6a4a4a;
+    color: #8a6a7a;
     margin-top: 4px;
 }
 
@@ -1360,11 +1383,11 @@ body::after {
     
     .title { font-size: 34px; }
     .subtitle { font-size: 13px; letter-spacing: 4px; }
-    #countdown { font-size: 20px; padding: 8px 14px; min-width: 170px; }
+    #countdown { font-size: 20px; padding: 10px 16px; min-width: 170px; }
     .date { font-size: 19px; }
-    .venue-highlighted { font-size: 14px; padding: 6px 12px; }
+    .venue-highlighted { font-size: 14px; padding: 8px 14px; }
     .description-highlighted { font-size: 15px; padding: 10px 12px; }
-    .highlight-text { font-size: 14px; }
+    .highlight-text { font-size: 14px; padding: 3px 12px; }
     .btn-primary, .btn-whatsapp { font-size: 13px; padding: 12px 20px; max-width: 100%; }
     .footer-quote { font-size: 16px; }
     .home-icon { font-size: 26px; }
@@ -1391,7 +1414,6 @@ body::after {
     .map-btn { font-size: 12px; padding: 8px 18px; }
     .modal-footer-quote { font-size: 17px; }
     
-    /* Gallery Mobile */
     .gallery-grid {
         gap: 6px;
     }
@@ -1405,7 +1427,6 @@ body::after {
         font-size: 18px;
     }
     
-    /* Lightbox Mobile */
     .lightbox-content {
         max-width: 95%;
         max-height: 70%;
@@ -1474,8 +1495,9 @@ body::after {
     .schedule-event {
         font-size: 12px;
     }
-    .venue-highlighted { font-size: 12px; padding: 4px 10px; }
-    #countdown { font-size: 16px; min-width: 140px; padding: 6px 10px; }
+    .venue-highlighted { font-size: 12px; padding: 6px 10px; }
+    #countdown { font-size: 16px; min-width: 140px; padding: 8px 12px; }
+    .highlight-text { font-size: 12px; padding: 2px 10px; }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -1508,11 +1530,11 @@ body::after {
     }
     .title { font-size: 28px; }
     .subtitle { font-size: 12px; letter-spacing: 4px; }
-    #countdown { font-size: 16px; padding: 5px 12px; min-width: 150px; }
+    #countdown { font-size: 16px; padding: 6px 12px; min-width: 150px; }
     .date { font-size: 16px; }
-    .venue-highlighted { font-size: 12px; padding: 4px 10px; margin-bottom: 8px; }
+    .venue-highlighted { font-size: 12px; padding: 5px 12px; margin-bottom: 8px; }
     .description-highlighted { font-size: 13px; padding: 6px 10px; margin: 5px 0 8px 0; }
-    .highlight-text { font-size: 12px; }
+    .highlight-text { font-size: 12px; padding: 2px 10px; }
     .btn-primary, .btn-whatsapp { font-size: 11px; padding: 8px 16px; margin-top: 8px; }
     .footer-quote { font-size: 14px; margin-top: 15px; padding-top: 10px; }
     .home-icon { font-size: 20px; margin-bottom: 2px; }
