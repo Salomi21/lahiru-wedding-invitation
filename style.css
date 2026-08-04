@@ -1299,8 +1299,71 @@ body::after {
     background: linear-gradient(145deg, #db2777, #be185d);
 }
 
+/* ================================================================ */
+/* 🎯 RSVP SECTION - ENHANCED WITH GLOW & BRIGHTNESS              */
+/* ================================================================ */
 .rsvp-section {
     margin: 5px 0 15px 0;
+    padding: 16px 18px 18px 18px;
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.05),
+        rgba(244, 114, 182, 0.04)
+    );
+    border-radius: 16px;
+    border: 1px solid rgba(244, 114, 182, 0.08);
+    box-shadow: 
+        0 4px 30px rgba(244, 114, 182, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle glow effect on RSVP section */
+.rsvp-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 40%, 
+        rgba(244, 114, 182, 0.03), 
+        transparent 70%
+    );
+    pointer-events: none;
+    animation: rsvpGlow 8s ease-in-out infinite;
+}
+
+@keyframes rsvpGlow {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(5%, 5%); }
+    50% { transform: translate(0, 10%); }
+    75% { transform: translate(-5%, 5%); }
+}
+
+/* Brightness effect on RSVP section */
+.rsvp-section:hover {
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.08),
+        rgba(244, 114, 182, 0.06)
+    );
+    border-color: rgba(244, 114, 182, 0.15);
+    box-shadow: 
+        0 8px 40px rgba(244, 114, 182, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.rsvp-section h3 {
+    font-size: 17px;
+    color: #f472b6;
+    border-bottom: 2px solid rgba(236, 72, 153, 0.08);
+    padding-bottom: 10px;
+    margin: 0 0 12px 0;
+    font-weight: 700;
+    text-shadow: 0 0 30px rgba(244,114,182,0.15);
+    position: relative;
+    z-index: 1;
 }
 
 .rsvp-sub {
@@ -1308,6 +1371,9 @@ body::after {
     color: #f9a8d4;
     margin-bottom: 14px;
     text-align: center;
+    text-shadow: 0 0 20px rgba(244, 114, 182, 0.05);
+    position: relative;
+    z-index: 1;
 }
 
 .rsvp-section input,
@@ -1316,14 +1382,17 @@ body::after {
     width: 100%;
     padding: 13px 16px;
     margin-bottom: 12px;
-    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     font-family: 'Lato', sans-serif;
     font-size: 14px;
     transition: all 0.3s ease;
     box-sizing: border-box;
     color: #f0e6f6;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .rsvp-section input::placeholder,
@@ -1337,8 +1406,8 @@ body::after {
 .rsvp-section textarea:focus {
     border-color: #ec4899;
     outline: none;
-    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.06);
-    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.08), 0 4px 20px rgba(236, 72, 153, 0.05);
+    background: rgba(255, 255, 255, 0.06);
 }
 
 .rsvp-section select option {
@@ -1355,6 +1424,8 @@ body::after {
     display: flex;
     gap: 12px;
     margin-top: 6px;
+    position: relative;
+    z-index: 1;
 }
 
 .form-buttons button {
@@ -1371,26 +1442,47 @@ body::after {
     letter-spacing: 1px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     text-shadow: 0 1px 10px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button glow effect */
+.form-buttons button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.form-buttons button:hover::after {
+    opacity: 1;
 }
 
 .btn-rsvp-whatsapp {
-    background: #25D366;
+    background: linear-gradient(145deg, #25D366, #128C7E);
+    box-shadow: 0 4px 25px rgba(37, 211, 102, 0.15);
 }
 
 .btn-rsvp-whatsapp:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 35px rgba(37, 211, 102, 0.3);
-    background: #128C7E;
+    box-shadow: 0 8px 40px rgba(37, 211, 102, 0.3);
+    background: linear-gradient(145deg, #128C7E, #075E54);
 }
 
 .btn-rsvp-email {
-    background: #EA4335;
+    background: linear-gradient(145deg, #EA4335, #C5221F);
+    box-shadow: 0 4px 25px rgba(234, 67, 53, 0.15);
 }
 
 .btn-rsvp-email:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 35px rgba(234, 67, 53, 0.3);
-    background: #C5221F;
+    box-shadow: 0 8px 40px rgba(234, 67, 53, 0.3);
+    background: linear-gradient(145deg, #C5221F, #A81814);
 }
 
 .form-buttons button:active {
@@ -1402,8 +1494,13 @@ body::after {
     color: #8a6a7a;
     margin-top: 12px;
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
+/* ================================================================ */
+/* 🎯 MODAL FOOTER                                                */
+/* ================================================================ */
 .modal-footer {
     text-align: center;
     margin-top: 20px;
@@ -1490,6 +1587,17 @@ body::after {
     .map-btn { font-size: 12px; padding: 8px 18px; }
     .modal-footer-quote { font-size: 17px; }
     
+    /* RSVP Mobile */
+    .rsvp-section {
+        padding: 12px 12px 14px 12px;
+    }
+    .rsvp-section input,
+    .rsvp-section select,
+    .rsvp-section textarea {
+        padding: 11px 14px;
+        font-size: 13px;
+    }
+    
     .gallery-grid {
         gap: 6px;
     }
@@ -1575,6 +1683,9 @@ body::after {
     #countdown { font-size: 16px; min-width: 140px; padding: 8px 12px; }
     .highlight-text { font-size: 12px; padding: 2px 10px; }
     .main-photo-caption { font-size: 13px; }
+    .rsvp-section {
+        padding: 10px 10px 12px 10px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -1585,6 +1696,9 @@ body::after {
     .venue-text { font-size: 16px; }
     .modal-content { padding: 28px 22px 24px 22px; max-width: 420px; }
     .form-buttons { flex-direction: row; }
+    .rsvp-section {
+        padding: 14px 16px 16px 16px;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -1632,6 +1746,26 @@ body::after {
         font-size: 20px;
         bottom: 8px;
         right: 12px;
+    }
+    
+    /* RSVP Landscape */
+    .rsvp-section {
+        padding: 10px 12px 12px 12px;
+    }
+    .rsvp-section input,
+    .rsvp-section select,
+    .rsvp-section textarea {
+        padding: 8px 12px;
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+    .rsvp-sub {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+    .form-buttons button {
+        padding: 10px;
+        font-size: 12px;
     }
     
     .gallery-grid {
