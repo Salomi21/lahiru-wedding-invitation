@@ -191,7 +191,7 @@ function sendEmail() {
 // ----- 8. SHARE INVITATION -----
 function shareInvitation() {
     const url = window.location.href;
-    const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 15 September 2026\n📍 123/A, Main Street, Anamaduwa\n\nView Invitation: ${url}`;
+    const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 15 September 2026\n📍 Sasindu Products, MahaUswewa, Anamaduwa\n\nView Invitation: ${url}`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -224,11 +224,13 @@ var countdownInterval = setInterval(function() {
 
 }, 1000);
 
-// ----- 10. MUSIC AUTOPLAY -----
+// ----- 10. MUSIC AUTOPLAY - music1.mp3 -----
 document.addEventListener("click", function playMusic() {
     var audio = document.getElementById("music");
     if (audio && audio.paused) {
-        audio.play().catch(function() {});
+        audio.play().catch(function(err) {
+            console.log('Audio playback failed:', err);
+        });
     }
     document.removeEventListener("click", playMusic);
 });
@@ -236,7 +238,9 @@ document.addEventListener("click", function playMusic() {
 window.addEventListener("load", function() {
     var audio = document.getElementById("music");
     if (audio) {
-        audio.play().catch(function() {});
+        audio.play().catch(function(err) {
+            console.log('Audio autoplay failed:', err);
+        });
     }
 });
 
