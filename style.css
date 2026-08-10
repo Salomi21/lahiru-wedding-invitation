@@ -47,7 +47,7 @@ body::after {
     pointer-events: none;
 }
 
-/* ----- SPARKLE PARTICLES ----- */
+/* ----- SPARKLE PARTICLES - Pink & White ----- */
 #sparkle-container {
     position: fixed;
     top: 0;
@@ -86,7 +86,7 @@ body::after {
     100% { transform: translateY(-10vh) scale(0) rotate(360deg); opacity: 0; }
 }
 
-/* ----- FLOATING HEARTS ----- */
+/* ----- FLOATING HEARTS - Pink & White ----- */
 #hearts-container {
     position: fixed;
     top: 0;
@@ -141,7 +141,7 @@ body::after {
 }
 
 /* =========================================== */
-/* 🎯 MAIN CARD                               */
+/* 🎯 MAIN CARD - CLEAN & ELEGANT            */
 /* =========================================== */
 .container {
     position: relative;
@@ -220,7 +220,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 TITLE - Homecoming (GOLD & PINK)                            */
+/* 🎯 TITLE - Homecoming (GOLD & PINK - BRIGHT)                   */
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
@@ -298,6 +298,7 @@ body::after {
 .divider-icon {
     font-size: 18px;
 }
+
 .divider-icon:nth-child(1) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
 .divider-icon:nth-child(2) { color: #f472b6; text-shadow: 0 0 30px rgba(244,114,182,0.3); }
 .divider-icon:nth-child(3) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
@@ -476,7 +477,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 VIEW INVITATION CONTAINER                                   */
+/* 🎯 VIEW INVITATION CONTAINER - Always Visible                   */
 /* ================================================================ */
 
 #viewInvitationContainer {
@@ -493,7 +494,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 SHARE BUTTON CONTAINER                                      */
+/* 🎯 SHARE BUTTON CONTAINER - Hidden by default                   */
 /* ================================================================ */
 
 #shareButtonContainer {
@@ -624,7 +625,7 @@ body::after {
     50% { opacity: 0.7; transform: scale(1.06); }
 }
 
-/* ----- STICKER OVERLAY ----- */
+/* ----- STICKER OVERLAY - Pink ----- */
 .sticker-overlay {
     position: absolute;
     bottom: -8px;
@@ -660,7 +661,7 @@ body::after {
     50% { transform: scale(1.12); }
 }
 
-/* ----- TRADITIONAL ICONS ----- */
+/* ----- TRADITIONAL ICONS - Pink Only ----- */
 .traditional-icons {
     display: flex;
     justify-content: center;
@@ -687,7 +688,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🚪 FULL PAGE DOOR                                              */
+/* 🚪 FULL PAGE DOOR - PINK THEME                                 */
 /* ================================================================ */
 
 .door-overlay {
@@ -713,41 +714,11 @@ body::after {
 }
 
 /* ================================================================ */
-/* 💗 DOOR TOP ICON                                                */
+/* 🔥 REMOVE TOP HEART ICON FROM DOOR                             */
 /* ================================================================ */
 
 .door-top-icons {
-    position: absolute;
-    top: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 25px;
-    z-index: 3;
-    opacity: 0;
-    transform: translateX(-50%) translateY(-30px);
-    transition: all 1.8s ease;
-}
-
-.door-top-icon {
-    font-size: 40px;
-    animation: topIconFloat 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.2));
-}
-
-.door-top-icon.heart-icon-door {
-    color: #f472b6;
-    text-shadow: 0 0 40px rgba(244, 114, 182, 0.3);
-}
-
-@keyframes topIconFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-10px) scale(1.1); }
-}
-
-.door-overlay.open .door-top-icons {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    display: none !important;
 }
 
 /* ================================================================ */
@@ -761,16 +732,23 @@ body::after {
     width: 100%;
     height: 100%;
     background: url("bg.jpg") center/cover no-repeat;
-    opacity: 0;
+    opacity: 0 !important;
     z-index: 0;
     filter: blur(10px) brightness(0.3);
     transition: opacity 6s ease, filter 6s ease, transform 6s ease;
 }
 
+/* 🔥 ONLY SHOW BG IMAGE WHEN DOOR IS OPEN */
 .door-overlay.open .door-bg-image {
-    opacity: 0.85;
+    opacity: 0.85 !important;
     filter: blur(0px) brightness(1);
     transform: scale(1.05);
+}
+
+/* 🔥 ENSURE DOOR OVERLAY DOESN'T SHOW BG IMAGE WHEN CLOSED */
+.door-overlay:not(.open) .door-bg-image {
+    opacity: 0 !important;
+    filter: blur(10px) brightness(0.3);
 }
 
 .door-overlay.hidden {
@@ -780,7 +758,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎨 DOOR TOP DECORATION                                         */
+/* 🎨 DOOR TOP DECORATION - No Heart Icon                         */
 /* ================================================================ */
 
 .door-top-deco {
@@ -811,7 +789,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🚪 DOOR CONTAINER                                              */
+/* 🚪 DOOR CONTAINER - FULL PAGE                                  */
 /* ================================================================ */
 
 .door-container {
@@ -825,6 +803,7 @@ body::after {
     margin-bottom: 20px;
 }
 
+/* Left Door - Pink & Purple Theme */
 .door-left,
 .door-right {
     position: absolute;
@@ -971,7 +950,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 DOOR HANDLE                                                 */
+/* 🎯 DOOR HANDLE - GOLD                                          */
 /* ================================================================ */
 
 .door-handle {
@@ -992,12 +971,29 @@ body::after {
     animation: handleGlow 3s ease-in-out infinite;
 }
 
-.door-left .door-handle { right: 25px; }
-.door-right .door-handle { left: 25px; }
+.door-left .door-handle {
+    right: 25px;
+}
+
+.door-right .door-handle {
+    left: 25px;
+}
 
 @keyframes handleGlow {
     0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.15); }
     50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.3); }
+}
+
+.door-handle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 35px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+    border-radius: 50%;
 }
 
 /* ================================================================ */
@@ -1179,7 +1175,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* ✨ DOOR PARTICLES                                              */
+/* ✨ DOOR PARTICLES - No Home Icon                               */
 /* ================================================================ */
 
 .door-particles {
@@ -1273,13 +1269,24 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL - SLOW FADE IN                                       */
+/* 🎯 MODAL - SLOW FADE IN ANIMATIONS                             */
 /* ================================================================ */
 
 @keyframes modalSlowFadeIn {
     0% { 
         opacity: 0; 
         transform: scale(0.95) translateY(40px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+@keyframes modalVerySlowFadeIn {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.92) translateY(50px); 
     }
     100% { 
         opacity: 1; 
@@ -1364,7 +1371,7 @@ body::after {
 .modal-content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
 .modal-content::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ec4899, #f472b6); border-radius: 10px; }
 
-/* ----- MODAL TOP DECORATION ----- */
+/* ----- MODAL TOP DECORATION - No Home Icon ----- */
 .modal-top-deco {
     text-align: center;
     margin-bottom: 5px;
@@ -1431,7 +1438,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL TITLE - Homecoming                                    */
+/* 🎯 MODAL TITLE - Homecoming (BRIGHT GOLD & PINK)              */
 /* ================================================================ */
 .modal-title {
     font-family: 'Great Vibes', cursive;
@@ -2219,7 +2226,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 📱 MOBILE RESPONSIVE                                            */
+/* 📱 MOBILE RESPONSIVE */
 /* ================================================================ */
 
 @media (max-width: 480px) {
@@ -2278,9 +2285,6 @@ body::after {
     .door-right { border-radius: 0 20px 20px 0; }
     .door-lock { width: 30px; height: 30px; }
     .door-lock::before { font-size: 12px; }
-    
-    .door-top-icon { font-size: 30px; }
-    .door-top-icons { gap: 15px; top: 20px; }
     
     .main-photo-frame img { aspect-ratio: 16/12; }
     .main-photo-caption { font-size: 15px; }
@@ -2346,8 +2350,6 @@ body::after {
     .door-handle { width: 10px; height: 30px; }
     .door-left .door-handle { right: 8px; }
     .door-right .door-handle { left: 8px; }
-    .door-top-icon { font-size: 24px; }
-    .door-top-icons { gap: 10px; top: 15px; }
     
     .gallery-grid { gap: 4px; }
     .schedule-time { font-size: 10px; min-width: 45px; }
@@ -2371,7 +2373,6 @@ body::after {
     .rsvp-section { padding: 14px 16px 16px 16px; }
     .door-container { width: 75vw; height: 60vh; max-height: 420px; }
     .center-title { font-size: 26px; }
-    .door-top-icon { font-size: 35px; }
     .heart-icon-main { font-size: 34px; }
 }
 
@@ -2428,8 +2429,6 @@ body::after {
     .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 5px; }
     .door-particles span { font-size: 12px; }
     .door-handle { width: 10px; height: 32px; }
-    .door-top-icon { font-size: 25px; }
-    .door-top-icons { gap: 12px; top: 15px; }
     
     .main-photo-frame img { aspect-ratio: 16/9; }
     .main-photo-caption { font-size: 13px; margin-top: 6px; }
