@@ -74,7 +74,7 @@ window.addEventListener('load', () => {
 });
 
 // ================================================================
-// 🚪 DOOR OPEN ANIMATION
+// 🚪 DOOR OPEN ANIMATION - FIXED
 // ================================================================
 
 function openDoorAnimation() {
@@ -101,18 +101,17 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
-    // Show door overlay with fade in
+    // Show door overlay
     setTimeout(() => {
         doorOverlay.style.display = 'flex';
         doorOverlay.style.opacity = '1';
         doorOverlay.style.transition = 'opacity 0.6s ease';
     }, 50);
     
-    // 🐌 SLOW DOOR OPEN - starts after 0.5s, takes 3.5s
+    // 🐌 SLOW DOOR OPEN
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
-        // 🐌 SLOW BG IMAGE - appears slowly over 3.5s
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
@@ -121,34 +120,21 @@ function openDoorAnimation() {
         
     }, 500);
     
-    // 🐌 SLOW INVITATION - shown after door fully opens (5s total)
+    // 🐌 SLOW INVITATION
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
-            // 🐌 SLOW INVITATION FADE IN - 2.5 seconds
-            openInvitationVerySlow();
+            // 🔥 FIXED: Call openInvitation directly
+            openInvitation();
         }, 400);
     }, 5000);
 }
 
 // ================================================================
-// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (2.5s)
+// 🎯 OPEN INVITATION - FIXED
 // ================================================================
 
-function openInvitationVerySlow() {
-    const modal = document.getElementById('invitationModal');
-    if (modal) {
-        modal.classList.add('show');
-        const content = modal.querySelector('.modal-content');
-        if (content) {
-            content.style.animation = 'modalVerySlowFadeIn 2.5s ease forwards';
-        }
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-// ----- OPEN INVITATION (for direct calls) -----
 function openInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
@@ -161,7 +147,10 @@ function openInvitation() {
     }
 }
 
-// ----- CLOSE INVITATION AND GO BACK -----
+// ================================================================
+// 🎯 CLOSE INVITATION AND GO BACK - FIXED
+// ================================================================
+
 function closeInvitationAndGoBack() {
     const modal = document.getElementById('invitationModal');
     const mainCard = document.getElementById('mainCard');
@@ -184,7 +173,7 @@ function closeInvitationAndGoBack() {
         bgImage.style.opacity = '0';
     }
     
-    // Show main card with fade in
+    // Show main card
     setTimeout(() => {
         mainCard.style.display = 'block';
         mainCard.style.opacity = '0';
