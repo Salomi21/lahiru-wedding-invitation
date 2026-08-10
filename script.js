@@ -74,25 +74,108 @@ window.addEventListener('load', () => {
 });
 
 // ================================================================
-// 🚪 DOOR OPEN ANIMATION - Opens on View Invitation Click
+// 🎯 GET NAME FROM URL AND DISPLAY PERSONALIZED MESSAGE
+// ================================================================
+
+function getGuestNameFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('name') || '';
+}
+
+function displayGuestName() {
+    const name = getGuestNameFromURL();
+    if (name) {
+        const decodedName = decodeURIComponent(name);
+        
+        // Update main subtitle
+        const subtitle = document.getElementById('mainSubtitle');
+        if (subtitle) {
+            subtitle.innerHTML = `💗 ${decodedName} ඔබට ආරාධනාවක්! 💗`;
+            subtitle.style.color = '#f9a8d4';
+            subtitle.style.fontSize = '16px';
+            subtitle.style.letterSpacing = '2px';
+        }
+        
+        // Update invitation text in modal
+        const invText = document.getElementById('invitationText');
+        if (invText) {
+            invText.innerHTML = `💗 ${decodedName}, අපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!<br>After our wedding, we are coming home!`;
+        }
+        
+        // Auto open invitation modal if name is present
+        setTimeout(() => {
+            openInvitation();
+        }, 1500);
+    }
+}
+
+// ================================================================
+// 🎯 SHARE WITH CUSTOM NAME - PERSONALIZED
+// ================================================================
+
+function shareWithCustomName() {
+    const nameInput = document.getElementById('guestNameInput');
+    const guestName = nameInput.value.trim();
+    
+    if (guestName === '') {
+        alert('🙏 කරුණාකර ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න!');
+        nameInput.focus();
+        return;
+    }
+    
+    // Get base URL without parameters
+    const url = window.location.href.split('?')[0];
+    const encodedName = encodeURIComponent(guestName);
+    const shareUrl = `${url}?name=${encodedName}`;
+    
+    // WhatsApp message
+    let message = `🏠 *Lahiru & Salomi - Homecoming Invitation* 🏠\n\n`;
+    message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
+    message += `📅 *Date:* 15 September 2026\n`;
+    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
+    message += `✨ View your invitation:\n${shareUrl}\n\n`;
+    message += `💗 සුභ ගමනක් වේවා! 🏠`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+    
+    // Reset input after sharing
+    nameInput.value = '';
+}
+
+// ================================================================
+// 🎯 SHARE WITHOUT NAME (Simple Share)
+// ================================================================
+
+function shareInvitationSimple() {
+    const url = window.location.href.split('?')[0];
+    
+    let message = `🏠 *Lahiru & Salomi - Homecoming Invitation* 🏠\n\n`;
+    message += `💗 We are coming home! 🎉\n\n`;
+    message += `📅 *Date:* 15 September 2026\n`;
+    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
+    message += `✨ View the full invitation:\n${url}\n\n`;
+    message += `💗 සුභ ගමනක් වේවා! 🏠`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+}
+
+// ================================================================
+// 🚪 DOOR OPEN ANIMATION
 // ================================================================
 
 function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
-    const invitationModal = document.getElementById('invitationModal');
-    
-    // Close invitation modal if open
-    if (invitationModal.classList.contains('show')) {
-        invitationModal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    }
     
     // Reset door
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
-    doorOverlay.style.transition = 'opacity 0.6s ease';
+    doorOverlay.style.transition = 'opacity 0.8s ease';
     
     // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
@@ -131,7 +214,6 @@ function openDoorAnimation() {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
-            // Show invitation modal
             openInvitation();
         }, 500);
     }, 6800);
@@ -247,7 +329,7 @@ function validateForm() {
     return true;
 }
 
-// ----- SEND VIA WHATSAPP -----
+// ----- SEND VIA WHATSAPP (RSVP) -----
 function sendWhatsApp() {
     if (!validateForm()) return;
     
@@ -298,16 +380,6 @@ function sendEmail() {
     
     window.open(gmailURL, '_blank');
     document.getElementById('rsvpForm').reset();
-}
-
-// ----- SHARE INVITATION -----
-function shareInvitation() {
-    const url = window.location.href;
-    const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 15 September 2026\n📍 Sasindu Products, MahaUswewa, Anamaduwa\n\nView Invitation: ${url}`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
-    window.open(whatsappURL, '_blank');
 }
 
 // ----- COUNTDOWN TIMER - SEPTEMBER 15 -----
@@ -381,6 +453,8 @@ function forceAutoPlay() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    displayGuestName();
+    
     setTimeout(forceAutoPlay, 100);
     setTimeout(forceAutoPlay, 300);
     setTimeout(forceAutoPlay, 500);
