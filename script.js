@@ -141,11 +141,11 @@ function shareWithCustomName() {
     const shareUrl = `${url}?name=${encodedName}`;
     
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
+    message += `💗 *${guestName}*, අපගේ විවාහටයට ඔබට ආරාධනා කරනවා!\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
-    message += `💗 සුභ ගමනක් වේවා! 💗`;
+    message += `💗 සුභ විවාහයක් වේවා! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -165,7 +165,7 @@ function shareInvitationSimple() {
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View the full invitation:\n${url}\n\n`;
-    message += `💗 සුභ ගමනක් වේවා! 💗`;
+    message += `💗 සුභ විවාහයක් වේවා! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -423,7 +423,7 @@ var countdownInterval = setInterval(function() {
     var distance = homecomingDate - now;
 
     if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "💗 අදම Homecoming! 💗";
+        document.getElementById("countdown").innerHTML = "💗 Homecoming! 💗";
         clearInterval(countdownInterval);
         return;
     }
