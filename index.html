@@ -87,7 +87,7 @@
             </button>
         </div>
 
-        <!-- ===== SHARE WITH NAME INPUT - Hidden for Recipients ===== -->
+        <!-- ===== SHARE BUTTONS - Hidden for Recipients ===== -->
         <div id="shareButtonContainer" style="display: none;">
             <div class="share-name-input">
                 <input type="text" id="guestNameInput" placeholder="👤 ආරාධනාව ලබන්නාගේ නම..." />
@@ -95,8 +95,6 @@
                     <span>📤</span> Share with Name
                 </button>
             </div>
-
-            <!-- ===== SHARE WITHOUT NAME ===== -->
             <button onclick="shareInvitationSimple()" class="btn-whatsapp" style="margin-top:8px; background: linear-gradient(145deg, #25D366, #128C7E);">
                 <span>📤</span> Share (Without Name)
             </button>
@@ -128,7 +126,7 @@
             <span class="door-top-icon heart-icon-door">💗</span>
         </div>
         
-        <!-- Decorative top border - No Home Icon -->
+        <!-- Decorative top border -->
         <div class="door-top-deco">
             <span>✦</span>
             <span>💗</span>
@@ -180,7 +178,7 @@
             <span class="bottom-sub">✨ Opening Invitation ✨</span>
         </div>
         
-        <!-- Floating particles - No Home Icon -->
+        <!-- Floating particles -->
         <div class="door-particles">
             <span>✦</span>
             <span>💗</span>
@@ -198,14 +196,13 @@
     </div>
 
     <!-- ============================================== -->
-    <!-- INVITATION MODAL - WITH PHOTO GALLERY         -->
+    <!-- INVITATION MODAL                               -->
     <!-- ============================================== -->
     <div id="invitationModal" class="modal">
         <div class="modal-content">
 
             <span class="close-btn" onclick="closeInvitationAndGoBack()">&times;</span>
 
-            <!-- No Home Icon in top decoration -->
             <div class="modal-top-deco">
                 <span class="deco-icon">💗</span>
                 <span class="deco-icon">💗</span>
@@ -233,7 +230,7 @@
                 </p>
             </div>
 
-            <!-- 🎯 MAIN PHOTO -->
+            <!-- MAIN PHOTO -->
             <div class="main-photo-section">
                 <div class="main-photo-frame">
                     <img src="sticker.webp" alt="Lahiru & Salomi - Main Photo" onerror="this.src='https://via.placeholder.com/600x400/f472b6/ffffff?text=Lahiru+%26+Salomi'" />
@@ -245,47 +242,34 @@
                 <p class="main-photo-caption">💕 අපේ ආදර කතාවේ ආරම්භය 💕</p>
             </div>
 
-            <!-- 🎯 PHOTO GALLERY -->
+            <!-- PHOTO GALLERY -->
             <div class="gallery-section">
                 <h3 class="gallery-title">📸 අපගේ සිහිවටන</h3>
                 <p class="gallery-sub">Our Memories</p>
-                
                 <div class="gallery-grid">
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 1" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
-                        <div class="gallery-overlay">
-                            <span class="gallery-icon">🔍</span>
-                        </div>
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 2" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
-                        <div class="gallery-overlay">
-                            <span class="gallery-icon">🔍</span>
-                        </div>
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 3" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
-                        <div class="gallery-overlay">
-                            <span class="gallery-icon">🔍</span>
-                        </div>
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 4" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
-                        <div class="gallery-overlay">
-                            <span class="gallery-icon">🔍</span>
-                        </div>
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 5" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
-                        <div class="gallery-overlay">
-                            <span class="gallery-icon">🔍</span>
-                        </div>
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 6" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
-                        <div class="gallery-overlay">
-                            <span class="gallery-icon">🔍</span>
-                        </div>
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                 </div>
             </div>
@@ -297,7 +281,6 @@
                     <h3 class="schedule-title">උත්සව කාලසටහන</h3>
                     <p class="schedule-sub">Event Schedule</p>
                 </div>
-                
                 <div class="schedule-timeline">
                     <div class="schedule-item">
                         <div class="schedule-time">06:00 PM</div>
@@ -330,20 +313,14 @@
             <div class="location-section">
                 <h3>📍 ස්ථානය / Location</h3>
                 <p class="location-name"><strong>Sasindu Products, MahaUswewa, Anamaduwa</strong></p>
-                <p class="location-desc">
-                    මංගල යුවලගේ නිවසට ඔබ සැවොම සාදරයෙන් පිළිගනිමු.
-                </p>
-                <a href="https://maps.app.goo.gl/ApzvJgDRwcxPAvZa8?g_st=aw" target="_blank" class="map-btn">
-                    🧭 Get Directions
-                </a>
+                <p class="location-desc">මංගල යුවලගේ නිවසට ඔබ සැවොම සාදරයෙන් පිළිගනිමු.</p>
+                <a href="https://maps.app.goo.gl/ApzvJgDRwcxPAvZa8?g_st=aw" target="_blank" class="map-btn">🧭 Get Directions</a>
             </div>
 
             <!-- RSVP Section -->
             <div class="rsvp-section">
                 <h3>💌 RSVP</h3>
-                <p class="rsvp-sub">
-                    කරුණාකර ඔබගේ පැමිණීම WhatsApp හෝ Email මගින් දන්වන්න
-                </p>
+                <p class="rsvp-sub">කරුණාකර ඔබගේ පැමිණීම WhatsApp හෝ Email මගින් දන්වන්න</p>
                 <form id="rsvpForm">
                     <input type="text" id="rsvpName" placeholder="ඔබගේ නම / Your Name" required />
                     <input type="tel" id="rsvpPhone" placeholder="දුරකථන අංකය / Phone Number" required />
@@ -353,26 +330,16 @@
                         <option value="Not Coming">එන්නේ නැහැ (Not Coming)</option>
                     </select>
                     <textarea id="rsvpNotes" rows="2" placeholder="අමතර සටහන්... / Special Notes..."></textarea>
-                    
                     <div class="form-buttons">
-                        <button type="button" onclick="sendWhatsApp()" class="btn-rsvp-whatsapp">
-                            💬 WhatsApp
-                        </button>
-                        <button type="button" onclick="sendEmail()" class="btn-rsvp-email">
-                            📧 Email
-                        </button>
+                        <button type="button" onclick="sendWhatsApp()" class="btn-rsvp-whatsapp">💬 WhatsApp</button>
+                        <button type="button" onclick="sendEmail()" class="btn-rsvp-email">📧 Email</button>
                     </div>
-                    
-                    <p class="form-footer">
-                        ඔබගේ ප්‍රියතම ක්‍රමය තෝරන්න
-                    </p>
+                    <p class="form-footer">ඔබගේ ප්‍රියතම ක්‍රමය තෝරන්න</p>
                 </form>
             </div>
 
             <div class="modal-footer">
-                <div class="footer-deco">
-                    <span>💗</span> <span>💗</span> <span>💗</span> <span>💗</span> <span>💗</span>
-                </div>
+                <div class="footer-deco"><span>💗</span> <span>💗</span> <span>💗</span> <span>💗</span> <span>💗</span></div>
                 <p class="modal-footer-quote">"Home is where the heart is..."</p>
                 <p class="modal-footer-love">We can't wait to welcome you home! 💗</p>
             </div>
@@ -380,9 +347,7 @@
         </div>
     </div>
 
-    <!-- ============================================== -->
-    <!-- 🎯 LIGHTBOX - Full Screen Image Viewer        -->
-    <!-- ============================================== -->
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="Memory" />
