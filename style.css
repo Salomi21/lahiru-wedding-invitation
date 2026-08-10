@@ -624,7 +624,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🏠💗 DOOR TOP ICONS - Home & Heart                             */
+/* 💗 DOOR TOP ICON - ONLY HEART (Home Icon Removed)              */
 /* ================================================================ */
 
 .door-top-icons {
@@ -646,16 +646,9 @@ body::after {
     filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.2));
 }
 
-.door-top-icon.home-icon-door {
-    color: #ffd700;
-    text-shadow: 0 0 40px rgba(255, 215, 0, 0.3);
-    animation-delay: 0s;
-}
-
 .door-top-icon.heart-icon-door {
     color: #f472b6;
     text-shadow: 0 0 40px rgba(244, 114, 182, 0.3);
-    animation-delay: 0.5s;
 }
 
 @keyframes topIconFloat {
@@ -663,7 +656,7 @@ body::after {
     50% { transform: translateY(-10px) scale(1.1); }
 }
 
-/* Door Open State - Top Icons Appear */
+/* Door Open State - Heart Icon Appears */
 .door-overlay.open .door-top-icons {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
