@@ -74,7 +74,7 @@ window.addEventListener('load', () => {
 });
 
 // ================================================================
-// 🎯 GET NAME FROM URL AND DISPLAY PERSONALIZED MESSAGE
+// 🎯 CHECK NAME IN URL - HIDE SHARE BUTTONS FOR RECIPIENTS
 // ================================================================
 
 function getGuestNameFromURL() {
@@ -82,8 +82,30 @@ function getGuestNameFromURL() {
     return params.get('name') || '';
 }
 
-function displayGuestName() {
+function checkAndHideButtons() {
     const name = getGuestNameFromURL();
+    const shareContainer = document.getElementById('shareButtonContainer');
+    
+    // 🔥 If name exists in URL, hide share buttons (recipient)
+    if (name) {
+        if (shareContainer) {
+            shareContainer.style.display = 'none';
+        }
+        // Show personalized message
+        displayGuestName(name);
+    } else {
+        // 🔥 Sender - Show share buttons
+        if (shareContainer) {
+            shareContainer.style.display = 'block';
+        }
+    }
+}
+
+// ================================================================
+// 🎯 DISPLAY PERSONALIZED MESSAGE
+// ================================================================
+
+function displayGuestName(name) {
     if (name) {
         const decodedName = decodeURIComponent(name);
         
@@ -101,6 +123,11 @@ function displayGuestName() {
         if (invText) {
             invText.innerHTML = `💗 ${decodedName}, අපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!<br>After our wedding, we are coming home!`;
         }
+        
+        // 🔥 Auto open door when name is in URL
+        setTimeout(() => {
+            openDoorAnimation();
+        }, 1000);
     }
 }
 
@@ -124,12 +151,12 @@ function shareWithCustomName() {
     const shareUrl = `${url}?name=${encodedName}`;
     
     // WhatsApp message
-    let message = `🏠 *Lahiru & Salomi - Homecoming Invitation* 🏠\n\n`;
+    let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
     message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
-    message += `💗 සුභ ගමනක් වේවා! 🏠`;
+    message += `💗 සුභ ගමනක් වේවා! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -146,12 +173,12 @@ function shareWithCustomName() {
 function shareInvitationSimple() {
     const url = window.location.href.split('?')[0];
     
-    let message = `🏠 *Lahiru & Salomi - Homecoming Invitation* 🏠\n\n`;
+    let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
     message += `💗 We are coming home! 🎉\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View the full invitation:\n${url}\n\n`;
-    message += `💗 සුභ ගමනක් වේවා! 🏠`;
+    message += `💗 සුභ ගමනක් වේවා! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -179,12 +206,12 @@ function openDoorAnimation() {
         bgImage.style.transition = 'opacity 6s ease';
     }
     
-    // Reset top icons (Home & Heart)
+    // Reset top icon (Heart only)
     const topIcons = document.querySelector('.door-top-icons');
     if (topIcons) {
         topIcons.style.opacity = '0';
-        topIcons.style.transform = 'translateY(-30px)';
-        topIcons.style.transition = 'all 1.5s ease';
+        topIcons.style.transform = 'translateX(-50%) translateY(-30px)';
+        topIcons.style.transition = 'all 1.8s ease';
     }
     
     // Hide main card with smooth transition
@@ -211,11 +238,11 @@ function openDoorAnimation() {
             }
         }, 200);
         
-        // 🏠💗 Top Icons appear and move up
+        // 💗 Heart Icon appears and moves up
         setTimeout(() => {
             if (topIcons) {
                 topIcons.style.opacity = '1';
-                topIcons.style.transform = 'translateY(0)';
+                topIcons.style.transform = 'translateX(-50%) translateY(0)';
             }
         }, 800);
         
@@ -285,11 +312,11 @@ function closeInvitationAndGoBack() {
         bgImage.style.opacity = '0';
     }
     
-    // Reset top icons
+    // Reset top icon
     const topIcons = document.querySelector('.door-top-icons');
     if (topIcons) {
         topIcons.style.opacity = '0';
-        topIcons.style.transform = 'translateY(-30px)';
+        topIcons.style.transform = 'translateX(-50%) translateY(-30px)';
     }
     
     // Show main card with fade in
@@ -376,7 +403,7 @@ function sendWhatsApp() {
         message += `📝 *Notes:* ${notes}\n`;
     }
     
-    message += `\n🏠 *Lahiru & Salomi Homecoming - 15 Sep 2026*`;
+    message += `\n💗 *Lahiru & Salomi Homecoming - 15 Sep 2026*`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -421,7 +448,7 @@ var countdownInterval = setInterval(function() {
     var distance = homecomingDate - now;
 
     if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "🏠 අදම Homecoming! 🏠";
+        document.getElementById("countdown").innerHTML = "💗 අදම Homecoming! 💗";
         clearInterval(countdownInterval);
         return;
     }
@@ -484,8 +511,8 @@ function forceAutoPlay() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Display personalized message if name exists in URL
-    displayGuestName();
+    // 🔥 Check if name exists and hide share buttons
+    checkAndHideButtons();
     
     setTimeout(forceAutoPlay, 100);
     setTimeout(forceAutoPlay, 300);
