@@ -74,27 +74,24 @@ window.addEventListener('load', () => {
 });
 
 // ================================================================
-// 🚪 DOOR OPEN ANIMATION - FIXED
+// 🚪 EXTRA SLOW DOOR OPEN ANIMATION - 6 SECONDS
 // ================================================================
 
 function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
     
-    // 🔥 FIX: Don't hide door first - just show it
-    // Reset door classes but keep it visible
+    // Reset door but keep display flex
     doorOverlay.classList.remove('open', 'hidden');
-    
-    // 🔥 FIX: Set display to flex immediately
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
-    doorOverlay.style.transition = 'opacity 0.6s ease';
+    doorOverlay.style.transition = 'opacity 0.8s ease';
     
     // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
-        bgImage.style.transition = 'opacity 3.5s ease';
+        bgImage.style.transition = 'opacity 5s ease';
     }
     
     // Hide main card
@@ -105,31 +102,32 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
-    // 🔥 FIX: Fade in door overlay
+    // Fade in door overlay
     setTimeout(() => {
         doorOverlay.style.opacity = '1';
     }, 100);
     
-    // 🐌 SLOW DOOR OPEN - starts after 0.6s
+    // 🐌 EXTRA SLOW DOOR OPEN - starts after 0.8s, takes 5s
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
+        // 🐌 EXTRA SLOW BG IMAGE - appears slowly over 5s
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
             }
-        }, 100);
+        }, 200);
         
-    }, 600);
+    }, 800);
     
-    // 🐌 SLOW INVITATION - shown after door fully opens (5s total)
+    // 🐌 EXTRA SLOW INVITATION - shown after door fully opens (6.8s total)
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
             openInvitation();
-        }, 400);
-    }, 5200);
+        }, 500);
+    }, 6800);
 }
 
 // ================================================================
@@ -142,14 +140,14 @@ function openInvitation() {
         modal.classList.add('show');
         const content = modal.querySelector('.modal-content');
         if (content) {
-            content.style.animation = 'modalSlowFadeIn 2s ease forwards';
+            content.style.animation = 'modalSlowFadeIn 2.5s ease forwards';
         }
         document.body.style.overflow = 'hidden';
     }
 }
 
 // ================================================================
-// 🎯 CLOSE INVITATION AND GO BACK - FIXED
+// 🎯 CLOSE INVITATION AND GO BACK
 // ================================================================
 
 function closeInvitationAndGoBack() {
@@ -162,10 +160,9 @@ function closeInvitationAndGoBack() {
         document.body.style.overflow = 'auto';
     }
     
-    // 🔥 FIX: Reset door properly - keep it ready for next click
+    // Reset door
     const doorOverlay = document.getElementById('doorOverlay');
     doorOverlay.classList.remove('open', 'hidden');
-    // Keep display: flex but hidden with opacity 0
     doorOverlay.style.opacity = '0';
     doorOverlay.style.transition = 'opacity 0.3s ease';
     
@@ -243,7 +240,7 @@ function validateForm() {
     return true;
 }
 
-// ----- 6. SEND VIA WHATSAPP -----
+// ----- SEND VIA WHATSAPP -----
 function sendWhatsApp() {
     if (!validateForm()) return;
     
@@ -268,7 +265,7 @@ function sendWhatsApp() {
     document.getElementById('rsvpForm').reset();
 }
 
-// ----- 7. SEND VIA EMAIL -----
+// ----- SEND VIA EMAIL -----
 function sendEmail() {
     if (!validateForm()) return;
     
@@ -296,7 +293,7 @@ function sendEmail() {
     document.getElementById('rsvpForm').reset();
 }
 
-// ----- 8. SHARE INVITATION -----
+// ----- SHARE INVITATION -----
 function shareInvitation() {
     const url = window.location.href;
     const message = `🏠 *Lahiru & Salomi Homecoming Invitation* 🏠\n\nඅපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!\n\n📅 15 September 2026\n📍 Sasindu Products, MahaUswewa, Anamaduwa\n\nView Invitation: ${url}`;
@@ -306,7 +303,7 @@ function shareInvitation() {
     window.open(whatsappURL, '_blank');
 }
 
-// ----- 9. COUNTDOWN TIMER - SEPTEMBER 15 -----
+// ----- COUNTDOWN TIMER - SEPTEMBER 15 -----
 var homecomingDate = new Date("Sep 15, 2026 00:00:00").getTime();
 
 var countdownInterval = setInterval(function() {
