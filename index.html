@@ -80,23 +80,27 @@
             <span class="highlight-text">✨ Join us to celebrate our new journey ✨</span>
         </p>
 
-        <!-- View Invitation Button -->
-        <button onclick="openDoorAnimation()" class="btn-primary">
-            <span>💗</span> View Invitation
-        </button>
-
-        <!-- ===== SHARE WITH NAME INPUT ===== -->
-        <div class="share-name-input">
-            <input type="text" id="guestNameInput" placeholder="👤 ආරාධනාව ලබන්නාගේ නම..." />
-            <button onclick="shareWithCustomName()" class="btn-whatsapp">
-                <span>📤</span> Share with Name
+        <!-- ===== VIEW INVITATION BUTTON - Visible to EVERYONE ===== -->
+        <div id="viewInvitationContainer">
+            <button onclick="openDoorAnimation()" class="btn-primary">
+                <span>💗</span> View Invitation
             </button>
         </div>
 
-        <!-- ===== SHARE WITHOUT NAME ===== -->
-        <button onclick="shareInvitationSimple()" class="btn-whatsapp" style="margin-top:8px; background: linear-gradient(145deg, #25D366, #128C7E);">
-            <span>📤</span> Share (Without Name)
-        </button>
+        <!-- ===== SHARE WITH NAME INPUT - Hidden for Recipients ===== -->
+        <div id="shareButtonContainer" style="display: none;">
+            <div class="share-name-input">
+                <input type="text" id="guestNameInput" placeholder="👤 ආරාධනාව ලබන්නාගේ නම..." />
+                <button onclick="shareWithCustomName()" class="btn-whatsapp">
+                    <span>📤</span> Share with Name
+                </button>
+            </div>
+
+            <!-- ===== SHARE WITHOUT NAME ===== -->
+            <button onclick="shareInvitationSimple()" class="btn-whatsapp" style="margin-top:8px; background: linear-gradient(145deg, #25D366, #128C7E);">
+                <span>📤</span> Share (Without Name)
+            </button>
+        </div>
 
         <p class="footer-quote">"Home is where the heart is..."</p>
 
@@ -119,7 +123,7 @@
         <!-- 🖼️ BACKGROUND IMAGE -->
         <div class="door-bg-image"></div>
         
-        <!-- 💗 HEART ICON - ඉහළට යනවා (Home Icon Removed) -->
+        <!-- 💗 HEART ICON - ඉහළට යනවා -->
         <div class="door-top-icons">
             <span class="door-top-icon heart-icon-door">💗</span>
         </div>
