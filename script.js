@@ -73,16 +73,130 @@ window.addEventListener('load', () => {
     }
 });
 
-// ----- 3. OPEN INVITATION MODAL -----
-function openInvitation() {
+// ================================================================
+// 🚪 DOOR OPEN ANIMATION
+// ================================================================
+
+function openDoorAnimation() {
+    const doorOverlay = document.getElementById('doorOverlay');
+    const mainCard = document.getElementById('mainCard');
+    
+    // Reset door
+    doorOverlay.classList.remove('open', 'hidden');
+    doorOverlay.style.display = 'none';
+    doorOverlay.style.opacity = '0';
+    
+    // Reset BG image
+    const bgImage = document.querySelector('.door-bg-image');
+    if (bgImage) {
+        bgImage.style.opacity = '0';
+        bgImage.style.transition = 'opacity 3.5s ease';
+    }
+    
+    // Hide main card
+    mainCard.style.transition = 'opacity 0.5s ease';
+    mainCard.style.opacity = '0';
+    
+    setTimeout(() => {
+        mainCard.style.display = 'none';
+    }, 500);
+    
+    // Show door overlay with fade in
+    setTimeout(() => {
+        doorOverlay.style.display = 'flex';
+        doorOverlay.style.opacity = '1';
+        doorOverlay.style.transition = 'opacity 0.6s ease';
+    }, 50);
+    
+    // 🐌 SLOW DOOR OPEN - starts after 0.5s, takes 3.5s
+    setTimeout(() => {
+        doorOverlay.classList.add('open');
+        
+        // 🐌 SLOW BG IMAGE - appears slowly over 3.5s
+        setTimeout(() => {
+            if (bgImage) {
+                bgImage.style.opacity = '0.85';
+            }
+        }, 100);
+        
+    }, 500);
+    
+    // 🐌 SLOW INVITATION - shown after door fully opens (5s total)
+    setTimeout(() => {
+        doorOverlay.classList.add('hidden');
+        setTimeout(() => {
+            doorOverlay.style.display = 'none';
+            // 🐌 SLOW INVITATION FADE IN - 2.5 seconds
+            openInvitationVerySlow();
+        }, 400);
+    }, 5000);
+}
+
+// ================================================================
+// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (2.5s)
+// ================================================================
+
+function openInvitationVerySlow() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
         modal.classList.add('show');
+        const content = modal.querySelector('.modal-content');
+        if (content) {
+            content.style.animation = 'modalVerySlowFadeIn 2.5s ease forwards';
+        }
         document.body.style.overflow = 'hidden';
     }
 }
 
-// ----- 4. CLOSE INVITATION MODAL -----
+// ----- OPEN INVITATION (for direct calls) -----
+function openInvitation() {
+    const modal = document.getElementById('invitationModal');
+    if (modal) {
+        modal.classList.add('show');
+        const content = modal.querySelector('.modal-content');
+        if (content) {
+            content.style.animation = 'modalSlowFadeIn 2s ease forwards';
+        }
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// ----- CLOSE INVITATION AND GO BACK -----
+function closeInvitationAndGoBack() {
+    const modal = document.getElementById('invitationModal');
+    const mainCard = document.getElementById('mainCard');
+    
+    // Close modal
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Reset door for next time
+    const doorOverlay = document.getElementById('doorOverlay');
+    doorOverlay.classList.remove('open', 'hidden');
+    doorOverlay.style.display = 'none';
+    doorOverlay.style.opacity = '0';
+    
+    // Reset BG image
+    const bgImage = document.querySelector('.door-bg-image');
+    if (bgImage) {
+        bgImage.style.opacity = '0';
+    }
+    
+    // Show main card with fade in
+    setTimeout(() => {
+        mainCard.style.display = 'block';
+        mainCard.style.opacity = '0';
+        mainCard.style.transition = 'opacity 0.8s ease';
+        
+        setTimeout(() => {
+            mainCard.style.opacity = '1';
+        }, 100);
+    }, 300);
+}
+
+// ----- CLOSE INVITATION (Normal) -----
 function closeInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
@@ -94,17 +208,20 @@ function closeInvitation() {
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('invitationModal');
     if (event.target === modal) {
-        closeInvitation();
+        closeInvitationAndGoBack();
     }
 });
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
-        closeInvitation();
+        closeInvitationAndGoBack();
     }
 });
 
-// ----- 5. GET FORM DATA -----
+// ================================================================
+// 🎯 GET FORM DATA
+// ================================================================
+
 function getFormData() {
     const name = document.getElementById('rsvpName').value.trim();
     const phone = document.getElementById('rsvpPhone').value.trim();
@@ -224,25 +341,95 @@ var countdownInterval = setInterval(function() {
 
 }, 1000);
 
-// ----- 10. MUSIC AUTOPLAY - music1.mp3 -----
-document.addEventListener("click", function playMusic() {
-    var audio = document.getElementById("music");
-    if (audio && audio.paused) {
-        audio.play().catch(function(err) {
-            console.log('Audio playback failed:', err);
+// ================================================================
+// 🎵 MUSIC - FORCE AUTO-PLAY
+// ================================================================
+
+var audio = document.getElementById('bgMusic');
+var musicIcon = document.getElementById('musicIcon');
+var isMusicPlaying = false;
+var musicStarted = false;
+
+function forceAutoPlay() {
+    if (audio && !musicStarted) {
+        var hiddenButton = document.createElement('button');
+        hiddenButton.style.display = 'none';
+        document.body.appendChild(hiddenButton);
+        
+        hiddenButton.click();
+        
+        audio.play().then(function() {
+            isMusicPlaying = true;
+            musicStarted = true;
+            if (musicIcon) {
+                musicIcon.textContent = '🔊';
+            }
+            console.log('🎵 Music playing automatically!');
+        }).catch(function(error) {
+            console.log('Auto-play blocked:', error);
+            if (musicIcon) {
+                musicIcon.textContent = '🔊';
+            }
+            setTimeout(function() {
+                if (!musicStarted) {
+                    forceAutoPlay();
+                }
+            }, 1000);
         });
+        
+        setTimeout(function() {
+            if (hiddenButton.parentNode) {
+                hiddenButton.parentNode.removeChild(hiddenButton);
+            }
+        }, 100);
     }
-    document.removeEventListener("click", playMusic);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(forceAutoPlay, 100);
+    setTimeout(forceAutoPlay, 300);
+    setTimeout(forceAutoPlay, 500);
+    setTimeout(forceAutoPlay, 1000);
+    setTimeout(forceAutoPlay, 2000);
 });
 
-window.addEventListener("load", function() {
-    var audio = document.getElementById("music");
-    if (audio) {
-        audio.play().catch(function(err) {
-            console.log('Audio autoplay failed:', err);
-        });
+document.addEventListener('visibilitychange', function() {
+    if (!document.hidden && !musicStarted) {
+        setTimeout(forceAutoPlay, 200);
     }
 });
+
+function backupPlay() {
+    if (!musicStarted) {
+        forceAutoPlay();
+    }
+}
+
+document.addEventListener('click', backupPlay);
+document.addEventListener('touchstart', backupPlay);
+document.addEventListener('scroll', backupPlay);
+
+function toggleMusic() {
+    if (audio) {
+        if (isMusicPlaying) {
+            audio.pause();
+            isMusicPlaying = false;
+            if (musicIcon) {
+                musicIcon.textContent = '🔇';
+            }
+        } else {
+            audio.play().then(function() {
+                isMusicPlaying = true;
+                musicStarted = true;
+                if (musicIcon) {
+                    musicIcon.textContent = '🔊';
+                }
+            }).catch(function(error) {
+                console.log('Play failed:', error);
+            });
+        }
+    }
+}
 
 // ================================================================
 // 🎯 LIGHTBOX FUNCTIONS
@@ -253,7 +440,6 @@ function openLightbox(element) {
     const img = document.getElementById('lightbox-img');
     const caption = document.getElementById('lightbox-caption');
     
-    // Get image source from clicked element
     const imgSrc = element.querySelector('img').src;
     const imgAlt = element.querySelector('img').alt || 'Memory';
     
@@ -269,7 +455,6 @@ function closeLightbox() {
     document.body.style.overflow = 'auto';
 }
 
-// Close lightbox with Escape key
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeLightbox();
