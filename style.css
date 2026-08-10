@@ -1164,8 +1164,30 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL - VERY SLOW FADE IN                                   */
+/* 🎯 MODAL - FADE IN ANIMATIONS                                  */
 /* ================================================================ */
+
+@keyframes modalSlowFadeIn {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.95) translateY(40px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+@keyframes modalVerySlowFadeIn {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.92) translateY(50px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
 
 .modal {
     display: none;
@@ -1185,28 +1207,6 @@ body::after {
 
 .modal.show {
     display: flex;
-}
-
-@keyframes modalVerySlowFadeIn {
-    0% { 
-        opacity: 0; 
-        transform: scale(0.92) translateY(50px); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: scale(1) translateY(0); 
-    }
-}
-
-@keyframes modalSlowFadeIn {
-    0% { 
-        opacity: 0; 
-        transform: scale(0.95) translateY(40px); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: scale(1) translateY(0); 
-    }
 }
 
 .modal-content {
