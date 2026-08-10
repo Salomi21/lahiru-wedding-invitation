@@ -86,7 +86,6 @@ function checkAndHideButtons() {
     const name = getGuestNameFromURL();
     const shareContainer = document.getElementById('shareButtonContainer');
     
-    // 🔥 If name exists in URL, hide share buttons (recipient)
     if (name) {
         if (shareContainer) {
             shareContainer.style.display = 'none';
@@ -141,11 +140,11 @@ function shareWithCustomName() {
     const shareUrl = `${url}?name=${encodedName}`;
     
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💗 *${guestName}*, අපගේ විවාහටයට ඔබට ආරාධනා කරනවා!\n\n`;
+    message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
-    message += `💗 සුභ විවාහයක් වේවා! 💗`;
+    message += `💗 සුභ ගමනක් වේවා! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -165,7 +164,7 @@ function shareInvitationSimple() {
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View the full invitation:\n${url}\n\n`;
-    message += `💗 සුභ විවාහයක් වේවා! 💗`;
+    message += `💗 සුභ ගමනක් වේවා! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -179,22 +178,23 @@ function shareInvitationSimple() {
 function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
+    const bgImage = document.querySelector('.door-bg-image');
+    const topIcons = document.querySelector('.door-top-icons');
     
-    // Reset door
+    // 🔥 RESET EVERYTHING - Ensure BG image is hidden
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
     doorOverlay.style.transition = 'opacity 0.8s ease';
     
-    // Reset BG image
-    const bgImage = document.querySelector('.door-bg-image');
+    // 🔥 BG Image - Start hidden
     if (bgImage) {
         bgImage.style.opacity = '0';
         bgImage.style.transition = 'opacity 6s ease';
+        bgImage.style.filter = 'blur(10px) brightness(0.3)';
     }
     
-    // Reset top icon
-    const topIcons = document.querySelector('.door-top-icons');
+    // 🔥 Top Icons - Start hidden
     if (topIcons) {
         topIcons.style.opacity = '0';
         topIcons.style.transform = 'translateX(-50%) translateY(-30px)';
@@ -218,10 +218,11 @@ function openDoorAnimation() {
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
-        // 🐌 BG IMAGE - appears slowly over 6s
+        // 🔥 BG IMAGE - Appears slowly ONLY when door opens
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
+                bgImage.style.filter = 'blur(0px) brightness(1)';
             }
         }, 200);
         
@@ -235,11 +236,16 @@ function openDoorAnimation() {
         
     }, 1000);
     
-    // 🐌 Show invitation after door fully opens (7.5s total)
+    // 🐌 Show invitation after door fully opens
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
+            // 🔥 Reset BG image after door closes
+            if (bgImage) {
+                bgImage.style.opacity = '0';
+                bgImage.style.filter = 'blur(10px) brightness(0.3)';
+            }
             openInvitationSlow();
         }, 500);
     }, 7500);
@@ -269,6 +275,8 @@ function closeInvitationAndGoBack() {
     const modal = document.getElementById('invitationModal');
     const mainCard = document.getElementById('mainCard');
     const doorOverlay = document.getElementById('doorOverlay');
+    const bgImage = document.querySelector('.door-bg-image');
+    const topIcons = document.querySelector('.door-top-icons');
     
     // Close modal
     if (modal) {
@@ -276,19 +284,19 @@ function closeInvitationAndGoBack() {
         document.body.style.overflow = 'auto';
     }
     
-    // Reset door
+    // 🔥 Reset door - HIDE EVERYTHING
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
     
-    // Reset BG image
-    const bgImage = document.querySelector('.door-bg-image');
+    // 🔥 BG Image - Force hidden
     if (bgImage) {
         bgImage.style.opacity = '0';
+        bgImage.style.filter = 'blur(10px) brightness(0.3)';
+        bgImage.style.transition = 'none';
     }
     
-    // Reset top icon
-    const topIcons = document.querySelector('.door-top-icons');
+    // 🔥 Top Icons - Force hidden
     if (topIcons) {
         topIcons.style.opacity = '0';
         topIcons.style.transform = 'translateX(-50%) translateY(-30px)';
@@ -423,7 +431,7 @@ var countdownInterval = setInterval(function() {
     var distance = homecomingDate - now;
 
     if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "💗 Homecoming! 💗";
+        document.getElementById("countdown").innerHTML = "💗 අදම Homecoming! 💗";
         clearInterval(countdownInterval);
         return;
     }
