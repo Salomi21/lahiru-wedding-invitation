@@ -74,18 +74,25 @@ window.addEventListener('load', () => {
 });
 
 // ================================================================
-// 🚪 EXTRA SLOW DOOR OPEN ANIMATION - 6 SECONDS
+// 🚪 DOOR OPEN ANIMATION - Opens on View Invitation Click
 // ================================================================
 
 function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
+    const invitationModal = document.getElementById('invitationModal');
     
-    // Reset door but keep display flex
+    // Close invitation modal if open
+    if (invitationModal.classList.contains('show')) {
+        invitationModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Reset door
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
-    doorOverlay.style.transition = 'opacity 0.8s ease';
+    doorOverlay.style.transition = 'opacity 0.6s ease';
     
     // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
@@ -102,16 +109,15 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
-    // Fade in door overlay
+    // Show door overlay
     setTimeout(() => {
         doorOverlay.style.opacity = '1';
     }, 100);
     
-    // 🐌 EXTRA SLOW DOOR OPEN - starts after 0.8s, takes 5s
+    // 🐌 SLOW DOOR OPEN
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
-        // 🐌 EXTRA SLOW BG IMAGE - appears slowly over 5s
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
@@ -120,11 +126,12 @@ function openDoorAnimation() {
         
     }, 800);
     
-    // 🐌 EXTRA SLOW INVITATION - shown after door fully opens (6.8s total)
+    // 🐌 Show invitation after door opens
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
+            // Show invitation modal
             openInvitation();
         }, 500);
     }, 6800);
@@ -147,12 +154,13 @@ function openInvitation() {
 }
 
 // ================================================================
-// 🎯 CLOSE INVITATION AND GO BACK
+// 🎯 CLOSE INVITATION AND GO BACK TO MAIN PAGE
 // ================================================================
 
 function closeInvitationAndGoBack() {
     const modal = document.getElementById('invitationModal');
     const mainCard = document.getElementById('mainCard');
+    const doorOverlay = document.getElementById('doorOverlay');
     
     // Close modal
     if (modal) {
@@ -161,10 +169,9 @@ function closeInvitationAndGoBack() {
     }
     
     // Reset door
-    const doorOverlay = document.getElementById('doorOverlay');
     doorOverlay.classList.remove('open', 'hidden');
+    doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
-    doorOverlay.style.transition = 'opacity 0.3s ease';
     
     // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
