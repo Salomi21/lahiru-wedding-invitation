@@ -47,7 +47,7 @@ body::after {
     pointer-events: none;
 }
 
-/* ----- SPARKLE PARTICLES - Pink & White ----- */
+/* ----- SPARKLE PARTICLES ----- */
 #sparkle-container {
     position: fixed;
     top: 0;
@@ -86,7 +86,7 @@ body::after {
     100% { transform: translateY(-10vh) scale(0) rotate(360deg); opacity: 0; }
 }
 
-/* ----- FLOATING HEARTS - Pink & White ----- */
+/* ----- FLOATING HEARTS ----- */
 #hearts-container {
     position: fixed;
     top: 0;
@@ -141,7 +141,7 @@ body::after {
 }
 
 /* =========================================== */
-/* 🎯 MAIN CARD - CLEAN & ELEGANT            */
+/* 🎯 MAIN CARD                               */
 /* =========================================== */
 .container {
     position: relative;
@@ -192,7 +192,7 @@ body::after {
     opacity: 0.15;
 }
 
-/* ----- HEART ICON MAIN - Replaces Home Icon ----- */
+/* ----- HEART ICON MAIN ----- */
 .heart-icon-main {
     font-size: 38px;
     margin-bottom: 5px;
@@ -220,7 +220,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 TITLE - Homecoming (GOLD & PINK - BRIGHT)                   */
+/* 🎯 TITLE - Homecoming (GOLD & PINK)                            */
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
@@ -298,7 +298,6 @@ body::after {
 .divider-icon {
     font-size: 18px;
 }
-
 .divider-icon:nth-child(1) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
 .divider-icon:nth-child(2) { color: #f472b6; text-shadow: 0 0 30px rgba(244,114,182,0.3); }
 .divider-icon:nth-child(3) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
@@ -477,7 +476,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 VIEW INVITATION CONTAINER - Always Visible                   */
+/* 🎯 VIEW INVITATION CONTAINER                                   */
 /* ================================================================ */
 
 #viewInvitationContainer {
@@ -494,7 +493,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 SHARE BUTTON CONTAINER - Hidden by default                   */
+/* 🎯 SHARE BUTTON CONTAINER                                      */
 /* ================================================================ */
 
 #shareButtonContainer {
@@ -514,10 +513,7 @@ body::after {
     margin-top: 10px;
 }
 
-/* ================================================================ */
-/* 🎯 SHARE WITH NAME INPUT - Styling                             */
-/* ================================================================ */
-
+/* ----- SHARE WITH NAME INPUT ----- */
 .share-name-input {
     display: flex;
     flex-direction: column;
@@ -628,7 +624,7 @@ body::after {
     50% { opacity: 0.7; transform: scale(1.06); }
 }
 
-/* ----- STICKER OVERLAY - Pink ----- */
+/* ----- STICKER OVERLAY ----- */
 .sticker-overlay {
     position: absolute;
     bottom: -8px;
@@ -664,7 +660,7 @@ body::after {
     50% { transform: scale(1.12); }
 }
 
-/* ----- TRADITIONAL ICONS - Pink Only ----- */
+/* ----- TRADITIONAL ICONS ----- */
 .traditional-icons {
     display: flex;
     justify-content: center;
@@ -691,7 +687,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🚪 FULL PAGE DOOR - PINK THEME                                 */
+/* 🚪 FULL PAGE DOOR                                              */
 /* ================================================================ */
 
 .door-overlay {
@@ -717,7 +713,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 💗 DOOR TOP ICON - ONLY HEART (Home Icon Removed)              */
+/* 💗 DOOR TOP ICON                                                */
 /* ================================================================ */
 
 .door-top-icons {
@@ -749,7 +745,6 @@ body::after {
     50% { transform: translateY(-10px) scale(1.1); }
 }
 
-/* Door Open State - Heart Icon Appears */
 .door-overlay.open .door-top-icons {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
@@ -785,7 +780,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎨 DOOR TOP DECORATION - No Home Icon                          */
+/* 🎨 DOOR TOP DECORATION                                         */
 /* ================================================================ */
 
 .door-top-deco {
@@ -816,7 +811,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🚪 DOOR CONTAINER - FULL PAGE                                  */
+/* 🚪 DOOR CONTAINER                                              */
 /* ================================================================ */
 
 .door-container {
@@ -830,7 +825,6 @@ body::after {
     margin-bottom: 20px;
 }
 
-/* Left Door - Pink & Purple Theme */
 .door-left,
 .door-right {
     position: absolute;
@@ -977,7 +971,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 DOOR HANDLE - GOLD                                          */
+/* 🎯 DOOR HANDLE                                                 */
 /* ================================================================ */
 
 .door-handle {
@@ -998,29 +992,12 @@ body::after {
     animation: handleGlow 3s ease-in-out infinite;
 }
 
-.door-left .door-handle {
-    right: 25px;
-}
-
-.door-right .door-handle {
-    left: 25px;
-}
+.door-left .door-handle { right: 25px; }
+.door-right .door-handle { left: 25px; }
 
 @keyframes handleGlow {
     0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.15); }
     50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.3); }
-}
-
-.door-handle::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 4px;
-    height: 35px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
-    border-radius: 50%;
 }
 
 /* ================================================================ */
@@ -1202,7 +1179,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* ✨ DOOR PARTICLES - No Home Icon                               */
+/* ✨ DOOR PARTICLES                                              */
 /* ================================================================ */
 
 .door-particles {
@@ -1296,24 +1273,13 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL - SLOW FADE IN ANIMATIONS                             */
+/* 🎯 MODAL - SLOW FADE IN                                       */
 /* ================================================================ */
 
 @keyframes modalSlowFadeIn {
     0% { 
         opacity: 0; 
         transform: scale(0.95) translateY(40px); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: scale(1) translateY(0); 
-    }
-}
-
-@keyframes modalVerySlowFadeIn {
-    0% { 
-        opacity: 0; 
-        transform: scale(0.92) translateY(50px); 
     }
     100% { 
         opacity: 1; 
@@ -1398,7 +1364,7 @@ body::after {
 .modal-content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
 .modal-content::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ec4899, #f472b6); border-radius: 10px; }
 
-/* ----- MODAL TOP DECORATION - No Home Icon ----- */
+/* ----- MODAL TOP DECORATION ----- */
 .modal-top-deco {
     text-align: center;
     margin-bottom: 5px;
@@ -1465,7 +1431,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL TITLE - Homecoming (BRIGHT GOLD & PINK)              */
+/* 🎯 MODAL TITLE - Homecoming                                    */
 /* ================================================================ */
 .modal-title {
     font-family: 'Great Vibes', cursive;
@@ -2253,7 +2219,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 📱 MOBILE RESPONSIVE */
+/* 📱 MOBILE RESPONSIVE                                            */
 /* ================================================================ */
 
 @media (max-width: 480px) {
@@ -2282,12 +2248,7 @@ body::after {
     .icon-item { font-size: 16px; }
     .top-decoration { font-size: 12px; letter-spacing: 10px; top: 5px; }
     
-    #viewInvitationContainer {
-        max-width: 100%;
-        padding: 0 5px;
-    }
-    
-    #shareButtonContainer {
+    #viewInvitationContainer, #shareButtonContainer {
         max-width: 100%;
         padding: 0 5px;
     }
@@ -2318,25 +2279,12 @@ body::after {
     .door-lock { width: 30px; height: 30px; }
     .door-lock::before { font-size: 12px; }
     
-    .door-top-icon {
-        font-size: 30px;
-    }
-    .door-top-icons {
-        gap: 15px;
-        top: 20px;
-    }
+    .door-top-icon { font-size: 30px; }
+    .door-top-icons { gap: 15px; top: 20px; }
     
-    .main-photo-frame img {
-        aspect-ratio: 16/12;
-    }
-    .main-photo-caption {
-        font-size: 15px;
-    }
-    .main-photo-icon {
-        font-size: 24px;
-        bottom: 10px;
-        right: 15px;
-    }
+    .main-photo-frame img { aspect-ratio: 16/12; }
+    .main-photo-caption { font-size: 15px; }
+    .main-photo-icon { font-size: 24px; bottom: 10px; right: 15px; }
     
     .modal-content {
         padding: 22px 16px 22px 16px;
@@ -2354,89 +2302,33 @@ body::after {
     .map-btn { font-size: 12px; padding: 8px 18px; }
     .modal-footer-quote { font-size: 17px; }
     
-    .rsvp-section {
-        padding: 12px 12px 14px 12px;
-    }
-    .rsvp-section input,
-    .rsvp-section select,
-    .rsvp-section textarea {
+    .rsvp-section { padding: 12px 12px 14px 12px; }
+    .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
         padding: 11px 14px;
         font-size: 13px;
     }
     
-    .gallery-grid {
-        gap: 6px;
-    }
-    .gallery-title {
-        font-size: 15px;
-    }
-    .gallery-item {
-        border-radius: 8px;
-    }
-    .gallery-icon {
-        font-size: 18px;
-    }
+    .gallery-grid { gap: 6px; }
+    .gallery-title { font-size: 15px; }
+    .gallery-item { border-radius: 8px; }
+    .gallery-icon { font-size: 18px; }
     
-    .lightbox-content {
-        max-width: 95%;
-        max-height: 70%;
-    }
-    .lightbox-close {
-        font-size: 30px;
-        top: 15px;
-        right: 20px;
-    }
-    .lightbox-caption {
-        font-size: 12px;
-        padding: 6px 16px;
-        bottom: 20px;
-    }
+    .lightbox-content { max-width: 95%; max-height: 70%; }
+    .lightbox-close { font-size: 30px; top: 15px; right: 20px; }
+    .lightbox-caption { font-size: 12px; padding: 6px 16px; bottom: 20px; }
     
-    .schedule-card {
-        padding: 14px 12px 12px 12px;
-        border-radius: 14px;
-        margin: 6px 0 12px 0;
-    }
-    .schedule-title {
-        font-size: 15px;
-    }
-    .schedule-sub {
-        font-size: 10px;
-    }
-    .schedule-icon {
-        font-size: 20px;
-    }
-    .schedule-timeline::before {
-        left: 60px;
-    }
-    .schedule-time {
-        font-size: 11px;
-        min-width: 52px;
-    }
-    .schedule-dot {
-        width: 8px;
-        height: 8px;
-        min-width: 8px;
-        margin-top: 3px;
-    }
-    .schedule-event {
-        font-size: 13px;
-    }
-    .schedule-desc {
-        font-size: 10px;
-    }
-    .schedule-item {
-        gap: 10px;
-        margin-bottom: 10px;
-    }
+    .schedule-card { padding: 14px 12px 12px 12px; border-radius: 14px; margin: 6px 0 12px 0; }
+    .schedule-title { font-size: 15px; }
+    .schedule-sub { font-size: 10px; }
+    .schedule-icon { font-size: 20px; }
+    .schedule-timeline::before { left: 60px; }
+    .schedule-time { font-size: 11px; min-width: 52px; }
+    .schedule-dot { width: 8px; height: 8px; min-width: 8px; margin-top: 3px; }
+    .schedule-event { font-size: 13px; }
+    .schedule-desc { font-size: 10px; }
+    .schedule-item { gap: 10px; margin-bottom: 10px; }
     
-    .sound-icon {
-        width: 42px;
-        height: 42px;
-        font-size: 18px;
-        bottom: 15px;
-        right: 15px;
-    }
+    .sound-icon { width: 42px; height: 42px; font-size: 18px; bottom: 15px; right: 15px; }
 }
 
 @media (max-width: 380px) {
@@ -2454,35 +2346,18 @@ body::after {
     .door-handle { width: 10px; height: 30px; }
     .door-left .door-handle { right: 8px; }
     .door-right .door-handle { left: 8px; }
+    .door-top-icon { font-size: 24px; }
+    .door-top-icons { gap: 10px; top: 15px; }
     
-    .door-top-icon {
-        font-size: 24px;
-    }
-    .door-top-icons {
-        gap: 10px;
-        top: 15px;
-    }
-    
-    .gallery-grid {
-        gap: 4px;
-    }
-    .schedule-time {
-        font-size: 10px;
-        min-width: 45px;
-    }
-    .schedule-timeline::before {
-        left: 50px;
-    }
-    .schedule-event {
-        font-size: 12px;
-    }
+    .gallery-grid { gap: 4px; }
+    .schedule-time { font-size: 10px; min-width: 45px; }
+    .schedule-timeline::before { left: 50px; }
+    .schedule-event { font-size: 12px; }
     .venue-text { font-size: 12px; }
     #countdown { font-size: 16px; min-width: 140px; padding: 8px 12px; }
     .highlight-text { font-size: 12px; padding: 2px 10px; }
     .main-photo-caption { font-size: 13px; }
-    .rsvp-section {
-        padding: 10px 10px 12px 10px;
-    }
+    .rsvp-section { padding: 10px 10px 12px 10px; }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -2493,18 +2368,10 @@ body::after {
     .venue-text { font-size: 16px; }
     .modal-content { padding: 28px 22px 24px 22px; max-width: 420px; }
     .form-buttons { flex-direction: row; }
-    .rsvp-section {
-        padding: 14px 16px 16px 16px;
-    }
-    .door-container {
-        width: 75vw;
-        height: 60vh;
-        max-height: 420px;
-    }
+    .rsvp-section { padding: 14px 16px 16px 16px; }
+    .door-container { width: 75vw; height: 60vh; max-height: 420px; }
     .center-title { font-size: 26px; }
-    .door-top-icon {
-        font-size: 35px;
-    }
+    .door-top-icon { font-size: 35px; }
     .heart-icon-main { font-size: 34px; }
 }
 
@@ -2512,11 +2379,7 @@ body::after {
     .container { max-width: 460px; padding: 45px 30px 55px 30px; }
     .title { font-size: 44px; }
     .subtitle { font-size: 15px; letter-spacing: 5px; }
-    .door-container {
-        width: 65vw;
-        height: 65vh;
-        max-height: 500px;
-    }
+    .door-container { width: 65vw; height: 65vh; max-height: 500px; }
 }
 
 @media (min-width: 1025px) {
@@ -2524,12 +2387,7 @@ body::after {
     .title { font-size: 48px; }
     .subtitle { font-size: 16px; letter-spacing: 6px; }
     #countdown { font-size: 26px; min-width: 220px; }
-    .door-container {
-        width: 70vw;
-        max-width: 750px;
-        height: 70vh;
-        max-height: 600px;
-    }
+    .door-container { width: 70vw; max-width: 750px; height: 70vh; max-height: 600px; }
 }
 
 @media (max-height: 600px) and (orientation: landscape) {
@@ -2553,29 +2411,15 @@ body::after {
     .divider { margin: 6px auto 10px auto; }
     .modal-content { max-height: 80vh; padding: 15px 12px 15px 12px; }
     
-    #viewInvitationContainer {
-        max-width: 100%;
-        margin-top: 6px;
-    }
-    #shareButtonContainer {
+    #viewInvitationContainer, #shareButtonContainer {
         max-width: 100%;
         margin-top: 6px;
     }
     
-    .share-name-input {
-        gap: 5px;
-        margin-top: 8px;
-    }
-    .share-name-input input {
-        padding: 8px 12px;
-        font-size: 12px;
-    }
+    .share-name-input { gap: 5px; margin-top: 8px; }
+    .share-name-input input { padding: 8px 12px; font-size: 12px; }
     
-    .door-container {
-        width: 60vw;
-        height: 70vh;
-        max-height: 350px;
-    }
+    .door-container { width: 60vw; height: 70vh; max-height: 350px; }
     .door-heart { font-size: 40px; }
     .center-title { font-size: 18px; }
     .center-sub { font-size: 11px; }
@@ -2584,102 +2428,37 @@ body::after {
     .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 5px; }
     .door-particles span { font-size: 12px; }
     .door-handle { width: 10px; height: 32px; }
+    .door-top-icon { font-size: 25px; }
+    .door-top-icons { gap: 12px; top: 15px; }
     
-    .door-top-icon {
-        font-size: 25px;
-    }
-    .door-top-icons {
-        gap: 12px;
-        top: 15px;
-    }
+    .main-photo-frame img { aspect-ratio: 16/9; }
+    .main-photo-caption { font-size: 13px; margin-top: 6px; }
+    .main-photo-icon { font-size: 20px; bottom: 8px; right: 12px; }
     
-    .main-photo-frame img {
-        aspect-ratio: 16/9;
-    }
-    .main-photo-caption {
-        font-size: 13px;
-        margin-top: 6px;
-    }
-    .main-photo-icon {
-        font-size: 20px;
-        bottom: 8px;
-        right: 12px;
-    }
-    
-    .rsvp-section {
-        padding: 10px 12px 12px 12px;
-    }
-    .rsvp-section input,
-    .rsvp-section select,
-    .rsvp-section textarea {
+    .rsvp-section { padding: 10px 12px 12px 12px; }
+    .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
         padding: 8px 12px;
         font-size: 12px;
         margin-bottom: 8px;
     }
-    .rsvp-sub {
-        font-size: 11px;
-        margin-bottom: 10px;
-    }
-    .form-buttons button {
-        padding: 10px;
-        font-size: 12px;
-    }
+    .rsvp-sub { font-size: 11px; margin-bottom: 10px; }
+    .form-buttons button { padding: 10px; font-size: 12px; }
     
-    .gallery-grid {
-        gap: 4px;
-    }
-    .gallery-title {
-        font-size: 13px;
-    }
-    .gallery-sub {
-        font-size: 9px;
-    }
-    .gallery-item {
-        border-radius: 6px;
-    }
-    .gallery-icon {
-        font-size: 14px;
-    }
+    .gallery-grid { gap: 4px; }
+    .gallery-title { font-size: 13px; }
+    .gallery-sub { font-size: 9px; }
+    .gallery-item { border-radius: 6px; }
+    .gallery-icon { font-size: 14px; }
     
-    .schedule-card {
-        padding: 10px 8px 8px 8px;
-        margin: 4px 0 8px 0;
-    }
-    .schedule-title {
-        font-size: 13px;
-    }
-    .schedule-icon {
-        font-size: 16px;
-    }
-    .schedule-timeline::before {
-        left: 55px;
-    }
-    .schedule-time {
-        font-size: 10px;
-        min-width: 48px;
-    }
-    .schedule-event {
-        font-size: 12px;
-    }
-    .schedule-desc {
-        font-size: 9px;
-    }
-    .schedule-item {
-        gap: 8px;
-        margin-bottom: 8px;
-    }
-    .schedule-dot {
-        width: 7px;
-        height: 7px;
-        min-width: 7px;
-        margin-top: 2px;
-    }
+    .schedule-card { padding: 10px 8px 8px 8px; margin: 4px 0 8px 0; }
+    .schedule-title { font-size: 13px; }
+    .schedule-icon { font-size: 16px; }
+    .schedule-timeline::before { left: 55px; }
+    .schedule-time { font-size: 10px; min-width: 48px; }
+    .schedule-event { font-size: 12px; }
+    .schedule-desc { font-size: 9px; }
+    .schedule-item { gap: 8px; margin-bottom: 8px; }
+    .schedule-dot { width: 7px; height: 7px; min-width: 7px; margin-top: 2px; }
     
-    .sound-icon {
-        width: 36px;
-        height: 36px;
-        font-size: 16px;
-        bottom: 10px;
-        right: 10px;
-    }
+    .sound-icon { width: 36px; height: 36px; font-size: 16px; bottom: 10px; right: 10px; }
 }
