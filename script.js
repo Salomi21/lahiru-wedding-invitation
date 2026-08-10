@@ -179,9 +179,8 @@ function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
     const bgImage = document.querySelector('.door-bg-image');
-    const topIcons = document.querySelector('.door-top-icons');
     
-    // 🔥 RESET EVERYTHING - Ensure BG image is hidden
+    // 🔥 RESET DOOR - BG Image hidden
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
@@ -192,13 +191,6 @@ function openDoorAnimation() {
         bgImage.style.opacity = '0';
         bgImage.style.transition = 'opacity 6s ease';
         bgImage.style.filter = 'blur(10px) brightness(0.3)';
-    }
-    
-    // 🔥 Top Icons - Start hidden
-    if (topIcons) {
-        topIcons.style.opacity = '0';
-        topIcons.style.transform = 'translateX(-50%) translateY(-30px)';
-        topIcons.style.transition = 'all 1.8s ease';
     }
     
     // Hide main card
@@ -225,14 +217,6 @@ function openDoorAnimation() {
                 bgImage.style.filter = 'blur(0px) brightness(1)';
             }
         }, 200);
-        
-        // 💗 Heart Icon appears
-        setTimeout(() => {
-            if (topIcons) {
-                topIcons.style.opacity = '1';
-                topIcons.style.transform = 'translateX(-50%) translateY(0)';
-            }
-        }, 800);
         
     }, 1000);
     
@@ -276,7 +260,6 @@ function closeInvitationAndGoBack() {
     const mainCard = document.getElementById('mainCard');
     const doorOverlay = document.getElementById('doorOverlay');
     const bgImage = document.querySelector('.door-bg-image');
-    const topIcons = document.querySelector('.door-top-icons');
     
     // Close modal
     if (modal) {
@@ -294,12 +277,6 @@ function closeInvitationAndGoBack() {
         bgImage.style.opacity = '0';
         bgImage.style.filter = 'blur(10px) brightness(0.3)';
         bgImage.style.transition = 'none';
-    }
-    
-    // 🔥 Top Icons - Force hidden
-    if (topIcons) {
-        topIcons.style.opacity = '0';
-        topIcons.style.transform = 'translateX(-50%) translateY(-30px)';
     }
     
     // Show main card
