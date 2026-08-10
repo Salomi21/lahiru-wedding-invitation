@@ -101,9 +101,6 @@ function displayGuestName() {
         if (invText) {
             invText.innerHTML = `💗 ${decodedName}, අපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!<br>After our wedding, we are coming home!`;
         }
-        
-        // 🔥 DO NOT auto-open door - Just show personalized message
-        // Door will only open when user clicks "View Invitation" button
     }
 }
 
@@ -162,7 +159,7 @@ function shareInvitationSimple() {
 }
 
 // ================================================================
-// 🚪 DOOR OPEN ANIMATION - ONLY WHEN VIEW INVITATION CLICKED
+// 🚪 DOOR OPEN ANIMATION - EXTRA SLOW (6 SECONDS)
 // ================================================================
 
 function openDoorAnimation() {
@@ -173,13 +170,21 @@ function openDoorAnimation() {
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
-    doorOverlay.style.transition = 'opacity 0.6s ease';
+    doorOverlay.style.transition = 'opacity 0.8s ease';
     
     // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
-        bgImage.style.transition = 'opacity 4s ease';
+        bgImage.style.transition = 'opacity 6s ease';
+    }
+    
+    // Reset top icons (Home & Heart)
+    const topIcons = document.querySelector('.door-top-icons');
+    if (topIcons) {
+        topIcons.style.opacity = '0';
+        topIcons.style.transform = 'translateY(-30px)';
+        topIcons.style.transition = 'all 1.5s ease';
     }
     
     // Hide main card with smooth transition
@@ -195,27 +200,35 @@ function openDoorAnimation() {
         doorOverlay.style.opacity = '1';
     }, 100);
     
-    // 🐌 SLOW DOOR OPEN - starts after 0.5s, takes 4s
+    // 🐌 EXTRA SLOW DOOR OPEN - starts after 1s, takes 6s
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
-        // 🐌 BG IMAGE - appears slowly when door opens
+        // 🐌 BG IMAGE - appears slowly over 6s
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
             }
-        }, 100);
+        }, 200);
         
-    }, 600);
+        // 🏠💗 Top Icons appear and move up
+        setTimeout(() => {
+            if (topIcons) {
+                topIcons.style.opacity = '1';
+                topIcons.style.transform = 'translateY(0)';
+            }
+        }, 800);
+        
+    }, 1000);
     
-    // 🐌 Show invitation after door fully opens (5s total)
+    // 🐌 Show invitation after door fully opens (7.5s total)
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
             openInvitationSlow();
-        }, 400);
-    }, 5000);
+        }, 500);
+    }, 7500);
 }
 
 // ================================================================
@@ -228,7 +241,7 @@ function openInvitationSlow() {
         modal.classList.add('show');
         const content = modal.querySelector('.modal-content');
         if (content) {
-            content.style.animation = 'modalSlowFadeIn 2s ease forwards';
+            content.style.animation = 'modalSlowFadeIn 2.5s ease forwards';
         }
         document.body.style.overflow = 'hidden';
     }
@@ -270,6 +283,13 @@ function closeInvitationAndGoBack() {
     const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
+    }
+    
+    // Reset top icons
+    const topIcons = document.querySelector('.door-top-icons');
+    if (topIcons) {
+        topIcons.style.opacity = '0';
+        topIcons.style.transform = 'translateY(-30px)';
     }
     
     // Show main card with fade in
@@ -464,7 +484,7 @@ function forceAutoPlay() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 🔥 Display personalized message if name exists in URL
+    // Display personalized message if name exists in URL
     displayGuestName();
     
     setTimeout(forceAutoPlay, 100);
