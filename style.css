@@ -477,6 +477,95 @@ body::after {
 }
 
 /* ================================================================ */
+/* 🎯 VIEW INVITATION CONTAINER - Always Visible                   */
+/* ================================================================ */
+
+#viewInvitationContainer {
+    display: block;
+    margin-top: 18px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#viewInvitationContainer .btn-primary {
+    margin-top: 0;
+}
+
+/* ================================================================ */
+/* 🎯 SHARE BUTTON CONTAINER - Hidden by default                   */
+/* ================================================================ */
+
+#shareButtonContainer {
+    display: none;
+    margin-top: 12px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#shareButtonContainer .share-name-input {
+    margin-top: 0;
+}
+
+#shareButtonContainer .btn-whatsapp {
+    margin-top: 10px;
+}
+
+/* ================================================================ */
+/* 🎯 SHARE WITH NAME INPUT - Styling                             */
+/* ================================================================ */
+
+.share-name-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.share-name-input input {
+    padding: 13px 18px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: #f0e6f6;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    transition: all 0.3s ease;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.share-name-input input::placeholder {
+    color: #8a6a7a;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.share-name-input input:focus {
+    outline: none;
+    border-color: #ec4899;
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.15), 0 0 60px rgba(236, 72, 153, 0.05);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.share-name-input input:focus::placeholder {
+    color: transparent;
+}
+
+.share-name-input .btn-whatsapp {
+    margin-top: 0;
+}
+
+/* ================================================================ */
 /* 🎯 PHOTO FRAME - Pink Theme                                    */
 /* ================================================================ */
 .photo-frame {
@@ -2164,57 +2253,6 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 SHARE WITH NAME INPUT - Styling                             */
-/* ================================================================ */
-
-.share-name-input {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 14px;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
-
-.share-name-input input {
-    padding: 13px 18px;
-    border-radius: 50px;
-    border: 1.5px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.04);
-    color: #f0e6f6;
-    font-size: 14px;
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    transition: all 0.3s ease;
-    width: 100%;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.share-name-input input::placeholder {
-    color: #8a6a7a;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-}
-
-.share-name-input input:focus {
-    outline: none;
-    border-color: #ec4899;
-    box-shadow: 0 0 30px rgba(236, 72, 153, 0.15), 0 0 60px rgba(236, 72, 153, 0.05);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.share-name-input input:focus::placeholder {
-    color: transparent;
-}
-
-.share-name-input .btn-whatsapp {
-    margin-top: 0;
-}
-
-/* ================================================================ */
 /* 📱 MOBILE RESPONSIVE */
 /* ================================================================ */
 
@@ -2244,10 +2282,16 @@ body::after {
     .icon-item { font-size: 16px; }
     .top-decoration { font-size: 12px; letter-spacing: 10px; top: 5px; }
     
-    .share-name-input {
+    #viewInvitationContainer {
         max-width: 100%;
         padding: 0 5px;
     }
+    
+    #shareButtonContainer {
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    
     .share-name-input input {
         font-size: 13px;
         padding: 11px 14px;
@@ -2461,9 +2505,6 @@ body::after {
     .door-top-icon {
         font-size: 35px;
     }
-    .share-name-input {
-        max-width: 280px;
-    }
     .heart-icon-main { font-size: 34px; }
 }
 
@@ -2475,9 +2516,6 @@ body::after {
         width: 65vw;
         height: 65vh;
         max-height: 500px;
-    }
-    .share-name-input {
-        max-width: 300px;
     }
 }
 
@@ -2491,9 +2529,6 @@ body::after {
         max-width: 750px;
         height: 70vh;
         max-height: 600px;
-    }
-    .share-name-input {
-        max-width: 320px;
     }
 }
 
@@ -2517,6 +2552,15 @@ body::after {
     .sticker-emoji { font-size: 28px; }
     .divider { margin: 6px auto 10px auto; }
     .modal-content { max-height: 80vh; padding: 15px 12px 15px 12px; }
+    
+    #viewInvitationContainer {
+        max-width: 100%;
+        margin-top: 6px;
+    }
+    #shareButtonContainer {
+        max-width: 100%;
+        margin-top: 6px;
+    }
     
     .share-name-input {
         gap: 5px;
