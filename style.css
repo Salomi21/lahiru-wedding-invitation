@@ -2121,6 +2121,105 @@ body::after {
 }
 
 /* ================================================================ */
+/* 🎯 SHARE WITH NAME INPUT - Styling                             */
+/* ================================================================ */
+
+.share-name-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 14px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.share-name-input input {
+    padding: 13px 18px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: #f0e6f6;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    transition: all 0.3s ease;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.share-name-input input::placeholder {
+    color: #8a6a7a;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.share-name-input input:focus {
+    outline: none;
+    border-color: #ec4899;
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.15), 0 0 60px rgba(236, 72, 153, 0.05);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.share-name-input input:focus::placeholder {
+    color: transparent;
+}
+
+.share-name-input .btn-whatsapp {
+    margin-top: 0;
+}
+
+/* ----- Mobile Responsive for Share Input ----- */
+@media (max-width: 480px) {
+    .share-name-input {
+        max-width: 100%;
+        padding: 0 5px;
+    }
+    .share-name-input input {
+        font-size: 13px;
+        padding: 11px 14px;
+    }
+}
+
+@media (max-width: 380px) {
+    .share-name-input input {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .share-name-input {
+        max-width: 280px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .share-name-input {
+        max-width: 300px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .share-name-input {
+        max-width: 320px;
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .share-name-input {
+        gap: 5px;
+        margin-top: 8px;
+    }
+    .share-name-input input {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+/* ================================================================ */
 /* 📱 MOBILE RESPONSIVE */
 /* ================================================================ */
 
