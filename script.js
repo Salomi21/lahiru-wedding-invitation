@@ -91,10 +91,8 @@ function checkAndHideButtons() {
         if (shareContainer) {
             shareContainer.style.display = 'none';
         }
-        // Show personalized message
         displayGuestName(name);
     } else {
-        // 🔥 Sender - Show share buttons
         if (shareContainer) {
             shareContainer.style.display = 'block';
         }
@@ -109,7 +107,6 @@ function displayGuestName(name) {
     if (name) {
         const decodedName = decodeURIComponent(name);
         
-        // Update main subtitle - PERSONALIZED
         const subtitle = document.getElementById('mainSubtitle');
         if (subtitle) {
             subtitle.innerHTML = `💗 ${decodedName} ඔබට ආරාධනාවක්! 💗`;
@@ -118,16 +115,10 @@ function displayGuestName(name) {
             subtitle.style.letterSpacing = '2px';
         }
         
-        // Update invitation text in modal - PERSONALIZED
         const invText = document.getElementById('invitationText');
         if (invText) {
             invText.innerHTML = `💗 ${decodedName}, අපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!<br>After our wedding, we are coming home!`;
         }
-        
-        // 🔥 Auto open door when name is in URL
-        setTimeout(() => {
-            openDoorAnimation();
-        }, 1000);
     }
 }
 
@@ -145,12 +136,10 @@ function shareWithCustomName() {
         return;
     }
     
-    // Get base URL without parameters
     const url = window.location.href.split('?')[0];
     const encodedName = encodeURIComponent(guestName);
     const shareUrl = `${url}?name=${encodedName}`;
     
-    // WhatsApp message
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
     message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
@@ -161,8 +150,6 @@ function shareWithCustomName() {
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
-    
-    // Reset input after sharing
     nameInput.value = '';
 }
 
@@ -206,7 +193,7 @@ function openDoorAnimation() {
         bgImage.style.transition = 'opacity 6s ease';
     }
     
-    // Reset top icon (Heart only)
+    // Reset top icon
     const topIcons = document.querySelector('.door-top-icons');
     if (topIcons) {
         topIcons.style.opacity = '0';
@@ -214,7 +201,7 @@ function openDoorAnimation() {
         topIcons.style.transition = 'all 1.8s ease';
     }
     
-    // Hide main card with smooth transition
+    // Hide main card
     mainCard.style.transition = 'opacity 0.5s ease';
     mainCard.style.opacity = '0';
     
@@ -222,7 +209,7 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
-    // Show door overlay with fade in
+    // Show door overlay
     setTimeout(() => {
         doorOverlay.style.opacity = '1';
     }, 100);
@@ -238,7 +225,7 @@ function openDoorAnimation() {
             }
         }, 200);
         
-        // 💗 Heart Icon appears and moves up
+        // 💗 Heart Icon appears
         setTimeout(() => {
             if (topIcons) {
                 topIcons.style.opacity = '1';
@@ -269,18 +256,6 @@ function openInvitationSlow() {
         const content = modal.querySelector('.modal-content');
         if (content) {
             content.style.animation = 'modalSlowFadeIn 2.5s ease forwards';
-        }
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function openInvitation() {
-    const modal = document.getElementById('invitationModal');
-    if (modal) {
-        modal.classList.add('show');
-        const content = modal.querySelector('.modal-content');
-        if (content) {
-            content.style.animation = 'modalSlowFadeIn 1.5s ease forwards';
         }
         document.body.style.overflow = 'hidden';
     }
@@ -319,7 +294,7 @@ function closeInvitationAndGoBack() {
         topIcons.style.transform = 'translateX(-50%) translateY(-30px)';
     }
     
-    // Show main card with fade in
+    // Show main card
     setTimeout(() => {
         mainCard.style.display = 'block';
         mainCard.style.opacity = '0';
@@ -511,7 +486,6 @@ function forceAutoPlay() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 🔥 Check if name exists and hide share buttons
     checkAndHideButtons();
     
     setTimeout(forceAutoPlay, 100);
