@@ -22,7 +22,7 @@
     <!-- ============================================ -->
     <!-- MAIN CARD - Pink & White Theme               -->
     <!-- ============================================ -->
-    <div class="container">
+    <div class="container" id="mainCard">
 
         <!-- Traditional Icons -->
         <div class="traditional-icons">
@@ -59,22 +59,18 @@
             <span class="divider-icon">💗</span>
         </div>
 
-        <!-- 📅 REMOVED ICON - Just text now -->
         <h2 class="date">15 September 2026</h2>
-        
-        <!-- 🔥 VENUE - Normal text without button styling -->
         <p class="venue-text">📍 Sasindu Products, MahaUswewa, Anamaduwa</p>
 
         <div id="countdown"></div>
 
-        <!-- 🔥 HIGHLIGHTED DESCRIPTION - Bright & Glowing -->
         <p class="description-highlighted">
             💗 With love, we are coming home!!<br />
             <span class="highlight-text">✨ Join us to celebrate our new journey ✨</span>
         </p>
 
         <!-- View Invitation Button -->
-        <button onclick="openInvitation()" class="btn-primary">
+        <button onclick="openDoorAnimation()" class="btn-primary">
             <span>🏠</span> View Invitation
         </button>
 
@@ -85,11 +81,92 @@
 
         <p class="footer-quote">"Home is where the heart is..."</p>
 
-        <!-- 🎵 MUSIC - Updated to music1.mp3 -->
-        <audio id="music" loop>
+        <!-- 🎵 MUSIC -->
+        <audio id="bgMusic" loop preload="auto">
             <source src="music1.mp3" type="audio/mp3" />
-            Your browser does not support the audio element.
         </audio>
+
+        <!-- 🎵 SOUND ICON -->
+        <div id="soundIcon" class="sound-icon" onclick="toggleMusic()">
+            <span id="musicIcon">🔊</span>
+        </div>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 🚪 FULL PAGE DOOR - HIDDEN INITIALLY          -->
+    <!-- ============================================== -->
+    <div id="doorOverlay" class="door-overlay">
+        <!-- 🖼️ BACKGROUND IMAGE -->
+        <div class="door-bg-image"></div>
+        
+        <!-- Decorative top border -->
+        <div class="door-top-deco">
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>🏠</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+        </div>
+        
+        <!-- Door Container - Full Page -->
+        <div class="door-container">
+            <!-- Left Door -->
+            <div class="door-left">
+                <div class="door-panel">
+                    <div class="door-design">
+                        <div class="door-pattern"></div>
+                    </div>
+                    <div class="door-handle"></div>
+                    <div class="door-ornament">✦ ✦ ✦</div>
+                </div>
+            </div>
+            <!-- Right Door -->
+            <div class="door-right">
+                <div class="door-panel">
+                    <div class="door-design">
+                        <div class="door-pattern"></div>
+                    </div>
+                    <div class="door-handle"></div>
+                    <div class="door-ornament">✦ ✦ ✦</div>
+                </div>
+            </div>
+            <!-- Center Heart -->
+            <div class="door-heart">💗</div>
+            <!-- Center Text -->
+            <div class="door-center-text">
+                <span class="center-title">Lahiru & Salomi</span>
+                <span class="center-sub">Homecoming 2026</span>
+            </div>
+            <!-- Door Ring -->
+            <div class="door-ring"></div>
+            <!-- Door Lock -->
+            <div class="door-lock"></div>
+        </div>
+        
+        <!-- Bottom Text -->
+        <div class="door-bottom-text">
+            <span class="bottom-line">"Home is where the heart is..."</span>
+            <span class="bottom-sub">✨ Opening Invitation ✨</span>
+        </div>
+        
+        <!-- Floating particles -->
+        <div class="door-particles">
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>🏠</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>🏠</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>🏠</span>
+        </div>
     </div>
 
     <!-- ============================================== -->
@@ -98,7 +175,7 @@
     <div id="invitationModal" class="modal">
         <div class="modal-content">
 
-            <span class="close-btn" onclick="closeInvitation()">&times;</span>
+            <span class="close-btn" onclick="closeInvitationAndGoBack()">&times;</span>
 
             <div class="modal-top-deco">
                 <span class="deco-icon">💗</span>
@@ -127,9 +204,7 @@
                 </p>
             </div>
 
-            <!-- ============================================================ -->
-            <!-- 🎯 MAIN PHOTO - Large featured image                        -->
-            <!-- ============================================================ -->
+            <!-- 🎯 MAIN PHOTO -->
             <div class="main-photo-section">
                 <div class="main-photo-frame">
                     <img src="sticker.webp" alt="Lahiru & Salomi - Main Photo" onerror="this.src='https://via.placeholder.com/600x400/f472b6/ffffff?text=Lahiru+%26+Salomi'" />
@@ -140,57 +215,43 @@
                 </div>
                 <p class="main-photo-caption">💕 අපේ ආදර කතාවේ ආරම්භය 💕</p>
             </div>
-            <!-- ============================================================ -->
 
-            <!-- ============================================================ -->
-            <!-- 🎯 PHOTO GALLERY - Our Memories                            -->
-            <!-- ============================================================ -->
+            <!-- 🎯 PHOTO GALLERY -->
             <div class="gallery-section">
                 <h3 class="gallery-title">📸 අපගේ සිහිවටන</h3>
                 <p class="gallery-sub">Our Memories</p>
                 
                 <div class="gallery-grid">
-                    <!-- Gallery Item 1 -->
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 1" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
                         <div class="gallery-overlay">
                             <span class="gallery-icon">🔍</span>
                         </div>
                     </div>
-                    
-                    <!-- Gallery Item 2 -->
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 2" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
                         <div class="gallery-overlay">
                             <span class="gallery-icon">🔍</span>
                         </div>
                     </div>
-                    
-                    <!-- Gallery Item 3 -->
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 3" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
                         <div class="gallery-overlay">
                             <span class="gallery-icon">🔍</span>
                         </div>
                     </div>
-                    
-                    <!-- Gallery Item 4 -->
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 4" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
                         <div class="gallery-overlay">
                             <span class="gallery-icon">🔍</span>
                         </div>
                     </div>
-                    
-                    <!-- Gallery Item 5 -->
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 5" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
                         <div class="gallery-overlay">
                             <span class="gallery-icon">🔍</span>
                         </div>
                     </div>
-                    
-                    <!-- Gallery Item 6 -->
                     <div class="gallery-item" onclick="openLightbox(this)">
                         <img src="sticker.webp" alt="Memory 6" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
                         <div class="gallery-overlay">
@@ -199,7 +260,6 @@
                     </div>
                 </div>
             </div>
-            <!-- ============================================================ -->
 
             <!-- Schedule Card -->
             <div class="schedule-card">
@@ -218,7 +278,6 @@
                             <div class="schedule-desc">Couple's Arrival</div>
                         </div>
                     </div>
-                    
                     <div class="schedule-item">
                         <div class="schedule-time">07:00 PM</div>
                         <div class="schedule-dot"></div>
@@ -227,7 +286,6 @@
                             <div class="schedule-desc">Dinner</div>
                         </div>
                     </div>
-                    
                     <div class="schedule-item">
                         <div class="schedule-time">08:30 PM</div>
                         <div class="schedule-dot"></div>
@@ -292,7 +350,6 @@
 
         </div>
     </div>
-    <!-- ============================================== -->
 
     <!-- ============================================== -->
     <!-- 🎯 LIGHTBOX - Full Screen Image Viewer        -->
@@ -302,7 +359,6 @@
         <img class="lightbox-content" id="lightbox-img" src="" alt="Memory" />
         <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
-    <!-- ============================================== -->
 
     <script src="script.js"></script>
 </body>
