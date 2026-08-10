@@ -163,7 +163,7 @@ body::after {
         0 20px 60px rgba(0, 0, 0, 0.5),
         0 0 40px rgba(244, 114, 182, 0.03),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
 }
 
 .container:hover {
@@ -173,7 +173,6 @@ body::after {
         0 0 50px rgba(244, 114, 182, 0.04);
 }
 
-/* Card Border - Subtle Pink Glow */
 .container::before {
     content: "";
     position: absolute;
@@ -243,7 +242,6 @@ body::after {
     animation: goldPinkShine 4s ease-in-out infinite;
 }
 
-/* ----- SUBTITLE - Lahiru & Salomi (BRIGHT) ----- */
 .subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -301,9 +299,7 @@ body::after {
 .divider-icon:nth-child(2) { color: #f472b6; text-shadow: 0 0 30px rgba(244,114,182,0.3); }
 .divider-icon:nth-child(3) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
 
-/* ================================================================ */
-/* 📅 DATE - CLEAN WITHOUT ICON                                   */
-/* ================================================================ */
+/* ----- DATE & VENUE ----- */
 .date {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -314,9 +310,6 @@ body::after {
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
 }
 
-/* ================================================================ */
-/* 📍 VENUE - NORMAL TEXT WITHOUT BUTTON STYLING                  */
-/* ================================================================ */
 .venue-text {
     font-size: 17px;
     font-weight: 600;
@@ -327,9 +320,7 @@ body::after {
     text-shadow: 0 0 20px rgba(244, 114, 182, 0.1);
 }
 
-/* ================================================================ */
-/* 🔥 COUNTDOWN HIGHLIGHTED - BRIGHT PINK GLOW                   */
-/* ================================================================ */
+/* ----- COUNTDOWN ----- */
 #countdown {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -362,9 +353,7 @@ body::after {
     }
 }
 
-/* ================================================================ */
-/* 🔥 DESCRIPTION HIGHLIGHTED - BRIGHT PINK GLOW                 */
-/* ================================================================ */
+/* ----- DESCRIPTION HIGHLIGHTED ----- */
 .description-highlighted {
     font-size: 18px;
     color: #f5edff;
@@ -472,7 +461,7 @@ body::after {
 .btn-whatsapp:active { transform: scale(0.97); }
 .btn-whatsapp span { font-size: 18px; }
 
-/* ----- FOOTER QUOTE - BRIGHT ----- */
+/* ----- FOOTER QUOTE ----- */
 .footer-quote {
     margin-top: 25px;
     font-family: 'Great Vibes', cursive;
@@ -609,247 +598,575 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MAIN PHOTO - Large featured image in modal                  */
-/* ================================================================ */
-.main-photo-section {
-    margin: 10px 0 18px 0;
-}
-
-.main-photo-frame {
-    position: relative;
-    width: 100%;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 3px solid rgba(244, 114, 182, 0.3);
-    box-shadow: 
-        0 8px 40px rgba(0, 0, 0, 0.3),
-        0 0 60px rgba(244, 114, 182, 0.06);
-    transition: all 0.3s ease;
-}
-
-.main-photo-frame:hover {
-    transform: scale(1.01);
-    border-color: rgba(244, 114, 182, 0.5);
-    box-shadow: 
-        0 12px 50px rgba(0, 0, 0, 0.4),
-        0 0 80px rgba(244, 114, 182, 0.1);
-}
-
-.main-photo-frame img {
-    width: 100%;
-    height: auto;
-    display: block;
-    aspect-ratio: 16/10;
-    object-fit: cover;
-}
-
-.main-photo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, 
-        rgba(0,0,0,0) 0%, 
-        rgba(0,0,0,0) 50%,
-        rgba(0,0,0,0.3) 100%
-    );
-    pointer-events: none;
-}
-
-.main-photo-icon {
-    position: absolute;
-    bottom: 15px;
-    right: 20px;
-    font-size: 30px;
-    opacity: 0.7;
-    animation: heartPulse 2s ease-in-out infinite;
-    filter: drop-shadow(0 2px 20px rgba(244, 114, 182, 0.3));
-}
-
-.main-photo-border {
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    width: calc(100% + 8px);
-    height: calc(100% + 8px);
-    border-radius: 18px;
-    border: 2px solid rgba(244, 114, 182, 0.15);
-    pointer-events: none;
-    animation: borderPulse 3s ease-in-out infinite;
-}
-
-@keyframes borderPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-}
-
-.main-photo-caption {
-    text-align: center;
-    font-family: 'Great Vibes', cursive;
-    font-size: 18px;
-    color: #f9a8d4;
-    margin-top: 10px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 30px rgba(244, 114, 182, 0.15);
-}
-
-/* ================================================================ */
-/* 🎯 PHOTO GALLERY - Pink Theme                                  */
+/* 🚪 FULL PAGE DOOR - PINK THEME                                 */
 /* ================================================================ */
 
-.gallery-section {
-    margin: 10px 0 15px 0;
-}
-
-.gallery-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: #f472b6;
-    text-align: center;
-    margin-bottom: 2px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 20px rgba(244,114,182,0.15);
-}
-
-.gallery-sub {
-    font-size: 11px;
-    color: #f9a8d4;
-    text-align: center;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-.gallery-item {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    aspect-ratio: 1;
-    border: 2px solid rgba(255, 255, 255, 0.04);
-    transition: all 0.3s ease;
-}
-
-.gallery-item:hover {
-    transform: scale(1.05);
-    border-color: rgba(244, 114, 182, 0.35);
-    box-shadow: 0 8px 40px rgba(244, 114, 182, 0.15);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.4s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.08);
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    backdrop-filter: blur(3px);
-}
-
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-icon {
-    font-size: 28px;
-    color: #fff;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-}
-
-/* ================================================================ */
-/* 🎯 LIGHTBOX - Full Screen Image Viewer                         */
-/* ================================================================ */
-
-.lightbox {
-    display: none;
+.door-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.95);
     z-index: 9999;
+    display: none;
     align-items: center;
     justify-content: center;
-    padding: 30px;
-    animation: lightboxFade 0.3s ease;
+    flex-direction: column;
+    background: linear-gradient(160deg, #0d0510, #1a0a12, #2d1b22);
+    overflow: hidden;
+    cursor: default;
+    opacity: 0;
+    transition: opacity 0.6s ease;
 }
 
-.lightbox.show {
-    display: flex;
+.door-overlay.open {
+    cursor: pointer;
 }
 
-@keyframes lightboxFade {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+/* ================================================================ */
+/* 🖼️ BACKGROUND IMAGE - SLOW APPEAR                             */
+/* ================================================================ */
+
+.door-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("bg.jpg") center/cover no-repeat;
+    opacity: 0;
+    z-index: 0;
+    filter: blur(10px) brightness(0.3);
+    transition: opacity 4s ease, filter 4s ease, transform 4s ease;
 }
 
-.lightbox-close {
+.door-overlay.open .door-bg-image {
+    opacity: 0.85;
+    filter: blur(0px) brightness(1);
+    transform: scale(1.05);
+}
+
+.door-overlay.hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+    transition: opacity 0.6s ease 0.4s;
+}
+
+/* ================================================================ */
+/* 🎨 DOOR TOP DECORATION                                         */
+/* ================================================================ */
+
+.door-top-deco {
     position: absolute;
     top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 300;
-    z-index: 10;
-}
-
-.lightbox-close:hover {
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 15px;
+    z-index: 2;
+    opacity: 0.6;
     color: #f472b6;
-    transform: rotate(90deg);
 }
 
-.lightbox-content {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 16px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7);
-    border: 2px solid rgba(255, 255, 255, 0.06);
+.door-top-deco span {
+    display: inline-block;
+    animation: decoFloat 3s ease-in-out infinite;
 }
 
-.lightbox-caption {
+.door-top-deco span:nth-child(2) { animation-delay: 0.3s; color: #ffd700; }
+.door-top-deco span:nth-child(4) { animation-delay: 0.6s; color: #ffffff; }
+.door-top-deco span:nth-child(6) { animation-delay: 0.9s; color: #ffd700; }
+
+@keyframes decoFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-5px) scale(1.1); }
+}
+
+/* ================================================================ */
+/* 🚪 DOOR CONTAINER - FULL PAGE                                  */
+/* ================================================================ */
+
+.door-container {
+    position: relative;
+    width: 80vw;
+    max-width: 800px;
+    height: 75vh;
+    max-height: 650px;
+    perspective: 1500px;
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+/* Left Door - Pink & Purple Theme */
+.door-left,
+.door-right {
     position: absolute;
-    bottom: 30px;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    transition: transform 4s cubic-bezier(0.4, 0, 0.2, 1);
+    backface-visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.4);
+}
+
+.door-left {
+    left: 0;
+    border-radius: 30px 0 0 30px;
+    transform-origin: left center;
+    background: linear-gradient(160deg, #4a1a3a, #2d1b22, #1a0a12, #4a1a3a);
+    background-size: 300% 300%;
+    border: 3px solid rgba(244, 114, 182, 0.15);
+    border-right: none;
+    box-shadow: 
+        0 0 60px rgba(236, 72, 153, 0.15),
+        inset -30px 0 60px rgba(0, 0, 0, 0.3);
+    animation: doorShine 6s ease-in-out infinite;
+}
+
+.door-right {
+    right: 0;
+    border-radius: 0 30px 30px 0;
+    transform-origin: right center;
+    background: linear-gradient(200deg, #4a1a3a, #2d1b22, #1a0a12, #4a1a3a);
+    background-size: 300% 300%;
+    border: 3px solid rgba(244, 114, 182, 0.15);
+    border-left: none;
+    box-shadow: 
+        0 0 60px rgba(236, 72, 153, 0.15),
+        inset 30px 0 60px rgba(0, 0, 0, 0.3);
+    animation: doorShine 6s ease-in-out infinite 3s;
+}
+
+@keyframes doorShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.door-overlay.open .door-left {
+    transform: rotateY(-150deg);
+    box-shadow: -50px 0 100px rgba(0, 0, 0, 0.6);
+}
+
+.door-overlay.open .door-right {
+    transform: rotateY(150deg);
+    box-shadow: 50px 0 100px rgba(0, 0, 0, 0.6);
+}
+
+/* ================================================================ */
+/* 🎨 DOOR DESIGN                                                 */
+/* ================================================================ */
+
+.door-panel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.door-design {
+    width: 85%;
+    height: 75%;
+    border: 2px solid rgba(255, 215, 0, 0.06);
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+}
+
+.door-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+}
+
+.door-pattern::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border: 1px solid rgba(255, 215, 0, 0.05);
+    border-radius: 50%;
+    animation: patternSpin 20s linear infinite;
+}
+
+.door-pattern::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 60%;
+    height: 60%;
+    border: 1px solid rgba(255, 215, 0, 0.03);
+    border-radius: 50%;
+    animation: patternSpin 15s linear infinite reverse;
+}
+
+@keyframes patternSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.door-design::before {
+    content: '✦';
+    position: absolute;
+    color: rgba(255, 215, 0, 0.03);
+    font-size: 80px;
+}
+
+.door-design::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.03), transparent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.door-ornament {
+    position: absolute;
+    bottom: 20px;
+    font-size: 12px;
+    color: rgba(255, 215, 0, 0.06);
+    letter-spacing: 10px;
+}
+
+/* ================================================================ */
+/* 🎯 DOOR HANDLE - GOLD                                          */
+/* ================================================================ */
+
+.door-handle {
+    position: absolute;
+    width: 18px;
+    height: 60px;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #ffd700, #f9a825, #ffd700, #f9a825);
+    background-size: 100% 300%;
+    box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.2),
+        inset 0 2px 6px rgba(255, 255, 255, 0.3),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.3);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    animation: handleGlow 3s ease-in-out infinite;
+}
+
+.door-left .door-handle {
+    right: 25px;
+}
+
+.door-right .door-handle {
+    left: 25px;
+}
+
+@keyframes handleGlow {
+    0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.15); }
+    50% { box-shadow: 0 0 60px rgba(255, 215, 0, 0.3); }
+}
+
+.door-handle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 35px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
+    border-radius: 50%;
+}
+
+/* ================================================================ */
+/* 💗 DOOR HEART & CENTER TEXT                                    */
+/* ================================================================ */
+
+.door-heart {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 90px;
+    z-index: 10;
+    opacity: 0;
+    transition: all 1.5s ease;
+    text-shadow: 0 0 100px rgba(255, 215, 0, 0.2);
+}
+
+.door-overlay.open .door-heart {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
+    animation: heartReveal 1.5s ease forwards;
+}
+
+@keyframes heartReveal {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(-40deg); }
+    60% { opacity: 1; transform: translate(-50%, -50%) scale(1.7) rotate(15deg); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.2) rotate(0deg); }
+}
+
+.door-center-text {
+    position: absolute;
+    bottom: 15%;
     left: 50%;
     transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    transition: all 1.5s ease;
+    transition-delay: 0.5s;
+    width: 80%;
+}
+
+.door-overlay.open .door-center-text {
+    opacity: 1;
+}
+
+.center-title {
+    display: block;
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    color: #ffd700;
+    text-shadow: 0 0 50px rgba(255, 215, 0, 0.15);
+    letter-spacing: 2px;
+    animation: textGlow 3s ease-in-out infinite;
+}
+
+.center-sub {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
     color: #f9a8d4;
-    font-size: 14px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px 24px;
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    margin-top: 5px;
+    letter-spacing: 4px;
+    font-weight: 300;
+    text-shadow: 0 0 30px rgba(244, 114, 182, 0.1);
+}
+
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.1); }
+    50% { text-shadow: 0 0 80px rgba(255, 215, 0, 0.25); }
 }
 
 /* ================================================================ */
-/* 🎯 MODAL - CLEAN & ELEGANT                                    */
+/* 🔒 DOOR LOCK                                                   */
 /* ================================================================ */
+
+.door-lock {
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.05), transparent);
+    border: 2px solid rgba(255, 215, 0, 0.05);
+    z-index: 5;
+}
+
+.door-lock::before {
+    content: '🔒';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    opacity: 0.3;
+}
+
+.door-overlay.open .door-lock::before {
+    content: '🔓';
+    opacity: 0.6;
+}
+
+/* ================================================================ */
+/* 🌀 DOOR RING                                                   */
+/* ================================================================ */
+
+.door-ring {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: calc(100% + 40px);
+    height: calc(100% + 40px);
+    border-radius: 40px;
+    border: 2px dashed rgba(244, 114, 182, 0.06);
+    animation: ringSpin 30s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.door-ring::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 35px;
+    border: 1px solid rgba(255, 215, 0, 0.03);
+}
+
+@keyframes ringSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ================================================================ */
+/* 📝 BOTTOM TEXT                                                 */
+/* ================================================================ */
+
+.door-bottom-text {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    opacity: 0.7;
+    transition: all 0.5s ease;
+}
+
+.bottom-line {
+    display: block;
+    font-family: 'Great Vibes', cursive;
+    font-size: 24px;
+    color: #f9a8d4;
+    text-shadow: 0 0 40px rgba(244, 114, 182, 0.1);
+    letter-spacing: 2px;
+}
+
+.bottom-sub {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #f9a8d4;
+    margin-top: 5px;
+    letter-spacing: 6px;
+    font-weight: 300;
+    animation: blinkText 2s ease-in-out infinite;
+}
+
+@keyframes blinkText {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+.door-overlay.open .bottom-sub {
+    animation: none;
+    opacity: 0;
+}
+
+/* ================================================================ */
+/* ✨ DOOR PARTICLES                                              */
+/* ================================================================ */
+
+.door-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.door-particles span {
+    position: absolute;
+    font-size: 22px;
+    opacity: 0;
+    animation: particleFloat 4.5s ease-in-out infinite;
+}
+
+.door-particles span:nth-child(1) { top: 5%; left: 8%; animation-delay: 0s; color: #f472b6; }
+.door-particles span:nth-child(2) { top: 10%; right: 10%; animation-delay: 0.4s; color: #ffd700; }
+.door-particles span:nth-child(3) { bottom: 20%; left: 5%; animation-delay: 0.8s; color: #ffffff; }
+.door-particles span:nth-child(4) { top: 30%; right: 5%; animation-delay: 1.2s; color: #f472b6; }
+.door-particles span:nth-child(5) { bottom: 10%; right: 15%; animation-delay: 1.6s; color: #ffd700; }
+.door-particles span:nth-child(6) { top: 50%; left: 10%; animation-delay: 2s; color: #ffffff; }
+.door-particles span:nth-child(7) { top: 2%; left: 40%; animation-delay: 0.6s; color: #f472b6; }
+.door-particles span:nth-child(8) { bottom: 2%; right: 40%; animation-delay: 1.4s; color: #ffd700; }
+.door-particles span:nth-child(9) { top: 40%; left: 3%; animation-delay: 2.2s; color: #ffd700; }
+.door-particles span:nth-child(10) { bottom: 40%; right: 3%; animation-delay: 0.2s; color: #f472b6; }
+.door-particles span:nth-child(11) { top: 60%; left: 5%; animation-delay: 1.8s; color: #ffffff; }
+.door-particles span:nth-child(12) { bottom: 60%; right: 5%; animation-delay: 2.6s; color: #f472b6; }
+
+.door-overlay.open .door-particles span {
+    opacity: 0.8;
+}
+
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0) scale(1); opacity: 0; }
+    25% { transform: translateY(-30px) scale(1.4); opacity: 0.8; }
+    50% { transform: translateY(-60px) scale(0.8); opacity: 0.5; }
+    75% { transform: translateY(-90px) scale(1.2); opacity: 0.9; }
+    100% { transform: translateY(-130px) scale(0.5); opacity: 0; }
+}
+
+/* ================================================================ */
+/* 🌟 BACKGROUND EFFECTS                                          */
+/* ================================================================ */
+
+.door-overlay::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, 
+        rgba(244, 114, 182, 0.04) 0%, 
+        rgba(236, 72, 153, 0.02) 30%,
+        transparent 60%
+    );
+    animation: doorGlow 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes doorGlow {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.4; }
+    50% { transform: scale(1.3) rotate(5deg); opacity: 0.9; }
+}
+
+.door-overlay::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 160%;
+    height: 160%;
+    background: radial-gradient(ellipse at center, 
+        rgba(255, 215, 0, 0.015) 0%, 
+        transparent 50%
+    );
+    animation: lightRays 12s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes lightRays {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.2; }
+    50% { transform: scale(1.15) rotate(10deg); opacity: 0.7; }
+}
+
+/* ================================================================ */
+/* 🎯 MODAL - VERY SLOW FADE IN                                   */
+/* ================================================================ */
+
 .modal {
     display: none;
     position: fixed;
@@ -868,15 +1185,25 @@ body::after {
 
 .modal.show {
     display: flex;
-    animation: fadeInModal 0.5s ease;
 }
 
-@keyframes fadeInModal {
-    from { 
+@keyframes modalVerySlowFadeIn {
+    0% { 
         opacity: 0; 
-        transform: scale(0.95) translateY(30px); 
+        transform: scale(0.92) translateY(50px); 
     }
-    to { 
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+@keyframes modalSlowFadeIn {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.95) translateY(40px); 
+    }
+    100% { 
         opacity: 1; 
         transform: scale(1) translateY(0); 
     }
@@ -909,7 +1236,6 @@ body::after {
     50% { transform: translateY(-3px); }
 }
 
-/* Modal Border - Subtle Pink Glow */
 .modal-content::before {
     content: "";
     position: absolute;
@@ -1032,7 +1358,6 @@ body::after {
     animation: goldPinkShine 5s ease-in-out infinite;
 }
 
-/* ----- MODAL SUBTITLE - Lahiru & Salomi (BRIGHT) ----- */
 .modal-subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
@@ -1081,7 +1406,7 @@ body::after {
     50% { opacity: 0.85; transform: scale(1.3); }
 }
 
-/* ----- INVITATION MESSAGE - Pink Theme ----- */
+/* ----- INVITATION MESSAGE ----- */
 .invitation-message {
     background: rgba(236, 72, 153, 0.05);
     padding: 20px 22px;
@@ -1132,9 +1457,238 @@ body::after {
     line-height: 1.7;
 }
 
-/* ================================================================ */
-/* 🎯 SCHEDULE CARD - Simple                                      */
-/* ================================================================ */
+/* ----- MAIN PHOTO ----- */
+.main-photo-section {
+    margin: 10px 0 18px 0;
+}
+
+.main-photo-frame {
+    position: relative;
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 3px solid rgba(244, 114, 182, 0.3);
+    box-shadow: 
+        0 8px 40px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(244, 114, 182, 0.06);
+    transition: all 0.3s ease;
+}
+
+.main-photo-frame:hover {
+    transform: scale(1.01);
+    border-color: rgba(244, 114, 182, 0.5);
+    box-shadow: 
+        0 12px 50px rgba(0, 0, 0, 0.4),
+        0 0 80px rgba(244, 114, 182, 0.1);
+}
+
+.main-photo-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+}
+
+.main-photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0) 50%,
+        rgba(0,0,0,0.3) 100%
+    );
+    pointer-events: none;
+}
+
+.main-photo-icon {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 30px;
+    opacity: 0.7;
+    animation: heartPulse 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 20px rgba(244, 114, 182, 0.3));
+}
+
+.main-photo-border {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    border-radius: 18px;
+    border: 2px solid rgba(244, 114, 182, 0.15);
+    pointer-events: none;
+    animation: borderPulse 3s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.main-photo-caption {
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    font-size: 18px;
+    color: #f9a8d4;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 30px rgba(244, 114, 182, 0.15);
+}
+
+/* ----- GALLERY ----- */
+.gallery-section {
+    margin: 10px 0 15px 0;
+}
+
+.gallery-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #f472b6;
+    text-align: center;
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(244,114,182,0.15);
+}
+
+.gallery-sub {
+    font-size: 11px;
+    color: #f9a8d4;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1;
+    border: 2px solid rgba(255, 255, 255, 0.04);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    border-color: rgba(244, 114, 182, 0.35);
+    box-shadow: 0 8px 40px rgba(244, 114, 182, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(3px);
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-icon {
+    font-size: 28px;
+    color: #fff;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ----- LIGHTBOX ----- */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    animation: lightboxFade 0.3s ease;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+@keyframes lightboxFade {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 300;
+    z-index: 10;
+}
+
+.lightbox-close:hover {
+    color: #f472b6;
+    transform: rotate(90deg);
+}
+
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 16px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.06);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f9a8d4;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 24px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ----- SCHEDULE CARD ----- */
 .schedule-card {
     background: rgba(255, 255, 255, 0.04);
     border-radius: 16px;
@@ -1244,15 +1798,12 @@ body::after {
     letter-spacing: 0.5px;
 }
 
-/* ================================================================ */
-/* 🎯 LOCATION, RSVP, MODAL FOOTER - Pink Theme                  */
-/* ================================================================ */
+/* ----- LOCATION SECTION ----- */
 .location-section {
     margin: 5px 0 15px 0;
 }
 
-.location-section h3,
-.rsvp-section h3 {
+.location-section h3 {
     font-size: 17px;
     color: #f472b6;
     border-bottom: 2px solid rgba(236, 72, 153, 0.06);
@@ -1299,9 +1850,7 @@ body::after {
     background: linear-gradient(145deg, #db2777, #be185d);
 }
 
-/* ================================================================ */
-/* 🎯 RSVP SECTION - ENHANCED WITH GLOW & BRIGHTNESS              */
-/* ================================================================ */
+/* ----- RSVP SECTION ----- */
 .rsvp-section {
     margin: 5px 0 15px 0;
     padding: 16px 18px 18px 18px;
@@ -1319,7 +1868,6 @@ body::after {
     overflow: hidden;
 }
 
-/* Subtle glow effect on RSVP section */
 .rsvp-section::before {
     content: '';
     position: absolute;
@@ -1342,7 +1890,6 @@ body::after {
     75% { transform: translate(-5%, 5%); }
 }
 
-/* Brightness effect on RSVP section */
 .rsvp-section:hover {
     background: linear-gradient(145deg, 
         rgba(255, 255, 255, 0.08),
@@ -1446,7 +1993,6 @@ body::after {
     overflow: hidden;
 }
 
-/* Button glow effect */
 .form-buttons button::after {
     content: '';
     position: absolute;
@@ -1498,9 +2044,7 @@ body::after {
     z-index: 1;
 }
 
-/* ================================================================ */
-/* 🎯 MODAL FOOTER                                                */
-/* ================================================================ */
+/* ----- MODAL FOOTER ----- */
 .modal-footer {
     text-align: center;
     margin-top: 20px;
@@ -1526,6 +2070,54 @@ body::after {
     font-size: 13px;
     color: #8a6a7a;
     margin-top: 4px;
+}
+
+/* ================================================================ */
+/* 🎵 SOUND ICON                                                  */
+/* ================================================================ */
+
+.sound-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(244, 114, 182, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: #fff;
+    user-select: none;
+}
+
+.sound-icon:hover {
+    transform: scale(1.1);
+    background: rgba(244, 114, 182, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(244, 114, 182, 0.2);
+}
+
+.sound-icon:active {
+    transform: scale(0.9);
+}
+
+.sound-icon #musicIcon {
+    line-height: 1;
+    animation: soundPulse 2s ease-in-out infinite;
+}
+
+@keyframes soundPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 /* ================================================================ */
@@ -1558,7 +2150,27 @@ body::after {
     .icon-item { font-size: 16px; }
     .top-decoration { font-size: 12px; letter-spacing: 10px; top: 5px; }
     
-    /* Main Photo Mobile */
+    .door-container {
+        width: 85vw;
+        height: 55vh;
+        max-height: 380px;
+    }
+    .door-heart { font-size: 50px; }
+    .center-title { font-size: 20px; }
+    .center-sub { font-size: 12px; }
+    .bottom-line { font-size: 18px; }
+    .bottom-sub { font-size: 11px; }
+    .door-top-deco { font-size: 14px; letter-spacing: 10px; top: 10px; }
+    .door-particles span { font-size: 14px; }
+    .door-handle { width: 12px; height: 40px; }
+    .door-left .door-handle { right: 12px; }
+    .door-right .door-handle { left: 12px; }
+    .door-ornament { font-size: 10px; letter-spacing: 6px; }
+    .door-left { border-radius: 20px 0 0 20px; }
+    .door-right { border-radius: 0 20px 20px 0; }
+    .door-lock { width: 30px; height: 30px; }
+    .door-lock::before { font-size: 12px; }
+    
     .main-photo-frame img {
         aspect-ratio: 16/12;
     }
@@ -1587,7 +2199,6 @@ body::after {
     .map-btn { font-size: 12px; padding: 8px 18px; }
     .modal-footer-quote { font-size: 17px; }
     
-    /* RSVP Mobile */
     .rsvp-section {
         padding: 12px 12px 14px 12px;
     }
@@ -1663,9 +2274,32 @@ body::after {
         gap: 10px;
         margin-bottom: 10px;
     }
+    
+    .sound-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
 @media (max-width: 380px) {
+    .door-container {
+        width: 90vw;
+        height: 45vh;
+        max-height: 300px;
+    }
+    .door-heart { font-size: 35px; }
+    .center-title { font-size: 16px; }
+    .center-sub { font-size: 10px; }
+    .bottom-line { font-size: 14px; }
+    .bottom-sub { font-size: 9px; }
+    .door-particles span { font-size: 12px; }
+    .door-handle { width: 10px; height: 30px; }
+    .door-left .door-handle { right: 8px; }
+    .door-right .door-handle { left: 8px; }
+    
     .gallery-grid {
         gap: 4px;
     }
@@ -1699,12 +2333,23 @@ body::after {
     .rsvp-section {
         padding: 14px 16px 16px 16px;
     }
+    .door-container {
+        width: 75vw;
+        height: 60vh;
+        max-height: 420px;
+    }
+    .center-title { font-size: 26px; }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .container { max-width: 460px; padding: 45px 30px 55px 30px; }
     .title { font-size: 44px; }
     .subtitle { font-size: 15px; letter-spacing: 5px; }
+    .door-container {
+        width: 65vw;
+        height: 65vh;
+        max-height: 500px;
+    }
 }
 
 @media (min-width: 1025px) {
@@ -1712,6 +2357,12 @@ body::after {
     .title { font-size: 48px; }
     .subtitle { font-size: 16px; letter-spacing: 6px; }
     #countdown { font-size: 26px; min-width: 220px; }
+    .door-container {
+        width: 70vw;
+        max-width: 750px;
+        height: 70vh;
+        max-height: 600px;
+    }
 }
 
 @media (max-height: 600px) and (orientation: landscape) {
@@ -1735,6 +2386,20 @@ body::after {
     .divider { margin: 6px auto 10px auto; }
     .modal-content { max-height: 80vh; padding: 15px 12px 15px 12px; }
     
+    .door-container {
+        width: 60vw;
+        height: 70vh;
+        max-height: 350px;
+    }
+    .door-heart { font-size: 40px; }
+    .center-title { font-size: 18px; }
+    .center-sub { font-size: 11px; }
+    .bottom-line { font-size: 16px; }
+    .bottom-sub { font-size: 10px; }
+    .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 5px; }
+    .door-particles span { font-size: 12px; }
+    .door-handle { width: 10px; height: 32px; }
+    
     .main-photo-frame img {
         aspect-ratio: 16/9;
     }
@@ -1748,7 +2413,6 @@ body::after {
         right: 12px;
     }
     
-    /* RSVP Landscape */
     .rsvp-section {
         padding: 10px 12px 12px 12px;
     }
@@ -1816,5 +2480,13 @@ body::after {
         height: 7px;
         min-width: 7px;
         margin-top: 2px;
+    }
+    
+    .sound-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+        bottom: 10px;
+        right: 10px;
     }
 }
