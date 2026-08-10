@@ -102,10 +102,10 @@ function displayGuestName() {
             invText.innerHTML = `💗 ${decodedName}, අපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!<br>After our wedding, we are coming home!`;
         }
         
-        // Auto open invitation modal if name is present
+        // 🔥 FIX: Auto open door animation when name is in URL
         setTimeout(() => {
-            openInvitation();
-        }, 1500);
+            openDoorAnimation();
+        }, 1000);
     }
 }
 
@@ -164,7 +164,7 @@ function shareInvitationSimple() {
 }
 
 // ================================================================
-// 🚪 DOOR OPEN ANIMATION
+// 🚪 DOOR OPEN ANIMATION - OPENS DOOR
 // ================================================================
 
 function openDoorAnimation() {
@@ -453,6 +453,7 @@ function forceAutoPlay() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    // 🔥 Check if name exists in URL and display door
     displayGuestName();
     
     setTimeout(forceAutoPlay, 100);
