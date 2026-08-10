@@ -51,7 +51,7 @@
         <div class="home-icon">🏠</div>
 
         <h1 class="title">Homecoming</h1>
-        <p class="subtitle">Lahiru &amp; Salomi</p>
+        <p class="subtitle" id="mainSubtitle">Lahiru &amp; Salomi</p>
 
         <div class="divider">
             <span class="divider-icon">💗</span>
@@ -74,9 +74,17 @@
             <span>🏠</span> View Invitation
         </button>
 
-        <!-- Share on WhatsApp Button -->
-        <button onclick="shareInvitation()" class="btn-whatsapp">
-            <span>📤</span> Share on WhatsApp
+        <!-- ===== SHARE WITH NAME INPUT ===== -->
+        <div class="share-name-input">
+            <input type="text" id="guestNameInput" placeholder="👤 ආරාධනාව ලබන්නාගේ නම..." />
+            <button onclick="shareWithCustomName()" class="btn-whatsapp">
+                <span>📤</span> Share with Name
+            </button>
+        </div>
+
+        <!-- ===== SHARE WITHOUT NAME ===== -->
+        <button onclick="shareInvitationSimple()" class="btn-whatsapp" style="margin-top:8px; background: linear-gradient(145deg, #25D366, #128C7E);">
+            <span>📤</span> Share (Without Name)
         </button>
 
         <p class="footer-quote">"Home is where the heart is..."</p>
@@ -196,7 +204,7 @@
 
             <div class="invitation-message">
                 <div class="msg-icon">💗</div>
-                <p class="invitation-text">
+                <p class="invitation-text" id="invitationText">
                     💗 After our wedding, we are coming home!
                 </p>
                 <p class="invitation-subtext">
