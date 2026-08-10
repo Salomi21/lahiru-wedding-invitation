@@ -81,10 +81,14 @@ function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
     
-    // Reset door
+    // 🔥 FIX: Don't hide door first - just show it
+    // Reset door classes but keep it visible
     doorOverlay.classList.remove('open', 'hidden');
-    doorOverlay.style.display = 'none';
+    
+    // 🔥 FIX: Set display to flex immediately
+    doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
+    doorOverlay.style.transition = 'opacity 0.6s ease';
     
     // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
@@ -101,14 +105,12 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
-    // Show door overlay
+    // 🔥 FIX: Fade in door overlay
     setTimeout(() => {
-        doorOverlay.style.display = 'flex';
         doorOverlay.style.opacity = '1';
-        doorOverlay.style.transition = 'opacity 0.6s ease';
-    }, 50);
+    }, 100);
     
-    // 🐌 SLOW DOOR OPEN
+    // 🐌 SLOW DOOR OPEN - starts after 0.6s
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
@@ -118,21 +120,20 @@ function openDoorAnimation() {
             }
         }, 100);
         
-    }, 500);
+    }, 600);
     
-    // 🐌 SLOW INVITATION
+    // 🐌 SLOW INVITATION - shown after door fully opens (5s total)
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
-            // 🔥 FIXED: Call openInvitation directly
             openInvitation();
         }, 400);
-    }, 5000);
+    }, 5200);
 }
 
 // ================================================================
-// 🎯 OPEN INVITATION - FIXED
+// 🎯 OPEN INVITATION
 // ================================================================
 
 function openInvitation() {
@@ -161,11 +162,12 @@ function closeInvitationAndGoBack() {
         document.body.style.overflow = 'auto';
     }
     
-    // Reset door for next time
+    // 🔥 FIX: Reset door properly - keep it ready for next click
     const doorOverlay = document.getElementById('doorOverlay');
     doorOverlay.classList.remove('open', 'hidden');
-    doorOverlay.style.display = 'none';
+    // Keep display: flex but hidden with opacity 0
     doorOverlay.style.opacity = '0';
+    doorOverlay.style.transition = 'opacity 0.3s ease';
     
     // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
