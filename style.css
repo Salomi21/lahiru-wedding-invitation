@@ -657,7 +657,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🚪 FULL PAGE DOOR - PINK THEME (WITH COUPLE NAMES)            */
+/* 🚪 FULL PAGE DOOR - PINK THEME (WITH LARGE COUPLE NAMES)      */
 /* ================================================================ */
 
 .door-overlay {
@@ -683,20 +683,20 @@ body::after {
 }
 
 /* ================================================================ */
-/* 💗 COUPLE NAMES ABOVE PHOTO - ATTRACTIVE STYLE                */
+/* 💗 LARGE COUPLE NAMES ABOVE PHOTO - ATTRACTIVE STYLE          */
 /* ================================================================ */
 
 .door-couple-names {
     position: absolute;
-    top: 12%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 15;
     text-align: center;
     opacity: 0;
     transition: opacity 1.5s ease, transform 1.5s ease;
-    width: 90%;
-    max-width: 700px;
+    width: 95%;
+    max-width: 800px;
     pointer-events: none;
 }
 
@@ -708,7 +708,7 @@ body::after {
 .door-couple-name {
     display: inline-block;
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(28px, 5vw, 52px);
+    font-size: clamp(38px, 7vw, 72px);
     background: linear-gradient(135deg, 
         #ffd700 0%,
         #ffb300 20%,
@@ -722,11 +722,13 @@ body::after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.3))
-            drop-shadow(0 0 60px rgba(244, 114, 182, 0.2));
+    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.4))
+            drop-shadow(0 0 80px rgba(244, 114, 182, 0.3))
+            drop-shadow(0 4px 30px rgba(255, 215, 0, 0.2));
     animation: goldPinkShine 3s ease-in-out infinite;
-    letter-spacing: 2px;
-    padding: 0 5px;
+    letter-spacing: 3px;
+    padding: 0 8px;
+    text-shadow: none;
 }
 
 .door-couple-name:first-child {
@@ -740,17 +742,17 @@ body::after {
 .door-couple-amp {
     display: inline-block;
     font-family: 'Great Vibes', cursive;
-    font-size: clamp(24px, 4vw, 42px);
+    font-size: clamp(32px, 5.5vw, 58px);
     color: #f9a8d4;
-    text-shadow: 0 0 40px rgba(244, 114, 182, 0.3);
-    margin: 0 10px;
+    text-shadow: 0 0 50px rgba(244, 114, 182, 0.4);
+    margin: 0 15px;
     animation: ampPulse 2s ease-in-out infinite;
     -webkit-text-fill-color: #f9a8d4;
 }
 
 @keyframes ampPulse {
     0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.1); opacity: 1; }
+    50% { transform: scale(1.15); opacity: 1; }
 }
 
 /* ================================================================ */
@@ -836,8 +838,8 @@ body::after {
     position: relative;
     width: 80vw;
     max-width: 800px;
-    height: 65vh;
-    max-height: 550px;
+    height: 58vh;
+    max-height: 500px;
     perspective: 1500px;
     z-index: 1;
     margin-bottom: 10px;
@@ -2237,14 +2239,15 @@ body::after {
     }
     
     .door-couple-names {
-        top: 8%;
+        top: 6%;
     }
     .door-couple-name {
-        font-size: clamp(22px, 4vw, 32px) !important;
+        font-size: clamp(28px, 5vw, 38px) !important;
+        letter-spacing: 1px;
     }
     .door-couple-amp {
-        font-size: clamp(18px, 3vw, 26px) !important;
-        margin: 0 5px;
+        font-size: clamp(22px, 4vw, 30px) !important;
+        margin: 0 8px;
     }
     
     .door-container {
@@ -2323,10 +2326,11 @@ body::after {
         max-height: 260px;
     }
     .door-couple-name {
-        font-size: clamp(18px, 3.5vw, 24px) !important;
+        font-size: clamp(22px, 4vw, 28px) !important;
     }
     .door-couple-amp {
-        font-size: clamp(14px, 2.5vw, 20px) !important;
+        font-size: clamp(18px, 3vw, 22px) !important;
+        margin: 0 5px;
     }
     .center-title { font-size: 16px; }
     .center-sub { font-size: 10px; }
@@ -2359,6 +2363,9 @@ body::after {
     .rsvp-section { padding: 14px 16px 16px 16px; }
     .door-container { width: 75vw; height: 55vh; max-height: 380px; }
     .door-couple-name {
+        font-size: clamp(32px, 5.5vw, 44px) !important;
+    }
+    .door-couple-amp {
         font-size: clamp(28px, 4.5vw, 38px) !important;
     }
     .center-title { font-size: 26px; }
@@ -2407,14 +2414,14 @@ body::after {
     }
     
     .door-couple-names {
-        top: 5%;
+        top: 3%;
     }
     .door-couple-name {
-        font-size: clamp(20px, 3vw, 28px) !important;
+        font-size: clamp(24px, 4vw, 32px) !important;
     }
     .door-couple-amp {
-        font-size: clamp(16px, 2.5vw, 22px) !important;
-        margin: 0 5px;
+        font-size: clamp(20px, 3vw, 26px) !important;
+        margin: 0 8px;
     }
     
     .door-container { width: 60vw; height: 60vh; max-height: 300px; }
