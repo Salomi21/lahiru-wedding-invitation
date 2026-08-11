@@ -1,4 +1,4 @@
-// ----- 1. FLOATING HEARTS - PINK & WHITE -----
+// ----- 1. FLOATING HEARTS - PINK & WHITE (slower) -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
     if (!container) return;
@@ -22,7 +22,8 @@ function createHeart() {
     
     heart.style.left = Math.random() * 100 + '%';
     heart.style.fontSize = (Math.random() * 14 + 12) + 'px';
-    heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    // Slower animation: 18s-22s instead of 14s
+    heart.style.animationDuration = (Math.random() * 8 + 18) + 's';
     heart.style.opacity = Math.random() * 0.6 + 0.4;
 
     container.appendChild(heart);
@@ -31,14 +32,14 @@ function createHeart() {
         if (heart.parentNode) {
             heart.remove();
         }
-    }, 14000);
+    }, 28000);
 }
 
-setInterval(createHeart, 350);
+setInterval(createHeart, 400);
 
 window.addEventListener('load', () => {
     for (let i = 0; i < 6; i++) {
-        setTimeout(createHeart, i * 200);
+        setTimeout(createHeart, i * 250);
     }
 });
 
@@ -151,25 +152,6 @@ function shareWithCustomName() {
     window.open(whatsappURL, '_blank');
     
     nameInput.value = '';
-}
-
-// ================================================================
-// 🎯 SHARE WITHOUT NAME - WITH sticker.webp PHOTO PREVIEW
-// ================================================================
-
-function shareInvitationSimple() {
-    const url = window.location.href.split('?')[0];
-    
-    let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💗 We are coming home! 🎉\n\n`;
-    message += `📅 *Date:* 15 September 2026\n`;
-    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
-    message += `✨ View the full invitation:\n${url}\n\n`;
-    message += `💗 සුභ ගමනක් වේවා! 💗`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
-    window.open(whatsappURL, '_blank');
 }
 
 // ================================================================
