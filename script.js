@@ -1,5 +1,3 @@
-
-SCRIPT 
 // ----- 1. FLOATING HEARTS - PINK & WHITE -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
@@ -124,7 +122,7 @@ function displayGuestName(name) {
 }
 
 // ================================================================
-// 🎯 SHARE WITH CUSTOM NAME - PERSONALIZED
+// 🎯 SHARE WITH CUSTOM NAME - WITH sticker.webp PHOTO PREVIEW
 // ================================================================
 
 function shareWithCustomName() {
@@ -151,11 +149,12 @@ function shareWithCustomName() {
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
+    
     nameInput.value = '';
 }
 
 // ================================================================
-// 🎯 SHARE WITHOUT NAME (Simple Share)
+// 🎯 SHARE WITHOUT NAME - WITH sticker.webp PHOTO PREVIEW
 // ================================================================
 
 function shareInvitationSimple() {
@@ -182,20 +181,17 @@ function openDoorAnimation() {
     const mainCard = document.getElementById('mainCard');
     const bgImage = document.querySelector('.door-bg-image');
     
-    // 🔥 RESET DOOR - BG Image hidden
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
     doorOverlay.style.transition = 'opacity 0.8s ease';
     
-    // 🔥 BG Image - Start hidden
     if (bgImage) {
         bgImage.style.opacity = '0';
         bgImage.style.transition = 'opacity 6s ease';
         bgImage.style.filter = 'blur(10px) brightness(0.3)';
     }
     
-    // Hide main card
     mainCard.style.transition = 'opacity 0.5s ease';
     mainCard.style.opacity = '0';
     
@@ -203,16 +199,13 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
-    // Show door overlay
     setTimeout(() => {
         doorOverlay.style.opacity = '1';
     }, 100);
     
-    // 🐌 EXTRA SLOW DOOR OPEN - starts after 1s, takes 6s
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
-        // 🔥 BG IMAGE - Appears slowly ONLY when door opens
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
@@ -222,12 +215,10 @@ function openDoorAnimation() {
         
     }, 1000);
     
-    // 🐌 Show invitation after door fully opens
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
-            // 🔥 Reset BG image after door closes
             if (bgImage) {
                 bgImage.style.opacity = '0';
                 bgImage.style.filter = 'blur(10px) brightness(0.3)';
@@ -263,25 +254,21 @@ function closeInvitationAndGoBack() {
     const doorOverlay = document.getElementById('doorOverlay');
     const bgImage = document.querySelector('.door-bg-image');
     
-    // Close modal
     if (modal) {
         modal.classList.remove('show');
         document.body.style.overflow = 'auto';
     }
     
-    // 🔥 Reset door - HIDE EVERYTHING
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
     
-    // 🔥 BG Image - Force hidden
     if (bgImage) {
         bgImage.style.opacity = '0';
         bgImage.style.filter = 'blur(10px) brightness(0.3)';
         bgImage.style.transition = 'none';
     }
     
-    // Show main card
     setTimeout(() => {
         mainCard.style.display = 'block';
         mainCard.style.opacity = '0';
@@ -293,7 +280,6 @@ function closeInvitationAndGoBack() {
     }, 300);
 }
 
-// ----- CLOSE INVITATION (Normal) -----
 function closeInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
@@ -429,7 +415,7 @@ var countdownInterval = setInterval(function() {
 }, 1000);
 
 // ================================================================
-// 🎵 MUSIC - FORCE AUTO-PLAY
+// 🎵 MUSIC - FORCE AUTO-PLAY (music.mp3)
 // ================================================================
 
 var audio = document.getElementById('bgMusic');
