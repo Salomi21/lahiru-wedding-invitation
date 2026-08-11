@@ -1,3 +1,5 @@
+
+SCRIPT 
 // ----- 1. FLOATING HEARTS - PINK & WHITE -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
@@ -34,10 +36,10 @@ function createHeart() {
     }, 14000);
 }
 
-setInterval(createHeart, 400);
+setInterval(createHeart, 350);
 
 window.addEventListener('load', () => {
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 6; i++) {
         setTimeout(createHeart, i * 200);
     }
 });
@@ -51,7 +53,7 @@ function createSparkle() {
     sparkle.classList.add('sparkle');
     sparkle.classList.add(Math.random() > 0.5 ? 'pink' : 'white');
     sparkle.style.left = Math.random() * 100 + '%';
-    sparkle.style.width = (Math.random() * 5 + 3) + 'px';
+    sparkle.style.width = (Math.random() * 6 + 3) + 'px';
     sparkle.style.height = sparkle.style.width;
     sparkle.style.animationDuration = (Math.random() * 10 + 6) + 's';
     sparkle.style.animationDelay = (Math.random() * 5) + 's';
@@ -65,10 +67,10 @@ function createSparkle() {
     }, 16000);
 }
 
-setInterval(createSparkle, 350);
+setInterval(createSparkle, 300);
 
 window.addEventListener('load', () => {
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 8; i++) {
         setTimeout(createSparkle, i * 150);
     }
 });
@@ -110,7 +112,7 @@ function displayGuestName(name) {
         if (subtitle) {
             subtitle.innerHTML = `💗 ${decodedName} ඔබට ආරාධනාවක්! 💗`;
             subtitle.style.color = '#f9a8d4';
-            subtitle.style.fontSize = '14px';
+            subtitle.style.fontSize = '16px';
             subtitle.style.letterSpacing = '2px';
         }
         
@@ -122,7 +124,7 @@ function displayGuestName(name) {
 }
 
 // ================================================================
-// 🎯 SHARE WITH CUSTOM NAME - WITH sticker.webp PHOTO PREVIEW
+// 🎯 SHARE WITH CUSTOM NAME - PERSONALIZED
 // ================================================================
 
 function shareWithCustomName() {
@@ -149,12 +151,11 @@ function shareWithCustomName() {
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
-    
     nameInput.value = '';
 }
 
 // ================================================================
-// 🎯 SHARE WITHOUT NAME - WITH sticker.webp PHOTO PREVIEW
+// 🎯 SHARE WITHOUT NAME (Simple Share)
 // ================================================================
 
 function shareInvitationSimple() {
@@ -181,17 +182,20 @@ function openDoorAnimation() {
     const mainCard = document.getElementById('mainCard');
     const bgImage = document.querySelector('.door-bg-image');
     
+    // 🔥 RESET DOOR - BG Image hidden
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
     doorOverlay.style.transition = 'opacity 0.8s ease';
     
+    // 🔥 BG Image - Start hidden
     if (bgImage) {
         bgImage.style.opacity = '0';
         bgImage.style.transition = 'opacity 6s ease';
         bgImage.style.filter = 'blur(10px) brightness(0.3)';
     }
     
+    // Hide main card
     mainCard.style.transition = 'opacity 0.5s ease';
     mainCard.style.opacity = '0';
     
@@ -199,13 +203,16 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
+    // Show door overlay
     setTimeout(() => {
         doorOverlay.style.opacity = '1';
     }, 100);
     
+    // 🐌 EXTRA SLOW DOOR OPEN - starts after 1s, takes 6s
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
+        // 🔥 BG IMAGE - Appears slowly ONLY when door opens
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
@@ -215,10 +222,12 @@ function openDoorAnimation() {
         
     }, 1000);
     
+    // 🐌 Show invitation after door fully opens
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
+            // 🔥 Reset BG image after door closes
             if (bgImage) {
                 bgImage.style.opacity = '0';
                 bgImage.style.filter = 'blur(10px) brightness(0.3)';
@@ -254,23 +263,27 @@ function closeInvitationAndGoBack() {
     const doorOverlay = document.getElementById('doorOverlay');
     const bgImage = document.querySelector('.door-bg-image');
     
+    // Close modal
     if (modal) {
         modal.classList.remove('show');
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'auto';
     }
     
+    // 🔥 Reset door - HIDE EVERYTHING
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
     
+    // 🔥 BG Image - Force hidden
     if (bgImage) {
         bgImage.style.opacity = '0';
         bgImage.style.filter = 'blur(10px) brightness(0.3)';
         bgImage.style.transition = 'none';
     }
     
+    // Show main card
     setTimeout(() => {
-        mainCard.style.display = 'flex';
+        mainCard.style.display = 'block';
         mainCard.style.opacity = '0';
         mainCard.style.transition = 'opacity 0.8s ease';
         
@@ -280,11 +293,12 @@ function closeInvitationAndGoBack() {
     }, 300);
 }
 
+// ----- CLOSE INVITATION (Normal) -----
 function closeInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
         modal.classList.remove('show');
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'auto';
     }
 }
 
@@ -335,6 +349,7 @@ function validateForm() {
     return true;
 }
 
+// ----- SEND VIA WHATSAPP (RSVP) -----
 function sendWhatsApp() {
     if (!validateForm()) return;
     
@@ -359,6 +374,7 @@ function sendWhatsApp() {
     document.getElementById('rsvpForm').reset();
 }
 
+// ----- SEND VIA EMAIL -----
 function sendEmail() {
     if (!validateForm()) return;
     
@@ -413,7 +429,7 @@ var countdownInterval = setInterval(function() {
 }, 1000);
 
 // ================================================================
-// 🎵 MUSIC - FORCE AUTO-PLAY (music.mp3)
+// 🎵 MUSIC - FORCE AUTO-PLAY
 // ================================================================
 
 var audio = document.getElementById('bgMusic');
@@ -525,7 +541,7 @@ function openLightbox(element) {
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
     lightbox.classList.remove('show');
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = 'auto';
 }
 
 document.addEventListener('keydown', function(event) {
