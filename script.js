@@ -122,7 +122,7 @@ function displayGuestName(name) {
 }
 
 // ================================================================
-// 🎯 SHARE WITH CUSTOM NAME - PERSONALIZED
+// 🎯 SHARE WITH CUSTOM NAME - WITH PHOTO PREVIEW
 // ================================================================
 
 function shareWithCustomName() {
@@ -135,10 +135,12 @@ function shareWithCustomName() {
         return;
     }
     
+    // Get base URL without parameters
     const url = window.location.href.split('?')[0];
     const encodedName = encodeURIComponent(guestName);
     const shareUrl = `${url}?name=${encodedName}`;
     
+    // 🔥 WhatsApp message with photo - Use the image URL directly
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
     message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
@@ -146,19 +148,25 @@ function shareWithCustomName() {
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
     message += `💗 සුභ ගමනක් වේවා! 💗`;
     
+    // Encode the message
     const encodedMessage = encodeURIComponent(message);
+    
+    // 🔥 WhatsApp URL - The image will appear as preview because of og:image meta tag
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
+    
+    // Reset input after sharing
     nameInput.value = '';
 }
 
 // ================================================================
-// 🎯 SHARE WITHOUT NAME (Simple Share)
+// 🎯 SHARE WITHOUT NAME - WITH PHOTO PREVIEW
 // ================================================================
 
 function shareInvitationSimple() {
     const url = window.location.href.split('?')[0];
     
+    // 🔥 WhatsApp message with photo
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
     message += `💗 We are coming home! 🎉\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
@@ -167,6 +175,8 @@ function shareInvitationSimple() {
     message += `💗 සුභ ගමනක් වේවා! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
+    
+    // 🔥 WhatsApp URL - Image preview from og:image meta tag
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
@@ -427,7 +437,7 @@ var countdownInterval = setInterval(function() {
 }, 1000);
 
 // ================================================================
-// 🎵 MUSIC - FORCE AUTO-PLAY
+// 🎵 MUSIC - FORCE AUTO-PLAY (music.mp3)
 // ================================================================
 
 var audio = document.getElementById('bgMusic');
