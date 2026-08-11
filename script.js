@@ -1,4 +1,4 @@
-// ----- 1. FLOATING HEARTS - ROSE (PINK) & WHITE (SLOWER) -----
+// ----- 1. FLOATING HEARTS - ROSE (PINK) & WHITE (NORMAL SPEED) -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
     if (!container) return;
@@ -23,10 +23,10 @@ function createHeart() {
     
     heart.style.left = Math.random() * 100 + '%';
     heart.style.fontSize = (Math.random() * 18 + 14) + 'px';
-    // Much slower animation: 22s-30s
-    heart.style.animationDuration = (Math.random() * 12 + 22) + 's';
-    heart.style.opacity = Math.random() * 0.5 + 0.3;
-    heart.style.animationDelay = (Math.random() * 5) + 's';
+    // Normal speed: 12s-18s
+    heart.style.animationDuration = (Math.random() * 8 + 12) + 's';
+    heart.style.opacity = Math.random() * 0.5 + 0.4;
+    heart.style.animationDelay = (Math.random() * 3) + 's';
 
     container.appendChild(heart);
 
@@ -34,14 +34,14 @@ function createHeart() {
         if (heart.parentNode) {
             heart.remove();
         }
-    }, 35000);
+    }, 20000);
 }
 
-setInterval(createHeart, 500);
+setInterval(createHeart, 400);
 
 window.addEventListener('load', () => {
-    for (let i = 0; i < 8; i++) {
-        setTimeout(createHeart, i * 300);
+    for (let i = 0; i < 6; i++) {
+        setTimeout(createHeart, i * 200);
     }
 });
 
@@ -56,8 +56,8 @@ function createSparkle() {
     sparkle.style.left = Math.random() * 100 + '%';
     sparkle.style.width = (Math.random() * 6 + 3) + 'px';
     sparkle.style.height = sparkle.style.width;
-    sparkle.style.animationDuration = (Math.random() * 12 + 8) + 's';
-    sparkle.style.animationDelay = (Math.random() * 6) + 's';
+    sparkle.style.animationDuration = (Math.random() * 10 + 6) + 's';
+    sparkle.style.animationDelay = (Math.random() * 5) + 's';
 
     container.appendChild(sparkle);
 
@@ -65,14 +65,14 @@ function createSparkle() {
         if (sparkle.parentNode) {
             sparkle.remove();
         }
-    }, 20000);
+    }, 16000);
 }
 
-setInterval(createSparkle, 350);
+setInterval(createSparkle, 300);
 
 window.addEventListener('load', () => {
-    for (let i = 0; i < 10; i++) {
-        setTimeout(createSparkle, i * 180);
+    for (let i = 0; i < 8; i++) {
+        setTimeout(createSparkle, i * 150);
     }
 });
 
