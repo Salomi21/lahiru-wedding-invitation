@@ -5,16 +5,23 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
 body {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Lato', sans-serif;
-    padding: 15px;
+    padding: 0;
     background: #1a0a12;
     position: relative;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 /* ----- BACKGROUND IMAGE ----- */
@@ -141,15 +148,17 @@ body::after {
 }
 
 /* =========================================== */
-/* 🎯 MAIN CARD - CLEAN & ELEGANT            */
+/* 🎯 MAIN CARD - CLEAN & ELEGANT - FIXED HEIGHT */
 /* =========================================== */
 .container {
     position: relative;
     z-index: 10;
     max-width: 440px;
     width: 100%;
-    margin: 30px auto;
-    padding: 40px 25px 50px 25px;
+    height: 92vh;
+    max-height: 780px;
+    margin: 0 auto;
+    padding: 20px 20px 25px 20px;
     background: linear-gradient(145deg, 
         rgba(255, 255, 255, 0.06),
         rgba(255, 255, 255, 0.02)
@@ -164,6 +173,21 @@ body::after {
         0 0 40px rgba(244, 114, 182, 0.03),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Hide scrollbar but keep scrolling */
+.container::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+.container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .container:hover {
@@ -194,12 +218,13 @@ body::after {
 
 /* ----- HEART ICON MAIN ----- */
 .heart-icon-main {
-    font-size: 38px;
-    margin-bottom: 5px;
+    font-size: 32px;
+    margin-bottom: 2px;
     display: block;
     animation: heartMainPulse 3s ease-in-out infinite;
     filter: drop-shadow(0 0 30px rgba(244, 114, 182, 0.3));
     color: #f472b6;
+    flex-shrink: 0;
 }
 
 @keyframes heartMainPulse {
@@ -211,12 +236,13 @@ body::after {
 
 /* ----- DECORATIVE LINE ----- */
 .decorative-line {
-    font-size: 12px;
-    letter-spacing: 10px;
+    font-size: 10px;
+    letter-spacing: 8px;
     color: #f472b6;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     opacity: 0.5;
     text-shadow: 0 0 20px rgba(244, 114, 182, 0.15);
+    flex-shrink: 0;
 }
 
 /* ================================================================ */
@@ -224,7 +250,7 @@ body::after {
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
-    font-size: 44px;
+    font-size: 38px;
     background: linear-gradient(135deg, 
         #ffd700 0%,
         #ffb300 15%,
@@ -238,19 +264,20 @@ body::after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.4)) 
             drop-shadow(0 0 80px rgba(255, 215, 0, 0.15))
             drop-shadow(0 4px 30px rgba(255, 215, 0, 0.2));
-    line-height: 1.2;
+    line-height: 1.1;
     animation: goldPinkShine 4s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 .subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 6px;
+    font-size: 14px;
+    letter-spacing: 5px;
     text-transform: uppercase;
     background: linear-gradient(135deg, 
         #ffd700 0%,
@@ -264,11 +291,12 @@ body::after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.35))
             drop-shadow(0 0 60px rgba(255, 215, 0, 0.12))
             drop-shadow(0 4px 20px rgba(255, 215, 0, 0.12));
     animation: goldPinkShine 4s ease-in-out infinite;
+    flex-shrink: 0;
 }
 
 @keyframes goldPinkShine {
@@ -281,10 +309,11 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin: 12px auto 18px auto;
+    gap: 8px;
+    margin: 6px auto 10px auto;
     width: 100%;
-    max-width: 200px;
+    max-width: 160px;
+    flex-shrink: 0;
 }
 
 .divider::before,
@@ -296,7 +325,7 @@ body::after {
 }
 
 .divider-icon {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .divider-icon:nth-child(1) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
@@ -307,43 +336,46 @@ body::after {
 .date {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
     color: #ffffff;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     letter-spacing: 0.5px;
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
 }
 
 .venue-text {
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 600;
     color: #f9a8d4;
     letter-spacing: 0.5px;
-    margin-bottom: 12px;
-    padding: 4px 0;
+    margin-bottom: 8px;
+    padding: 2px 0;
     text-shadow: 0 0 20px rgba(244, 114, 182, 0.1);
+    flex-shrink: 0;
 }
 
 /* ----- COUNTDOWN ----- */
 #countdown {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 22px;
     background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(244, 114, 182, 0.05));
-    padding: 14px 28px;
+    padding: 10px 20px;
     border-radius: 50px;
     display: inline-block;
     border: 2px solid rgba(244, 114, 182, 0.3);
-    margin: 8px 0 12px 0;
-    letter-spacing: 3px;
+    margin: 4px auto 8px auto;
+    letter-spacing: 2px;
     color: #ffffff;
     width: auto;
-    min-width: 230px;
+    min-width: 180px;
     text-shadow: 0 0 40px rgba(244, 114, 182, 0.25), 0 0 80px rgba(244, 114, 182, 0.08);
     animation: countdownGlow 2s ease-in-out infinite;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 0 30px rgba(244, 114, 182, 0.08);
+    flex-shrink: 0;
 }
 
 @keyframes countdownGlow {
@@ -359,25 +391,26 @@ body::after {
 
 /* ----- DESCRIPTION HIGHLIGHTED ----- */
 .description-highlighted {
-    font-size: 18px;
+    font-size: 15px;
     color: #f5edff;
-    margin: 10px 0 15px 0;
-    line-height: 1.8;
+    margin: 4px 0 8px 0;
+    line-height: 1.6;
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.04);
-    padding: 14px 18px;
+    padding: 10px 14px;
     background: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
+    border-radius: 14px;
     border: 1px solid rgba(255, 255, 255, 0.04);
+    flex-shrink: 0;
 }
 
 .highlight-text {
     display: inline-block;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 700;
     color: #ffffff !important;
     text-shadow: 0 0 40px rgba(244, 114, 182, 0.35), 0 0 80px rgba(244, 114, 182, 0.12);
     animation: highlightPulse 2.8s ease-in-out infinite;
-    padding: 4px 16px;
+    padding: 3px 12px;
     background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(244, 114, 182, 0.05));
     border-radius: 30px;
     letter-spacing: 0.5px;
@@ -400,27 +433,28 @@ body::after {
 
 /* ----- BUTTONS ----- */
 .btn-primary {
-    margin-top: 18px;
-    padding: 14px 35px;
+    margin-top: 6px;
+    padding: 12px 28px;
     border: none;
     background: linear-gradient(145deg, #ec4899, #db2777);
     color: #fff;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 13px;
     letter-spacing: 2px;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     box-shadow: 0 4px 25px rgba(236, 72, 153, 0.25);
     text-shadow: 0 1px 10px rgba(0,0,0,0.15);
+    flex-shrink: 0;
 }
 
 .btn-primary:hover {
@@ -430,30 +464,31 @@ body::after {
 }
 
 .btn-primary:active { transform: scale(0.97); }
-.btn-primary span { font-size: 18px; }
+.btn-primary span { font-size: 16px; }
 
 .btn-whatsapp {
-    margin-top: 10px;
-    padding: 12px 30px;
+    margin-top: 6px;
+    padding: 10px 24px;
     border: none;
     background: linear-gradient(145deg, #25D366, #128C7E);
     color: #fff;
     font-family: 'Lato', sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     box-shadow: 0 4px 20px rgba(37, 211, 102, 0.2);
     text-shadow: 0 1px 10px rgba(0,0,0,0.12);
+    flex-shrink: 0;
 }
 
 .btn-whatsapp:hover {
@@ -463,17 +498,18 @@ body::after {
 }
 
 .btn-whatsapp:active { transform: scale(0.97); }
-.btn-whatsapp span { font-size: 18px; }
+.btn-whatsapp span { font-size: 16px; }
 
 /* ----- FOOTER QUOTE ----- */
 .footer-quote {
-    margin-top: 25px;
+    margin-top: 12px;
     font-family: 'Great Vibes', cursive;
-    font-size: 20px;
+    font-size: 17px;
     color: #f9a8d4;
     border-top: 1px solid rgba(255, 255, 255, 0.04);
-    padding-top: 15px;
+    padding-top: 10px;
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
 }
 
 /* ================================================================ */
@@ -482,11 +518,12 @@ body::after {
 
 #viewInvitationContainer {
     display: block;
-    margin-top: 18px;
-    max-width: 320px;
+    margin-top: 8px;
+    max-width: 280px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    flex-shrink: 0;
 }
 
 #viewInvitationContainer .btn-primary {
@@ -499,11 +536,12 @@ body::after {
 
 #shareButtonContainer {
     display: none;
-    margin-top: 12px;
-    max-width: 320px;
+    margin-top: 6px;
+    max-width: 280px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    flex-shrink: 0;
 }
 
 #shareButtonContainer .share-name-input {
@@ -511,28 +549,28 @@ body::after {
 }
 
 #shareButtonContainer .btn-whatsapp {
-    margin-top: 10px;
+    margin-top: 6px;
 }
 
 /* ----- SHARE WITH NAME INPUT ----- */
 .share-name-input {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin-top: 14px;
-    max-width: 320px;
+    gap: 6px;
+    margin-top: 8px;
+    max-width: 280px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
 }
 
 .share-name-input input {
-    padding: 13px 18px;
+    padding: 10px 14px;
     border-radius: 50px;
     border: 1.5px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.04);
     color: #f0e6f6;
-    font-size: 14px;
+    font-size: 13px;
     text-align: center;
     font-family: 'Lato', sans-serif;
     transition: all 0.3s ease;
@@ -566,9 +604,9 @@ body::after {
 /* 🎯 PHOTO FRAME - Pink Theme                                    */
 /* ================================================================ */
 .photo-frame {
-    width: 130px;
-    height: 130px;
-    margin: -45px auto 12px auto;
+    width: 110px;
+    height: 110px;
+    margin: -35px auto 6px auto;
     border-radius: 50%;
     border: 3px solid #f472b6;
     box-shadow: 
@@ -578,6 +616,7 @@ body::after {
     overflow: visible;
     position: relative;
     background: rgba(20, 10, 18, 0.9);
+    flex-shrink: 0;
 }
 
 .photo-frame img {
@@ -628,32 +667,32 @@ body::after {
 /* ----- STICKER OVERLAY - Pink ----- */
 .sticker-overlay {
     position: absolute;
-    bottom: -8px;
-    right: -8px;
-    width: 55px;
-    height: 55px;
+    bottom: -6px;
+    right: -6px;
+    width: 45px;
+    height: 45px;
     z-index: 5;
     animation: stickerFloat 2.5s ease-in-out infinite;
     filter: drop-shadow(0 4px 20px rgba(244, 114, 182, 0.35));
 }
 
 .sticker-emoji {
-    font-size: 42px;
+    font-size: 35px;
     display: block;
     animation: heartPulse 2s ease-in-out infinite;
     text-align: center;
     line-height: 1;
     background: rgba(255, 255, 255, 0.06);
     border-radius: 50%;
-    padding: 4px;
+    padding: 3px;
     border: 2px solid rgba(255, 255, 255, 0.06);
 }
 
 @keyframes stickerFloat {
     0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-    25% { transform: translateY(-8px) rotate(3deg) scale(1.03); }
-    50% { transform: translateY(-4px) rotate(-3deg) scale(1.01); }
-    75% { transform: translateY(-6px) rotate(2deg) scale(1.05); }
+    25% { transform: translateY(-6px) rotate(3deg) scale(1.03); }
+    50% { transform: translateY(-3px) rotate(-3deg) scale(1.01); }
+    75% { transform: translateY(-5px) rotate(2deg) scale(1.05); }
 }
 
 @keyframes heartPulse {
@@ -665,13 +704,14 @@ body::after {
 .traditional-icons {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin: 5px 0 10px 0;
+    gap: 10px;
+    margin: 2px 0 4px 0;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .icon-item {
-    font-size: 20px;
+    font-size: 16px;
     animation: lightFloat 3.5s ease-in-out infinite;
     display: inline-block;
 }
@@ -684,7 +724,7 @@ body::after {
 
 @keyframes lightFloat {
     0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-6px) scale(1.08); }
+    50% { transform: translateY(-4px) scale(1.08); }
 }
 
 /* ================================================================ */
@@ -763,12 +803,12 @@ body::after {
 
 .door-top-deco {
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: 0;
     width: 100%;
     text-align: center;
-    font-size: 18px;
-    letter-spacing: 15px;
+    font-size: 16px;
+    letter-spacing: 12px;
     z-index: 2;
     opacity: 0.6;
     color: #f472b6;
@@ -785,7 +825,7 @@ body::after {
 
 @keyframes decoFloat {
     0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-5px) scale(1.1); }
+    50% { transform: translateY(-4px) scale(1.08); }
 }
 
 /* ================================================================ */
@@ -795,12 +835,12 @@ body::after {
 .door-container {
     position: relative;
     width: 80vw;
-    max-width: 800px;
-    height: 75vh;
-    max-height: 650px;
+    max-width: 750px;
+    height: 70vh;
+    max-height: 580px;
     perspective: 1500px;
     z-index: 1;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 /* Left Door - Pink & Purple Theme */
@@ -867,7 +907,7 @@ body::after {
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 30px 20px;
+    padding: 25px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -878,7 +918,7 @@ body::after {
     width: 85%;
     height: 75%;
     border: 2px solid rgba(255, 215, 0, 0.06);
-    border-radius: 20px;
+    border-radius: 18px;
     position: relative;
     display: flex;
     align-items: center;
@@ -927,7 +967,7 @@ body::after {
     content: '✦';
     position: absolute;
     color: rgba(255, 215, 0, 0.03);
-    font-size: 80px;
+    font-size: 70px;
 }
 
 .door-design::after {
@@ -943,10 +983,10 @@ body::after {
 
 .door-ornament {
     position: absolute;
-    bottom: 20px;
-    font-size: 12px;
+    bottom: 15px;
+    font-size: 10px;
     color: rgba(255, 215, 0, 0.06);
-    letter-spacing: 10px;
+    letter-spacing: 8px;
 }
 
 /* ================================================================ */
@@ -955,9 +995,9 @@ body::after {
 
 .door-handle {
     position: absolute;
-    width: 18px;
-    height: 60px;
-    border-radius: 14px;
+    width: 16px;
+    height: 50px;
+    border-radius: 12px;
     background: linear-gradient(180deg, #ffd700, #f9a825, #ffd700, #f9a825);
     background-size: 100% 300%;
     box-shadow: 
@@ -972,11 +1012,11 @@ body::after {
 }
 
 .door-left .door-handle {
-    right: 25px;
+    right: 20px;
 }
 
 .door-right .door-handle {
-    left: 25px;
+    left: 20px;
 }
 
 @keyframes handleGlow {
@@ -990,8 +1030,8 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 4px;
-    height: 35px;
+    width: 3px;
+    height: 28px;
     background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent);
     border-radius: 50%;
 }
@@ -1005,7 +1045,7 @@ body::after {
     top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 90px;
+    font-size: 80px;
     z-index: 10;
     opacity: 0;
     transition: all 1.5s ease;
@@ -1044,7 +1084,7 @@ body::after {
 .center-title {
     display: block;
     font-family: 'Great Vibes', cursive;
-    font-size: 32px;
+    font-size: 28px;
     color: #ffd700;
     text-shadow: 0 0 50px rgba(255, 215, 0, 0.15);
     letter-spacing: 2px;
@@ -1054,9 +1094,9 @@ body::after {
 .center-sub {
     display: block;
     font-family: 'Playfair Display', serif;
-    font-size: 16px;
+    font-size: 14px;
     color: #f9a8d4;
-    margin-top: 5px;
+    margin-top: 4px;
     letter-spacing: 4px;
     font-weight: 300;
     text-shadow: 0 0 30px rgba(244, 114, 182, 0.1);
@@ -1076,8 +1116,8 @@ body::after {
     bottom: 12%;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(255, 215, 0, 0.05), transparent);
     border: 2px solid rgba(255, 215, 0, 0.05);
@@ -1090,7 +1130,7 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 16px;
+    font-size: 14px;
     opacity: 0.3;
 }
 
@@ -1105,11 +1145,11 @@ body::after {
 
 .door-ring {
     position: absolute;
-    top: -20px;
-    left: -20px;
-    width: calc(100% + 40px);
-    height: calc(100% + 40px);
-    border-radius: 40px;
+    top: -15px;
+    left: -15px;
+    width: calc(100% + 30px);
+    height: calc(100% + 30px);
+    border-radius: 35px;
     border: 2px dashed rgba(244, 114, 182, 0.06);
     animation: ringSpin 30s linear infinite;
     pointer-events: none;
@@ -1119,11 +1159,11 @@ body::after {
 .door-ring::before {
     content: '';
     position: absolute;
-    top: 10px;
-    left: 10px;
-    width: calc(100% - 20px);
-    height: calc(100% - 20px);
-    border-radius: 35px;
+    top: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    border-radius: 30px;
     border: 1px solid rgba(255, 215, 0, 0.03);
 }
 
@@ -1147,7 +1187,7 @@ body::after {
 .bottom-line {
     display: block;
     font-family: 'Great Vibes', cursive;
-    font-size: 24px;
+    font-size: 22px;
     color: #f9a8d4;
     text-shadow: 0 0 40px rgba(244, 114, 182, 0.1);
     letter-spacing: 2px;
@@ -1156,10 +1196,10 @@ body::after {
 .bottom-sub {
     display: block;
     font-family: 'Lato', sans-serif;
-    font-size: 13px;
+    font-size: 12px;
     color: #f9a8d4;
-    margin-top: 5px;
-    letter-spacing: 6px;
+    margin-top: 4px;
+    letter-spacing: 5px;
     font-weight: 300;
     animation: blinkText 2s ease-in-out infinite;
 }
@@ -1191,7 +1231,7 @@ body::after {
 
 .door-particles span {
     position: absolute;
-    font-size: 22px;
+    font-size: 18px;
     opacity: 0;
     animation: particleFloat 4.5s ease-in-out infinite;
 }
@@ -1215,10 +1255,10 @@ body::after {
 
 @keyframes particleFloat {
     0%, 100% { transform: translateY(0) scale(1); opacity: 0; }
-    25% { transform: translateY(-30px) scale(1.4); opacity: 0.8; }
-    50% { transform: translateY(-60px) scale(0.8); opacity: 0.5; }
-    75% { transform: translateY(-90px) scale(1.2); opacity: 0.9; }
-    100% { transform: translateY(-130px) scale(0.5); opacity: 0; }
+    25% { transform: translateY(-25px) scale(1.3); opacity: 0.8; }
+    50% { transform: translateY(-50px) scale(0.8); opacity: 0.5; }
+    75% { transform: translateY(-75px) scale(1.1); opacity: 0.9; }
+    100% { transform: translateY(-110px) scale(0.5); opacity: 0; }
 }
 
 /* ================================================================ */
@@ -1325,7 +1365,7 @@ body::after {
     width: 100%;
     max-height: 88vh;
     overflow-y: auto;
-    padding: 35px 25px 30px 25px;
+    padding: 30px 22px 25px 22px;
     border-radius: 28px;
     box-shadow: 
         0 30px 80px rgba(0, 0, 0, 0.6),
@@ -1335,6 +1375,10 @@ body::after {
     border: 1px solid rgba(255, 255, 255, 0.06);
     animation: modalFloat 4s ease-in-out infinite;
 }
+
+.modal-content::-webkit-scrollbar { width: 4px; }
+.modal-content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
+.modal-content::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ec4899, #f472b6); border-radius: 10px; }
 
 @keyframes modalFloat {
     0%, 100% { transform: translateY(0px); }
@@ -1367,19 +1411,15 @@ body::after {
     50% { background-position: 100% 50%; }
 }
 
-.modal-content::-webkit-scrollbar { width: 4px; }
-.modal-content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
-.modal-content::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ec4899, #f472b6); border-radius: 10px; }
-
 /* ----- MODAL TOP DECORATION - No Home Icon ----- */
 .modal-top-deco {
     text-align: center;
-    margin-bottom: 5px;
-    letter-spacing: 12px;
+    margin-bottom: 4px;
+    letter-spacing: 10px;
 }
 
 .modal-top-deco .deco-icon {
-    font-size: 12px;
+    font-size: 11px;
     color: #f472b6;
     opacity: 0.35;
     animation: decoPulse 3s ease-in-out infinite;
@@ -1398,17 +1438,17 @@ body::after {
     position: sticky;
     top: 0;
     float: right;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 300;
     color: #f9a8d4;
     cursor: pointer;
     transition: 0.3s;
     line-height: 1;
     background: rgba(20, 10, 18, 0.8);
-    padding: 0 10px;
+    padding: 0 8px;
     border-radius: 50%;
     z-index: 10;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .close-btn:hover {
@@ -1419,12 +1459,12 @@ body::after {
 /* ----- MODAL HEADER ----- */
 .modal-header {
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     clear: both;
 }
 
 .modal-rings {
-    font-size: 30px;
+    font-size: 26px;
     display: block;
     margin-bottom: 2px;
     animation: ringPulse 3s ease-in-out infinite;
@@ -1442,7 +1482,7 @@ body::after {
 /* ================================================================ */
 .modal-title {
     font-family: 'Great Vibes', cursive;
-    font-size: 38px;
+    font-size: 34px;
     background: linear-gradient(135deg, 
         #ffd700 0%,
         #ffb300 15%,
@@ -1456,7 +1496,7 @@ body::after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.35))
             drop-shadow(0 0 80px rgba(255, 215, 0, 0.12))
             drop-shadow(0 4px 30px rgba(255, 215, 0, 0.15));
@@ -1466,8 +1506,8 @@ body::after {
 .modal-subtitle {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 5px;
+    font-size: 13px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     background: linear-gradient(135deg, 
         #ffd700 0%,
@@ -1481,7 +1521,7 @@ body::after {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.25))
             drop-shadow(0 0 60px rgba(255, 215, 0, 0.08))
             drop-shadow(0 4px 20px rgba(255, 215, 0, 0.08));
@@ -1492,9 +1532,9 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin: 8px auto;
-    font-size: 12px;
+    gap: 6px;
+    margin: 6px auto;
+    font-size: 11px;
     color: #f472b6;
     opacity: 0.4;
 }
@@ -1514,9 +1554,9 @@ body::after {
 /* ----- INVITATION MESSAGE ----- */
 .invitation-message {
     background: rgba(236, 72, 153, 0.05);
-    padding: 20px 22px;
-    border-radius: 16px;
-    margin-bottom: 20px;
+    padding: 16px 18px;
+    border-radius: 14px;
+    margin-bottom: 16px;
     border-left: 3px solid #ec4899;
     position: relative;
     overflow: hidden;
@@ -1535,8 +1575,8 @@ body::after {
 
 .msg-icon {
     text-align: center;
-    font-size: 28px;
-    margin-bottom: 6px;
+    font-size: 24px;
+    margin-bottom: 4px;
     animation: iconPulse 2.5s ease-in-out infinite;
 }
 
@@ -1547,10 +1587,10 @@ body::after {
 
 .invitation-text {
     font-family: 'Great Vibes', cursive;
-    font-size: 22px;
+    font-size: 20px;
     color: #ffffff;
     text-align: center;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     line-height: 1.3;
     text-shadow: 0 0 30px rgba(255,255,255,0.04);
 }
@@ -1558,19 +1598,19 @@ body::after {
 .invitation-subtext {
     text-align: center;
     color: #f9a8d4;
-    font-size: 14px;
-    line-height: 1.7;
+    font-size: 13px;
+    line-height: 1.6;
 }
 
 /* ----- MAIN PHOTO ----- */
 .main-photo-section {
-    margin: 10px 0 18px 0;
+    margin: 8px 0 14px 0;
 }
 
 .main-photo-frame {
     position: relative;
     width: 100%;
-    border-radius: 16px;
+    border-radius: 14px;
     overflow: hidden;
     border: 3px solid rgba(244, 114, 182, 0.3);
     box-shadow: 
@@ -1611,9 +1651,9 @@ body::after {
 
 .main-photo-icon {
     position: absolute;
-    bottom: 15px;
-    right: 20px;
-    font-size: 30px;
+    bottom: 12px;
+    right: 16px;
+    font-size: 26px;
     opacity: 0.7;
     animation: heartPulse 2s ease-in-out infinite;
     filter: drop-shadow(0 2px 20px rgba(244, 114, 182, 0.3));
@@ -1625,7 +1665,7 @@ body::after {
     left: -4px;
     width: calc(100% + 8px);
     height: calc(100% + 8px);
-    border-radius: 18px;
+    border-radius: 16px;
     border: 2px solid rgba(244, 114, 182, 0.15);
     pointer-events: none;
     animation: borderPulse 3s ease-in-out infinite;
@@ -1639,46 +1679,46 @@ body::after {
 .main-photo-caption {
     text-align: center;
     font-family: 'Great Vibes', cursive;
-    font-size: 18px;
+    font-size: 16px;
     color: #f9a8d4;
-    margin-top: 10px;
+    margin-top: 8px;
     letter-spacing: 1px;
     text-shadow: 0 0 30px rgba(244, 114, 182, 0.15);
 }
 
 /* ----- GALLERY ----- */
 .gallery-section {
-    margin: 10px 0 15px 0;
+    margin: 8px 0 12px 0;
 }
 
 .gallery-title {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     color: #f472b6;
     text-align: center;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     letter-spacing: 1px;
     text-shadow: 0 0 20px rgba(244,114,182,0.15);
 }
 
 .gallery-sub {
-    font-size: 11px;
+    font-size: 10px;
     color: #f9a8d4;
     text-align: center;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px;
 }
 
 .gallery-item {
     position: relative;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     aspect-ratio: 1;
@@ -1724,7 +1764,7 @@ body::after {
 }
 
 .gallery-icon {
-    font-size: 28px;
+    font-size: 24px;
     color: #fff;
     text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
 }
@@ -1741,7 +1781,7 @@ body::after {
     z-index: 9999;
     align-items: center;
     justify-content: center;
-    padding: 30px;
+    padding: 25px;
     animation: lightboxFade 0.3s ease;
 }
 
@@ -1756,9 +1796,9 @@ body::after {
 
 .lightbox-close {
     position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
+    top: 18px;
+    right: 25px;
+    font-size: 36px;
     color: #fff;
     cursor: pointer;
     transition: 0.3s;
@@ -1774,20 +1814,20 @@ body::after {
 .lightbox-content {
     max-width: 80%;
     max-height: 80%;
-    border-radius: 16px;
+    border-radius: 14px;
     box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7);
     border: 2px solid rgba(255, 255, 255, 0.06);
 }
 
 .lightbox-caption {
     position: absolute;
-    bottom: 30px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
     color: #f9a8d4;
-    font-size: 14px;
+    font-size: 13px;
     background: rgba(0, 0, 0, 0.6);
-    padding: 8px 24px;
+    padding: 6px 20px;
     border-radius: 30px;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.04);
@@ -1796,36 +1836,36 @@ body::after {
 /* ----- SCHEDULE CARD ----- */
 .schedule-card {
     background: rgba(255, 255, 255, 0.04);
-    border-radius: 16px;
-    padding: 16px 16px 14px 16px;
-    margin: 8px 0 14px 0;
+    border-radius: 14px;
+    padding: 14px 14px 12px 14px;
+    margin: 6px 0 12px 0;
     border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .schedule-card-header {
     text-align: center;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .schedule-icon {
-    font-size: 24px;
+    font-size: 22px;
     display: block;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
 }
 
 .schedule-title {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 700;
     color: #f472b6;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
     letter-spacing: 1px;
     text-shadow: 0 0 20px rgba(244,114,182,0.08);
 }
 
 .schedule-sub {
-    font-size: 11px;
+    font-size: 10px;
     color: #f9a8d4;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1834,15 +1874,15 @@ body::after {
 
 .schedule-timeline {
     position: relative;
-    padding-left: 10px;
+    padding-left: 8px;
 }
 
 .schedule-timeline::before {
     content: '';
     position: absolute;
-    left: 82px;
-    top: 5px;
-    bottom: 5px;
+    left: 72px;
+    top: 4px;
+    bottom: 4px;
     width: 2px;
     background: rgba(236, 72, 153, 0.15);
     border-radius: 10px;
@@ -1851,10 +1891,10 @@ body::after {
 .schedule-item {
     display: flex;
     align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 12px;
+    gap: 12px;
+    margin-bottom: 10px;
     position: relative;
-    padding: 3px 0;
+    padding: 2px 0;
 }
 
 .schedule-item:last-child {
@@ -1864,18 +1904,18 @@ body::after {
 .schedule-time {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 12px;
     color: #f472b6;
-    min-width: 68px;
+    min-width: 60px;
     padding-top: 2px;
     text-shadow: 0 0 15px rgba(244,114,182,0.08);
 }
 
 .schedule-dot {
-    width: 10px;
-    height: 10px;
-    min-width: 10px;
-    margin-top: 4px;
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    margin-top: 3px;
     border-radius: 50%;
     background: #ec4899;
     border: 2px solid rgba(255, 255, 255, 0.06);
@@ -1886,11 +1926,11 @@ body::after {
 
 .schedule-content {
     flex: 1;
-    padding-top: 1px;
+    padding-top: 0px;
 }
 
 .schedule-event {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     color: #ffffff;
     line-height: 1.3;
@@ -1898,51 +1938,51 @@ body::after {
 }
 
 .schedule-desc {
-    font-size: 11px;
+    font-size: 10px;
     color: #f9a8d4;
     letter-spacing: 0.5px;
 }
 
 /* ----- LOCATION SECTION ----- */
 .location-section {
-    margin: 5px 0 15px 0;
+    margin: 4px 0 12px 0;
 }
 
 .location-section h3 {
-    font-size: 17px;
+    font-size: 15px;
     color: #f472b6;
     border-bottom: 2px solid rgba(236, 72, 153, 0.06);
-    padding-bottom: 10px;
-    margin: 0 0 12px 0;
+    padding-bottom: 8px;
+    margin: 0 0 10px 0;
     font-weight: 700;
     text-shadow: 0 0 20px rgba(244,114,182,0.08);
 }
 
 .location-section p {
-    margin: 5px 0;
+    margin: 4px 0;
 }
 
 .location-name {
-    font-size: 16px;
+    font-size: 14px;
     color: #ffffff;
     font-weight: 600;
     text-shadow: 0 0 20px rgba(255,255,255,0.04);
 }
 
 .location-desc {
-    font-size: 13px;
+    font-size: 12px;
     color: #f9a8d4;
 }
 
 .map-btn {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 8px;
     background: linear-gradient(145deg, #ec4899, #db2777);
     color: #fff;
-    padding: 10px 25px;
+    padding: 8px 22px;
     border-radius: 30px;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(236, 72, 153, 0.15);
@@ -1957,13 +1997,13 @@ body::after {
 
 /* ----- RSVP SECTION ----- */
 .rsvp-section {
-    margin: 5px 0 15px 0;
-    padding: 16px 18px 18px 18px;
+    margin: 4px 0 12px 0;
+    padding: 14px 16px 16px 16px;
     background: linear-gradient(145deg, 
         rgba(255, 255, 255, 0.05),
         rgba(244, 114, 182, 0.04)
     );
-    border-radius: 16px;
+    border-radius: 14px;
     border: 1px solid rgba(244, 114, 182, 0.08);
     box-shadow: 
         0 4px 30px rgba(244, 114, 182, 0.04),
@@ -2007,11 +2047,11 @@ body::after {
 }
 
 .rsvp-section h3 {
-    font-size: 17px;
+    font-size: 15px;
     color: #f472b6;
     border-bottom: 2px solid rgba(236, 72, 153, 0.08);
-    padding-bottom: 10px;
-    margin: 0 0 12px 0;
+    padding-bottom: 8px;
+    margin: 0 0 10px 0;
     font-weight: 700;
     text-shadow: 0 0 30px rgba(244,114,182,0.15);
     position: relative;
@@ -2019,9 +2059,9 @@ body::after {
 }
 
 .rsvp-sub {
-    font-size: 13px;
+    font-size: 12px;
     color: #f9a8d4;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
     text-align: center;
     text-shadow: 0 0 20px rgba(244, 114, 182, 0.05);
     position: relative;
@@ -2032,12 +2072,12 @@ body::after {
 .rsvp-section select,
 .rsvp-section textarea {
     width: 100%;
-    padding: 13px 16px;
-    margin-bottom: 12px;
+    padding: 11px 14px;
+    margin-bottom: 10px;
     border: 1.5px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
+    border-radius: 10px;
     font-family: 'Lato', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.3s ease;
     box-sizing: border-box;
     color: #f0e6f6;
@@ -2069,24 +2109,24 @@ body::after {
 
 .rsvp-section textarea {
     resize: vertical;
-    min-height: 65px;
+    min-height: 55px;
 }
 
 .form-buttons {
     display: flex;
-    gap: 12px;
-    margin-top: 6px;
+    gap: 10px;
+    margin-top: 4px;
     position: relative;
     z-index: 1;
 }
 
 .form-buttons button {
     flex: 1;
-    padding: 14px;
+    padding: 12px;
     border: none;
     color: #fff;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -2141,9 +2181,9 @@ body::after {
 }
 
 .form-footer {
-    font-size: 11px;
+    font-size: 10px;
     color: #8a6a7a;
-    margin-top: 12px;
+    margin-top: 10px;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -2152,29 +2192,29 @@ body::after {
 /* ----- MODAL FOOTER ----- */
 .modal-footer {
     text-align: center;
-    margin-top: 20px;
-    padding-top: 16px;
+    margin-top: 16px;
+    padding-top: 12px;
     border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .footer-deco {
-    font-size: 11px;
-    letter-spacing: 10px;
+    font-size: 10px;
+    letter-spacing: 8px;
     color: #f472b6;
     opacity: 0.35;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .modal-footer-quote {
     font-family: 'Great Vibes', cursive;
-    font-size: 20px;
+    font-size: 18px;
     color: #f9a8d4;
 }
 
 .modal-footer-love {
-    font-size: 13px;
+    font-size: 12px;
     color: #8a6a7a;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 /* ================================================================ */
@@ -2185,8 +2225,8 @@ body::after {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: rgba(244, 114, 182, 0.25);
     backdrop-filter: blur(10px);
@@ -2195,7 +2235,7 @@ body::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
+    font-size: 22px;
     cursor: pointer;
     z-index: 1000;
     transition: all 0.3s ease;
@@ -2230,320 +2270,328 @@ body::after {
 /* ================================================================ */
 
 @media (max-width: 480px) {
-    body { padding: 10px; }
+    body { padding: 0; }
     
     .container {
-        padding: 30px 18px 40px 18px;
+        padding: 16px 14px 20px 14px;
         border-radius: 20px;
-        margin: 20px auto;
+        margin: 5px auto;
+        height: 94vh;
+        max-height: 700px;
+        width: 96%;
     }
     
-    .title { font-size: 34px; }
-    .subtitle { font-size: 13px; letter-spacing: 4px; }
-    #countdown { font-size: 20px; padding: 10px 16px; min-width: 170px; }
-    .date { font-size: 19px; }
-    .venue-text { font-size: 14px; }
-    .description-highlighted { font-size: 15px; padding: 10px 12px; }
-    .highlight-text { font-size: 14px; padding: 3px 12px; }
-    .btn-primary, .btn-whatsapp { font-size: 13px; padding: 12px 20px; max-width: 100%; }
-    .footer-quote { font-size: 16px; }
-    .heart-icon-main { font-size: 30px; }
-    .photo-frame { width: 100px; height: 100px; margin: -35px auto 10px auto; }
-    .sticker-overlay { width: 45px; height: 45px; bottom: -5px; right: -5px; }
-    .sticker-emoji { font-size: 35px; }
-    .traditional-icons { gap: 8px; }
-    .icon-item { font-size: 16px; }
-    .top-decoration { font-size: 12px; letter-spacing: 10px; top: 5px; }
+    .title { font-size: 30px; }
+    .subtitle { font-size: 12px; letter-spacing: 4px; }
+    #countdown { font-size: 18px; padding: 8px 14px; min-width: 150px; }
+    .date { font-size: 17px; }
+    .venue-text { font-size: 13px; margin-bottom: 6px; }
+    .description-highlighted { font-size: 13px; padding: 8px 10px; margin: 3px 0 6px 0; }
+    .highlight-text { font-size: 12px; padding: 2px 10px; }
+    .btn-primary, .btn-whatsapp { font-size: 12px; padding: 10px 18px; max-width: 100%; }
+    .footer-quote { font-size: 15px; margin-top: 8px; padding-top: 8px; }
+    .heart-icon-main { font-size: 26px; }
+    .photo-frame { width: 90px; height: 90px; margin: -30px auto 4px auto; }
+    .sticker-overlay { width: 38px; height: 38px; bottom: -4px; right: -4px; }
+    .sticker-emoji { font-size: 30px; }
+    .traditional-icons { gap: 6px; margin: 0px 0 2px 0; }
+    .icon-item { font-size: 14px; }
+    .top-decoration { font-size: 11px; letter-spacing: 10px; top: 5px; }
+    .divider { margin: 4px auto 6px auto; max-width: 130px; gap: 6px; }
+    .divider-icon { font-size: 12px; }
     
     #viewInvitationContainer, #shareButtonContainer {
         max-width: 100%;
-        padding: 0 5px;
+        padding: 0;
     }
     
     .share-name-input input {
-        font-size: 13px;
-        padding: 11px 14px;
+        font-size: 12px;
+        padding: 9px 12px;
     }
     
     .door-container {
         width: 85vw;
-        height: 55vh;
-        max-height: 380px;
+        height: 50vh;
+        max-height: 350px;
+        margin-bottom: 10px;
     }
-    .door-heart { font-size: 50px; }
-    .center-title { font-size: 20px; }
-    .center-sub { font-size: 12px; }
-    .bottom-line { font-size: 18px; }
-    .bottom-sub { font-size: 11px; }
-    .door-top-deco { font-size: 14px; letter-spacing: 10px; top: 10px; }
-    .door-particles span { font-size: 14px; }
-    .door-handle { width: 12px; height: 40px; }
-    .door-left .door-handle { right: 12px; }
-    .door-right .door-handle { left: 12px; }
-    .door-ornament { font-size: 10px; letter-spacing: 6px; }
-    .door-left { border-radius: 20px 0 0 20px; }
-    .door-right { border-radius: 0 20px 20px 0; }
-    .door-lock { width: 30px; height: 30px; }
-    .door-lock::before { font-size: 12px; }
-    
-    .main-photo-frame img { aspect-ratio: 16/12; }
-    .main-photo-caption { font-size: 15px; }
-    .main-photo-icon { font-size: 24px; bottom: 10px; right: 15px; }
-    
-    .modal-content {
-        padding: 22px 16px 22px 16px;
-        border-radius: 20px;
-        max-height: 85vh;
-    }
-    .modal-title { font-size: 30px; }
-    .modal-subtitle { font-size: 12px; letter-spacing: 3px; }
-    .invitation-text { font-size: 18px; }
-    .invitation-subtext { font-size: 13px; }
-    .form-buttons { flex-direction: column; gap: 8px; }
-    .form-buttons button { font-size: 13px; padding: 13px; }
-    .close-btn { font-size: 28px; }
-    .modal-rings { font-size: 24px; }
-    .map-btn { font-size: 12px; padding: 8px 18px; }
-    .modal-footer-quote { font-size: 17px; }
-    
-    .rsvp-section { padding: 12px 12px 14px 12px; }
-    .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
-        padding: 11px 14px;
-        font-size: 13px;
-    }
-    
-    .gallery-grid { gap: 6px; }
-    .gallery-title { font-size: 15px; }
-    .gallery-item { border-radius: 8px; }
-    .gallery-icon { font-size: 18px; }
-    
-    .lightbox-content { max-width: 95%; max-height: 70%; }
-    .lightbox-close { font-size: 30px; top: 15px; right: 20px; }
-    .lightbox-caption { font-size: 12px; padding: 6px 16px; bottom: 20px; }
-    
-    .schedule-card { padding: 14px 12px 12px 12px; border-radius: 14px; margin: 6px 0 12px 0; }
-    .schedule-title { font-size: 15px; }
-    .schedule-sub { font-size: 10px; }
-    .schedule-icon { font-size: 20px; }
-    .schedule-timeline::before { left: 60px; }
-    .schedule-time { font-size: 11px; min-width: 52px; }
-    .schedule-dot { width: 8px; height: 8px; min-width: 8px; margin-top: 3px; }
-    .schedule-event { font-size: 13px; }
-    .schedule-desc { font-size: 10px; }
-    .schedule-item { gap: 10px; margin-bottom: 10px; }
-    
-    .sound-icon { width: 42px; height: 42px; font-size: 18px; bottom: 15px; right: 15px; }
-}
-
-@media (max-width: 380px) {
-    .door-container {
-        width: 90vw;
-        height: 45vh;
-        max-height: 300px;
-    }
-    .door-heart { font-size: 35px; }
-    .center-title { font-size: 16px; }
-    .center-sub { font-size: 10px; }
-    .bottom-line { font-size: 14px; }
-    .bottom-sub { font-size: 9px; }
-    .door-particles span { font-size: 12px; }
-    .door-handle { width: 10px; height: 30px; }
-    .door-left .door-handle { right: 8px; }
-    .door-right .door-handle { left: 8px; }
-    
-    .gallery-grid { gap: 4px; }
-    .schedule-time { font-size: 10px; min-width: 45px; }
-    .schedule-timeline::before { left: 50px; }
-    .schedule-event { font-size: 12px; }
-    .venue-text { font-size: 12px; }
-    #countdown { font-size: 16px; min-width: 140px; padding: 8px 12px; }
-    .highlight-text { font-size: 12px; padding: 2px 10px; }
-    .main-photo-caption { font-size: 13px; }
-    .rsvp-section { padding: 10px 10px 12px 10px; }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-    .container { padding: 35px 22px 45px 22px; max-width: 400px; }
-    .title { font-size: 38px; }
-    .subtitle { font-size: 14px; letter-spacing: 5px; }
-    #countdown { font-size: 22px; min-width: 180px; }
-    .venue-text { font-size: 16px; }
-    .modal-content { padding: 28px 22px 24px 22px; max-width: 420px; }
-    .form-buttons { flex-direction: row; }
-    .rsvp-section { padding: 14px 16px 16px 16px; }
-    .door-container { width: 75vw; height: 60vh; max-height: 420px; }
-    .center-title { font-size: 26px; }
-    .heart-icon-main { font-size: 34px; }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-    .container { max-width: 460px; padding: 45px 30px 55px 30px; }
-    .title { font-size: 44px; }
-    .subtitle { font-size: 15px; letter-spacing: 5px; }
-    .door-container { width: 65vw; height: 65vh; max-height: 500px; }
-}
-
-@media (min-width: 1025px) {
-    .container { max-width: 500px; padding: 50px 35px 60px 35px; }
-    .title { font-size: 48px; }
-    .subtitle { font-size: 16px; letter-spacing: 6px; }
-    #countdown { font-size: 26px; min-width: 220px; }
-    .door-container { width: 70vw; max-width: 750px; height: 70vh; max-height: 600px; }
-}
-
-@media (max-height: 600px) and (orientation: landscape) {
-    .container {
-        padding: 20px 15px 25px 15px;
-        margin: 10px auto;
-    }
-    .title { font-size: 28px; }
-    .subtitle { font-size: 12px; letter-spacing: 4px; }
-    #countdown { font-size: 16px; padding: 6px 12px; min-width: 150px; }
-    .date { font-size: 16px; }
-    .venue-text { font-size: 12px; margin-bottom: 6px; }
-    .description-highlighted { font-size: 13px; padding: 6px 10px; margin: 5px 0 8px 0; }
-    .highlight-text { font-size: 12px; padding: 2px 10px; }
-    .btn-primary, .btn-whatsapp { font-size: 11px; padding: 8px 16px; margin-top: 8px; }
-    .footer-quote { font-size: 14px; margin-top: 15px; padding-top: 10px; }
-    .heart-icon-main { font-size: 22px; }
-    .photo-frame { width: 80px; height: 80px; margin: -30px auto 8px auto; }
-    .sticker-overlay { width: 35px; height: 35px; bottom: -4px; right: -4px; }
-    .sticker-emoji { font-size: 28px; }
-    .divider { margin: 6px auto 10px auto; }
-    .modal-content { max-height: 80vh; padding: 15px 12px 15px 12px; }
-    
-    #viewInvitationContainer, #shareButtonContainer {
-        max-width: 100%;
-        margin-top: 6px;
-    }
-    
-    .share-name-input { gap: 5px; margin-top: 8px; }
-    .share-name-input input { padding: 8px 12px; font-size: 12px; }
-    
-    .door-container { width: 60vw; height: 70vh; max-height: 350px; }
-    .door-heart { font-size: 40px; }
+    .door-heart { font-size: 45px; }
     .center-title { font-size: 18px; }
     .center-sub { font-size: 11px; }
     .bottom-line { font-size: 16px; }
     .bottom-sub { font-size: 10px; }
-    .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 5px; }
-    .door-particles span { font-size: 12px; }
-    .door-handle { width: 10px; height: 32px; }
+    .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 8px; }
+    .door-particles span { font-size: 14px; }
+    .door-handle { width: 12px; height: 35px; }
+    .door-left .door-handle { right: 12px; }
+    .door-right .door-handle { left: 12px; }
+    .door-ornament { font-size: 8px; letter-spacing: 6px; }
+    .door-left { border-radius: 18px 0 0 18px; }
+    .door-right { border-radius: 0 18px 18px 0; }
+    .door-lock { width: 28px; height: 28px; }
+    .door-lock::before { font-size: 11px; }
     
-    .main-photo-frame img { aspect-ratio: 16/9; }
-    .main-photo-caption { font-size: 13px; margin-top: 6px; }
-    .main-photo-icon { font-size: 20px; bottom: 8px; right: 12px; }
+    .main-photo-frame img { aspect-ratio: 16/12; }
+    .main-photo-caption { font-size: 14px; margin-top: 6px; }
+    .main-photo-icon { font-size: 22px; bottom: 8px; right: 12px; }
     
-    .rsvp-section { padding: 10px 12px 12px 12px; }
+    .modal-content {
+        padding: 18px 14px 18px 14px;
+        border-radius: 18px;
+        max-height: 85vh;
+    }
+    .modal-title { font-size: 28px; }
+    .modal-subtitle { font-size: 11px; letter-spacing: 3px; }
+    .invitation-text { font-size: 17px; }
+    .invitation-subtext { font-size: 12px; }
+    .form-buttons { flex-direction: column; gap: 6px; }
+    .form-buttons button { font-size: 12px; padding: 11px; }
+    .close-btn { font-size: 24px; }
+    .modal-rings { font-size: 22px; }
+    .map-btn { font-size: 11px; padding: 7px 16px; }
+    .modal-footer-quote { font-size: 16px; }
+    
+    .rsvp-section { padding: 10px 10px 12px 10px; }
     .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
-        padding: 8px 12px;
+        padding: 9px 12px;
         font-size: 12px;
         margin-bottom: 8px;
     }
+    .rsvp-section h3 { font-size: 14px; }
     .rsvp-sub { font-size: 11px; margin-bottom: 10px; }
-    .form-buttons button { padding: 10px; font-size: 12px; }
     
-    .gallery-grid { gap: 4px; }
-    .gallery-title { font-size: 13px; }
-    .gallery-sub { font-size: 9px; }
+    .gallery-grid { gap: 5px; }
+    .gallery-title { font-size: 14px; }
     .gallery-item { border-radius: 6px; }
-    .gallery-icon { font-size: 14px; }
+    .gallery-icon { font-size: 16px; }
     
-    .schedule-card { padding: 10px 8px 8px 8px; margin: 4px 0 8px 0; }
-    .schedule-title { font-size: 13px; }
-    .schedule-icon { font-size: 16px; }
-    .schedule-timeline::before { left: 55px; }
-    .schedule-time { font-size: 10px; min-width: 48px; }
+    .lightbox-content { max-width: 95%; max-height: 70%; }
+    .lightbox-close { font-size: 28px; top: 12px; right: 16px; }
+    .lightbox-caption { font-size: 11px; padding: 5px 14px; bottom: 18px; }
+    
+    .schedule-card { padding: 10px 10px 8px 10px; border-radius: 12px; margin: 4px 0 8px 0; }
+    .schedule-title { font-size: 14px; }
+    .schedule-sub { font-size: 9px; }
+    .schedule-icon { font-size: 18px; }
+    .schedule-timeline::before { left: 52px; }
+    .schedule-time { font-size: 10px; min-width: 44px; }
+    .schedule-dot { width: 7px; height: 7px; min-width: 7px; margin-top: 2px; }
     .schedule-event { font-size: 12px; }
     .schedule-desc { font-size: 9px; }
     .schedule-item { gap: 8px; margin-bottom: 8px; }
-    .schedule-dot { width: 7px; height: 7px; min-width: 7px; margin-top: 2px; }
     
-    .sound-icon { width: 36px; height: 36px; font-size: 16px; bottom: 10px; right: 10px; }
-}
-/* ================================================================ */
-/* 🔥 REMOVE TOP HEART ICON FROM DOOR                             */
-/* ================================================================ */
-
-.door-top-icons {
-    display: none !important;
+    .sound-icon { width: 40px; height: 40px; font-size: 18px; bottom: 12px; right: 12px; }
 }
 
-/* ================================================================ */
-/* 🔥 ENSURE BG IMAGE IS HIDDEN BY DEFAULT                        */
-/* ================================================================ */
-
-.door-bg-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url("bg.jpg") center/cover no-repeat;
-    opacity: 0 !important;
-    z-index: 0;
-    filter: blur(10px) brightness(0.3);
-    transition: opacity 6s ease, filter 6s ease, transform 6s ease;
+@media (max-width: 380px) {
+    .container {
+        padding: 12px 10px 16px 10px;
+        height: 95vh;
+        max-height: 620px;
+        border-radius: 16px;
+    }
+    .title { font-size: 26px; }
+    .subtitle { font-size: 10px; letter-spacing: 3px; }
+    .date { font-size: 15px; }
+    .venue-text { font-size: 11px; }
+    #countdown { font-size: 15px; min-width: 120px; padding: 6px 10px; }
+    .description-highlighted { font-size: 11px; padding: 6px 8px; }
+    .highlight-text { font-size: 11px; padding: 2px 8px; }
+    .btn-primary { font-size: 11px; padding: 8px 14px; }
+    .btn-whatsapp { font-size: 10px; padding: 8px 14px; }
+    .photo-frame { width: 75px; height: 75px; margin: -25px auto 2px auto; }
+    .sticker-overlay { width: 32px; height: 32px; bottom: -3px; right: -3px; }
+    .sticker-emoji { font-size: 25px; }
+    .heart-icon-main { font-size: 22px; }
+    .icon-item { font-size: 12px; }
+    .footer-quote { font-size: 13px; }
+    .traditional-icons { gap: 4px; }
+    .divider { max-width: 100px; gap: 4px; margin: 2px auto 4px auto; }
+    .divider-icon { font-size: 10px; }
+    
+    .door-container {
+        width: 88vw;
+        height: 42vh;
+        max-height: 280px;
+    }
+    .door-heart { font-size: 35px; }
+    .center-title { font-size: 15px; }
+    .center-sub { font-size: 10px; }
+    .bottom-line { font-size: 14px; }
+    .bottom-sub { font-size: 9px; }
+    .door-particles span { font-size: 11px; }
+    .door-handle { width: 10px; height: 28px; }
+    .door-left .door-handle { right: 8px; }
+    .door-right .door-handle { left: 8px; }
+    .door-top-deco { font-size: 10px; letter-spacing: 6px; top: 5px; }
+    
+    .gallery-grid { gap: 3px; }
+    .schedule-time { font-size: 9px; min-width: 38px; }
+    .schedule-timeline::before { left: 44px; }
+    .schedule-event { font-size: 11px; }
+    
+    .modal-content { padding: 14px 10px 14px 10px; }
+    .modal-title { font-size: 24px; }
+    .invitation-text { font-size: 15px; }
+    .rsvp-section { padding: 8px 8px 10px 8px; }
+    .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
+        padding: 7px 10px;
+        font-size: 11px;
+    }
+    .form-buttons button { font-size: 11px; padding: 9px; }
 }
 
-.door-overlay.open .door-bg-image {
-    opacity: 0.85 !important;
-    filter: blur(0px) brightness(1);
-    transform: scale(1.05);
+@media (min-width: 481px) and (max-width: 768px) {
+    .container { 
+        padding: 25px 18px 30px 18px; 
+        max-width: 400px;
+        height: 90vh;
+        max-height: 720px;
+    }
+    .title { font-size: 34px; }
+    .subtitle { font-size: 13px; letter-spacing: 4px; }
+    #countdown { font-size: 20px; min-width: 160px; }
+    .venue-text { font-size: 14px; }
+    .modal-content { padding: 24px 18px 20px 18px; max-width: 420px; }
+    .form-buttons { flex-direction: row; }
+    .rsvp-section { padding: 12px 14px 14px 14px; }
+    .door-container { width: 75vw; height: 55vh; max-height: 400px; }
+    .center-title { font-size: 24px; }
+    .heart-icon-main { font-size: 30px; }
 }
 
-.door-overlay:not(.open) .door-bg-image {
-    opacity: 0 !important;
-    filter: blur(10px) brightness(0.3);
+@media (min-width: 769px) and (max-width: 1024px) {
+    .container { max-width: 440px; padding: 30px 22px 35px 22px; height: 88vh; max-height: 760px; }
+    .title { font-size: 38px; }
+    .subtitle { font-size: 14px; letter-spacing: 5px; }
+    .door-container { width: 65vw; height: 60vh; max-height: 480px; }
 }
 
-/* ================================================================ */
-/* 🎯 SHARE WITH NAME INPUT - Styling                             */
-/* ================================================================ */
-
-.share-name-input {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 14px;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+@media (min-width: 1025px) {
+    .container { max-width: 480px; padding: 35px 28px 40px 28px; height: 86vh; max-height: 800px; }
+    .title { font-size: 42px; }
+    .subtitle { font-size: 15px; letter-spacing: 6px; }
+    #countdown { font-size: 24px; min-width: 200px; }
+    .door-container { width: 70vw; max-width: 720px; height: 68vh; max-height: 560px; }
 }
 
-.share-name-input input {
-    padding: 13px 18px;
-    border-radius: 50px;
-    border: 1.5px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.04);
-    color: #f0e6f6;
-    font-size: 14px;
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    transition: all 0.3s ease;
-    width: 100%;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.share-name-input input::placeholder {
-    color: #8a6a7a;
-    font-weight: 300;
-    letter-spacing: 0.5px;
-}
-
-.share-name-input input:focus {
-    outline: none;
-    border-color: #ec4899;
-    box-shadow: 0 0 30px rgba(236, 72, 153, 0.15), 0 0 60px rgba(236, 72, 153, 0.05);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.share-name-input input:focus::placeholder {
-    color: transparent;
-}
-
-.share-name-input .btn-whatsapp {
-    margin-top: 0;
+@media (max-height: 600px) and (orientation: landscape) {
+    .container {
+        padding: 10px 12px 14px 12px;
+        height: 92vh;
+        max-height: 500px;
+        max-width: 380px;
+        border-radius: 16px;
+    }
+    .title { font-size: 24px; }
+    .subtitle { font-size: 10px; letter-spacing: 3px; }
+    #countdown { font-size: 14px; padding: 5px 10px; min-width: 120px; margin: 2px auto 4px auto; }
+    .date { font-size: 14px; }
+    .venue-text { font-size: 11px; margin-bottom: 4px; }
+    .description-highlighted { font-size: 11px; padding: 4px 8px; margin: 2px 0 4px 0; }
+    .highlight-text { font-size: 10px; padding: 1px 8px; }
+    .btn-primary, .btn-whatsapp { font-size: 10px; padding: 6px 12px; margin-top: 4px; max-width: 220px; }
+    .footer-quote { font-size: 12px; margin-top: 6px; padding-top: 5px; }
+    .heart-icon-main { font-size: 18px; margin-bottom: 0px; }
+    .photo-frame { width: 60px; height: 60px; margin: -20px auto 2px auto; }
+    .sticker-overlay { width: 28px; height: 28px; bottom: -2px; right: -2px; }
+    .sticker-emoji { font-size: 22px; }
+    .traditional-icons { gap: 4px; margin: 0px; }
+    .icon-item { font-size: 11px; }
+    .divider { margin: 2px auto 4px auto; max-width: 100px; gap: 4px; }
+    .divider-icon { font-size: 10px; }
+    .top-decoration { font-size: 9px; letter-spacing: 8px; top: 3px; }
+    
+    #viewInvitationContainer, #shareButtonContainer {
+        max-width: 220px;
+        margin-top: 4px;
+    }
+    
+    .share-name-input { gap: 4px; margin-top: 4px; }
+    .share-name-input input { padding: 6px 10px; font-size: 10px; }
+    .btn-whatsapp { font-size: 10px; padding: 6px 12px; }
+    
+    .door-container { 
+        width: 55vw; 
+        height: 65vh; 
+        max-height: 280px;
+        margin-bottom: 8px;
+    }
+    .door-heart { font-size: 32px; }
+    .center-title { font-size: 16px; }
+    .center-sub { font-size: 10px; }
+    .bottom-line { font-size: 14px; }
+    .bottom-sub { font-size: 9px; }
+    .door-top-deco { font-size: 10px; letter-spacing: 6px; top: 4px; }
+    .door-particles span { font-size: 10px; }
+    .door-handle { width: 10px; height: 28px; }
+    .door-left .door-handle { right: 10px; }
+    .door-right .door-handle { left: 10px; }
+    .door-ornament { font-size: 8px; letter-spacing: 5px; bottom: 10px; }
+    .door-left { border-radius: 16px 0 0 16px; }
+    .door-right { border-radius: 0 16px 16px 0; }
+    .door-lock { width: 24px; height: 24px; bottom: 10%; }
+    .door-lock::before { font-size: 10px; }
+    
+    .main-photo-frame img { aspect-ratio: 16/9; }
+    .main-photo-caption { font-size: 12px; margin-top: 4px; }
+    .main-photo-icon { font-size: 18px; bottom: 6px; right: 10px; }
+    .main-photo-section { margin: 4px 0 8px 0; }
+    
+    .modal-content { 
+        max-height: 80vh; 
+        padding: 12px 10px 12px 10px;
+        max-width: 380px;
+    }
+    .modal-title { font-size: 26px; }
+    .modal-subtitle { font-size: 10px; letter-spacing: 3px; }
+    .invitation-text { font-size: 16px; }
+    .invitation-subtext { font-size: 11px; }
+    .invitation-message { padding: 10px 12px; margin-bottom: 10px; }
+    .msg-icon { font-size: 20px; }
+    .modal-rings { font-size: 18px; }
+    .close-btn { font-size: 22px; }
+    
+    .rsvp-section { padding: 8px 10px 10px 10px; margin: 2px 0 6px 0; }
+    .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
+        padding: 6px 10px;
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+    .rsvp-section h3 { font-size: 13px; padding-bottom: 5px; margin-bottom: 6px; }
+    .rsvp-sub { font-size: 10px; margin-bottom: 8px; }
+    .form-buttons button { padding: 8px; font-size: 11px; }
+    .form-footer { font-size: 9px; margin-top: 6px; }
+    
+    .gallery-grid { gap: 3px; margin-top: 4px; }
+    .gallery-title { font-size: 12px; }
+    .gallery-sub { font-size: 8px; margin-bottom: 6px; }
+    .gallery-item { border-radius: 4px; }
+    .gallery-icon { font-size: 14px; }
+    
+    .schedule-card { padding: 8px 8px 6px 8px; margin: 3px 0 6px 0; border-radius: 10px; }
+    .schedule-title { font-size: 12px; }
+    .schedule-sub { font-size: 8px; }
+    .schedule-icon { font-size: 16px; }
+    .schedule-timeline::before { left: 44px; }
+    .schedule-time { font-size: 9px; min-width: 36px; }
+    .schedule-event { font-size: 11px; }
+    .schedule-desc { font-size: 8px; }
+    .schedule-item { gap: 6px; margin-bottom: 6px; }
+    .schedule-dot { width: 6px; height: 6px; min-width: 6px; margin-top: 2px; }
+    .schedule-card-header { margin-bottom: 6px; padding-bottom: 4px; }
+    
+    .location-section { margin: 2px 0 8px 0; }
+    .location-section h3 { font-size: 13px; padding-bottom: 5px; margin-bottom: 6px; }
+    .location-name { font-size: 12px; }
+    .location-desc { font-size: 10px; }
+    .map-btn { font-size: 10px; padding: 5px 14px; margin-top: 4px; }
+    
+    .modal-footer { margin-top: 10px; padding-top: 8px; }
+    .footer-deco { font-size: 9px; letter-spacing: 6px; margin-bottom: 4px; }
+    .modal-footer-quote { font-size: 15px; }
+    .modal-footer-love { font-size: 10px; }
+    
+    .sound-icon { width: 32px; height: 32px; font-size: 14px; bottom: 8px; right: 8px; }
 }
