@@ -1,537 +1,362 @@
-// ----- 1. FLOATING HEARTS - PINK & WHITE -----
-function createHeart() {
-    const container = document.getElementById('hearts-container');
-    if (!container) return;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>💗 Homecoming - Lahiru & Salomi</title>
 
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
+    <!-- ============================================== -->
+    <!-- 🔥 WHATSAPP LINK PREVIEW - sticker.webp PHOTO  -->
+    <!-- ============================================== -->
+    <meta property="og:title" content="💗 Lahiru &amp; Salomi - Homecoming Invitation 💗" />
+    <meta property="og:description" content="We are coming home! 🎉 15 September 2026 at Sasindu Products, MahaUswewa, Anamaduwa. Join us to celebrate our new journey!" />
     
-    const isPink = Math.random() > 0.5;
+    <!-- 🔥 PHOTO URL - sticker.webp භාවිතා කරන්න -->
+    <meta property="og:image" content="https://your-site.com/sticker.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/webp" />
     
-    if (isPink) {
-        heart.classList.add('pink');
-        heart.innerHTML = '💗';
-        heart.style.color = '#f472b6';
-        heart.style.textShadow = '0 0 20px rgba(244, 114, 182, 0.4)';
-    } else {
-        heart.classList.add('white');
-        heart.innerHTML = '🤍';
-        heart.style.color = '#ffffff';
-        heart.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.3)';
-    }
-    
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.fontSize = (Math.random() * 14 + 12) + 'px';
-    heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
-    heart.style.opacity = Math.random() * 0.6 + 0.4;
+    <meta property="og:url" content="https://your-site.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Lahiru & Salomi - Homecoming" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://your-site.com/sticker.webp" />
+    <!-- =================================================== -->
 
-    container.appendChild(heart);
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-    setTimeout(() => {
-        if (heart.parentNode) {
-            heart.remove();
-        }
-    }, 14000);
-}
+    <!-- Floating Hearts Container -->
+    <div id="hearts-container"></div>
 
-setInterval(createHeart, 350);
+    <!-- Sparkle Particles -->
+    <div id="sparkle-container"></div>
 
-window.addEventListener('load', () => {
-    for (let i = 0; i < 6; i++) {
-        setTimeout(createHeart, i * 200);
-    }
-});
+    <!-- Top Decoration -->
+    <div class="top-decoration">💗 ✦ 💗 ✦ 💗</div>
 
-// ----- 2. SPARKLE PARTICLES - PINK & WHITE -----
-function createSparkle() {
-    const container = document.getElementById('sparkle-container');
-    if (!container) return;
+    <!-- ============================================ -->
+    <!-- MAIN CARD - Pink & White Theme               -->
+    <!-- ============================================ -->
+    <div class="container" id="mainCard">
 
-    const sparkle = document.createElement('div');
-    sparkle.classList.add('sparkle');
-    sparkle.classList.add(Math.random() > 0.5 ? 'pink' : 'white');
-    sparkle.style.left = Math.random() * 100 + '%';
-    sparkle.style.width = (Math.random() * 6 + 3) + 'px';
-    sparkle.style.height = sparkle.style.width;
-    sparkle.style.animationDuration = (Math.random() * 10 + 6) + 's';
-    sparkle.style.animationDelay = (Math.random() * 5) + 's';
+        <!-- Traditional Icons -->
+        <div class="traditional-icons">
+            <span class="icon-item">💗</span>
+            <span class="icon-item">✨</span>
+            <span class="icon-item">💗</span>
+            <span class="icon-item">✨</span>
+            <span class="icon-item">💗</span>
+        </div>
 
-    container.appendChild(sparkle);
+        <div class="decorative-line">✦ ✦ ✦</div>
 
-    setTimeout(() => {
-        if (sparkle.parentNode) {
-            sparkle.remove();
-        }
-    }, 16000);
-}
+        <!-- Homecoming Photo Frame -->
+        <div class="photo-frame">
+            <img src="sticker1.webp" alt="Lahiru & Salomi" onerror="this.style.display='none'; this.parentElement.innerHTML='💗'" />
+            <div class="frame-ring"></div>
+            <div class="frame-glow"></div>
+            
+            <!-- 💗 Sticker Overlay -->
+            <div class="sticker-overlay">
+                <span class="sticker-emoji">💗</span>
+            </div>
+        </div>
 
-setInterval(createSparkle, 300);
+        <!-- 💗 Heart Icon -->
+        <div class="heart-icon-main">💗</div>
 
-window.addEventListener('load', () => {
-    for (let i = 0; i < 8; i++) {
-        setTimeout(createSparkle, i * 150);
-    }
-});
+        <h1 class="title">Homecoming</h1>
+        <p class="subtitle" id="mainSubtitle">Lahiru &amp; Salomi</p>
 
-// ================================================================
-// 🎯 CHECK NAME IN URL - HIDE SHARE BUTTONS FOR RECIPIENTS
-// ================================================================
+        <div class="divider">
+            <span class="divider-icon">💗</span>
+            <span class="divider-icon">💗</span>
+            <span class="divider-icon">💗</span>
+        </div>
 
-function getGuestNameFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('name') || '';
-}
+        <h2 class="date">15 September 2026</h2>
+        <p class="venue-text">📍 Sasindu Products, MahaUswewa, Anamaduwa</p>
 
-function checkAndHideButtons() {
-    const name = getGuestNameFromURL();
-    const shareContainer = document.getElementById('shareButtonContainer');
-    
-    if (name) {
-        if (shareContainer) {
-            shareContainer.style.display = 'none';
-        }
-        displayGuestName(name);
-    } else {
-        if (shareContainer) {
-            shareContainer.style.display = 'block';
-        }
-    }
-}
+        <div id="countdown"></div>
 
-// ================================================================
-// 🎯 DISPLAY PERSONALIZED MESSAGE
-// ================================================================
+        <p class="description-highlighted">
+            💗 With love, we are coming home!!<br />
+            <span class="highlight-text">✨ Join us to celebrate our new journey ✨</span>
+        </p>
 
-function displayGuestName(name) {
-    if (name) {
-        const decodedName = decodeURIComponent(name);
+        <!-- ===== VIEW INVITATION BUTTON ===== -->
+        <div id="viewInvitationContainer">
+            <button onclick="openDoorAnimation()" class="btn-primary">
+                <span>💗</span> View Invitation
+            </button>
+        </div>
+
+        <!-- ===== SHARE BUTTONS ===== -->
+        <div id="shareButtonContainer" style="display: none;">
+            <div class="share-name-input">
+                <input type="text" id="guestNameInput" placeholder="👤 ආරාධනාව ලබන්නාගේ නම..." />
+                <button onclick="shareWithCustomName()" class="btn-whatsapp">
+                    <span>📤</span> Share with Name
+                </button>
+            </div>
+            <button onclick="shareInvitationSimple()" class="btn-whatsapp" style="margin-top:8px; background: linear-gradient(145deg, #25D366, #128C7E);">
+                <span>📤</span> Share (Without Name)
+            </button>
+        </div>
+
+        <p class="footer-quote">"Home is where the heart is..."</p>
+
+        <!-- 🎵 MUSIC - music.mp3 -->
+        <audio id="bgMusic" loop preload="auto">
+            <source src="music.mp3" type="audio/mp3" />
+        </audio>
+
+        <!-- 🎵 SOUND ICON -->
+        <div id="soundIcon" class="sound-icon" onclick="toggleMusic()">
+            <span id="musicIcon">🔊</span>
+        </div>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- 🚪 FULL PAGE DOOR                             -->
+    <!-- ============================================== -->
+    <div id="doorOverlay" class="door-overlay">
+        <!-- 🖼️ BACKGROUND IMAGE -->
+        <div class="door-bg-image"></div>
         
-        const subtitle = document.getElementById('mainSubtitle');
-        if (subtitle) {
-            subtitle.innerHTML = `💗 ${decodedName} ඔබට ආරාධනාවක්! 💗`;
-            subtitle.style.color = '#f9a8d4';
-            subtitle.style.fontSize = '16px';
-            subtitle.style.letterSpacing = '2px';
-        }
+        <!-- Decorative top border -->
+        <div class="door-top-deco">
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+        </div>
         
-        const invText = document.getElementById('invitationText');
-        if (invText) {
-            invText.innerHTML = `💗 ${decodedName}, අපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!<br>After our wedding, we are coming home!`;
-        }
-    }
-}
-
-// ================================================================
-// 🎯 SHARE WITH CUSTOM NAME - WITH sticker.webp PHOTO PREVIEW
-// ================================================================
-
-function shareWithCustomName() {
-    const nameInput = document.getElementById('guestNameInput');
-    const guestName = nameInput.value.trim();
-    
-    if (guestName === '') {
-        alert('🙏 කරුණාකර ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න!');
-        nameInput.focus();
-        return;
-    }
-    
-    const url = window.location.href.split('?')[0];
-    const encodedName = encodeURIComponent(guestName);
-    const shareUrl = `${url}?name=${encodedName}`;
-    
-    // 🔥 WhatsApp message - sticker.webp photo preview will appear via meta tags
-    let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
-    message += `📅 *Date:* 15 September 2026\n`;
-    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
-    message += `✨ View your invitation:\n${shareUrl}\n\n`;
-    message += `💗 සුභ ගමනක් වේවා! 💗`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
-    window.open(whatsappURL, '_blank');
-    
-    nameInput.value = '';
-}
-
-// ================================================================
-// 🎯 SHARE WITHOUT NAME - WITH sticker.webp PHOTO PREVIEW
-// ================================================================
-
-function shareInvitationSimple() {
-    const url = window.location.href.split('?')[0];
-    
-    // 🔥 WhatsApp message - sticker.webp photo preview will appear via meta tags
-    let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💗 We are coming home! 🎉\n\n`;
-    message += `📅 *Date:* 15 September 2026\n`;
-    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
-    message += `✨ View the full invitation:\n${url}\n\n`;
-    message += `💗 සුභ ගමනක් වේවා! 💗`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
-    window.open(whatsappURL, '_blank');
-}
-
-// ================================================================
-// 🚪 DOOR OPEN ANIMATION - EXTRA SLOW (6 SECONDS)
-// ================================================================
-
-function openDoorAnimation() {
-    const doorOverlay = document.getElementById('doorOverlay');
-    const mainCard = document.getElementById('mainCard');
-    const bgImage = document.querySelector('.door-bg-image');
-    
-    doorOverlay.classList.remove('open', 'hidden');
-    doorOverlay.style.display = 'flex';
-    doorOverlay.style.opacity = '0';
-    doorOverlay.style.transition = 'opacity 0.8s ease';
-    
-    if (bgImage) {
-        bgImage.style.opacity = '0';
-        bgImage.style.transition = 'opacity 6s ease';
-        bgImage.style.filter = 'blur(10px) brightness(0.3)';
-    }
-    
-    mainCard.style.transition = 'opacity 0.5s ease';
-    mainCard.style.opacity = '0';
-    
-    setTimeout(() => {
-        mainCard.style.display = 'none';
-    }, 500);
-    
-    setTimeout(() => {
-        doorOverlay.style.opacity = '1';
-    }, 100);
-    
-    setTimeout(() => {
-        doorOverlay.classList.add('open');
+        <!-- Door Container - Full Page -->
+        <div class="door-container">
+            <!-- Left Door -->
+            <div class="door-left">
+                <div class="door-panel">
+                    <div class="door-design">
+                        <div class="door-pattern"></div>
+                    </div>
+                    <div class="door-handle"></div>
+                    <div class="door-ornament">✦ ✦ ✦</div>
+                </div>
+            </div>
+            <!-- Right Door -->
+            <div class="door-right">
+                <div class="door-panel">
+                    <div class="door-design">
+                        <div class="door-pattern"></div>
+                    </div>
+                    <div class="door-handle"></div>
+                    <div class="door-ornament">✦ ✦ ✦</div>
+                </div>
+            </div>
+            <!-- Center Heart -->
+            <div class="door-heart">💗</div>
+            <!-- Center Text -->
+            <div class="door-center-text">
+                <span class="center-title">Lahiru & Salomi</span>
+                <span class="center-sub">Homecoming 2026</span>
+            </div>
+            <!-- Door Ring -->
+            <div class="door-ring"></div>
+            <!-- Door Lock -->
+            <div class="door-lock"></div>
+        </div>
         
-        setTimeout(() => {
-            if (bgImage) {
-                bgImage.style.opacity = '0.85';
-                bgImage.style.filter = 'blur(0px) brightness(1)';
-            }
-        }, 200);
+        <!-- Bottom Text -->
+        <div class="door-bottom-text">
+            <span class="bottom-line">"Home is where the heart is..."</span>
+            <span class="bottom-sub">✨ Opening Invitation ✨</span>
+        </div>
         
-    }, 1000);
-    
-    setTimeout(() => {
-        doorOverlay.classList.add('hidden');
-        setTimeout(() => {
-            doorOverlay.style.display = 'none';
-            if (bgImage) {
-                bgImage.style.opacity = '0';
-                bgImage.style.filter = 'blur(10px) brightness(0.3)';
-            }
-            openInvitationSlow();
-        }, 500);
-    }, 7500);
-}
+        <!-- Floating particles -->
+        <div class="door-particles">
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>💗</span>
+            <span>✦</span>
+            <span>💗</span>
+        </div>
+    </div>
 
-// ================================================================
-// 🎯 OPEN INVITATION WITH SLOW FADE IN
-// ================================================================
+    <!-- ============================================== -->
+    <!-- INVITATION MODAL                               -->
+    <!-- ============================================== -->
+    <div id="invitationModal" class="modal">
+        <div class="modal-content">
 
-function openInvitationSlow() {
-    const modal = document.getElementById('invitationModal');
-    if (modal) {
-        modal.classList.add('show');
-        const content = modal.querySelector('.modal-content');
-        if (content) {
-            content.style.animation = 'modalSlowFadeIn 2.5s ease forwards';
-        }
-        document.body.style.overflow = 'hidden';
-    }
-}
+            <span class="close-btn" onclick="closeInvitationAndGoBack()">&times;</span>
 
-// ================================================================
-// 🎯 CLOSE INVITATION AND GO BACK TO MAIN PAGE
-// ================================================================
+            <div class="modal-top-deco">
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">💗</span>
+            </div>
 
-function closeInvitationAndGoBack() {
-    const modal = document.getElementById('invitationModal');
-    const mainCard = document.getElementById('mainCard');
-    const doorOverlay = document.getElementById('doorOverlay');
-    const bgImage = document.querySelector('.door-bg-image');
-    
-    if (modal) {
-        modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    }
-    
-    doorOverlay.classList.remove('open', 'hidden');
-    doorOverlay.style.display = 'none';
-    doorOverlay.style.opacity = '0';
-    
-    if (bgImage) {
-        bgImage.style.opacity = '0';
-        bgImage.style.filter = 'blur(10px) brightness(0.3)';
-        bgImage.style.transition = 'none';
-    }
-    
-    setTimeout(() => {
-        mainCard.style.display = 'block';
-        mainCard.style.opacity = '0';
-        mainCard.style.transition = 'opacity 0.8s ease';
-        
-        setTimeout(() => {
-            mainCard.style.opacity = '1';
-        }, 100);
-    }, 300);
-}
+            <div class="modal-header">
+                <div class="modal-rings">💗</div>
+                <h1 class="modal-title">Homecoming</h1>
+                <p class="modal-subtitle">Lahiru &amp; Salomi</p>
+                <div class="modal-divider">
+                    <span>✦</span> <span>💗</span> <span>💗</span> <span>💗</span> <span>✦</span>
+                </div>
+            </div>
 
-function closeInvitation() {
-    const modal = document.getElementById('invitationModal');
-    if (modal) {
-        modal.classList.remove('show');
-        document.body.style.overflow = 'auto';
-    }
-}
+            <div class="invitation-message">
+                <div class="msg-icon">💗</div>
+                <p class="invitation-text" id="invitationText">
+                    💗 After our wedding, we are coming home!
+                </p>
+                <p class="invitation-subtext">
+                    We invite you to join us in celebrating this special moment as we begin our new life together. Your presence will make our homecoming even more memorable.
+                </p>
+            </div>
 
-window.addEventListener('click', function(event) {
-    const modal = document.getElementById('invitationModal');
-    if (event.target === modal) {
-        closeInvitationAndGoBack();
-    }
-});
+            <!-- MAIN PHOTO -->
+            <div class="main-photo-section">
+                <div class="main-photo-frame">
+                    <img src="sticker.webp" alt="Lahiru & Salomi - Main Photo" onerror="this.src='https://via.placeholder.com/600x400/f472b6/ffffff?text=Lahiru+%26+Salomi'" />
+                    <div class="main-photo-overlay">
+                        <span class="main-photo-icon">💗</span>
+                    </div>
+                    <div class="main-photo-border"></div>
+                </div>
+                <p class="main-photo-caption">💕 අපේ ආදර කතාවේ ආරම්භය 💕</p>
+            </div>
 
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeInvitationAndGoBack();
-    }
-});
+            <!-- PHOTO GALLERY -->
+            <div class="gallery-section">
+                <h3 class="gallery-title">📸 අපගේ සිහිවටන</h3>
+                <p class="gallery-sub">Our Memories</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="sticker.webp" alt="Memory 1" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="sticker.webp" alt="Memory 2" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="sticker.webp" alt="Memory 3" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="sticker.webp" alt="Memory 4" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="sticker.webp" alt="Memory 5" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox(this)">
+                        <img src="sticker.webp" alt="Memory 6" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
+                        <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
+                    </div>
+                </div>
+            </div>
 
-// ================================================================
-// 🎯 GET FORM DATA
-// ================================================================
+            <!-- Schedule Card -->
+            <div class="schedule-card">
+                <div class="schedule-card-header">
+                    <div class="schedule-icon">⏰</div>
+                    <h3 class="schedule-title">උත්සව කාලසටහන</h3>
+                    <p class="schedule-sub">Event Schedule</p>
+                </div>
+                <div class="schedule-timeline">
+                    <div class="schedule-item">
+                        <div class="schedule-time">06:00 PM</div>
+                        <div class="schedule-dot"></div>
+                        <div class="schedule-content">
+                            <div class="schedule-event">💗 මංගල යුවල පැමිණීම</div>
+                            <div class="schedule-desc">Couple's Arrival</div>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">07:00 PM</div>
+                        <div class="schedule-dot"></div>
+                        <div class="schedule-content">
+                            <div class="schedule-event">🍽️ රාත්‍රී ආහාරය</div>
+                            <div class="schedule-desc">Dinner</div>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">08:30 PM</div>
+                        <div class="schedule-dot"></div>
+                        <div class="schedule-content">
+                            <div class="schedule-event">🎶 සාදය</div>
+                            <div class="schedule-desc">Music & Celebration</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-function getFormData() {
-    const name = document.getElementById('rsvpName').value.trim();
-    const phone = document.getElementById('rsvpPhone').value.trim();
-    const attendance = document.getElementById('rsvpAttendance').value;
-    const notes = document.getElementById('rsvpNotes').value.trim();
-    
-    return { name, phone, attendance, notes };
-}
+            <!-- Location Section -->
+            <div class="location-section">
+                <h3>📍 ස්ථානය / Location</h3>
+                <p class="location-name"><strong>Sasindu Products, MahaUswewa, Anamaduwa</strong></p>
+                <p class="location-desc">මංගල යුවලගේ නිවසට ඔබ සැවොම සාදරයෙන් පිළිගනිමු.</p>
+                <a href="https://maps.app.goo.gl/ApzvJgDRwcxPAvZa8?g_st=aw" target="_blank" class="map-btn">🧭 Get Directions</a>
+            </div>
 
-function validateForm() {
-    const { name, phone, attendance } = getFormData();
-    
-    if (name === '') {
-        alert('🙏 කරුණාකර ඔබගේ නම ඇතුලත් කරන්න.');
-        return false;
-    }
-    
-    if (phone === '') {
-        alert('📱 කරුණාකර දුරකථන අංකය ඇතුලත් කරන්න.');
-        return false;
-    }
-    
-    if (attendance === '') {
-        alert('📌 කරුණාකර පැමිණීම තෝරන්න.');
-        return false;
-    }
-    
-    return true;
-}
+            <!-- RSVP Section -->
+            <div class="rsvp-section">
+                <h3>💌 RSVP</h3>
+                <p class="rsvp-sub">කරුණාකර ඔබගේ පැමිණීම WhatsApp හෝ Email මගින් දන්වන්න</p>
+                <form id="rsvpForm">
+                    <input type="text" id="rsvpName" placeholder="ඔබගේ නම / Your Name" required />
+                    <input type="tel" id="rsvpPhone" placeholder="දුරකථන අංකය / Phone Number" required />
+                    <select id="rsvpAttendance" required>
+                        <option value="">පැමිණීම / Attendance</option>
+                        <option value="Coming">එනවා (Coming)</option>
+                        <option value="Not Coming">එන්නේ නැහැ (Not Coming)</option>
+                    </select>
+                    <textarea id="rsvpNotes" rows="2" placeholder="අමතර සටහන්... / Special Notes..."></textarea>
+                    <div class="form-buttons">
+                        <button type="button" onclick="sendWhatsApp()" class="btn-rsvp-whatsapp">💬 WhatsApp</button>
+                        <button type="button" onclick="sendEmail()" class="btn-rsvp-email">📧 Email</button>
+                    </div>
+                    <p class="form-footer">ඔබගේ ප්‍රියතම ක්‍රමය තෝරන්න</p>
+                </form>
+            </div>
 
-function sendWhatsApp() {
-    if (!validateForm()) return;
-    
-    const { name, phone, attendance, notes } = getFormData();
-    const whatsappNumber = '94716516444';
-    
-    let message = `🎉 *Homecoming RSVP Confirmation* 🎉\n\n`;
-    message += `👤 *Name:* ${name}\n`;
-    message += `📱 *Phone:* ${phone}\n`;
-    message += `📌 *Attendance:* ${attendance}\n`;
-    
-    if (notes) {
-        message += `📝 *Notes:* ${notes}\n`;
-    }
-    
-    message += `\n💗 *Lahiru & Salomi Homecoming - 15 Sep 2026*`;
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
-    window.open(whatsappURL, '_blank');
-    document.getElementById('rsvpForm').reset();
-}
+            <div class="modal-footer">
+                <div class="footer-deco"><span>💗</span> <span>💗</span> <span>💗</span> <span>💗</span> <span>💗</span></div>
+                <p class="modal-footer-quote">"Home is where the heart is..."</p>
+                <p class="modal-footer-love">We can't wait to welcome you home! 💗</p>
+            </div>
 
-function sendEmail() {
-    if (!validateForm()) return;
-    
-    const { name, phone, attendance, notes } = getFormData();
-    const emailAddress = 'lahirusujith9999@gmail.com';
-    const subject = `Homecoming RSVP - ${name}`;
-    
-    let body = `Homecoming RSVP Confirmation\n`;
-    body += `==========================\n\n`;
-    body += `Name: ${name}\n`;
-    body += `Phone: ${phone}\n`;
-    body += `Attendance: ${attendance}\n`;
-    
-    if (notes) {
-        body += `\nSpecial Notes:\n${notes}\n`;
-    }
-    
-    body += `\n\n--\nLahiru & Salomi Homecoming\n15 September 2026`;
-    
-    const encodedSubject = encodeURIComponent(subject);
-    const encodedBody = encodeURIComponent(body);
-    const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=${encodedSubject}&body=${encodedBody}`;
-    
-    window.open(gmailURL, '_blank');
-    document.getElementById('rsvpForm').reset();
-}
+        </div>
+    </div>
 
-// ----- COUNTDOWN TIMER - SEPTEMBER 15 -----
-var homecomingDate = new Date("Sep 15, 2026 00:00:00").getTime();
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Memory" />
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
 
-var countdownInterval = setInterval(function() {
-    var now = new Date().getTime();
-    var distance = homecomingDate - now;
-
-    if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "💗 අදම Homecoming! 💗";
-        clearInterval(countdownInterval);
-        return;
-    }
-
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("countdown").innerHTML =
-        days + "d " + 
-        String(hours).padStart(2, '0') + "h " + 
-        String(minutes).padStart(2, '0') + "m " + 
-        String(seconds).padStart(2, '0') + "s";
-
-}, 1000);
-
-// ================================================================
-// 🎵 MUSIC - FORCE AUTO-PLAY (music.mp3)
-// ================================================================
-
-var audio = document.getElementById('bgMusic');
-var musicIcon = document.getElementById('musicIcon');
-var isMusicPlaying = false;
-var musicStarted = false;
-
-function forceAutoPlay() {
-    if (audio && !musicStarted) {
-        var hiddenButton = document.createElement('button');
-        hiddenButton.style.display = 'none';
-        document.body.appendChild(hiddenButton);
-        
-        hiddenButton.click();
-        
-        audio.play().then(function() {
-            isMusicPlaying = true;
-            musicStarted = true;
-            if (musicIcon) {
-                musicIcon.textContent = '🔊';
-            }
-            console.log('🎵 Music playing automatically!');
-        }).catch(function(error) {
-            console.log('Auto-play blocked:', error);
-            if (musicIcon) {
-                musicIcon.textContent = '🔊';
-            }
-            setTimeout(function() {
-                if (!musicStarted) {
-                    forceAutoPlay();
-                }
-            }, 1000);
-        });
-        
-        setTimeout(function() {
-            if (hiddenButton.parentNode) {
-                hiddenButton.parentNode.removeChild(hiddenButton);
-            }
-        }, 100);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    checkAndHideButtons();
-    
-    setTimeout(forceAutoPlay, 100);
-    setTimeout(forceAutoPlay, 300);
-    setTimeout(forceAutoPlay, 500);
-    setTimeout(forceAutoPlay, 1000);
-    setTimeout(forceAutoPlay, 2000);
-});
-
-document.addEventListener('visibilitychange', function() {
-    if (!document.hidden && !musicStarted) {
-        setTimeout(forceAutoPlay, 200);
-    }
-});
-
-function backupPlay() {
-    if (!musicStarted) {
-        forceAutoPlay();
-    }
-}
-
-document.addEventListener('click', backupPlay);
-document.addEventListener('touchstart', backupPlay);
-document.addEventListener('scroll', backupPlay);
-
-function toggleMusic() {
-    if (audio) {
-        if (isMusicPlaying) {
-            audio.pause();
-            isMusicPlaying = false;
-            if (musicIcon) {
-                musicIcon.textContent = '🔇';
-            }
-        } else {
-            audio.play().then(function() {
-                isMusicPlaying = true;
-                musicStarted = true;
-                if (musicIcon) {
-                    musicIcon.textContent = '🔊';
-                }
-            }).catch(function(error) {
-                console.log('Play failed:', error);
-            });
-        }
-    }
-}
-
-// ================================================================
-// 🎯 LIGHTBOX FUNCTIONS
-// ================================================================
-
-function openLightbox(element) {
-    const lightbox = document.getElementById('lightbox');
-    const img = document.getElementById('lightbox-img');
-    const caption = document.getElementById('lightbox-caption');
-    
-    const imgSrc = element.querySelector('img').src;
-    const imgAlt = element.querySelector('img').alt || 'Memory';
-    
-    img.src = imgSrc;
-    caption.textContent = imgAlt;
-    lightbox.classList.add('show');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    lightbox.classList.remove('show');
-    document.body.style.overflow = 'auto';
-}
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeLightbox();
-    }
-});
+    <script src="script.js"></script>
+</body>
+</html>
