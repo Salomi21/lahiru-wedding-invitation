@@ -1,4 +1,4 @@
-// ----- 1. FLOATING HEARTS - PINK & WHITE (slower) -----
+// ----- 1. FLOATING HEARTS - ROSE (PINK) & WHITE (SLOWER) -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
     if (!container) return;
@@ -6,25 +6,27 @@ function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
     
-    const isPink = Math.random() > 0.5;
+    // 50/50 chance for rose/pink or white
+    const isRose = Math.random() > 0.5;
     
-    if (isPink) {
+    if (isRose) {
         heart.classList.add('pink');
         heart.innerHTML = '💗';
         heart.style.color = '#f472b6';
-        heart.style.textShadow = '0 0 20px rgba(244, 114, 182, 0.4)';
+        heart.style.textShadow = '0 0 30px rgba(244, 114, 182, 0.5)';
     } else {
         heart.classList.add('white');
         heart.innerHTML = '🤍';
         heart.style.color = '#ffffff';
-        heart.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.3)';
+        heart.style.textShadow = '0 0 30px rgba(255, 255, 255, 0.3)';
     }
     
     heart.style.left = Math.random() * 100 + '%';
-    heart.style.fontSize = (Math.random() * 14 + 12) + 'px';
-    // Slower animation: 18s-22s instead of 14s
-    heart.style.animationDuration = (Math.random() * 8 + 18) + 's';
-    heart.style.opacity = Math.random() * 0.6 + 0.4;
+    heart.style.fontSize = (Math.random() * 18 + 14) + 'px';
+    // Much slower animation: 22s-30s
+    heart.style.animationDuration = (Math.random() * 12 + 22) + 's';
+    heart.style.opacity = Math.random() * 0.5 + 0.3;
+    heart.style.animationDelay = (Math.random() * 5) + 's';
 
     container.appendChild(heart);
 
@@ -32,18 +34,18 @@ function createHeart() {
         if (heart.parentNode) {
             heart.remove();
         }
-    }, 28000);
+    }, 35000);
 }
 
-setInterval(createHeart, 400);
+setInterval(createHeart, 500);
 
 window.addEventListener('load', () => {
-    for (let i = 0; i < 6; i++) {
-        setTimeout(createHeart, i * 250);
+    for (let i = 0; i < 8; i++) {
+        setTimeout(createHeart, i * 300);
     }
 });
 
-// ----- 2. SPARKLE PARTICLES - PINK & WHITE -----
+// ----- 2. SPARKLE PARTICLES - ROSE & WHITE -----
 function createSparkle() {
     const container = document.getElementById('sparkle-container');
     if (!container) return;
@@ -54,8 +56,8 @@ function createSparkle() {
     sparkle.style.left = Math.random() * 100 + '%';
     sparkle.style.width = (Math.random() * 6 + 3) + 'px';
     sparkle.style.height = sparkle.style.width;
-    sparkle.style.animationDuration = (Math.random() * 10 + 6) + 's';
-    sparkle.style.animationDelay = (Math.random() * 5) + 's';
+    sparkle.style.animationDuration = (Math.random() * 12 + 8) + 's';
+    sparkle.style.animationDelay = (Math.random() * 6) + 's';
 
     container.appendChild(sparkle);
 
@@ -63,19 +65,19 @@ function createSparkle() {
         if (sparkle.parentNode) {
             sparkle.remove();
         }
-    }, 16000);
+    }, 20000);
 }
 
-setInterval(createSparkle, 300);
+setInterval(createSparkle, 350);
 
 window.addEventListener('load', () => {
-    for (let i = 0; i < 8; i++) {
-        setTimeout(createSparkle, i * 150);
+    for (let i = 0; i < 10; i++) {
+        setTimeout(createSparkle, i * 180);
     }
 });
 
 // ================================================================
-// 🎯 CHECK NAME IN URL - FILL TEXT BOX AND HIDE SHARE BUTTONS
+// 🎯 CHECK NAME IN URL - HIDE SHARE BUTTONS FOR RECIPIENTS
 // ================================================================
 
 function getGuestNameFromURL() {
@@ -86,18 +88,8 @@ function getGuestNameFromURL() {
 function checkAndHideButtons() {
     const name = getGuestNameFromURL();
     const shareContainer = document.getElementById('shareButtonContainer');
-    const nameInput = document.getElementById('guestNameInput');
     
     if (name) {
-        // Fill the text box with the guest name
-        if (nameInput) {
-            nameInput.value = decodeURIComponent(name);
-            // Disable the input so they can't change it
-            nameInput.disabled = true;
-            nameInput.style.opacity = '0.7';
-            nameInput.style.cursor = 'not-allowed';
-        }
-        
         if (shareContainer) {
             shareContainer.style.display = 'none';
         }
@@ -105,12 +97,6 @@ function checkAndHideButtons() {
     } else {
         if (shareContainer) {
             shareContainer.style.display = 'block';
-        }
-        // Enable the input for new users
-        if (nameInput) {
-            nameInput.disabled = false;
-            nameInput.style.opacity = '1';
-            nameInput.style.cursor = 'text';
         }
     }
 }
@@ -139,25 +125,30 @@ function displayGuestName(name) {
 }
 
 // ================================================================
-// 🎯 SHARE WITH CUSTOM NAME - WITH sticker.webp PHOTO PREVIEW
+// 🎯 SHARE WITH CUSTOM NAME - PROMPT FOR NAME
 // ================================================================
 
 function shareWithCustomName() {
-    const nameInput = document.getElementById('guestNameInput');
-    const guestName = nameInput.value.trim();
+    // Show prompt to ask for guest name
+    const guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:\nEnter the guest\'s name:');
     
-    if (guestName === '') {
-        alert('🙏 කරුණාකර ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න!');
-        nameInput.focus();
+    // Check if user cancelled or entered empty
+    if (guestName === null) {
+        return; // User cancelled
+    }
+    
+    const trimmedName = guestName.trim();
+    if (trimmedName === '') {
+        alert('🙏 කරුණාකර නමක් ඇතුලත් කරන්න!');
         return;
     }
     
     const url = window.location.href.split('?')[0];
-    const encodedName = encodeURIComponent(guestName);
+    const encodedName = encodeURIComponent(trimmedName);
     const shareUrl = `${url}?name=${encodedName}`;
     
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
+    message += `💗 *${trimmedName}*, ඔබට ආරාධනාවක්!\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
@@ -166,9 +157,6 @@ function shareWithCustomName() {
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
-    
-    // Don't clear the input - keep the name visible
-    // nameInput.value = '';
 }
 
 // ================================================================
