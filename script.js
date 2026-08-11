@@ -122,7 +122,7 @@ function displayGuestName(name) {
 }
 
 // ================================================================
-// 🎯 SHARE WITH CUSTOM NAME - WITH PHOTO PREVIEW
+// 🎯 SHARE WITH CUSTOM NAME - WITH bg.jpg PHOTO PREVIEW
 // ================================================================
 
 function shareWithCustomName() {
@@ -135,12 +135,11 @@ function shareWithCustomName() {
         return;
     }
     
-    // Get base URL without parameters
     const url = window.location.href.split('?')[0];
     const encodedName = encodeURIComponent(guestName);
     const shareUrl = `${url}?name=${encodedName}`;
     
-    // 🔥 WhatsApp message with photo - Use the image URL directly
+    // 🔥 WhatsApp message - bg.jpg photo preview will appear via meta tags
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
     message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
@@ -148,25 +147,21 @@ function shareWithCustomName() {
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
     message += `💗 සුභ ගමනක් වේවා! 💗`;
     
-    // Encode the message
     const encodedMessage = encodeURIComponent(message);
-    
-    // 🔥 WhatsApp URL - The image will appear as preview because of og:image meta tag
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
     
-    // Reset input after sharing
     nameInput.value = '';
 }
 
 // ================================================================
-// 🎯 SHARE WITHOUT NAME - WITH PHOTO PREVIEW
+// 🎯 SHARE WITHOUT NAME - WITH bg.jpg PHOTO PREVIEW
 // ================================================================
 
 function shareInvitationSimple() {
     const url = window.location.href.split('?')[0];
     
-    // 🔥 WhatsApp message with photo
+    // 🔥 WhatsApp message - bg.jpg photo preview will appear via meta tags
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
     message += `💗 We are coming home! 🎉\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
@@ -175,8 +170,6 @@ function shareInvitationSimple() {
     message += `💗 සුභ ගමනක් වේවා! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
-    
-    // 🔥 WhatsApp URL - Image preview from og:image meta tag
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
 }
@@ -190,20 +183,17 @@ function openDoorAnimation() {
     const mainCard = document.getElementById('mainCard');
     const bgImage = document.querySelector('.door-bg-image');
     
-    // 🔥 RESET DOOR - BG Image hidden
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'flex';
     doorOverlay.style.opacity = '0';
     doorOverlay.style.transition = 'opacity 0.8s ease';
     
-    // 🔥 BG Image - Start hidden
     if (bgImage) {
         bgImage.style.opacity = '0';
         bgImage.style.transition = 'opacity 6s ease';
         bgImage.style.filter = 'blur(10px) brightness(0.3)';
     }
     
-    // Hide main card
     mainCard.style.transition = 'opacity 0.5s ease';
     mainCard.style.opacity = '0';
     
@@ -211,16 +201,13 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
-    // Show door overlay
     setTimeout(() => {
         doorOverlay.style.opacity = '1';
     }, 100);
     
-    // 🐌 EXTRA SLOW DOOR OPEN - starts after 1s, takes 6s
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
-        // 🔥 BG IMAGE - Appears slowly ONLY when door opens
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
@@ -230,12 +217,10 @@ function openDoorAnimation() {
         
     }, 1000);
     
-    // 🐌 Show invitation after door fully opens
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
-            // 🔥 Reset BG image after door closes
             if (bgImage) {
                 bgImage.style.opacity = '0';
                 bgImage.style.filter = 'blur(10px) brightness(0.3)';
@@ -271,25 +256,21 @@ function closeInvitationAndGoBack() {
     const doorOverlay = document.getElementById('doorOverlay');
     const bgImage = document.querySelector('.door-bg-image');
     
-    // Close modal
     if (modal) {
         modal.classList.remove('show');
         document.body.style.overflow = 'auto';
     }
     
-    // 🔥 Reset door - HIDE EVERYTHING
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
     
-    // 🔥 BG Image - Force hidden
     if (bgImage) {
         bgImage.style.opacity = '0';
         bgImage.style.filter = 'blur(10px) brightness(0.3)';
         bgImage.style.transition = 'none';
     }
     
-    // Show main card
     setTimeout(() => {
         mainCard.style.display = 'block';
         mainCard.style.opacity = '0';
@@ -301,7 +282,6 @@ function closeInvitationAndGoBack() {
     }, 300);
 }
 
-// ----- CLOSE INVITATION (Normal) -----
 function closeInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
@@ -357,7 +337,6 @@ function validateForm() {
     return true;
 }
 
-// ----- SEND VIA WHATSAPP (RSVP) -----
 function sendWhatsApp() {
     if (!validateForm()) return;
     
@@ -382,7 +361,6 @@ function sendWhatsApp() {
     document.getElementById('rsvpForm').reset();
 }
 
-// ----- SEND VIA EMAIL -----
 function sendEmail() {
     if (!validateForm()) return;
     
