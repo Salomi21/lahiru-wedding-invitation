@@ -657,7 +657,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🚪 FULL PAGE DOOR - PINK THEME                                 */
+/* 🚪 FULL PAGE DOOR - PINK THEME (NO HEART)                     */
 /* ================================================================ */
 
 .door-overlay {
@@ -966,75 +966,10 @@ body::after {
 }
 
 /* ================================================================ */
-/* 💗 DOOR HEART & CENTER TEXT                                    */
+/* 💗 DOOR HEART - COMPLETELY REMOVED                             */
 /* ================================================================ */
 
-.door-heart {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 90px;
-    z-index: 10;
-    opacity: 0;
-    transition: all 1.5s ease;
-    text-shadow: 0 0 100px rgba(255, 215, 0, 0.2);
-}
-
-.door-overlay.open .door-heart {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.3);
-    animation: heartReveal 1.5s ease forwards;
-}
-
-@keyframes heartReveal {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(-40deg); }
-    60% { opacity: 1; transform: translate(-50%, -50%) scale(1.7) rotate(15deg); }
-    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.2) rotate(0deg); }
-}
-
-.door-center-text {
-    position: absolute;
-    bottom: 15%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 10;
-    opacity: 0;
-    transition: all 1.5s ease;
-    transition-delay: 0.5s;
-    width: 80%;
-}
-
-.door-overlay.open .door-center-text {
-    opacity: 1;
-}
-
-.center-title {
-    display: block;
-    font-family: 'Great Vibes', cursive;
-    font-size: 32px;
-    color: #ffd700;
-    text-shadow: 0 0 50px rgba(255, 215, 0, 0.15);
-    letter-spacing: 2px;
-    animation: textGlow 3s ease-in-out infinite;
-}
-
-.center-sub {
-    display: block;
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: #f9a8d4;
-    margin-top: 5px;
-    letter-spacing: 4px;
-    font-weight: 300;
-    text-shadow: 0 0 30px rgba(244, 114, 182, 0.1);
-}
-
-@keyframes textGlow {
-    0%, 100% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.1); }
-    50% { text-shadow: 0 0 80px rgba(255, 215, 0, 0.25); }
-}
+/* No door-heart styles - heart is removed */
 
 /* ================================================================ */
 /* 🔒 DOOR LOCK                                                   */
@@ -2234,7 +2169,6 @@ body::after {
         height: 55vh;
         max-height: 380px;
     }
-    .door-heart { font-size: 50px; }
     .center-title { font-size: 20px; }
     .center-sub { font-size: 12px; }
     .bottom-line { font-size: 18px; }
@@ -2305,7 +2239,6 @@ body::after {
         height: 45vh;
         max-height: 300px;
     }
-    .door-heart { font-size: 35px; }
     .center-title { font-size: 16px; }
     .center-sub { font-size: 10px; }
     .bottom-line { font-size: 14px; }
@@ -2382,7 +2315,6 @@ body::after {
     }
     
     .door-container { width: 60vw; height: 70vh; max-height: 350px; }
-    .door-heart { font-size: 40px; }
     .center-title { font-size: 18px; }
     .center-sub { font-size: 11px; }
     .bottom-line { font-size: 16px; }
