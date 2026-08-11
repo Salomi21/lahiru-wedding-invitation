@@ -86,7 +86,7 @@ body::after {
     100% { transform: translateY(-10vh) scale(0) rotate(360deg); opacity: 0; }
 }
 
-/* ----- FLOATING HEARTS - Rose & White (SLOWER) ----- */
+/* ----- FLOATING HEARTS - Rose & White (NORMAL SPEED) ----- */
 #hearts-container {
     position: fixed;
     top: 0;
@@ -116,7 +116,7 @@ body::after {
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-/* Much slower float: 22s-34s duration, very graceful rise */
+/* Normal speed float: 12s-20s duration, smooth rise */
 @keyframes floatHeart {
     0% { 
         transform: translateY(0) rotate(0deg) scale(0.2); 
@@ -124,19 +124,19 @@ body::after {
     }
     10% { 
         transform: translateY(-5vh) rotate(30deg) scale(0.8); 
-        opacity: 0.3; 
+        opacity: 0.4; 
     }
     30% { 
         transform: translateY(-20vh) rotate(80deg) scale(1.1); 
-        opacity: 0.8; 
+        opacity: 0.9; 
     }
     50% { 
         transform: translateY(-40vh) rotate(180deg) scale(1); 
-        opacity: 0.9; 
+        opacity: 1; 
     }
     75% { 
         transform: translateY(-70vh) rotate(280deg) scale(0.7); 
-        opacity: 0.6; 
+        opacity: 0.7; 
     }
     100% { 
         transform: translateY(-110vh) rotate(360deg) scale(0.2); 
