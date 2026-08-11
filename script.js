@@ -75,7 +75,7 @@ window.addEventListener('load', () => {
 });
 
 // ================================================================
-// 🎯 CHECK NAME IN URL - HIDE SHARE BUTTONS FOR RECIPIENTS
+// 🎯 CHECK NAME IN URL - FILL TEXT BOX AND HIDE SHARE BUTTONS
 // ================================================================
 
 function getGuestNameFromURL() {
@@ -86,8 +86,18 @@ function getGuestNameFromURL() {
 function checkAndHideButtons() {
     const name = getGuestNameFromURL();
     const shareContainer = document.getElementById('shareButtonContainer');
+    const nameInput = document.getElementById('guestNameInput');
     
     if (name) {
+        // Fill the text box with the guest name
+        if (nameInput) {
+            nameInput.value = decodeURIComponent(name);
+            // Disable the input so they can't change it
+            nameInput.disabled = true;
+            nameInput.style.opacity = '0.7';
+            nameInput.style.cursor = 'not-allowed';
+        }
+        
         if (shareContainer) {
             shareContainer.style.display = 'none';
         }
@@ -95,6 +105,12 @@ function checkAndHideButtons() {
     } else {
         if (shareContainer) {
             shareContainer.style.display = 'block';
+        }
+        // Enable the input for new users
+        if (nameInput) {
+            nameInput.disabled = false;
+            nameInput.style.opacity = '1';
+            nameInput.style.cursor = 'text';
         }
     }
 }
@@ -151,7 +167,8 @@ function shareWithCustomName() {
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
     
-    nameInput.value = '';
+    // Don't clear the input - keep the name visible
+    // nameInput.value = '';
 }
 
 // ================================================================
