@@ -205,14 +205,14 @@ function openDoorAnimation() {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
-            // 🐌 SLOW INVITATION FADE IN - 2.5 seconds
+            // 🐌 SLOW INVITATION FADE IN - 3 seconds
             openInvitationVerySlow();
         }, 400);
     }, 5000);
 }
 
 // ================================================================
-// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (2.5s)
+// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (3s)
 // ================================================================
 
 function openInvitationVerySlow() {
@@ -221,7 +221,7 @@ function openInvitationVerySlow() {
         modal.classList.add('show');
         const content = modal.querySelector('.modal-content');
         if (content) {
-            content.style.animation = 'modalVerySlowFadeIn 2.5s ease forwards';
+            content.style.animation = 'modalVerySlowFadeIn 3s ease forwards';
         }
         document.body.style.overflow = 'hidden';
     }
