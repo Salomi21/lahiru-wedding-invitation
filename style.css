@@ -860,17 +860,23 @@ body::after {
     50% { text-shadow: 0 0 80px rgba(255, 215, 0, 0.25); }
 }
 
+/* ================================================================ */
+/* 🔒 DOOR LOCK - WITH OPEN ANIMATION                             */
+/* ================================================================ */
+
 .door-lock {
     position: absolute;
     bottom: 12%;
     left: 50%;
     transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.05), transparent);
-    border: 2px solid rgba(255, 215, 0, 0.05);
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.06), transparent);
+    border: 2px solid rgba(255, 215, 0, 0.08);
     z-index: 5;
+    transition: all 1.5s ease;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.02);
 }
 
 .door-lock::before {
@@ -879,13 +885,45 @@ body::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 16px;
-    opacity: 0.3;
+    font-size: 22px;
+    opacity: 0.4;
+    transition: all 1.5s ease;
+    filter: grayscale(0.3);
+}
+
+/* 🎯 Door open වෙද්දී Lock එක Open වෙනවා */
+.door-overlay.open .door-lock {
+    border-color: rgba(255, 215, 0, 0.25);
+    box-shadow: 0 0 40px rgba(255, 215, 0, 0.12), 0 0 80px rgba(255, 215, 0, 0.04);
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.08), transparent);
 }
 
 .door-overlay.open .door-lock::before {
     content: '🔓';
-    opacity: 0.6;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+    filter: grayscale(0);
+    animation: lockOpen 1.2s ease forwards;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+/* 🔓 Lock Open Animation */
+@keyframes lockOpen {
+    0% { 
+        transform: translate(-50%, -50%) scale(0.6) rotate(-30deg); 
+        opacity: 0.3;
+    }
+    40% { 
+        transform: translate(-50%, -50%) scale(1.5) rotate(25deg); 
+        opacity: 1;
+    }
+    70% { 
+        transform: translate(-50%, -50%) scale(1.1) rotate(-10deg); 
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(1.2) rotate(0deg); 
+        opacity: 1;
+    }
 }
 
 .door-ring {
@@ -2116,8 +2154,15 @@ body::after {
     .door-ornament { font-size: 10px; letter-spacing: 6px; }
     .door-left { border-radius: 20px 0 0 20px; }
     .door-right { border-radius: 0 20px 20px 0; }
-    .door-lock { width: 30px; height: 30px; }
-    .door-lock::before { font-size: 12px; }
+    
+    .door-lock {
+        width: 34px;
+        height: 34px;
+        bottom: 10%;
+    }
+    .door-lock::before {
+        font-size: 16px;
+    }
     
     .modal-content {
         padding: 22px 16px 22px 16px;
@@ -2171,6 +2216,16 @@ body::after {
     .door-handle { width: 10px; height: 30px; }
     .door-left .door-handle { right: 8px; }
     .door-right .door-handle { left: 8px; }
+    
+    .door-lock {
+        width: 30px;
+        height: 30px;
+        bottom: 8%;
+    }
+    .door-lock::before {
+        font-size: 14px;
+    }
+    
     .highlight-date { font-size: 20px; }
     .highlight-venue { font-size: 15px; }
     .schedule-time { font-size: 10px; min-width: 45px; }
@@ -2233,7 +2288,12 @@ body::after {
     .modal-content { max-height: 80vh; padding: 15px 12px 15px 12px; }
     .invitation-text { font-size: 16px; }
     #viewInvitationContainer, #shareButtonContainer { max-width: 100%; margin-top: 6px; }
-    .door-container { width: 60vw; height: 70vh; max-height: 350px; }
+    
+    .door-container {
+        width: 60vw;
+        height: 70vh;
+        max-height: 350px;
+    }
     .door-heart { font-size: 40px; }
     .center-title { font-size: 18px; }
     .center-sub { font-size: 11px; }
@@ -2242,6 +2302,16 @@ body::after {
     .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 5px; }
     .door-particles span { font-size: 12px; }
     .door-handle { width: 10px; height: 32px; }
+    
+    .door-lock {
+        width: 30px;
+        height: 30px;
+        bottom: 8%;
+    }
+    .door-lock::before {
+        font-size: 14px;
+    }
+    
     .rsvp-section { padding: 10px 8px 12px 8px; }
     .form-buttons { flex-direction: row; }
     .form-buttons button { font-size: 11px; padding: 10px; }
