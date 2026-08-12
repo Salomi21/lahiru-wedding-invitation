@@ -817,47 +817,68 @@ body::after {
     100% { opacity: 1; transform: translate(-50%, -50%) scale(1.2) rotate(0deg); }
 }
 
+/* ================================================================ */
+/* 🎯 DOOR CENTER TEXT - LARGER SIZE                              */
+/* ================================================================ */
+
 .door-center-text {
     position: absolute;
-    bottom: 15%;
+    bottom: 12%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     z-index: 10;
     opacity: 0;
-    transition: all 1.5s ease;
+    transition: all 1.8s ease;
     transition-delay: 0.5s;
-    width: 80%;
+    width: 92%;
 }
 
 .door-overlay.open .door-center-text {
     opacity: 1;
+    animation: textReveal 1.5s ease forwards;
+}
+
+@keyframes textReveal {
+    0% { opacity: 0; transform: translateX(-50%) scale(0.8) translateY(20px); }
+    50% { opacity: 0.7; transform: translateX(-50%) scale(1.1) translateY(-5px); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1) translateY(0); }
 }
 
 .center-title {
     display: block;
     font-family: 'Great Vibes', cursive;
-    font-size: 32px;
+    font-size: 52px;
     color: #ffd700;
-    text-shadow: 0 0 50px rgba(255, 215, 0, 0.15);
-    letter-spacing: 2px;
+    text-shadow: 
+        0 0 60px rgba(255, 215, 0, 0.3),
+        0 0 120px rgba(255, 215, 0, 0.12),
+        0 0 200px rgba(255, 215, 0, 0.06);
+    letter-spacing: 4px;
     animation: textGlow 3s ease-in-out infinite;
+    line-height: 1.15;
 }
 
 .center-sub {
     display: block;
     font-family: 'Playfair Display', serif;
-    font-size: 16px;
+    font-size: 22px;
     color: #f9a8d4;
-    margin-top: 5px;
-    letter-spacing: 4px;
+    margin-top: 8px;
+    letter-spacing: 8px;
     font-weight: 300;
-    text-shadow: 0 0 30px rgba(244, 114, 182, 0.1);
+    text-shadow: 0 0 40px rgba(244, 114, 182, 0.2);
 }
 
 @keyframes textGlow {
-    0%, 100% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.1); }
-    50% { text-shadow: 0 0 80px rgba(255, 215, 0, 0.25); }
+    0%, 100% { 
+        text-shadow: 0 0 40px rgba(255, 215, 0, 0.15); 
+    }
+    50% { 
+        text-shadow: 
+            0 0 60px rgba(255, 215, 0, 0.3),
+            0 0 120px rgba(255, 215, 0, 0.1); 
+    }
 }
 
 /* ================================================================ */
@@ -926,6 +947,14 @@ body::after {
     }
 }
 
+/* ================================================================ */
+/* 📝 BOTTOM TEXT - COMPLETELY HIDDEN                             */
+/* ================================================================ */
+
+.door-bottom-text {
+    display: none;
+}
+
 .door-ring {
     position: absolute;
     top: -20px;
@@ -953,45 +982,6 @@ body::after {
 @keyframes ringSpin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-.door-bottom-text {
-    text-align: center;
-    z-index: 2;
-    position: relative;
-    opacity: 0.7;
-    transition: all 0.5s ease;
-    margin-top: 10px;
-}
-
-.bottom-line {
-    display: block;
-    font-family: 'Great Vibes', cursive;
-    font-size: 22px;
-    color: #f9a8d4;
-    text-shadow: 0 0 40px rgba(244, 114, 182, 0.1);
-    letter-spacing: 2px;
-}
-
-.bottom-sub {
-    display: block;
-    font-family: 'Lato', sans-serif;
-    font-size: 13px;
-    color: #f9a8d4;
-    margin-top: 5px;
-    letter-spacing: 6px;
-    font-weight: 300;
-    animation: blinkText 2s ease-in-out infinite;
-}
-
-@keyframes blinkText {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
-}
-
-.door-overlay.open .bottom-sub {
-    animation: none;
-    opacity: 0;
 }
 
 .door-particles {
@@ -1081,24 +1071,25 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 MODAL - SLOW FADE IN ANIMATIONS                             */
+/* 🎯 MODAL - VERY SLOW FADE IN (3 seconds)                       */
 /* ================================================================ */
-
-@keyframes modalSlowFadeIn {
-    0% { 
-        opacity: 0; 
-        transform: scale(0.95) translateY(40px); 
-    }
-    100% { 
-        opacity: 1; 
-        transform: scale(1) translateY(0); 
-    }
-}
 
 @keyframes modalVerySlowFadeIn {
     0% { 
         opacity: 0; 
-        transform: scale(0.92) translateY(50px); 
+        transform: scale(0.90) translateY(60px); 
+    }
+    25% { 
+        opacity: 0.2; 
+        transform: scale(0.93) translateY(45px); 
+    }
+    50% { 
+        opacity: 0.5; 
+        transform: scale(0.96) translateY(30px); 
+    }
+    75% { 
+        opacity: 0.75; 
+        transform: scale(0.99) translateY(15px); 
     }
     100% { 
         opacity: 1; 
@@ -1145,7 +1136,7 @@ body::after {
     position: relative;
     color: #f0e6f6;
     border: 1px solid rgba(255, 255, 255, 0.06);
-    animation: modalFloat 4s ease-in-out infinite;
+    animation: modalVerySlowFadeIn 3s ease forwards;
 }
 
 @keyframes modalFloat {
@@ -2142,10 +2133,8 @@ body::after {
         max-height: 380px;
     }
     .door-heart { font-size: 50px; }
-    .center-title { font-size: 20px; }
-    .center-sub { font-size: 12px; }
-    .bottom-line { font-size: 18px; }
-    .bottom-sub { font-size: 11px; }
+    .center-title { font-size: 36px; letter-spacing: 2px; }
+    .center-sub { font-size: 16px; letter-spacing: 5px; }
     .door-top-deco { font-size: 14px; letter-spacing: 10px; top: 10px; }
     .door-particles span { font-size: 14px; }
     .door-handle { width: 12px; height: 40px; }
@@ -2208,10 +2197,8 @@ body::after {
         max-height: 300px;
     }
     .door-heart { font-size: 35px; }
-    .center-title { font-size: 16px; }
-    .center-sub { font-size: 10px; }
-    .bottom-line { font-size: 14px; }
-    .bottom-sub { font-size: 9px; }
+    .center-title { font-size: 28px; letter-spacing: 1px; }
+    .center-sub { font-size: 13px; letter-spacing: 4px; }
     .door-particles span { font-size: 12px; }
     .door-handle { width: 10px; height: 30px; }
     .door-left .door-handle { right: 8px; }
@@ -2247,7 +2234,8 @@ body::after {
     .highlight-venue { font-size: 18px; }
     .invitation-text { font-size: 18px; }
     .door-container { width: 75vw; height: 60vh; max-height: 420px; }
-    .center-title { font-size: 26px; }
+    .center-title { font-size: 42px; }
+    .center-sub { font-size: 18px; }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -2255,6 +2243,8 @@ body::after {
     .title { font-size: 44px; }
     .highlight-date { font-size: 27px; }
     .door-container { width: 65vw; height: 65vh; max-height: 500px; }
+    .center-title { font-size: 48px; }
+    .center-sub { font-size: 20px; }
 }
 
 @media (min-width: 1025px) {
@@ -2264,6 +2254,8 @@ body::after {
     .highlight-date { font-size: 28px; }
     .highlight-venue { font-size: 20px; }
     .door-container { width: 70vw; max-width: 750px; height: 70vh; max-height: 600px; }
+    .center-title { font-size: 52px; }
+    .center-sub { font-size: 22px; }
 }
 
 @media (max-height: 600px) and (orientation: landscape) {
@@ -2295,10 +2287,8 @@ body::after {
         max-height: 350px;
     }
     .door-heart { font-size: 40px; }
-    .center-title { font-size: 18px; }
-    .center-sub { font-size: 11px; }
-    .bottom-line { font-size: 16px; }
-    .bottom-sub { font-size: 10px; }
+    .center-title { font-size: 30px; }
+    .center-sub { font-size: 14px; }
     .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 5px; }
     .door-particles span { font-size: 12px; }
     .door-handle { width: 10px; height: 32px; }
