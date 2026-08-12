@@ -352,8 +352,8 @@ function validateForm() {
 // ================================================================
 
 function saveToGoogleSheets(formData) {
-    // ✅ Your deployed Web App URL
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzmfOoic55j03-DoHiA6OuebFPPhJXxBNw98yHevmaYSXnjiYCnILt4aQz9rSXDa9_W/exec";
+    // ✅ Your new deployed Web App URL
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxplI2TSTGSS-LIc3IG8AamLqJP5K3yfoDpWr16YqGiMcDO8S1eY-la0JfJcm_vy9oY/exec";
     
     fetch(WEB_APP_URL, {
         method: 'POST',
