@@ -1,4 +1,4 @@
-    // ----- 1. FLOATING HEARTS - ROSE (PINK) & WHITE (NORMAL SPEED) -----
+// ----- 1. FLOATING HEARTS - ROSE (PINK) & WHITE (NORMAL SPEED) -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
     if (!container) return;
@@ -347,11 +347,42 @@ function validateForm() {
     return true;
 }
 
+// ================================================================
+// 📤 SEND RSVP DATA TO GOOGLE SHEETS
+// ================================================================
+
+function saveToGoogleSheets(formData) {
+    // ✅ Your deployed Web App URL
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzmfOoic55j03-DoHiA6OuebFPPhJXxBNw98yHevmaYSXnjiYCnILt4aQz9rSXDa9_W/exec";
+    
+    fetch(WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors',  // This is important to avoid CORS errors
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(() => {
+        console.log('✅ Data sent to Google Sheets!');
+        // Optional: Show a success message to the user
+        // showToast('✅ ඔබගේ RSVP සාර්ථකව ලැබුණා!');
+    })
+    .catch(error => {
+        console.error('❌ Error sending data:', error);
+        // The data might still be saved, but we log the error.
+    });
+}
+
 // ----- SEND VIA WHATSAPP (RSVP) -----
 function sendWhatsApp() {
     if (!validateForm()) return;
     
     const { name, phone, attendance, notes } = getFormData();
+    
+    // Save to Google Sheets first
+    saveToGoogleSheets({ name, phone, attendance, notes });
+    
     const whatsappNumber = '94716516444';
     
     let message = `🎉 *Homecoming RSVP Confirmation* 🎉\n\n`;
@@ -377,6 +408,10 @@ function sendEmail() {
     if (!validateForm()) return;
     
     const { name, phone, attendance, notes } = getFormData();
+    
+    // Save to Google Sheets first
+    saveToGoogleSheets({ name, phone, attendance, notes });
+    
     const emailAddress = 'lahirusujith9999@gmail.com';
     const subject = `Homecoming RSVP - ${name}`;
     
