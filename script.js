@@ -400,7 +400,10 @@ function sendEmail() {
     document.getElementById('rsvpForm').reset();
 }
 
-// ----- COUNTDOWN TIMER - SEPTEMBER 15 -----
+// ================================================================
+// 🎯 ENHANCED COUNTDOWN TIMER - SEPTEMBER 15, 2026
+// ================================================================
+
 var homecomingDate = new Date("Sep 15, 2026 00:00:00").getTime();
 
 var countdownInterval = setInterval(function() {
@@ -408,7 +411,7 @@ var countdownInterval = setInterval(function() {
     var distance = homecomingDate - now;
 
     if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "💗 Homecoming! 💗";
+        document.getElementById("countdown").innerHTML = '<span class="countdown-celebrate">💗 Homecoming Day! 💗</span>';
         clearInterval(countdownInterval);
         return;
     }
@@ -418,13 +421,27 @@ var countdownInterval = setInterval(function() {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("countdown").innerHTML =
-        days + "d " + 
-        String(hours).padStart(2, '0') + "h " + 
-        String(minutes).padStart(2, '0') + "m " + 
-        String(seconds).padStart(2, '0') + "s";
+    // Update each number individually with animation
+    updateCountdownNumber('days', days);
+    updateCountdownNumber('hours', hours);
+    updateCountdownNumber('minutes', minutes);
+    updateCountdownNumber('seconds', seconds);
 
 }, 1000);
+
+function updateCountdownNumber(id, value) {
+    const element = document.getElementById(id);
+    if (element) {
+        const paddedValue = String(value).padStart(2, '0');
+        if (element.textContent !== paddedValue) {
+            element.textContent = paddedValue;
+            // Add pulse animation
+            element.classList.remove('countdown-pulse');
+            void element.offsetWidth; // Trigger reflow
+            element.classList.add('countdown-pulse');
+        }
+    }
+}
 
 // ================================================================
 // 🎵 MUSIC - FORCE AUTO-PLAY (music.mp3)
