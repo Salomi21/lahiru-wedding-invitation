@@ -1,4 +1,4 @@
-// ----- 1. FLOATING HEARTS - ROSE (PINK) & WHITE (NORMAL SPEED) -----
+// ----- 1. FLOATING HEARTS - Wedding Style (Faster) -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
     if (!container) return;
@@ -6,27 +6,26 @@ function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
     
-    // 50/50 chance for rose/pink or white
-    const isRose = Math.random() > 0.5;
+    // 50/50 chance for pink or white
+    const isPink = Math.random() > 0.5;
     
-    if (isRose) {
+    if (isPink) {
         heart.classList.add('pink');
         heart.innerHTML = '💗';
         heart.style.color = '#f472b6';
-        heart.style.textShadow = '0 0 30px rgba(244, 114, 182, 0.5)';
+        heart.style.textShadow = '0 0 20px rgba(244, 114, 182, 0.4)';
     } else {
         heart.classList.add('white');
         heart.innerHTML = '🤍';
         heart.style.color = '#ffffff';
-        heart.style.textShadow = '0 0 30px rgba(255, 255, 255, 0.3)';
+        heart.style.textShadow = '0 0 20px rgba(255, 255, 255, 0.3)';
     }
     
     heart.style.left = Math.random() * 100 + '%';
-    heart.style.fontSize = (Math.random() * 18 + 14) + 'px';
-    // Normal speed: 12s-18s
-    heart.style.animationDuration = (Math.random() * 8 + 12) + 's';
-    heart.style.opacity = Math.random() * 0.5 + 0.4;
-    heart.style.animationDelay = (Math.random() * 3) + 's';
+    heart.style.fontSize = (Math.random() * 14 + 12) + 'px';
+    // Wedding style - faster: 6s to 14s
+    heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
+    heart.style.opacity = Math.random() * 0.6 + 0.4;
 
     container.appendChild(heart);
 
@@ -34,10 +33,10 @@ function createHeart() {
         if (heart.parentNode) {
             heart.remove();
         }
-    }, 20000);
+    }, 14000);
 }
 
-setInterval(createHeart, 400);
+setInterval(createHeart, 350);
 
 window.addEventListener('load', () => {
     for (let i = 0; i < 6; i++) {
@@ -45,7 +44,7 @@ window.addEventListener('load', () => {
     }
 });
 
-// ----- 2. SPARKLE PARTICLES - ROSE & WHITE -----
+// ----- 2. SPARKLE PARTICLES -----
 function createSparkle() {
     const container = document.getElementById('sparkle-container');
     if (!container) return;
@@ -77,7 +76,7 @@ window.addEventListener('load', () => {
 });
 
 // ================================================================
-// 🎯 CHECK NAME IN URL - HIDE SHARE BUTTONS FOR RECIPIENTS
+// 🎯 GET NAME FROM URL AND DISPLAY PERSONALIZED MESSAGE
 // ================================================================
 
 function getGuestNameFromURL() {
@@ -85,99 +84,68 @@ function getGuestNameFromURL() {
     return params.get('name') || '';
 }
 
-function checkAndHideButtons() {
+function displayGuestName() {
     const name = getGuestNameFromURL();
-    const shareContainer = document.getElementById('shareButtonContainer');
-    
-    if (name) {
-        if (shareContainer) {
-            shareContainer.style.display = 'none';
-        }
-        displayGuestName(name);
-    } else {
-        if (shareContainer) {
-            shareContainer.style.display = 'block';
-        }
-        // Reset to default message if no name
-        resetMainMessage();
-    }
-}
-
-// ================================================================
-// 🎯 RESET MAIN MESSAGE TO DEFAULT
-// ================================================================
-
-function resetMainMessage() {
-    const mainMsg = document.getElementById('mainInvitationMessage');
-    if (mainMsg) {
-        mainMsg.innerHTML = `💗 With love, we are coming home!!<br /><span class="highlight-text">✨ Join us to celebrate our new journey ✨</span>`;
-    }
-    
-    const subtitle = document.getElementById('mainSubtitle');
-    if (subtitle) {
-        subtitle.innerHTML = 'Lahiru &amp; Salomi';
-        subtitle.style.color = '';
-        subtitle.style.fontSize = '';
-        subtitle.style.letterSpacing = '';
-    }
-}
-
-// ================================================================
-// 🎯 DISPLAY PERSONALIZED MESSAGE ON MAIN VIEW - "A Special Invitation for [Name] 💍"
-// ================================================================
-
-function displayGuestName(name) {
     if (name) {
         const decodedName = decodeURIComponent(name);
         
-        // Update the main subtitle
         const subtitle = document.getElementById('mainSubtitle');
         if (subtitle) {
             subtitle.innerHTML = `💗 ${decodedName} ඔබට ආරාධනාවක්! 💗`;
-            subtitle.style.color = '#f9a8d4';
+            subtitle.style.color = '#f5edff';
             subtitle.style.fontSize = '16px';
             subtitle.style.letterSpacing = '2px';
         }
         
-        // Update the main invitation message on the first view
-        const mainMsg = document.getElementById('mainInvitationMessage');
-        if (mainMsg) {
-            mainMsg.innerHTML = `
-                💍 A Special Invitation for <span style="color: #ffd700; font-weight: bold; text-shadow: 0 0 30px rgba(255,215,0,0.4), 0 0 60px rgba(255,215,0,0.15); display: inline-block; animation: nameGlow 2.5s ease-in-out infinite;">${decodedName}</span> 💍
-            `;
+        const invText = document.getElementById('invitationText');
+        if (invText) {
+            invText.innerHTML = `💗 ${decodedName}, අපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!<br>After our wedding, we are coming home!`;
         }
     }
 }
 
 // ================================================================
-// 🎯 SHARE WITH CUSTOM NAME - PROMPT FOR NAME
+// 🎯 SHOW/HIDE SHARE BUTTON BASED ON URL PARAMETER
+// ================================================================
+
+function checkAndHideButtons() {
+    const params = new URLSearchParams(window.location.search);
+    const hasName = params.get('name') || '';
+    
+    const shareContainer = document.getElementById('shareButtonContainer');
+    if (shareContainer) {
+        if (hasName) {
+            shareContainer.style.display = 'none';
+        } else {
+            shareContainer.style.display = 'block';
+        }
+    }
+}
+
+// ================================================================
+// 🎯 SHARE WITH CUSTOM NAME
 // ================================================================
 
 function shareWithCustomName() {
-    // Show prompt to ask for guest name
-    const guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:\nEnter the guest\'s name:');
+    let guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:', '');
     
-    // Check if user cancelled or entered empty
-    if (guestName === null) {
-        return; // User cancelled
-    }
-    
-    const trimmedName = guestName.trim();
-    if (trimmedName === '') {
+    if (guestName === null) return;
+    if (guestName.trim() === '') {
         alert('🙏 කරුණාකර නමක් ඇතුලත් කරන්න!');
         return;
     }
+    guestName = guestName.trim();
     
     const url = window.location.href.split('?')[0];
-    const encodedName = encodeURIComponent(trimmedName);
+    const encodedName = encodeURIComponent(guestName);
     const shareUrl = `${url}?name=${encodedName}`;
     
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💍 *A Special Invitation for ${trimmedName}* 💍\n\n`;
+    message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
-    message += `💗 අපගේ ආදර කතාවේ සොඳුරුම පරිච්ඡේදයට, ඔබත් සෙනෙහසින් එක්වන්නැයි සාදරයෙන් ඇරයුම් කරමු.! 💗`;
+    message += `💗 අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් එක්වන්න! 🤍`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -185,25 +153,26 @@ function shareWithCustomName() {
 }
 
 // ================================================================
-// 🚪 DOOR OPEN ANIMATION - EXTRA SLOW (6 SECONDS)
+// 🚪 SLOW DOOR OPEN ANIMATION - 5 SECONDS TOTAL
 // ================================================================
 
 function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
-    const bgImage = document.querySelector('.door-bg-image');
     
+    // Reset door
     doorOverlay.classList.remove('open', 'hidden');
-    doorOverlay.style.display = 'flex';
+    doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
-    doorOverlay.style.transition = 'opacity 0.8s ease';
     
+    // Reset BG image
+    const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
-        bgImage.style.transition = 'opacity 6s ease';
-        bgImage.style.filter = 'blur(10px) brightness(0.3)';
+        bgImage.style.transition = 'opacity 3.5s ease';
     }
     
+    // Hide main card
     mainCard.style.transition = 'opacity 0.5s ease';
     mainCard.style.opacity = '0';
     
@@ -211,38 +180,52 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
+    // Show door overlay with fade in
     setTimeout(() => {
+        doorOverlay.style.display = 'flex';
         doorOverlay.style.opacity = '1';
-    }, 100);
+        doorOverlay.style.transition = 'opacity 0.6s ease';
+    }, 50);
     
+    // 🐌 SLOW DOOR OPEN - starts after 0.5s, takes 3.5s
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
+        // 🐌 SLOW BG IMAGE - appears slowly over 3.5s
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
-                bgImage.style.filter = 'blur(0px) brightness(1)';
             }
-        }, 200);
+        }, 100);
         
-    }, 1000);
+    }, 500);
     
+    // 🐌 SLOW INVITATION - shown after door fully opens (5s total)
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
-            if (bgImage) {
-                bgImage.style.opacity = '0';
-                bgImage.style.filter = 'blur(10px) brightness(0.3)';
-            }
-            openInvitationSlow();
-        }, 500);
-    }, 7500);
+            // 🐌 SLOW INVITATION FADE IN - 2.5 seconds
+            openInvitationVerySlow();
+        }, 400);
+    }, 5000);
 }
 
 // ================================================================
-// 🎯 OPEN INVITATION WITH SLOW FADE IN
+// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (2.5s)
 // ================================================================
+
+function openInvitationVerySlow() {
+    const modal = document.getElementById('invitationModal');
+    if (modal) {
+        modal.classList.add('show');
+        const content = modal.querySelector('.modal-content');
+        if (content) {
+            content.style.animation = 'modalVerySlowFadeIn 2.5s ease forwards';
+        }
+        document.body.style.overflow = 'hidden';
+    }
+}
 
 function openInvitationSlow() {
     const modal = document.getElementById('invitationModal');
@@ -250,7 +233,19 @@ function openInvitationSlow() {
         modal.classList.add('show');
         const content = modal.querySelector('.modal-content');
         if (content) {
-            content.style.animation = 'modalSlowFadeIn 2.5s ease forwards';
+            content.style.animation = 'modalSlowFadeIn 2s ease forwards';
+        }
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function openInvitation() {
+    const modal = document.getElementById('invitationModal');
+    if (modal) {
+        modal.classList.add('show');
+        const content = modal.querySelector('.modal-content');
+        if (content) {
+            content.style.animation = 'fadeInModal 0.8s ease forwards';
         }
         document.body.style.overflow = 'hidden';
     }
@@ -263,24 +258,26 @@ function openInvitationSlow() {
 function closeInvitationAndGoBack() {
     const modal = document.getElementById('invitationModal');
     const mainCard = document.getElementById('mainCard');
-    const doorOverlay = document.getElementById('doorOverlay');
-    const bgImage = document.querySelector('.door-bg-image');
     
+    // Close modal
     if (modal) {
         modal.classList.remove('show');
         document.body.style.overflow = 'auto';
     }
     
+    // Reset door for next time
+    const doorOverlay = document.getElementById('doorOverlay');
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
     
+    // Reset BG image
+    const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
-        bgImage.style.filter = 'blur(10px) brightness(0.3)';
-        bgImage.style.transition = 'none';
     }
     
+    // Show main card with fade in
     setTimeout(() => {
         mainCard.style.display = 'block';
         mainCard.style.opacity = '0';
@@ -292,6 +289,7 @@ function closeInvitationAndGoBack() {
     }, 300);
 }
 
+// ----- CLOSE INVITATION MODAL (Normal close) -----
 function closeInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
@@ -313,10 +311,7 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// ================================================================
-// 🎯 GET FORM DATA
-// ================================================================
-
+// ----- GET FORM DATA -----
 function getFormData() {
     const name = document.getElementById('rsvpName').value.trim();
     const phone = document.getElementById('rsvpPhone').value.trim();
@@ -352,12 +347,12 @@ function validateForm() {
 // ================================================================
 
 function saveToGoogleSheets(formData) {
-    // ✅ Your new deployed Web App URL
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxplI2TSTGSS-LIc3IG8AamLqJP5K3yfoDpWr16YqGiMcDO8S1eY-la0JfJcm_vy9oY/exec";
+    // ⚠️ මෙතනට ඔයාගේ Web App URL එක දාන්න
+    const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
     
     fetch(WEB_APP_URL, {
         method: 'POST',
-        mode: 'no-cors',  // This is important to avoid CORS errors
+        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json',
         },
@@ -365,12 +360,9 @@ function saveToGoogleSheets(formData) {
     })
     .then(() => {
         console.log('✅ Data sent to Google Sheets!');
-        // Optional: Show a success message to the user
-        // showToast('✅ ඔබගේ RSVP සාර්ථකව ලැබුණා!');
     })
     .catch(error => {
-        console.error('❌ Error sending data:', error);
-        // The data might still be saved, but we log the error.
+        console.error('❌ Error:', error);
     });
 }
 
@@ -394,7 +386,7 @@ function sendWhatsApp() {
         message += `📝 *Notes:* ${notes}\n`;
     }
     
-    message += `\n💗 *Lahiru & Salomi Homecoming - 15 Sep 2026*`;
+    message += `\n💗 *Lahiru & Salomi Homecoming - 15 September 2026*`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
@@ -462,7 +454,7 @@ var countdownInterval = setInterval(function() {
 }, 1000);
 
 // ================================================================
-// 🎵 MUSIC - FORCE AUTO-PLAY (music.mp3)
+// 🎵 MUSIC - FORCE AUTO-PLAY
 // ================================================================
 
 var audio = document.getElementById('bgMusic');
@@ -506,6 +498,7 @@ function forceAutoPlay() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    displayGuestName();
     checkAndHideButtons();
     
     setTimeout(forceAutoPlay, 100);
