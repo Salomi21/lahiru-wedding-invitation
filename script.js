@@ -102,13 +102,14 @@ function checkAndHideButtons() {
 }
 
 // ================================================================
-// 🎯 DISPLAY PERSONALIZED MESSAGE
+// 🎯 DISPLAY PERSONALIZED MESSAGE - "A Special Invitation for [Name] 💍"
 // ================================================================
 
 function displayGuestName(name) {
     if (name) {
         const decodedName = decodeURIComponent(name);
         
+        // Update the main subtitle
         const subtitle = document.getElementById('mainSubtitle');
         if (subtitle) {
             subtitle.innerHTML = `💗 ${decodedName} ඔබට ආරාධනාවක්! 💗`;
@@ -117,9 +118,10 @@ function displayGuestName(name) {
             subtitle.style.letterSpacing = '2px';
         }
         
+        // Update the invitation text with the new format
         const invText = document.getElementById('invitationText');
         if (invText) {
-            invText.innerHTML = `💗 ${decodedName}, අපගේ Homecoming උත්සවයට ඔබට ආරාධනා කරනවා!<br>After our wedding, we are coming home!`;
+            invText.innerHTML = `💍 A Special Invitation for <span style="color: #ffd700; font-weight: bold; text-shadow: 0 0 30px rgba(255,215,0,0.3);">${decodedName}</span> 💍<br><br>💗 After our wedding, we are coming home!`;
         }
     }
 }
@@ -148,7 +150,7 @@ function shareWithCustomName() {
     const shareUrl = `${url}?name=${encodedName}`;
     
     let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💗 *${trimmedName}*, ඔබට ආරාධනාවක්!\n\n`;
+    message += `💍 *A Special Invitation for ${trimmedName}* 💍\n\n`;
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
