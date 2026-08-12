@@ -98,11 +98,32 @@ function checkAndHideButtons() {
         if (shareContainer) {
             shareContainer.style.display = 'block';
         }
+        // Reset to default message if no name
+        resetMainMessage();
     }
 }
 
 // ================================================================
-// 🎯 DISPLAY PERSONALIZED MESSAGE - "A Special Invitation for [Name] 💍"
+// 🎯 RESET MAIN MESSAGE TO DEFAULT
+// ================================================================
+
+function resetMainMessage() {
+    const mainMsg = document.getElementById('mainInvitationMessage');
+    if (mainMsg) {
+        mainMsg.innerHTML = `💗 With love, we are coming home!!<br /><span class="highlight-text">✨ Join us to celebrate our new journey ✨</span>`;
+    }
+    
+    const subtitle = document.getElementById('mainSubtitle');
+    if (subtitle) {
+        subtitle.innerHTML = 'Lahiru &amp; Salomi';
+        subtitle.style.color = '';
+        subtitle.style.fontSize = '';
+        subtitle.style.letterSpacing = '';
+    }
+}
+
+// ================================================================
+// 🎯 DISPLAY PERSONALIZED MESSAGE ON MAIN VIEW - "A Special Invitation for [Name] 💍"
 // ================================================================
 
 function displayGuestName(name) {
@@ -118,10 +139,12 @@ function displayGuestName(name) {
             subtitle.style.letterSpacing = '2px';
         }
         
-        // Update the invitation text with the new format
-        const invText = document.getElementById('invitationText');
-        if (invText) {
-            invText.innerHTML = `💍 A Special Invitation for <span style="color: #ffd700; font-weight: bold; text-shadow: 0 0 30px rgba(255,215,0,0.3);">${decodedName}</span> 💍<br><br>💗 After our wedding, we are coming home!`;
+        // Update the main invitation message on the first view
+        const mainMsg = document.getElementById('mainInvitationMessage');
+        if (mainMsg) {
+            mainMsg.innerHTML = `
+                💍 A Special Invitation for <span style="color: #ffd700; font-weight: bold; text-shadow: 0 0 30px rgba(255,215,0,0.4), 0 0 60px rgba(255,215,0,0.15); display: inline-block; animation: nameGlow 2.5s ease-in-out infinite;">${decodedName}</span> 💍
+            `;
         }
     }
 }
