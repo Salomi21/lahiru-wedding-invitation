@@ -177,7 +177,7 @@ function shareWithCustomName() {
     message += `📅 *Date:* 15 September 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `✨ View your invitation:\n${shareUrl}\n\n`;
-    message += `💗 සුභ ගමනක් වේවා! 💗`;
+    message += `💗 අපගේ ආදර කතාවේ සොඳුරුම පරිච්ඡේදයට, ඔබත් සෙනෙහසින් එක්වන්නැයි සාදරයෙන් ඇරයුම් කරමු.! 💗`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
@@ -408,7 +408,7 @@ var countdownInterval = setInterval(function() {
     var distance = homecomingDate - now;
 
     if (distance < 0) {
-        document.getElementById("countdown").innerHTML = "💗 අදම Homecoming! 💗";
+        document.getElementById("countdown").innerHTML = "💗 Homecoming! 💗";
         clearInterval(countdownInterval);
         return;
     }
