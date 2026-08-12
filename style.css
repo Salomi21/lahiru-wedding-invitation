@@ -406,6 +406,14 @@ body::after {
 .divider-icon:nth-child(2) { color: #f472b6; }
 .divider-icon:nth-child(3) { color: #ffffff; }
 
+/* ================================================================ */
+/* 🎯 BUTTON SPACER - Space between buttons                        */
+/* ================================================================ */
+.button-spacer {
+    height: 12px;
+    display: block;
+}
+
 /* ----- BUTTONS - Wedding Style ----- */
 .btn-primary {
     padding: 14px 35px;
@@ -471,6 +479,35 @@ body::after {
 
 .btn-whatsapp:active { transform: scale(0.97); }
 .btn-whatsapp span { font-size: 18px; }
+
+/* ================================================================ */
+/* 🎯 BUTTON CONTAINERS                                           */
+/* ================================================================ */
+#viewInvitationContainer {
+    display: block;
+    margin-top: 18px;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#viewInvitationContainer .btn-primary {
+    margin-top: 0;
+}
+
+#shareButtonContainer {
+    display: none;
+    margin-top: 0;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+#shareButtonContainer .btn-whatsapp {
+    margin-top: 0;
+}
 
 /* ----- FOOTER QUOTE ----- */
 .footer-quote {
@@ -2049,6 +2086,7 @@ body::after {
     .highlight-venue { font-size: 17px; }
     .venue { font-size: 14px; }
     .btn-primary, .btn-whatsapp { font-size: 13px; padding: 12px 20px; max-width: 100%; }
+    .button-spacer { height: 10px; }
     .footer-quote { font-size: 16px; }
     .rings { font-size: 26px; }
     .photo-frame { width: 100px; height: 100px; margin: -35px auto 10px auto; }
@@ -2141,6 +2179,7 @@ body::after {
     .gallery-grid { gap: 4px; }
     .invitation-text { font-size: 15px; }
     .rsvp-section { padding: 10px 8px 12px 8px; }
+    .button-spacer { height: 8px; }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -2184,6 +2223,7 @@ body::after {
     .highlight-venue { font-size: 15px; }
     .venue { font-size: 12px; margin-bottom: 10px; }
     .btn-primary, .btn-whatsapp { font-size: 11px; padding: 8px 16px; margin-top: 8px; }
+    .button-spacer { height: 8px; }
     .footer-quote { font-size: 14px; margin-top: 15px; padding-top: 10px; }
     .rings { font-size: 20px; margin-bottom: 2px; }
     .photo-frame { width: 80px; height: 80px; margin: -30px auto 8px auto; }
