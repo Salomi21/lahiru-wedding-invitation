@@ -86,7 +86,7 @@ body::after {
     100% { transform: translateY(-10vh) scale(0) rotate(360deg); opacity: 0; }
 }
 
-/* ----- FLOATING HEARTS - Rose & White (NORMAL SPEED) ----- */
+/* ----- FLOATING HEARTS - Rose & White ----- */
 #hearts-container {
     position: fixed;
     top: 0;
@@ -116,7 +116,6 @@ body::after {
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
-/* Normal speed float: 12s-20s duration, smooth rise */
 @keyframes floatHeart {
     0% { 
         transform: translateY(0) rotate(0deg) scale(0.2); 
@@ -161,7 +160,7 @@ body::after {
 }
 
 /* =========================================== */
-/* 🎯 MAIN CARD - CLEAN & ELEGANT            */
+/* 🏠 MAIN CARD - WEDDING STYLE              */
 /* =========================================== */
 .container {
     position: relative;
@@ -172,7 +171,7 @@ body::after {
     padding: 40px 25px 50px 25px;
     background: linear-gradient(145deg, 
         rgba(255, 255, 255, 0.06),
-        rgba(255, 255, 255, 0.02)
+        rgba(244, 114, 182, 0.04)
     );
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -201,32 +200,30 @@ body::after {
     right: -1px;
     bottom: -1px;
     background: linear-gradient(45deg, 
-        rgba(236, 72, 153, 0.15), 
-        rgba(244, 114, 182, 0.08), 
-        rgba(255, 255, 255, 0.05),
-        rgba(244, 114, 182, 0.08),
-        rgba(236, 72, 153, 0.15)
+        #ec4899, 
+        #f472b6, 
+        #ffffff,
+        #ec4899,
+        #ffffff,
+        #f472b6,
+        #ec4899
     );
     border-radius: 29px;
     z-index: -1;
     opacity: 0.15;
 }
 
-/* ----- HEART ICON MAIN ----- */
-.heart-icon-main {
-    font-size: 38px;
+/* ----- RINGS - Light Pulse ----- */
+.rings {
+    font-size: 34px;
     margin-bottom: 5px;
     display: block;
-    animation: heartMainPulse 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 30px rgba(244, 114, 182, 0.3));
-    color: #f472b6;
+    animation: lightPulse 3s ease-in-out infinite;
 }
 
-@keyframes heartMainPulse {
-    0%, 100% { transform: scale(1) rotate(0deg); }
-    25% { transform: scale(1.05) rotate(-3deg); }
-    50% { transform: scale(1.1) rotate(0deg); }
-    75% { transform: scale(1.05) rotate(3deg); }
+@keyframes lightPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 /* ----- DECORATIVE LINE ----- */
@@ -236,22 +233,21 @@ body::after {
     color: #f472b6;
     margin-bottom: 5px;
     opacity: 0.5;
-    text-shadow: 0 0 20px rgba(244, 114, 182, 0.15);
 }
 
 /* ================================================================ */
-/* 🎯 TITLE - Homecoming (GOLD & PINK - BRIGHT)                   */
+/* 🎯 TITLE - GOLD & PINK GRADIENT                                */
 /* ================================================================ */
 .title {
     font-family: 'Great Vibes', cursive;
     font-size: 44px;
     background: linear-gradient(135deg, 
         #ffd700 0%,
-        #ffb300 15%,
+        #ffe082 15%,
         #ffd700 30%,
-        #f9a825 50%,
-        #f472b6 70%,
-        #ffd700 85%,
+        #f472b6 50%,
+        #ffd700 70%,
+        #f9a825 85%,
         #ffd700 100%
     );
     background-size: 300% 300%;
@@ -259,41 +255,131 @@ body::after {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 2px;
-    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.4)) 
-            drop-shadow(0 0 80px rgba(255, 215, 0, 0.15))
-            drop-shadow(0 4px 30px rgba(255, 215, 0, 0.2));
+    filter: drop-shadow(0 4px 25px rgba(255, 215, 0, 0.25));
     line-height: 1.2;
-    animation: goldPinkShine 4s ease-in-out infinite;
+    animation: goldShine 4s ease-in-out infinite;
 }
 
-.subtitle {
+@keyframes goldShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.title .amp {
     font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 16px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    background: linear-gradient(135deg, 
-        #ffd700 0%,
-        #ffb300 20%,
-        #ffd700 40%,
-        #f9a825 60%,
-        #f472b6 80%,
-        #ffd700 100%
-    );
-    background-size: 300% 300%;
+    font-size: 34px;
+    background: linear-gradient(135deg, #ffd700, #ffe082, #ffd700);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 12px;
-    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.35))
-            drop-shadow(0 0 60px rgba(255, 215, 0, 0.12))
-            drop-shadow(0 4px 20px rgba(255, 215, 0, 0.12));
-    animation: goldPinkShine 4s ease-in-out infinite;
+    margin: 0 4px;
 }
 
-@keyframes goldPinkShine {
+/* ----- SUBTITLE ----- */
+.subtitle {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #f9a8d4;
+    margin-bottom: 12px;
+    opacity: 0.8;
+}
+
+/* ================================================================ */
+/* 🎯 DATE - GOLD GRADIENT HIGHLIGHT                              */
+/* ================================================================ */
+.highlight-date {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 28px;
+    background: linear-gradient(135deg, 
+        #ffd700 0%, 
+        #f9a825 25%, 
+        #ffd700 50%, 
+        #ffe082 75%, 
+        #ffd700 100%
+    );
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+    animation: highlightShine 3s ease-in-out infinite;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+@keyframes highlightShine {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
+}
+
+/* ================================================================ */
+/* 🎯 VENUE - WHITE BOLD HIGHLIGHT                                */
+/* ================================================================ */
+.highlight-venue {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #ffffff;
+    display: inline-block;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    letter-spacing: 1px;
+}
+
+/* ----- DATE & VENUE containers ----- */
+.date {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.venue {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* ================================================================ */
+/* 🎯 COUNTDOWN - WEDDING STYLE (No Glow, Clean)                  */
+/* ================================================================ */
+#countdown {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 24px;
+    background: rgba(244, 114, 182, 0.08);
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    margin: 8px 0 12px 0;
+    letter-spacing: 2px;
+    color: #f5edff;
+    width: auto;
+    min-width: 200px;
+    box-shadow: 0 4px 15px rgba(244, 114, 182, 0.05);
+    transition: all 0.3s ease;
+}
+
+#countdown:hover {
+    border-color: rgba(244, 114, 182, 0.2);
+    box-shadow: 0 4px 25px rgba(244, 114, 182, 0.08);
+}
+
+/* ----- SINHALA TEXT ----- */
+.sinhala-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #f9a8d4;
+    opacity: 0.6;
+    margin: 8px 0 5px 0;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 /* ----- DIVIDER ----- */
@@ -311,116 +397,20 @@ body::after {
 .divider::after {
     content: "";
     flex: 1;
-    height: 1.5px;
+    height: 1px;
     background: linear-gradient(90deg, transparent, #f472b6, transparent);
 }
 
 .divider-icon {
-    font-size: 18px;
+    font-size: 16px;
 }
 
-.divider-icon:nth-child(1) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
-.divider-icon:nth-child(2) { color: #f472b6; text-shadow: 0 0 30px rgba(244,114,182,0.3); }
-.divider-icon:nth-child(3) { color: #ffffff; text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+.divider-icon:nth-child(1) { color: #ffffff; }
+.divider-icon:nth-child(2) { color: #f472b6; }
+.divider-icon:nth-child(3) { color: #ffffff; }
 
-/* ----- DATE & VENUE ----- */
-.date {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 24px;
-    color: #ffffff;
-    margin-bottom: 4px;
-    letter-spacing: 0.5px;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
-}
-
-.venue-text {
-    font-size: 17px;
-    font-weight: 600;
-    color: #f9a8d4;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
-    padding: 4px 0;
-    text-shadow: 0 0 20px rgba(244, 114, 182, 0.1);
-}
-
-/* ----- COUNTDOWN ----- */
-#countdown {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 28px;
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(244, 114, 182, 0.05));
-    padding: 14px 28px;
-    border-radius: 50px;
-    display: inline-block;
-    border: 2px solid rgba(244, 114, 182, 0.3);
-    margin: 8px 0 12px 0;
-    letter-spacing: 3px;
-    color: #ffffff;
-    width: auto;
-    min-width: 230px;
-    text-shadow: 0 0 40px rgba(244, 114, 182, 0.25), 0 0 80px rgba(244, 114, 182, 0.08);
-    animation: countdownGlow 2s ease-in-out infinite;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 0 30px rgba(244, 114, 182, 0.08);
-}
-
-@keyframes countdownGlow {
-    0%, 100% { 
-        box-shadow: 0 0 25px rgba(244, 114, 182, 0.12), 0 0 50px rgba(244, 114, 182, 0.04);
-        border-color: rgba(244, 114, 182, 0.25);
-    }
-    50% { 
-        box-shadow: 0 0 60px rgba(244, 114, 182, 0.3), 0 0 100px rgba(244, 114, 182, 0.08);
-        border-color: rgba(244, 114, 182, 0.55);
-    }
-}
-
-/* ----- DESCRIPTION HIGHLIGHTED ----- */
-.description-highlighted {
-    font-size: 18px;
-    color: #f5edff;
-    margin: 10px 0 15px 0;
-    line-height: 1.8;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.04);
-    padding: 14px 18px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.highlight-text {
-    display: inline-block;
-    font-size: 17px;
-    font-weight: 700;
-    color: #ffffff !important;
-    text-shadow: 0 0 40px rgba(244, 114, 182, 0.35), 0 0 80px rgba(244, 114, 182, 0.12);
-    animation: highlightPulse 2.8s ease-in-out infinite;
-    padding: 4px 16px;
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(244, 114, 182, 0.05));
-    border-radius: 30px;
-    letter-spacing: 0.5px;
-    border: 1px solid rgba(244, 114, 182, 0.15);
-    backdrop-filter: blur(4px);
-}
-
-@keyframes highlightPulse {
-    0%, 100% { 
-        color: #ffffff;
-        text-shadow: 0 0 30px rgba(244, 114, 182, 0.25);
-        border-color: rgba(244, 114, 182, 0.15);
-    }
-    50% { 
-        color: #f9a8d4;
-        text-shadow: 0 0 60px rgba(244, 114, 182, 0.45), 0 0 100px rgba(244, 114, 182, 0.15);
-        border-color: rgba(244, 114, 182, 0.45);
-    }
-}
-
-/* ----- BUTTONS ----- */
+/* ----- BUTTONS - Wedding Style ----- */
 .btn-primary {
-    margin-top: 18px;
     padding: 14px 35px;
     border: none;
     background: linear-gradient(145deg, #ec4899, #db2777);
@@ -452,9 +442,8 @@ body::after {
 .btn-primary:active { transform: scale(0.97); }
 .btn-primary span { font-size: 18px; }
 
-/* ----- SHARE BUTTON ----- */
-.btn-share {
-    margin-top: 10px;
+/* ----- SHARE BUTTON (WhatsApp Style) ----- */
+.btn-whatsapp {
     padding: 14px 35px;
     border: none;
     background: linear-gradient(145deg, #25D366, #128C7E);
@@ -477,14 +466,14 @@ body::after {
     text-shadow: 0 1px 10px rgba(0,0,0,0.12);
 }
 
-.btn-share:hover {
+.btn-whatsapp:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 35px rgba(37, 211, 102, 0.35);
     background: linear-gradient(145deg, #128C7E, #075E54);
 }
 
-.btn-share:active { transform: scale(0.97); }
-.btn-share span { font-size: 18px; }
+.btn-whatsapp:active { transform: scale(0.97); }
+.btn-whatsapp span { font-size: 18px; }
 
 /* ----- FOOTER QUOTE ----- */
 .footer-quote {
@@ -498,166 +487,7 @@ body::after {
 }
 
 /* ================================================================ */
-/* 🎯 VIEW INVITATION CONTAINER - Always Visible                   */
-/* ================================================================ */
-
-#viewInvitationContainer {
-    display: block;
-    margin-top: 18px;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
-
-#viewInvitationContainer .btn-primary {
-    margin-top: 0;
-}
-
-/* ================================================================ */
-/* 🎯 SHARE BUTTON CONTAINER - Hidden by default                   */
-/* ================================================================ */
-
-#shareButtonContainer {
-    display: none;
-    margin-top: 12px;
-    max-width: 320px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-}
-
-#shareButtonContainer .btn-share {
-    margin-top: 0;
-}
-
-/* ================================================================ */
-/* 🎯 PHOTO FRAME - Pink Theme                                    */
-/* ================================================================ */
-.photo-frame {
-    width: 130px;
-    height: 130px;
-    margin: -45px auto 12px auto;
-    border-radius: 50%;
-    border: 3px solid #f472b6;
-    box-shadow: 
-        0 0 0 8px rgba(236, 72, 153, 0.06),
-        0 10px 40px rgba(0, 0, 0, 0.3),
-        0 0 60px rgba(244, 114, 182, 0.06);
-    overflow: visible;
-    position: relative;
-    background: rgba(20, 10, 18, 0.9);
-}
-
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 50%;
-}
-
-.photo-frame .frame-ring {
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    border-radius: 50%;
-    border: 1.5px dashed rgba(255, 255, 255, 0.1);
-    animation: spin 20s linear infinite;
-    pointer-events: none;
-}
-
-.photo-frame .frame-glow {
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: calc(100% + 20px);
-    height: calc(100% + 20px);
-    border-radius: 50%;
-    background: radial-gradient(circle, 
-        rgba(244, 114, 182, 0.05), 
-        transparent 70%
-    );
-    animation: glowPulse 4s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@keyframes glowPulse {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.06); }
-}
-
-/* ----- STICKER OVERLAY - Pink ----- */
-.sticker-overlay {
-    position: absolute;
-    bottom: -8px;
-    right: -8px;
-    width: 55px;
-    height: 55px;
-    z-index: 5;
-    animation: stickerFloat 2.5s ease-in-out infinite;
-    filter: drop-shadow(0 4px 20px rgba(244, 114, 182, 0.35));
-}
-
-.sticker-emoji {
-    font-size: 42px;
-    display: block;
-    animation: heartPulse 2s ease-in-out infinite;
-    text-align: center;
-    line-height: 1;
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 50%;
-    padding: 4px;
-    border: 2px solid rgba(255, 255, 255, 0.06);
-}
-
-@keyframes stickerFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-    25% { transform: translateY(-8px) rotate(3deg) scale(1.03); }
-    50% { transform: translateY(-4px) rotate(-3deg) scale(1.01); }
-    75% { transform: translateY(-6px) rotate(2deg) scale(1.05); }
-}
-
-@keyframes heartPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.12); }
-}
-
-/* ----- TRADITIONAL ICONS - Pink Only ----- */
-.traditional-icons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 5px 0 10px 0;
-    flex-wrap: wrap;
-}
-
-.icon-item {
-    font-size: 20px;
-    animation: lightFloat 3.5s ease-in-out infinite;
-    display: inline-block;
-}
-
-.icon-item:nth-child(1) { animation-delay: 0s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.25); }
-.icon-item:nth-child(2) { animation-delay: 0.6s; color: #ffffff; opacity: 0.7; text-shadow: 0 0 20px rgba(255,255,255,0.15); }
-.icon-item:nth-child(3) { animation-delay: 1.2s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.25); }
-.icon-item:nth-child(4) { animation-delay: 1.8s; color: #ffffff; opacity: 0.7; text-shadow: 0 0 20px rgba(255,255,255,0.15); }
-.icon-item:nth-child(5) { animation-delay: 2.4s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.25); }
-
-@keyframes lightFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-6px) scale(1.08); }
-}
-
-/* ================================================================ */
-/* 🚪 FULL PAGE DOOR - PINK THEME (WITH LARGE COUPLE NAMES)      */
+/* 🚪 FULL PAGE DOOR - PINK THEME                                 */
 /* ================================================================ */
 
 .door-overlay {
@@ -682,91 +512,6 @@ body::after {
     cursor: pointer;
 }
 
-/* ================================================================ */
-/* 💗 LARGE COUPLE NAMES ABOVE PHOTO - ATTRACTIVE STYLE          */
-/* ================================================================ */
-
-.door-couple-names {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 15;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1.5s ease, transform 1.5s ease;
-    width: 95%;
-    max-width: 800px;
-    pointer-events: none;
-}
-
-.door-overlay.open .door-couple-names {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-}
-
-.door-couple-name {
-    display: inline-block;
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(38px, 7vw, 72px);
-    background: linear-gradient(135deg, 
-        #ffd700 0%,
-        #ffb300 20%,
-        #ffd700 40%,
-        #f9a825 50%,
-        #f472b6 70%,
-        #ffd700 85%,
-        #ffd700 100%
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.4))
-            drop-shadow(0 0 80px rgba(244, 114, 182, 0.3))
-            drop-shadow(0 4px 30px rgba(255, 215, 0, 0.2));
-    animation: goldPinkShine 3s ease-in-out infinite;
-    letter-spacing: 3px;
-    padding: 0 8px;
-    text-shadow: none;
-}
-
-.door-couple-name:first-child {
-    animation-delay: 0s;
-}
-
-.door-couple-name:last-child {
-    animation-delay: 1.5s;
-}
-
-.door-couple-amp {
-    display: inline-block;
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(32px, 5.5vw, 58px);
-    color: #f9a8d4;
-    text-shadow: 0 0 50px rgba(244, 114, 182, 0.4);
-    margin: 0 15px;
-    animation: ampPulse 2s ease-in-out infinite;
-    -webkit-text-fill-color: #f9a8d4;
-}
-
-@keyframes ampPulse {
-    0%, 100% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.15); opacity: 1; }
-}
-
-/* ================================================================ */
-/* 🔥 REMOVE TOP HEART ICON FROM DOOR                             */
-/* ================================================================ */
-
-.door-top-icons {
-    display: none !important;
-}
-
-/* ================================================================ */
-/* 🖼️ BACKGROUND IMAGE - EXTRA SLOW (6 seconds)                  */
-/* ================================================================ */
-
 .door-bg-image {
     position: absolute;
     top: 0;
@@ -780,17 +525,10 @@ body::after {
     transition: opacity 6s ease, filter 6s ease, transform 6s ease;
 }
 
-/* 🔥 ONLY SHOW BG IMAGE WHEN DOOR IS OPEN */
 .door-overlay.open .door-bg-image {
     opacity: 0.85 !important;
     filter: blur(0px) brightness(1);
     transform: scale(1.05);
-}
-
-/* 🔥 ENSURE DOOR OVERLAY DOESN'T SHOW BG IMAGE WHEN CLOSED */
-.door-overlay:not(.open) .door-bg-image {
-    opacity: 0 !important;
-    filter: blur(10px) brightness(0.3);
 }
 
 .door-overlay.hidden {
@@ -798,10 +536,6 @@ body::after {
     pointer-events: none;
     transition: opacity 0.6s ease 0.4s;
 }
-
-/* ================================================================ */
-/* 🎨 DOOR TOP DECORATION - No Heart Icon                         */
-/* ================================================================ */
 
 .door-top-deco {
     position: absolute;
@@ -830,10 +564,6 @@ body::after {
     50% { transform: translateY(-5px) scale(1.1); }
 }
 
-/* ================================================================ */
-/* 🚪 DOOR CONTAINER - FULL PAGE                                  */
-/* ================================================================ */
-
 .door-container {
     position: relative;
     width: 80vw;
@@ -845,7 +575,6 @@ body::after {
     margin-bottom: 10px;
 }
 
-/* Left Door - Pink & Purple Theme */
 .door-left,
 .door-right {
     position: absolute;
@@ -900,10 +629,6 @@ body::after {
     transform: rotateY(150deg);
     box-shadow: 50px 0 100px rgba(0, 0, 0, 0.6);
 }
-
-/* ================================================================ */
-/* 🎨 DOOR DESIGN                                                 */
-/* ================================================================ */
 
 .door-panel {
     position: relative;
@@ -991,10 +716,6 @@ body::after {
     letter-spacing: 10px;
 }
 
-/* ================================================================ */
-/* 🎯 DOOR HANDLE - GOLD                                          */
-/* ================================================================ */
-
 .door-handle {
     position: absolute;
     width: 18px;
@@ -1038,15 +759,72 @@ body::after {
     border-radius: 50%;
 }
 
-/* ================================================================ */
-/* 💗 DOOR HEART - COMPLETELY REMOVED                             */
-/* ================================================================ */
+.door-heart {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 90px;
+    z-index: 10;
+    opacity: 0;
+    transition: all 1.5s ease;
+    text-shadow: 0 0 100px rgba(255, 215, 0, 0.2);
+}
 
-/* No door-heart styles - heart is removed */
+.door-overlay.open .door-heart {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
+    animation: heartReveal 1.5s ease forwards;
+}
 
-/* ================================================================ */
-/* 🔒 DOOR LOCK                                                   */
-/* ================================================================ */
+@keyframes heartReveal {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.3) rotate(-40deg); }
+    60% { opacity: 1; transform: translate(-50%, -50%) scale(1.7) rotate(15deg); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.2) rotate(0deg); }
+}
+
+.door-center-text {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+    opacity: 0;
+    transition: all 1.5s ease;
+    transition-delay: 0.5s;
+    width: 80%;
+}
+
+.door-overlay.open .door-center-text {
+    opacity: 1;
+}
+
+.center-title {
+    display: block;
+    font-family: 'Great Vibes', cursive;
+    font-size: 32px;
+    color: #ffd700;
+    text-shadow: 0 0 50px rgba(255, 215, 0, 0.15);
+    letter-spacing: 2px;
+    animation: textGlow 3s ease-in-out infinite;
+}
+
+.center-sub {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #f9a8d4;
+    margin-top: 5px;
+    letter-spacing: 4px;
+    font-weight: 300;
+    text-shadow: 0 0 30px rgba(244, 114, 182, 0.1);
+}
+
+@keyframes textGlow {
+    0%, 100% { text-shadow: 0 0 40px rgba(255, 215, 0, 0.1); }
+    50% { text-shadow: 0 0 80px rgba(255, 215, 0, 0.25); }
+}
 
 .door-lock {
     position: absolute;
@@ -1076,10 +854,6 @@ body::after {
     opacity: 0.6;
 }
 
-/* ================================================================ */
-/* 🌀 DOOR RING                                                   */
-/* ================================================================ */
-
 .door-ring {
     position: absolute;
     top: -20px;
@@ -1108,10 +882,6 @@ body::after {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
-/* ================================================================ */
-/* 📝 BOTTOM TEXT                                                 */
-/* ================================================================ */
 
 .door-bottom-text {
     text-align: center;
@@ -1151,10 +921,6 @@ body::after {
     animation: none;
     opacity: 0;
 }
-
-/* ================================================================ */
-/* ✨ DOOR PARTICLES - No Home Icon                               */
-/* ================================================================ */
 
 .door-particles {
     position: absolute;
@@ -1198,10 +964,6 @@ body::after {
     75% { transform: translateY(-90px) scale(1.2); opacity: 0.9; }
     100% { transform: translateY(-130px) scale(0.5); opacity: 0; }
 }
-
-/* ================================================================ */
-/* 🌟 BACKGROUND EFFECTS                                          */
-/* ================================================================ */
 
 .door-overlay::before {
     content: '';
@@ -1349,7 +1111,7 @@ body::after {
 .modal-content::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
 .modal-content::-webkit-scrollbar-thumb { background: linear-gradient(135deg, #ec4899, #f472b6); border-radius: 10px; }
 
-/* ----- MODAL TOP DECORATION - No Home Icon ----- */
+/* ----- MODAL TOP DECORATION ----- */
 .modal-top-deco {
     text-align: center;
     margin-bottom: 5px;
@@ -1415,9 +1177,6 @@ body::after {
     75% { transform: scale(1.1) rotate(-5deg); }
 }
 
-/* ================================================================ */
-/* 🎯 MODAL TITLE - Homecoming (BRIGHT GOLD & PINK)              */
-/* ================================================================ */
 .modal-title {
     font-family: 'Great Vibes', cursive;
     font-size: 38px;
@@ -1464,6 +1223,11 @@ body::after {
             drop-shadow(0 0 60px rgba(255, 215, 0, 0.08))
             drop-shadow(0 4px 20px rgba(255, 215, 0, 0.08));
     animation: goldPinkShine 5s ease-in-out infinite;
+}
+
+@keyframes goldPinkShine {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 .modal-divider {
@@ -1524,104 +1288,44 @@ body::after {
 }
 
 .invitation-text {
-    font-family: 'Great Vibes', cursive;
-    font-size: 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
     color: #ffffff;
     text-align: center;
-    margin-bottom: 6px;
-    line-height: 1.3;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
     text-shadow: 0 0 30px rgba(255,255,255,0.04);
+    font-weight: 400;
 }
 
 .invitation-subtext {
     text-align: center;
     color: #f9a8d4;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.7;
+    font-weight: 300;
 }
 
-/* ----- MAIN PHOTO ----- */
-.main-photo-section {
-    margin: 10px 0 18px 0;
-}
-
-.main-photo-frame {
-    position: relative;
-    width: 100%;
-    border-radius: 16px;
+/* ----- HERO PHOTO ----- */
+.hero-photo-section {
+    margin: 6px 0 12px 0;
+    border-radius: 20px;
     overflow: hidden;
-    border: 3px solid rgba(244, 114, 182, 0.3);
-    box-shadow: 
-        0 8px 40px rgba(0, 0, 0, 0.3),
-        0 0 60px rgba(244, 114, 182, 0.06);
-    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
-.main-photo-frame:hover {
-    transform: scale(1.01);
-    border-color: rgba(244, 114, 182, 0.5);
-    box-shadow: 
-        0 12px 50px rgba(0, 0, 0, 0.4),
-        0 0 80px rgba(244, 114, 182, 0.1);
-}
-
-.main-photo-frame img {
+.hero-photo-section img {
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 16/10;
-    object-fit: cover;
-}
-
-.main-photo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, 
-        rgba(0,0,0,0) 0%, 
-        rgba(0,0,0,0) 50%,
-        rgba(0,0,0,0.3) 100%
-    );
-    pointer-events: none;
-}
-
-.main-photo-icon {
-    position: absolute;
-    bottom: 15px;
-    right: 20px;
-    font-size: 30px;
-    opacity: 0.7;
-    animation: heartPulse 2s ease-in-out infinite;
-    filter: drop-shadow(0 2px 20px rgba(244, 114, 182, 0.3));
-}
-
-.main-photo-border {
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    width: calc(100% + 8px);
-    height: calc(100% + 8px);
     border-radius: 18px;
-    border: 2px solid rgba(244, 114, 182, 0.15);
-    pointer-events: none;
-    animation: borderPulse 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
 }
 
-@keyframes borderPulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
-}
-
-.main-photo-caption {
-    text-align: center;
-    font-family: 'Great Vibes', cursive;
-    font-size: 18px;
-    color: #f9a8d4;
-    margin-top: 10px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 30px rgba(244, 114, 182, 0.15);
+.hero-photo-section img:hover {
+    transform: scale(1.01);
 }
 
 /* ----- GALLERY ----- */
@@ -1665,9 +1369,9 @@ body::after {
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
-    border-color: rgba(244, 114, 182, 0.35);
-    box-shadow: 0 8px 40px rgba(244, 114, 182, 0.15);
+    transform: scale(1.03);
+    border-color: rgba(244, 114, 182, 0.3);
+    box-shadow: 0 8px 30px rgba(244, 114, 182, 0.15);
 }
 
 .gallery-item img {
@@ -1679,7 +1383,7 @@ body::after {
 }
 
 .gallery-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
 
 .gallery-overlay {
@@ -1688,13 +1392,13 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(0, 0, 0, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(2px);
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -1702,73 +1406,9 @@ body::after {
 }
 
 .gallery-icon {
-    font-size: 28px;
+    font-size: 24px;
     color: #fff;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
-}
-
-/* ----- LIGHTBOX ----- */
-.lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    animation: lightboxFade 0.3s ease;
-}
-
-.lightbox.show {
-    display: flex;
-}
-
-@keyframes lightboxFade {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-    font-weight: 300;
-    z-index: 10;
-}
-
-.lightbox-close:hover {
-    color: #f472b6;
-    transform: rotate(90deg);
-}
-
-.lightbox-content {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 16px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7);
-    border: 2px solid rgba(255, 255, 255, 0.06);
-}
-
-.lightbox-caption {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #f9a8d4;
-    font-size: 14px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 8px 24px;
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* ----- SCHEDULE CARD ----- */
@@ -1884,6 +1524,10 @@ body::after {
 /* ----- LOCATION SECTION ----- */
 .location-section {
     margin: 5px 0 15px 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    padding: 12px 16px 16px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .location-section h3 {
@@ -2155,10 +1799,71 @@ body::after {
     margin-top: 4px;
 }
 
-/* ================================================================ */
-/* 🎵 SOUND ICON                                                  */
-/* ================================================================ */
+/* ----- LIGHTBOX ----- */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    animation: lightboxFade 0.3s ease;
+}
 
+.lightbox.show {
+    display: flex;
+}
+
+@keyframes lightboxFade {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 300;
+    z-index: 10;
+}
+
+.lightbox-close:hover {
+    color: #f472b6;
+    transform: rotate(90deg);
+}
+
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 16px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.06);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f9a8d4;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 8px 24px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ----- SOUND ICON ----- */
 .sound-icon {
     position: fixed;
     bottom: 20px;
@@ -2204,62 +1909,171 @@ body::after {
 }
 
 /* ================================================================ */
+/* 📱 PHOTO FRAME - WEDDING STYLE                                 */
+/* ================================================================ */
+.photo-frame {
+    width: 130px;
+    height: 130px;
+    margin: -45px auto 12px auto;
+    border-radius: 50%;
+    border: 3px solid #f472b6;
+    box-shadow: 
+        0 0 0 8px rgba(236, 72, 153, 0.06),
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 0 60px rgba(244, 114, 182, 0.06);
+    overflow: visible;
+    position: relative;
+    background: rgba(20, 10, 18, 0.9);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+}
+
+.photo-frame .frame-ring {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border-radius: 50%;
+    border: 1.5px dashed rgba(255, 255, 255, 0.1);
+    animation: spin 20s linear infinite;
+    pointer-events: none;
+}
+
+.photo-frame .frame-glow {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    border-radius: 50%;
+    background: radial-gradient(circle, 
+        rgba(244, 114, 182, 0.05), 
+        transparent 70%
+    );
+    animation: glowPulse 4s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.06); }
+}
+
+/* ----- STICKER OVERLAY ----- */
+.sticker-overlay {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 55px;
+    height: 55px;
+    z-index: 5;
+    animation: stickerFloat 2.5s ease-in-out infinite;
+    filter: drop-shadow(0 4px 20px rgba(244, 114, 182, 0.35));
+}
+
+.sticker-emoji {
+    font-size: 42px;
+    display: block;
+    animation: heartPulse 2s ease-in-out infinite;
+    text-align: center;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+    padding: 4px;
+    border: 2px solid rgba(255, 255, 255, 0.06);
+}
+
+@keyframes stickerFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-8px) rotate(3deg) scale(1.03); }
+    50% { transform: translateY(-4px) rotate(-3deg) scale(1.01); }
+    75% { transform: translateY(-6px) rotate(2deg) scale(1.05); }
+}
+
+@keyframes heartPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+/* ----- TRADITIONAL ICONS ----- */
+.traditional-icons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 5px 0 10px 0;
+    flex-wrap: wrap;
+}
+
+.icon-item {
+    font-size: 20px;
+    animation: lightFloat 3.5s ease-in-out infinite;
+    display: inline-block;
+}
+
+.icon-item:nth-child(1) { animation-delay: 0s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.25); }
+.icon-item:nth-child(2) { animation-delay: 0.6s; color: #ffffff; opacity: 0.7; text-shadow: 0 0 20px rgba(255,255,255,0.15); }
+.icon-item:nth-child(3) { animation-delay: 1.2s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.25); }
+.icon-item:nth-child(4) { animation-delay: 1.8s; color: #ffffff; opacity: 0.7; text-shadow: 0 0 20px rgba(255,255,255,0.15); }
+.icon-item:nth-child(5) { animation-delay: 2.4s; color: #f472b6; text-shadow: 0 0 20px rgba(244,114,182,0.25); }
+
+@keyframes lightFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1.08); }
+}
+
+/* ================================================================ */
 /* 📱 MOBILE RESPONSIVE */
 /* ================================================================ */
 
 @media (max-width: 480px) {
     body { padding: 10px; }
-    
     .container {
         padding: 30px 18px 40px 18px;
         border-radius: 20px;
         margin: 20px auto;
     }
-    
     .title { font-size: 34px; }
-    .subtitle { font-size: 13px; letter-spacing: 4px; }
-    #countdown { font-size: 20px; padding: 10px 16px; min-width: 170px; }
-    .date { font-size: 19px; }
-    .venue-text { font-size: 14px; }
-    .description-highlighted { font-size: 15px; padding: 10px 12px; }
-    .highlight-text { font-size: 14px; padding: 3px 12px; }
-    .btn-primary, .btn-share { font-size: 13px; padding: 12px 20px; max-width: 100%; }
+    .title .amp { font-size: 26px; }
+    .subtitle { font-size: 11px; letter-spacing: 4px; }
+    #countdown { font-size: 20px; padding: 8px 14px; min-width: 170px; }
+    .highlight-date { font-size: 22px; }
+    .highlight-venue { font-size: 17px; }
+    .venue { font-size: 14px; }
+    .btn-primary, .btn-whatsapp { font-size: 13px; padding: 12px 20px; max-width: 100%; }
     .footer-quote { font-size: 16px; }
-    .heart-icon-main { font-size: 30px; }
+    .rings { font-size: 26px; }
     .photo-frame { width: 100px; height: 100px; margin: -35px auto 10px auto; }
     .sticker-overlay { width: 45px; height: 45px; bottom: -5px; right: -5px; }
     .sticker-emoji { font-size: 35px; }
     .traditional-icons { gap: 8px; }
     .icon-item { font-size: 16px; }
+    .sinhala-text { font-size: 10px; }
     .top-decoration { font-size: 12px; letter-spacing: 10px; top: 5px; }
-    
-    #viewInvitationContainer, #shareButtonContainer {
-        max-width: 100%;
-        padding: 0 5px;
-    }
-    
-    .door-couple-names {
-        top: 6%;
-    }
-    .door-couple-name {
-        font-size: clamp(28px, 5vw, 38px) !important;
-        letter-spacing: 1px;
-    }
-    .door-couple-amp {
-        font-size: clamp(22px, 4vw, 30px) !important;
-        margin: 0 8px;
-    }
+    #viewInvitationContainer, #shareButtonContainer { max-width: 100%; padding: 0 5px; }
     
     .door-container {
         width: 85vw;
-        height: 50vh;
-        max-height: 320px;
+        height: 55vh;
+        max-height: 380px;
     }
+    .door-heart { font-size: 50px; }
     .center-title { font-size: 20px; }
     .center-sub { font-size: 12px; }
     .bottom-line { font-size: 18px; }
     .bottom-sub { font-size: 11px; }
-    .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 5px; }
+    .door-top-deco { font-size: 14px; letter-spacing: 10px; top: 10px; }
     .door-particles span { font-size: 14px; }
     .door-handle { width: 12px; height: 40px; }
     .door-left .door-handle { right: 12px; }
@@ -2270,10 +2084,6 @@ body::after {
     .door-lock { width: 30px; height: 30px; }
     .door-lock::before { font-size: 12px; }
     
-    .main-photo-frame img { aspect-ratio: 16/12; }
-    .main-photo-caption { font-size: 15px; }
-    .main-photo-icon { font-size: 24px; bottom: 10px; right: 15px; }
-    
     .modal-content {
         padding: 22px 16px 22px 16px;
         border-radius: 20px;
@@ -2281,30 +2091,23 @@ body::after {
     }
     .modal-title { font-size: 30px; }
     .modal-subtitle { font-size: 12px; letter-spacing: 3px; }
-    .invitation-text { font-size: 18px; }
-    .invitation-subtext { font-size: 13px; }
+    .invitation-text { font-size: 17px; }
+    .invitation-subtext { font-size: 12px; }
+    .modal-content h3 { font-size: 15px; }
+    .rsvp-section { padding: 14px 12px 16px 12px; }
     .form-buttons { flex-direction: column; gap: 8px; }
     .form-buttons button { font-size: 13px; padding: 13px; }
     .close-btn { font-size: 28px; }
     .modal-rings { font-size: 24px; }
     .map-btn { font-size: 12px; padding: 8px 18px; }
     .modal-footer-quote { font-size: 17px; }
-    
-    .rsvp-section { padding: 12px 12px 14px 12px; }
-    .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
-        padding: 11px 14px;
-        font-size: 13px;
-    }
-    
     .gallery-grid { gap: 6px; }
     .gallery-title { font-size: 15px; }
     .gallery-item { border-radius: 8px; }
     .gallery-icon { font-size: 18px; }
-    
     .lightbox-content { max-width: 95%; max-height: 70%; }
     .lightbox-close { font-size: 30px; top: 15px; right: 20px; }
     .lightbox-caption { font-size: 12px; padding: 6px 16px; bottom: 20px; }
-    
     .schedule-card { padding: 14px 12px 12px 12px; border-radius: 14px; margin: 6px 0 12px 0; }
     .schedule-title { font-size: 15px; }
     .schedule-sub { font-size: 10px; }
@@ -2315,23 +2118,16 @@ body::after {
     .schedule-event { font-size: 13px; }
     .schedule-desc { font-size: 10px; }
     .schedule-item { gap: 10px; margin-bottom: 10px; }
-    
     .sound-icon { width: 42px; height: 42px; font-size: 18px; bottom: 15px; right: 15px; }
 }
 
 @media (max-width: 380px) {
     .door-container {
         width: 90vw;
-        height: 40vh;
-        max-height: 260px;
+        height: 45vh;
+        max-height: 300px;
     }
-    .door-couple-name {
-        font-size: clamp(22px, 4vw, 28px) !important;
-    }
-    .door-couple-amp {
-        font-size: clamp(18px, 3vw, 22px) !important;
-        margin: 0 5px;
-    }
+    .door-heart { font-size: 35px; }
     .center-title { font-size: 16px; }
     .center-sub { font-size: 10px; }
     .bottom-line { font-size: 14px; }
@@ -2340,51 +2136,43 @@ body::after {
     .door-handle { width: 10px; height: 30px; }
     .door-left .door-handle { right: 8px; }
     .door-right .door-handle { left: 8px; }
-    
-    .gallery-grid { gap: 4px; }
+    .highlight-date { font-size: 20px; }
+    .highlight-venue { font-size: 15px; }
     .schedule-time { font-size: 10px; min-width: 45px; }
     .schedule-timeline::before { left: 50px; }
     .schedule-event { font-size: 12px; }
-    .venue-text { font-size: 12px; }
-    #countdown { font-size: 16px; min-width: 140px; padding: 8px 12px; }
-    .highlight-text { font-size: 12px; padding: 2px 10px; }
-    .main-photo-caption { font-size: 13px; }
-    .rsvp-section { padding: 10px 10px 12px 10px; }
+    .gallery-grid { gap: 4px; }
+    .invitation-text { font-size: 15px; }
+    .rsvp-section { padding: 10px 8px 12px 8px; }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
     .container { padding: 35px 22px 45px 22px; max-width: 400px; }
     .title { font-size: 38px; }
-    .subtitle { font-size: 14px; letter-spacing: 5px; }
     #countdown { font-size: 22px; min-width: 180px; }
-    .venue-text { font-size: 16px; }
     .modal-content { padding: 28px 22px 24px 22px; max-width: 420px; }
     .form-buttons { flex-direction: row; }
-    .rsvp-section { padding: 14px 16px 16px 16px; }
-    .door-container { width: 75vw; height: 55vh; max-height: 380px; }
-    .door-couple-name {
-        font-size: clamp(32px, 5.5vw, 44px) !important;
-    }
-    .door-couple-amp {
-        font-size: clamp(28px, 4.5vw, 38px) !important;
-    }
+    .highlight-date { font-size: 26px; }
+    .highlight-venue { font-size: 18px; }
+    .invitation-text { font-size: 18px; }
+    .door-container { width: 75vw; height: 60vh; max-height: 420px; }
     .center-title { font-size: 26px; }
-    .heart-icon-main { font-size: 34px; }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
     .container { max-width: 460px; padding: 45px 30px 55px 30px; }
     .title { font-size: 44px; }
-    .subtitle { font-size: 15px; letter-spacing: 5px; }
-    .door-container { width: 65vw; height: 60vh; max-height: 450px; }
+    .highlight-date { font-size: 27px; }
+    .door-container { width: 65vw; height: 65vh; max-height: 500px; }
 }
 
 @media (min-width: 1025px) {
     .container { max-width: 500px; padding: 50px 35px 60px 35px; }
     .title { font-size: 48px; }
-    .subtitle { font-size: 16px; letter-spacing: 6px; }
     #countdown { font-size: 26px; min-width: 220px; }
-    .door-container { width: 70vw; max-width: 750px; height: 65vh; max-height: 550px; }
+    .highlight-date { font-size: 28px; }
+    .highlight-venue { font-size: 20px; }
+    .door-container { width: 70vw; max-width: 750px; height: 70vh; max-height: 600px; }
 }
 
 @media (max-height: 600px) and (orientation: landscape) {
@@ -2393,38 +2181,23 @@ body::after {
         margin: 10px auto;
     }
     .title { font-size: 28px; }
-    .subtitle { font-size: 12px; letter-spacing: 4px; }
-    #countdown { font-size: 16px; padding: 6px 12px; min-width: 150px; }
-    .date { font-size: 16px; }
-    .venue-text { font-size: 12px; margin-bottom: 6px; }
-    .description-highlighted { font-size: 13px; padding: 6px 10px; margin: 5px 0 8px 0; }
-    .highlight-text { font-size: 12px; padding: 2px 10px; }
-    .btn-primary, .btn-share { font-size: 11px; padding: 8px 16px; margin-top: 8px; }
+    .subtitle { font-size: 10px; letter-spacing: 3px; margin-bottom: 5px; }
+    #countdown { font-size: 16px; padding: 5px 12px; min-width: 150px; }
+    .highlight-date { font-size: 20px; }
+    .highlight-venue { font-size: 15px; }
+    .venue { font-size: 12px; margin-bottom: 10px; }
+    .btn-primary, .btn-whatsapp { font-size: 11px; padding: 8px 16px; margin-top: 8px; }
     .footer-quote { font-size: 14px; margin-top: 15px; padding-top: 10px; }
-    .heart-icon-main { font-size: 22px; }
+    .rings { font-size: 20px; margin-bottom: 2px; }
     .photo-frame { width: 80px; height: 80px; margin: -30px auto 8px auto; }
     .sticker-overlay { width: 35px; height: 35px; bottom: -4px; right: -4px; }
     .sticker-emoji { font-size: 28px; }
     .divider { margin: 6px auto 10px auto; }
     .modal-content { max-height: 80vh; padding: 15px 12px 15px 12px; }
-    
-    #viewInvitationContainer, #shareButtonContainer {
-        max-width: 100%;
-        margin-top: 6px;
-    }
-    
-    .door-couple-names {
-        top: 3%;
-    }
-    .door-couple-name {
-        font-size: clamp(24px, 4vw, 32px) !important;
-    }
-    .door-couple-amp {
-        font-size: clamp(20px, 3vw, 26px) !important;
-        margin: 0 8px;
-    }
-    
-    .door-container { width: 60vw; height: 60vh; max-height: 300px; }
+    .invitation-text { font-size: 16px; }
+    #viewInvitationContainer, #shareButtonContainer { max-width: 100%; margin-top: 6px; }
+    .door-container { width: 60vw; height: 70vh; max-height: 350px; }
+    .door-heart { font-size: 40px; }
     .center-title { font-size: 18px; }
     .center-sub { font-size: 11px; }
     .bottom-line { font-size: 16px; }
@@ -2432,26 +2205,14 @@ body::after {
     .door-top-deco { font-size: 12px; letter-spacing: 8px; top: 5px; }
     .door-particles span { font-size: 12px; }
     .door-handle { width: 10px; height: 32px; }
-    
-    .main-photo-frame img { aspect-ratio: 16/9; }
-    .main-photo-caption { font-size: 13px; margin-top: 6px; }
-    .main-photo-icon { font-size: 20px; bottom: 8px; right: 12px; }
-    
-    .rsvp-section { padding: 10px 12px 12px 12px; }
-    .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
-        padding: 8px 12px;
-        font-size: 12px;
-        margin-bottom: 8px;
-    }
-    .rsvp-sub { font-size: 11px; margin-bottom: 10px; }
-    .form-buttons button { padding: 10px; font-size: 12px; }
-    
+    .rsvp-section { padding: 10px 8px 12px 8px; }
+    .form-buttons { flex-direction: row; }
+    .form-buttons button { font-size: 11px; padding: 10px; }
     .gallery-grid { gap: 4px; }
     .gallery-title { font-size: 13px; }
     .gallery-sub { font-size: 9px; }
     .gallery-item { border-radius: 6px; }
     .gallery-icon { font-size: 14px; }
-    
     .schedule-card { padding: 10px 8px 8px 8px; margin: 4px 0 8px 0; }
     .schedule-title { font-size: 13px; }
     .schedule-icon { font-size: 16px; }
@@ -2461,6 +2222,5 @@ body::after {
     .schedule-desc { font-size: 9px; }
     .schedule-item { gap: 8px; margin-bottom: 8px; }
     .schedule-dot { width: 7px; height: 7px; min-width: 7px; margin-top: 2px; }
-    
     .sound-icon { width: 36px; height: 36px; font-size: 16px; bottom: 10px; right: 10px; }
-} 
+}
