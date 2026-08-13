@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>💗 Homecoming - Lahiru & Salomi</title>
 
-    <!-- ========== WHATSAPP LINK PREVIEW META TAGS ========== -->
+    <!-- ========== WHATSAPP LINK PREVIEW META TAGS - LARGE IMAGE ========== -->
     <meta property="og:title" content="💗 Lahiru &amp; Salomi - Homecoming Invitation 💗" />
     <meta property="og:description" content="We are coming home! 🎉 15 September 2026 at Sasindu Products, MahaUswewa, Anamaduwa. Join us to celebrate our new journey!" />
     <meta property="og:image" content="https://i.ibb.co/Q78bqW2y/sticker.webp" />
@@ -21,15 +21,21 @@
 </head>
 <body>
 
+    <!-- Floating Hearts Container -->
     <div id="hearts-container"></div>
+
+    <!-- Sparkle Particles -->
     <div id="sparkle-container"></div>
+
+    <!-- Top Decoration -->
     <div class="top-decoration">✦ ✦ ✦</div>
 
-    <!-- ============================================== -->
-    <!-- 🏠 MAIN HOMECOMING CARD - WEDDING STYLE       -->
-    <!-- ============================================== -->
+    <!-- ============================================ -->
+    <!-- 🏠 MAIN HOMECOMING CARD - WEDDING STYLE     -->
+    <!-- ============================================ -->
     <div class="container" id="mainCard">
 
+        <!-- Traditional Icons -->
         <div class="traditional-icons">
             <span class="icon-item">💗</span>
             <span class="icon-item">✨</span>
@@ -40,6 +46,7 @@
 
         <div class="decorative-line">✦ ✦ ✦</div>
 
+        <!-- Photo Frame -->
         <div class="photo-frame">
             <img src="sticker1.webp" alt="Lahiru & Salomi" onerror="this.style.display='none'; this.parentElement.innerHTML='💗'" />
             <div class="frame-ring"></div>
@@ -49,7 +56,10 @@
             </div>
         </div>
 
+        <!-- Rings Icon -->
         <div class="rings">💗</div>
+
+        <!-- Title -->
         <h1 class="title">Lahiru <span class="amp">&</span> Salomi</h1>
         <p class="subtitle" id="mainSubtitle">We Are Coming Home</p>
 
@@ -59,11 +69,16 @@
             <span class="divider-icon">🤍</span>
         </div>
 
+        <!-- Date - Gold Highlight -->
         <h2 class="date"><span class="highlight-date">15 September 2026</span></h2>
+        
+        <!-- Venue - White Highlight -->
         <p class="venue"><span class="highlight-venue">📍 Sasindu Products, MahaUswewa, Anamaduwa</span></p>
 
+        <!-- Countdown - Wedding Style -->
         <div id="countdown"></div>
 
+        <!-- Sinhala Text -->
         <p class="sinhala-text">💗 අපි ගෙදර එනවා! 🤍</p>
 
         <!-- ===== VIEW INVITATION BUTTON ===== -->
@@ -73,6 +88,7 @@
             </button>
         </div>
 
+        <!-- ===== SPACE BETWEEN BUTTONS ===== -->
         <div class="button-spacer"></div>
 
         <!-- ===== SHARE BUTTON ===== -->
@@ -84,10 +100,12 @@
 
         <p class="footer-quote">"Home is where the heart is..."</p>
 
+        <!-- 🎵 MUSIC -->
         <audio id="bgMusic" loop preload="auto">
             <source src="music.mp3" type="audio/mp3" />
         </audio>
 
+        <!-- 🎵 SOUND ICON -->
         <div id="soundIcon" class="sound-icon" onclick="toggleMusic()">
             <span id="musicIcon">🔊</span>
         </div>
@@ -131,6 +149,11 @@
             <div class="door-ring"></div>
             <div class="door-lock"></div>
         </div>
+        <!-- ===== BOTTOM TEXT - REMOVED ===== -->
+        <!-- <div class="door-bottom-text">
+            <span class="bottom-line">"Home is where the heart is..."</span>
+            <span class="bottom-sub">✨ Opening Invitation ✨</span>
+        </div> -->
         <div class="door-particles">
             <span>✦</span><span>💗</span><span>✦</span><span>💗</span>
             <span>✦</span><span>💗</span><span>✦</span><span>💗</span>
@@ -267,6 +290,7 @@
         </div>
     </div>
 
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="Memory" />
