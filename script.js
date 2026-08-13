@@ -1,4 +1,4 @@
-// ----- 1. FLOATING HEARTS - Wedding Style (Faster) -----
+// ----- 1. FLOATING HEARTS -----
 function createHeart() {
     const container = document.getElementById('hearts-container');
     if (!container) return;
@@ -6,7 +6,6 @@ function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
     
-    // 50/50 chance for pink or white
     const isPink = Math.random() > 0.5;
     
     if (isPink) {
@@ -23,7 +22,6 @@ function createHeart() {
     
     heart.style.left = Math.random() * 100 + '%';
     heart.style.fontSize = (Math.random() * 14 + 12) + 'px';
-    // Wedding style - faster: 6s to 14s
     heart.style.animationDuration = (Math.random() * 8 + 6) + 's';
     heart.style.opacity = Math.random() * 0.6 + 0.4;
 
@@ -111,10 +109,11 @@ function displayGuestName() {
 function checkAndHideButtons() {
     const params = new URLSearchParams(window.location.search);
     const hasName = params.get('name') || '';
+    const isQR = params.get('qr') === 'true';
     
     const shareContainer = document.getElementById('shareButtonContainer');
     if (shareContainer) {
-        if (hasName) {
+        if (hasName || isQR) {
             shareContainer.style.display = 'none';
         } else {
             shareContainer.style.display = 'block';
@@ -123,10 +122,12 @@ function checkAndHideButtons() {
 }
 
 // ================================================================
-// 🎯 SHARE WITH CUSTOM NAME
+// 🎯 SHARE WITH CUSTOM NAME + IMAGE (Homecoming)
 // ================================================================
 
 function shareWithCustomName() {
+    const imageUrl = "https://i.ibb.co/Q78bqW2y/sticker.webp";
+    
     let guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:', '');
     
     if (guestName === null) return;
@@ -140,16 +141,40 @@ function shareWithCustomName() {
     const encodedName = encodeURIComponent(guestName);
     const shareUrl = `${url}?name=${encodedName}`;
     
-    let message = `💗 *Lahiru & Salomi - Homecoming Invitation* 💗\n\n`;
-    message += `💗 *${guestName}*, ඔබට ආරාධනාවක්!\n\n`;
-    message += `📅 *Date:* 15 September 2026\n`;
+    // Message එක හදන්න
+    let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
+    message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
+    message += `📅 SEP 15\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
-    message += `✨ View your invitation:\n${shareUrl}\n\n`;
-    message += `💗 අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් එක්වන්න! 🤍`;
+    message += `👁️ *View Your Invitation:*\n${shareUrl}\n\n`;
+    message += `─────────────────────\n`;
+    message += `💗 කරුණාකර ඔබගේ පැමිණීම සැප්තැම්බර් 05 දිනට පෙර තහවුරු කරන්න\n`;
+    message += `💗 Please confirm your presence by September 5th.\n\n`;
+    message += `💗💗 අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු! 💗💗`;
     
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
     window.open(whatsappURL, '_blank');
+}
+
+// ================================================================
+// 🎯 CHECK IF VIEWED VIA QR CODE
+// ================================================================
+
+function checkQRCode() {
+    const params = new URLSearchParams(window.location.search);
+    const isQR = params.get('qr');
+    
+    if (isQR === 'true') {
+        const shareContainer = document.getElementById('shareButtonContainer');
+        if (shareContainer) {
+            shareContainer.style.display = 'none';
+        }
+        
+        setTimeout(function() {
+            openDoorAnimation();
+        }, 1500);
+    }
 }
 
 // ================================================================
@@ -160,19 +185,16 @@ function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
     
-    // Reset door
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
     
-    // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
         bgImage.style.transition = 'opacity 3.5s ease';
     }
     
-    // Hide main card
     mainCard.style.transition = 'opacity 0.5s ease';
     mainCard.style.opacity = '0';
     
@@ -180,18 +202,15 @@ function openDoorAnimation() {
         mainCard.style.display = 'none';
     }, 500);
     
-    // Show door overlay with fade in
     setTimeout(() => {
         doorOverlay.style.display = 'flex';
         doorOverlay.style.opacity = '1';
         doorOverlay.style.transition = 'opacity 0.6s ease';
     }, 50);
     
-    // 🐌 SLOW DOOR OPEN - starts after 0.5s, takes 3.5s
     setTimeout(() => {
         doorOverlay.classList.add('open');
         
-        // 🐌 SLOW BG IMAGE - appears slowly over 3.5s
         setTimeout(() => {
             if (bgImage) {
                 bgImage.style.opacity = '0.85';
@@ -200,12 +219,10 @@ function openDoorAnimation() {
         
     }, 500);
     
-    // 🐌 SLOW INVITATION - shown after door fully opens (5s total)
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
-            // 🐌 SLOW INVITATION FADE IN - 3 seconds
             openInvitationVerySlow();
         }, 400);
     }, 5000);
@@ -227,30 +244,6 @@ function openInvitationVerySlow() {
     }
 }
 
-function openInvitationSlow() {
-    const modal = document.getElementById('invitationModal');
-    if (modal) {
-        modal.classList.add('show');
-        const content = modal.querySelector('.modal-content');
-        if (content) {
-            content.style.animation = 'modalSlowFadeIn 2s ease forwards';
-        }
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function openInvitation() {
-    const modal = document.getElementById('invitationModal');
-    if (modal) {
-        modal.classList.add('show');
-        const content = modal.querySelector('.modal-content');
-        if (content) {
-            content.style.animation = 'fadeInModal 0.8s ease forwards';
-        }
-        document.body.style.overflow = 'hidden';
-    }
-}
-
 // ================================================================
 // 🎯 CLOSE INVITATION AND GO BACK TO MAIN PAGE
 // ================================================================
@@ -259,25 +252,21 @@ function closeInvitationAndGoBack() {
     const modal = document.getElementById('invitationModal');
     const mainCard = document.getElementById('mainCard');
     
-    // Close modal
     if (modal) {
         modal.classList.remove('show');
         document.body.style.overflow = 'auto';
     }
     
-    // Reset door for next time
     const doorOverlay = document.getElementById('doorOverlay');
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
     
-    // Reset BG image
     const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
     }
     
-    // Show main card with fade in
     setTimeout(() => {
         mainCard.style.display = 'block';
         mainCard.style.opacity = '0';
@@ -289,7 +278,6 @@ function closeInvitationAndGoBack() {
     }, 300);
 }
 
-// ----- CLOSE INVITATION MODAL (Normal close) -----
 function closeInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
@@ -347,7 +335,6 @@ function validateForm() {
 // ================================================================
 
 function saveToGoogleSheets(formData) {
-    // ⚠️ මෙතනට ඔයාගේ Web App URL එක දාන්න
     const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
     
     fetch(WEB_APP_URL, {
@@ -372,7 +359,6 @@ function sendWhatsApp() {
     
     const { name, phone, attendance, notes } = getFormData();
     
-    // Save to Google Sheets first
     saveToGoogleSheets({ name, phone, attendance, notes });
     
     const whatsappNumber = '94716516444';
@@ -401,7 +387,6 @@ function sendEmail() {
     
     const { name, phone, attendance, notes } = getFormData();
     
-    // Save to Google Sheets first
     saveToGoogleSheets({ name, phone, attendance, notes });
     
     const emailAddress = 'lahirusujith9999@gmail.com';
@@ -427,7 +412,7 @@ function sendEmail() {
     document.getElementById('rsvpForm').reset();
 }
 
-// ----- COUNTDOWN TIMER - SEPTEMBER 15 -----
+// ----- COUNTDOWN TIMER -----
 var homecomingDate = new Date("Sep 15, 2026 00:00:00").getTime();
 
 var countdownInterval = setInterval(function() {
@@ -500,6 +485,7 @@ function forceAutoPlay() {
 document.addEventListener('DOMContentLoaded', function() {
     displayGuestName();
     checkAndHideButtons();
+    checkQRCode();
     
     setTimeout(forceAutoPlay, 100);
     setTimeout(forceAutoPlay, 300);
