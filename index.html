@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>💜 Lahiru ❤️ Salomi - Wedding</title>
+    <title>💗 Homecoming - Lahiru & Salomi</title>
 
     <!-- ========== WHATSAPP LINK PREVIEW META TAGS - LARGE IMAGE ========== -->
-    <meta property="og:title" content="💜 Lahiru &amp; Salomi - Wedding Invitation 💜" />
-    <meta property="og:description" content="We are getting married! 🎉 14 September 2026 at Hotel Thisunya, Anamaduwa. Join us to celebrate our special day!" />
+    <meta property="og:title" content="💗 Lahiru &amp; Salomi - Homecoming Invitation 💗" />
+    <meta property="og:description" content="We are coming home! 🎉 15 September 2026 at Sasindu Products, MahaUswewa, Anamaduwa. Join us to celebrate our new journey!" />
     <meta property="og:image" content="https://i.ibb.co/Q78bqW2y/sticker.webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://salomi-wedding-invitation.vercel.app/" />
+    <meta property="og:url" content="https://your-homecoming-site.netlify.app/" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <!-- =================================================== -->
@@ -21,68 +21,86 @@
 </head>
 <body>
 
+    <!-- Floating Hearts Container -->
     <div id="hearts-container"></div>
+
+    <!-- Sparkle Particles -->
     <div id="sparkle-container"></div>
+
+    <!-- Top Decoration -->
     <div class="top-decoration">✦ ✦ ✦</div>
 
-    <!-- ============================================== -->
-    <!-- 🏠 MAIN WEDDING CARD - 1st VIEW               -->
-    <!-- ============================================== -->
+    <!-- ============================================ -->
+    <!-- 🏠 MAIN HOMECOMING CARD - WEDDING STYLE     -->
+    <!-- ============================================ -->
     <div class="container" id="mainCard">
 
+        <!-- Traditional Icons -->
         <div class="traditional-icons">
-            <span class="icon-item">💜</span>
+            <span class="icon-item">💗</span>
             <span class="icon-item">✨</span>
-            <span class="icon-item">🤍</span>
+            <span class="icon-item">💗</span>
             <span class="icon-item">✨</span>
-            <span class="icon-item">💜</span>
+            <span class="icon-item">💗</span>
         </div>
 
         <div class="decorative-line">✦ ✦ ✦</div>
 
+        <!-- Photo Frame -->
         <div class="photo-frame">
-            <img src="wedding-photo.webp" alt="Lahiru & Salomi" onerror="this.style.display='none'; this.parentElement.innerHTML='💍'" />
+            <img src="sticker1.webp" alt="Lahiru & Salomi" onerror="this.style.display='none'; this.parentElement.innerHTML='💗'" />
             <div class="frame-ring"></div>
             <div class="frame-glow"></div>
             <div class="sticker-overlay">
-                <span class="sticker-emoji">💜</span>
+                <span class="sticker-emoji">💗</span>
             </div>
         </div>
 
-        <div class="rings">💍</div>
+        <!-- Rings Icon -->
+        <div class="rings">💗</div>
+
+        <!-- Title -->
         <h1 class="title">Lahiru <span class="amp">&</span> Salomi</h1>
-        <p class="subtitle" id="mainSubtitle">We Are Getting Married</p>
+        <p class="subtitle" id="mainSubtitle">We Are Coming Home</p>
 
         <div class="divider">
             <span class="divider-icon">🤍</span>
-            <span class="divider-icon">💜</span>
+            <span class="divider-icon">💗</span>
             <span class="divider-icon">🤍</span>
         </div>
 
-        <h2 class="date"><span class="highlight-date">14 September 2026</span></h2>
-        <p class="venue"><span class="highlight-venue">📍 Hotel Thisunya, Anamaduwa</span></p>
+        <!-- Date - Gold Highlight -->
+        <h2 class="date"><span class="highlight-date">15 September 2026</span></h2>
+        
+        <!-- Venue - White Highlight -->
+        <p class="venue"><span class="highlight-venue">📍 Sasindu Products, MahaUswewa, Anamaduwa</span></p>
 
+        <!-- Countdown - Wedding Style -->
         <div id="countdown"></div>
 
-        <p class="sinhala-text">💜 සුභ විවාහයක් වේවා! 🤍</p>
+        <!-- Sinhala Text -->
+        <p class="sinhala-text">💗 අපි ගෙදර එනවා! 🤍</p>
 
         <!-- ===== VIEW INVITATION BUTTON ===== -->
-        <button onclick="openDoorAnimation()" class="btn-primary" id="viewInviteBtn">
-            <span>💜</span> View Invitation
-        </button>
+        <div id="viewInvitationContainer">
+            <button onclick="openDoorAnimation()" class="btn-primary">
+                <span>💗</span> View Invitation
+            </button>
+        </div>
 
-        <!-- ===== SHARE BUTTON - WITH IMAGE + NAME ===== -->
+        <!-- ===== SPACE BETWEEN BUTTONS ===== -->
+        <div class="button-spacer"></div>
+
+        <!-- ===== SHARE BUTTON ===== -->
         <div id="shareButtonContainer" style="display: none;">
-            <button onclick="shareInvitationWithImage()" class="btn-whatsapp">
+            <button onclick="shareWithCustomName()" class="btn-whatsapp">
                 <span>📤</span> Share Invitation
             </button>
         </div>
 
-        <p class="footer-quote">"Forever starts today..."</p>
+        <p class="footer-quote">"Home is where the heart is..."</p>
 
-        <!-- ============================================ -->
-        <!-- 🎵 AUDIO - WITH FORCE AUTO-PLAY              -->
-        <!-- ============================================ -->
+        <!-- 🎵 MUSIC -->
         <audio id="bgMusic" loop preload="auto">
             <source src="music.mp3" type="audio/mp3" />
         </audio>
@@ -101,11 +119,11 @@
         <div class="door-bg-image"></div>
         <div class="door-top-deco">
             <span>✦</span>
-            <span>💜</span>
+            <span>💗</span>
             <span>✦</span>
-            <span>🤍</span>
+            <span>💗</span>
             <span>✦</span>
-            <span>💜</span>
+            <span>💗</span>
             <span>✦</span>
         </div>
         <div class="door-container">
@@ -123,84 +141,85 @@
                     <div class="door-ornament">✦ ✦ ✦</div>
                 </div>
             </div>
-            <div class="door-heart">💜</div>
+            <div class="door-heart">💗</div>
             <div class="door-center-text">
                 <span class="center-title">Lahiru &amp; Salomi</span>
-                <span class="center-sub">14 September 2026</span>
+                <span class="center-sub">15 September 2026</span>
             </div>
             <div class="door-ring"></div>
             <div class="door-lock"></div>
         </div>
-        <div class="door-bottom-text">
-            <span class="bottom-line">"The Beginning of Forever"</span>
+        <!-- ===== BOTTOM TEXT - REMOVED ===== -->
+        <!-- <div class="door-bottom-text">
+            <span class="bottom-line">"Home is where the heart is..."</span>
             <span class="bottom-sub">✨ Opening Invitation ✨</span>
-        </div>
+        </div> -->
         <div class="door-particles">
-            <span>✦</span><span>💜</span><span>✦</span><span>🤍</span>
-            <span>✦</span><span>💜</span><span>✦</span><span>🤍</span>
-            <span>✦</span><span>💜</span><span>✦</span><span>🤍</span>
+            <span>✦</span><span>💗</span><span>✦</span><span>💗</span>
+            <span>✦</span><span>💗</span><span>✦</span><span>💗</span>
+            <span>✦</span><span>💗</span><span>✦</span><span>💗</span>
         </div>
     </div>
 
     <!-- ============================================== -->
-    <!-- INVITATION MODAL - SLOW FADE IN               -->
+    <!-- INVITATION MODAL                               -->
     <!-- ============================================== -->
     <div id="invitationModal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeInvitationAndGoBack()">&times;</span>
             <div class="modal-top-deco">
-                <span class="deco-icon">✦</span>
-                <span class="deco-icon">💜</span>
-                <span class="deco-icon">✦</span>
-                <span class="deco-icon">🤍</span>
-                <span class="deco-icon">✦</span>
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">💗</span>
+                <span class="deco-icon">💗</span>
             </div>
             <div class="modal-header">
-                <div class="modal-rings">💍</div>
-                <h1 class="modal-title">Lahiru <span class="modal-amp">&</span> Salomi</h1>
-                <p class="modal-subtitle">We Are Getting Married</p>
+                <div class="modal-rings">💗</div>
+                <h1 class="modal-title">Homecoming</h1>
+                <p class="modal-subtitle">Lahiru &amp; Salomi</p>
                 <div class="modal-divider">
-                    <span>✦</span> <span>🤍</span> <span>💜</span> <span>🤍</span> <span>✦</span>
+                    <span>✦</span> <span>💗</span> <span>💗</span> <span>💗</span> <span>✦</span>
                 </div>
             </div>
             <div class="invitation-message">
-                <div class="msg-icon">💜</div>
+                <div class="msg-icon">💗</div>
                 <p class="invitation-text" id="invitationText">
-                    With hearts full of love and joy, we invite you to celebrate our wedding!
+                    💗 After our wedding, we are coming home!
                 </p>
                 <p class="invitation-subtext">
-                    Your presence will make our day even more special. Please join us as we begin our journey together.
+                    We invite you to join us in celebrating this special moment as we begin our new life together. Your presence will make our homecoming even more memorable.
                 </p>
             </div>
             <div class="hero-photo-section">
-                <img src="wedding-photo.webp" alt="Lahiru & Salomi - Together" onerror="this.src='https://via.placeholder.com/800x400/8b5cf6/ffffff?text=💜+Lahiru+%26+Salomi'" />
+                <img src="sticker.webp" alt="Lahiru & Salomi" onerror="this.src='https://via.placeholder.com/800x400/f472b6/ffffff?text=💗+Lahiru+%26+Salomi'" />
             </div>
             <div class="gallery-section">
-                <h3 class="gallery-title">📸 අපගේ ඡායාරූප</h3>
+                <h3 class="gallery-title">📸 අපගේ සිහිවටන</h3>
                 <p class="gallery-sub">Our Memories</p>
                 <div class="gallery-grid">
                     <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="wedding-photo.webp" alt="Lahiru & Salomi" onerror="this.src='https://via.placeholder.com/300x300/8b5cf6/ffffff?text=💜'" />
+                        <img src="sticker.webp" alt="Memory 1" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
                         <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="sticker.webp" alt="Memory 1" onerror="this.src='https://via.placeholder.com/300x300/c084fc/ffffff?text=💜'" />
+                        <img src="sticker.webp" alt="Memory 2" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
                         <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="sticker.webp" alt="Memory 2" onerror="this.src='https://via.placeholder.com/300x300/8b5cf6/ffffff?text=💜'" />
+                        <img src="sticker.webp" alt="Memory 3" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
                         <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="sticker.webp" alt="Memory 3" onerror="this.src='https://via.placeholder.com/300x300/c084fc/ffffff?text=💜'" />
+                        <img src="sticker.webp" alt="Memory 4" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
                         <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="sticker.webp" alt="Memory 4" onerror="this.src='https://via.placeholder.com/300x300/8b5cf6/ffffff?text=💜'" />
+                        <img src="sticker.webp" alt="Memory 5" onerror="this.src='https://via.placeholder.com/300x300/f472b6/ffffff?text=💗'" />
                         <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                     <div class="gallery-item" onclick="openLightbox(this)">
-                        <img src="sticker.webp" alt="Memory 5" onerror="this.src='https://via.placeholder.com/300x300/c084fc/ffffff?text=💜'" />
+                        <img src="sticker.webp" alt="Memory 6" onerror="this.src='https://via.placeholder.com/300x300/ec4899/ffffff?text=💗'" />
                         <div class="gallery-overlay"><span class="gallery-icon">🔍</span></div>
                     </div>
                 </div>
@@ -209,48 +228,40 @@
                 <div class="schedule-card-header">
                     <div class="schedule-icon">⏰</div>
                     <h3 class="schedule-title">උත්සව කාලසටහන</h3>
-                    <p class="schedule-sub">Wedding Schedule</p>
+                    <p class="schedule-sub">Event Schedule</p>
                 </div>
                 <div class="schedule-timeline">
                     <div class="schedule-item">
-                        <div class="schedule-time">06:28 AM</div>
+                        <div class="schedule-time">06:00 PM</div>
                         <div class="schedule-dot"></div>
                         <div class="schedule-content">
-                            <div class="schedule-event">🌺 පෝරුව චාරිත්‍ර</div>
-                            <div class="schedule-desc">Poruwa Ceremony</div>
+                            <div class="schedule-event">💗 මංගල යුවල පැමිණීම</div>
+                            <div class="schedule-desc">Couple's Arrival</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">11:00 AM</div>
+                        <div class="schedule-time">07:00 PM</div>
                         <div class="schedule-dot"></div>
                         <div class="schedule-content">
-                            <div class="schedule-event">📝 විවාහ ගිවිස ගැනීම</div>
-                            <div class="schedule-desc">Registration</div>
+                            <div class="schedule-event">🍽️ රාත්‍රී ආහාරය</div>
+                            <div class="schedule-desc">Dinner</div>
                         </div>
                     </div>
                     <div class="schedule-item">
-                        <div class="schedule-time">12:00 PM</div>
+                        <div class="schedule-time">08:30 PM</div>
                         <div class="schedule-dot"></div>
                         <div class="schedule-content">
-                            <div class="schedule-event">🍛 මංගල දිවා ආහාරය</div>
-                            <div class="schedule-desc">Wedding Lunch</div>
-                        </div>
-                    </div>
-                    <div class="schedule-item">
-                        <div class="schedule-time">03:15 PM</div>
-                        <div class="schedule-dot"></div>
-                        <div class="schedule-content">
-                            <div class="schedule-event">🚗 මංගල යුවල පිටත්වීම</div>
-                            <div class="schedule-desc">Couple's Departure</div>
+                            <div class="schedule-event">🎶 සාදය</div>
+                            <div class="schedule-desc">Music & Celebration</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="location-section">
                 <h3>📍 ස්ථානය / Location</h3>
-                <p class="location-name"><strong>Hotel Thisunya, Anamaduwa</strong></p>
-                <p class="location-desc">ආණමඩුව, පුත්තලම ප්‍රධාන මාර්ගයේ පිහිටා ඇත.</p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Hotel+Thisunya+Anamaduwa" target="_blank" class="map-btn">🗺️ මාර්ගය බලන්න (View on Map)</a>
+                <p class="location-name"><strong>Sasindu Products, MahaUswewa, Anamaduwa</strong></p>
+                <p class="location-desc">මංගල යුවලගේ නිවසට ඔබ සැවොම සාදරයෙන් පිළිගනිමු.</p>
+                <a href="https://maps.app.goo.gl/ApzvJgDRwcxPAvZa8?g_st=aw" target="_blank" class="map-btn">🧭 Get Directions</a>
             </div>
             <div class="rsvp-section">
                 <h3>💌 RSVP</h3>
@@ -272,13 +283,14 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <div class="footer-deco"><span>✦</span> <span>💜</span> <span>🤍</span> <span>💜</span> <span>✦</span></div>
-                <p class="modal-footer-quote">"Forever starts today..."</p>
-                <p class="modal-footer-love">We can't wait to celebrate with you! 💜🤍</p>
+                <div class="footer-deco"><span>💗</span> <span>💗</span> <span>💗</span> <span>💗</span> <span>💗</span></div>
+                <p class="modal-footer-quote">"Home is where the heart is..."</p>
+                <p class="modal-footer-love">We can't wait to welcome you home! 💗</p>
             </div>
         </div>
     </div>
 
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
         <img class="lightbox-content" id="lightbox-img" src="" alt="Memory" />
