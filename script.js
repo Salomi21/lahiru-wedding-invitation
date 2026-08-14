@@ -145,7 +145,7 @@ async function shareWithImageAndMessage() {
     // Message එක හදන්න
     let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
     message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
-    message += `📅 SEP 15\n`;
+    message += `📅 15 SEPTEMBER 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `👁️ *View Your Invitation:*\n${shareUrl}\n\n`;
     message += `─────────────────────\n`;
@@ -169,12 +169,10 @@ async function shareWithImageAndMessage() {
             await navigator.share(shareData);
             return;
         } else {
-            // Fallback: WhatsApp Web (without image)
             shareFallback(guestName, shareUrl);
         }
     } catch (err) {
         console.log("Share cancelled:", err);
-        // Fallback: WhatsApp Web
         shareFallback(guestName, shareUrl);
     }
 }
@@ -186,7 +184,7 @@ async function shareWithImageAndMessage() {
 function shareFallback(guestName, shareUrl) {
     let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
     message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
-    message += `📅 SEP 15\n`;
+    message += `📅 15 SEPTEMBER 2026\n`;
     message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `👁️ *View Your Invitation:*\n${shareUrl}\n\n`;
     message += `─────────────────────\n`;
