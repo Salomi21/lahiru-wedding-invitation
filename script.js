@@ -122,12 +122,13 @@ function checkAndHideButtons() {
 }
 
 // ================================================================
-// 🎯 SHARE WITH CUSTOM NAME + IMAGE (Homecoming)
+// 🎯 SHARE WITH IMAGE + MESSAGE (Mobile Share API)
 // ================================================================
 
-function shareWithCustomName() {
+async function shareWithImageAndMessage() {
     const imageUrl = "https://i.ibb.co/Q78bqW2y/sticker.webp";
     
+    // Name එක අහනවා
     let guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:', '');
     
     if (guestName === null) return;
@@ -137,11 +138,52 @@ function shareWithCustomName() {
     }
     guestName = guestName.trim();
     
-    const url = window.location.href.split('?')[0];
+    const baseUrl = window.location.href.split('?')[0];
     const encodedName = encodeURIComponent(guestName);
-    const shareUrl = `${url}?name=${encodedName}`;
+    const shareUrl = `${baseUrl}?name=${encodedName}`;
     
     // Message එක හදන්න
+    let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
+    message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
+    message += `📅 SEP 15\n`;
+    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
+    message += `👁️ *View Your Invitation:*\n${shareUrl}\n\n`;
+    message += `─────────────────────\n`;
+    message += `💗 කරුණාකර ඔබගේ පැමිණීම සැප්තැම්බර් 05 දිනට පෙර තහවුරු කරන්න\n`;
+    message += `💗 Please confirm your presence by September 5th.\n\n`;
+    message += `💗💗 අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු! 💗💗`;
+    
+    // Fetch image as blob and share
+    try {
+        const response = await fetch(imageUrl);
+        const blob = await response.blob();
+        const file = new File([blob], "homecoming-invitation.jpg", { type: "image/jpeg" });
+        
+        const shareData = {
+            title: "Lahiru & Salomi - Homecoming Invitation",
+            text: message,
+            files: [file]
+        };
+        
+        if (navigator.share) {
+            await navigator.share(shareData);
+            return;
+        } else {
+            // Fallback: WhatsApp Web (without image)
+            shareFallback(guestName, shareUrl);
+        }
+    } catch (err) {
+        console.log("Share cancelled:", err);
+        // Fallback: WhatsApp Web
+        shareFallback(guestName, shareUrl);
+    }
+}
+
+// ================================================================
+// 🎯 SHARE FALLBACK (WhatsApp Web - without image)
+// ================================================================
+
+function shareFallback(guestName, shareUrl) {
     let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
     message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
     message += `📅 SEP 15\n`;
