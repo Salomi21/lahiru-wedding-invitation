@@ -145,13 +145,13 @@ async function shareWithImageAndMessage() {
     // Message එක හදන්න
     let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
     message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
-    message += `📅 *Date:* 15 SEPTEMBER 2026\n`;
-    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
+    message += `📅 Date: *15 SEPTEMBER 2026*\n`;
+    message += `📍 Venue: *Sasindu Products, MahaUswewa, Anamaduwa*\n\n`;
     message += `👁️ *View Your Invitation:*\n${shareUrl}\n\n`;
     message += `─────────────────────\n`;
-    message += `💗 ඔබගේ පැමිණීම සැප්තැම්බර් 05 දිනට පෙර තහවුරු කරන්න\n`;
-    message += `💗 Please confirm your presence by September 5th.\n\n`;
-    message += `💗💗 *අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු!* 💗💗`;
+    message += `💗 *ඔබගේ පැමිණීම සැප්තැම්බර් 05 දිනට පෙර තහවුරු කරන්න* 💗\n`;
+    message += `💗 *Please confirm your presence by September 5th* 💗\n\n`;
+    message += `💗 *අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු!* 💗`;
     
     // Fetch image as blob and share
     try {
