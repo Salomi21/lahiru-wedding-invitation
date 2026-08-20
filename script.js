@@ -89,7 +89,7 @@ function displayGuestName() {
         
         const subtitle = document.getElementById('mainSubtitle');
         if (subtitle) {
-            subtitle.innerHTML = `💗 ${decodedName} ඔබට ආරාධනාවක්! 💗`;
+            subtitle.innerHTML = `💗 ${decodedName} ඔබට ආරාධනා කරනවා! 💗`;
             subtitle.style.color = '#f5edff';
             subtitle.style.fontSize = '16px';
             subtitle.style.letterSpacing = '2px';
@@ -122,11 +122,12 @@ function checkAndHideButtons() {
 }
 
 // ================================================================
-// 🎯 SHARE WITH IMAGE + MESSAGE (Mobile Share API)
+// 🎯 SHARE INVITATION - Mobile WhatsApp (Photo උඩින් - URL නැතුව)
 // ================================================================
 
-async function shareWithImageAndMessage() {
-    const imageUrl = "photo18.jpeg";
+async function shareInvitationWithImage() {
+    // ✅ Local Image File
+    const imageFile = "photo18.jpeg";
     
     let guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:', '');
     
@@ -137,22 +138,32 @@ async function shareWithImageAndMessage() {
     }
     guestName = guestName.trim();
     
+    let titleChoice = prompt(
+        '👤 Title එක තෝරන්න:\n\n1. Mr.\n2. Miss.\n3. Ms.\n4. Mrs.\n\nඅංකය (1-4):',
+        '1'
+    );
+    
+    let title = 'Mr.';
+    if (titleChoice === '2') title = 'Miss.';
+    else if (titleChoice === '3') title = 'Ms.';
+    else if (titleChoice === '4') title = 'Mrs.';
+    
+    const fullName = `${title} ${guestName}`;
     const baseUrl = window.location.href.split('?')[0];
-    const encodedName = encodeURIComponent(guestName);
-    const shareUrl = `${baseUrl}?name=${encodedName}`;
+    const shareUrl = `${baseUrl}?name=${encodeURIComponent(fullName)}`;
     
     let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
-    message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
-    message += `📅 Date: *15 SEPTEMBER 2026*\n`;
-    message += `📍 Venue: *Sasindu Products, MahaUswewa, Anamaduwa*\n\n`;
+    message += `✨✨ *A Special Invitation for ${fullName}* ✨✨\n\n`;
+    message += `📅 *Date:* 15 September 2026\n`;
+    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
     message += `👁️ *View Your Invitation:*\n${shareUrl}\n\n`;
     message += `─────────────────────\n`;
-    message += `💗 *ඔබගේ පැමිණීම සැප්තැම්බර් 05 දිනට පෙර තහවුරු කරන්න* 💗\n`;
-    message += `💗 *Please confirm your presence by September 5th* 💗\n\n`;
-    message += `💗 *අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු!* 💗`;
+    message += `💗 ඔබගේ පැමිණීම සැප්තැම්බර් 05 දිනට පෙර තහවුරු කරන්න\n`;
+    message += `💗 Please confirm your presence by September 5th.\n\n`;
+    message += `💗💗 අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු! 💗💗`;
     
     try {
-        const response = await fetch(imageUrl);
+        const response = await fetch(imageFile);
         const blob = await response.blob();
         const file = new File([blob], "homecoming-invitation.jpg", { type: "image/jpeg" });
         
@@ -165,53 +176,17 @@ async function shareWithImageAndMessage() {
         if (navigator.share) {
             await navigator.share(shareData);
             return;
-        } else {
-            shareFallback(guestName, shareUrl);
         }
     } catch (err) {
-        console.log("Share cancelled:", err);
-        shareFallback(guestName, shareUrl);
+        console.log("Share failed:", err);
     }
-}
-
-function shareFallback(guestName, shareUrl) {
-    let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
-    message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
-    message += `📅 15 SEPTEMBER 2026\n`;
-    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
-    message += `👁️ *View Your Invitation:*\n${shareUrl}\n\n`;
-    message += `─────────────────────\n`;
-    message += `💗 කරුණාකර ඔබගේ පැමිණීම සැප්තැම්බර් 05 දිනට පෙර තහවුරු කරන්න\n`;
-    message += `💗 Please confirm your presence by September 5th.\n\n`;
-    message += `💗💗 අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු! 💗💗`;
     
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/?text=${encodedMessage}`;
-    window.open(whatsappURL, '_blank');
+    window.open(`https://api.whatsapp.com/send?text=${encodedMessage}`, '_blank');
 }
 
 // ================================================================
-// 🎯 CHECK IF VIEWED VIA QR CODE
-// ================================================================
-
-function checkQRCode() {
-    const params = new URLSearchParams(window.location.search);
-    const isQR = params.get('qr');
-    
-    if (isQR === 'true') {
-        const shareContainer = document.getElementById('shareButtonContainer');
-        if (shareContainer) {
-            shareContainer.style.display = 'none';
-        }
-        
-        setTimeout(function() {
-            openDoorAnimation();
-        }, 1500);
-    }
-}
-
-// ================================================================
-// 🚪 SLOW DOOR OPEN ANIMATION - 5 SECONDS TOTAL
+// 🚪 SLOW DOOR OPEN ANIMATION - 11 SECONDS TOTAL
 // ================================================================
 
 function openDoorAnimation() {
@@ -225,7 +200,7 @@ function openDoorAnimation() {
     const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
-        bgImage.style.transition = 'opacity 3.5s ease';
+        bgImage.style.transition = 'opacity 11s ease';
     }
     
     mainCard.style.transition = 'opacity 0.5s ease';
@@ -256,13 +231,16 @@ function openDoorAnimation() {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
             doorOverlay.style.display = 'none';
+            if (bgImage) {
+                bgImage.style.opacity = '0';
+            }
             openInvitationVerySlow();
         }, 400);
-    }, 5000);
+    }, 11000);
 }
 
 // ================================================================
-// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (3s)
+// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (5s)
 // ================================================================
 
 function openInvitationVerySlow() {
@@ -271,14 +249,14 @@ function openInvitationVerySlow() {
         modal.classList.add('show');
         const content = modal.querySelector('.modal-content');
         if (content) {
-            content.style.animation = 'modalVerySlowFadeIn 3s ease forwards';
+            content.style.animation = 'modalVerySlowFadeIn 5s ease forwards';
         }
         document.body.style.overflow = 'hidden';
     }
 }
 
 // ================================================================
-// 🎯 CLOSE INVITATION AND GO BACK TO MAIN PAGE
+// 🎯 CLOSE INVITATION AND GO BACK TO MAIN PAGE - photo19 1.1s පෙනෙන
 // ================================================================
 
 function closeInvitationAndGoBack() {
@@ -300,15 +278,16 @@ function closeInvitationAndGoBack() {
         bgImage.style.opacity = '0';
     }
     
+    // ✅ photo19 තත්පර 1.1ක් පෙනෙනවා
     setTimeout(() => {
         mainCard.style.display = 'block';
         mainCard.style.opacity = '0';
-        mainCard.style.transition = 'opacity 0.8s ease';
-        
-        setTimeout(() => {
-            mainCard.style.opacity = '1';
-        }, 100);
-    }, 300);
+        mainCard.style.transition = 'opacity 1s ease';
+    }, 100);
+    
+    setTimeout(() => {
+        mainCard.style.opacity = '1';
+    }, 1100);
 }
 
 function closeInvitation() {
@@ -333,9 +312,48 @@ document.addEventListener('keydown', function(event) {
 });
 
 // ================================================================
-// 📝 GET FORM DATA
+// 🎯 SHARE INVITATION (Normal - without image)
 // ================================================================
 
+function shareInvitation() {
+    let guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:', '');
+    
+    if (guestName === null) return;
+    if (guestName.trim() === '') {
+        alert('🙏 කරුණාකර නමක් ඇතුලත් කරන්න!');
+        return;
+    }
+    guestName = guestName.trim();
+    
+    let titleChoice = prompt(
+        '👤 Title එක තෝරන්න:\n\n1. Mr.\n2. Miss.\n3. Ms.\n4. Mrs.\n\nඅංකය (1-4):',
+        '1'
+    );
+    
+    let title = 'Mr.';
+    if (titleChoice === '2') title = 'Miss.';
+    else if (titleChoice === '3') title = 'Ms.';
+    else if (titleChoice === '4') title = 'Mrs.';
+    
+    const fullName = `${title} ${guestName}`;
+    const baseUrl = window.location.href.split('?')[0];
+    const shareUrl = `${baseUrl}?name=${encodeURIComponent(fullName)}`;
+    
+    let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
+    message += `✨✨ *A Special Invitation for ${fullName}* ✨✨\n\n`;
+    message += `📅 *Date:* 15 September 2026\n`;
+    message += `📍 *Venue:* Sasindu Products, MahaUswewa, Anamaduwa\n\n`;
+    message += `👁️ *View Your Invitation:*\n${shareUrl}\n\n`;
+    message += `─────────────────────\n`;
+    message += `💗 ඔබගේ පැමිණීම සැප්තැම්බර් 05 දිනට පෙර තහවුරු කරන්න\n`;
+    message += `💗 Please confirm your presence by September 5th.\n\n`;
+    message += `💗💗 අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු! 💗💗`;
+    
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://api.whatsapp.com/send?text=${encodedMessage}`, '_blank');
+}
+
+// ----- GET FORM DATA -----
 function getFormData() {
     const name = document.getElementById('rsvpName').value.trim();
     const phone = document.getElementById('rsvpPhone').value.trim();
@@ -370,11 +388,8 @@ function validateForm() {
 // 📤 SEND RSVP DATA TO GOOGLE SHEETS
 // ================================================================
 
-// ✅ ඔබගේ Web App URL එක මෙතන දමන්න
-const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
-
 function saveToGoogleSheets(formData) {
-    console.log('📤 Sending data to Google Sheets:', formData);
+    const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
     
     fetch(WEB_APP_URL, {
         method: 'POST',
@@ -385,50 +400,11 @@ function saveToGoogleSheets(formData) {
         body: JSON.stringify(formData)
     })
     .then(() => {
-        console.log('✅ Data sent successfully!');
-        showNotification('✅ ඔබගේ RSVP සාර්ථකව ලැබුණා! 💗', 'success');
+        console.log('✅ Data sent to Google Sheets!');
     })
     .catch(error => {
         console.error('❌ Error:', error);
-        showNotification('❌ දත්ත සුරැකීම අසාර්ථකයි. කරුණාකර නැවත උත්සාහ කරන්න.', 'error');
     });
-}
-
-// ✅ Notification function
-function showNotification(message, type) {
-    const colors = {
-        success: '#22c55e',
-        error: '#ef4444',
-        info: '#f472b6'
-    };
-    
-    const div = document.createElement('div');
-    div.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: ${colors[type] || colors.info};
-        color: white;
-        padding: 14px 28px;
-        border-radius: 12px;
-        font-size: 15px;
-        font-family: 'Lato', sans-serif;
-        z-index: 99999;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        animation: slideDown 0.4s ease;
-        max-width: 90%;
-        text-align: center;
-        font-weight: 500;
-    `;
-    div.textContent = message;
-    document.body.appendChild(div);
-    
-    setTimeout(() => {
-        div.style.opacity = '0';
-        div.style.transition = 'opacity 0.5s ease';
-        setTimeout(() => div.remove(), 500);
-    }, 4000);
 }
 
 // ----- SEND VIA WHATSAPP (RSVP) -----
@@ -453,13 +429,11 @@ function sendWhatsApp() {
     message += `\n💗 *Lahiru & Salomi Homecoming - 15 September 2026*`;
     
     const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
-    window.open(whatsappURL, '_blank');
+    window.open(`https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`, '_blank');
     document.getElementById('rsvpForm').reset();
 }
 
-// ----- SEND VIA EMAIL -----
+// ----- SEND VIA EMAIL (GMAIL WEB) -----
 function sendEmail() {
     if (!validateForm()) return;
     
@@ -484,6 +458,7 @@ function sendEmail() {
     
     const encodedSubject = encodeURIComponent(subject);
     const encodedBody = encodeURIComponent(body);
+    
     const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailAddress}&su=${encodedSubject}&body=${encodedBody}`;
     
     window.open(gmailURL, '_blank');
@@ -639,3 +614,19 @@ document.addEventListener('keydown', function(event) {
         closeLightbox();
     }
 });
+
+// ================================================================
+// 🎯 QR CODE CHECK FUNCTION
+// ================================================================
+
+function checkQRCode() {
+    const params = new URLSearchParams(window.location.search);
+    const isQR = params.get('qr') === 'true';
+    
+    if (isQR) {
+        // QR code එකෙන් ආවොත් ගේට් එක auto open කරන්න
+        setTimeout(() => {
+            openDoorAnimation();
+        }, 1500);
+    }
+}
