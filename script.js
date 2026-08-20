@@ -122,13 +122,13 @@ function checkAndHideButtons() {
 }
 
 // ================================================================
-// 🎯 SHARE INVITATION - Mobile WhatsApp (Photo උඩින් - URL නැතුව)
+// 🎯 SHARE INVITATION - FIXED POPUP BLOCKER (No Popup Issues)
 // ================================================================
 
 async function shareInvitationWithImage() {
-    // ✅ Local Image File
     const imageFile = "photo18.jpeg";
     
+    // First get all user input
     let guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:', '');
     
     if (guestName === null) return;
@@ -162,6 +162,7 @@ async function shareInvitationWithImage() {
     message += `💗 Please confirm your presence by September 5th.\n\n`;
     message += `💗💗 අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු! 💗💗`;
     
+    // ✅ TRY SHARE API FIRST (Mobile - No Popup)
     try {
         const response = await fetch(imageFile);
         const blob = await response.blob();
@@ -178,12 +179,268 @@ async function shareInvitationWithImage() {
             return;
         }
     } catch (err) {
-        console.log("Share failed:", err);
+        console.log("Share API failed:", err);
     }
     
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://api.whatsapp.com/send?text=${encodedMessage}`, '_blank');
+    // ✅ FALLBACK: Show custom share popup (No Browser Popup Block)
+    showSharePopup(message);
 }
+
+// ✅ Custom Share Popup (No Browser Popup Block)
+function showSharePopup(message) {
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://api.whatsapp.com/send?text=${encodedMessage}`;
+    const whatsappAppURL = `whatsapp://send?text=${encodedMessage}`;
+    
+    // Remove existing overlay if any
+    const existingOverlay = document.querySelector('.share-overlay');
+    if (existingOverlay) {
+        existingOverlay.remove();
+    }
+    
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'share-overlay';
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        animation: shareFadeIn 0.3s ease;
+    `;
+    
+    // Create popup
+    const popup = document.createElement('div');
+    popup.style.cssText = `
+        background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(244,114,182,0.04));
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 30px 25px 25px 25px;
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        animation: shareSlideUp 0.4s ease;
+    `;
+    
+    popup.innerHTML = `
+        <div style="font-size: 48px; margin-bottom: 8px;">💗</div>
+        <h3 style="color: #f9a8d4; font-family: 'Great Vibes', cursive; font-size: 28px; margin-bottom: 6px;">
+            Share Invitation
+        </h3>
+        <p style="color: #f5edff; font-size: 14px; margin-bottom: 18px; line-height: 1.6; opacity: 0.8;">
+            Choose how you'd like to share
+        </p>
+        
+        <!-- WhatsApp Button -->
+        <button onclick="openWhatsApp('${whatsappURL}', '${whatsappAppURL}')" 
+            style="
+                background: linear-gradient(145deg, #25D366, #128C7E);
+                color: white;
+                border: none;
+                padding: 14px 20px;
+                border-radius: 50px;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom: 10px;
+                box-shadow: 0 4px 25px rgba(37,211,102,0.25);
+                transition: all 0.3s ease;
+                font-family: 'Lato', sans-serif;
+                letter-spacing: 1px;
+            "
+            onmouseover="this.style.transform='scale(1.02)'"
+            onmouseout="this.style.transform='scale(1)'"
+            onmousedown="this.style.transform='scale(0.97)'"
+            onmouseup="this.style.transform='scale(1)'">
+            💬 Share on WhatsApp
+        </button>
+        
+        <!-- Copy Message Button -->
+        <button onclick="copyMessage('${encodedMessage}')" 
+            style="
+                background: linear-gradient(145deg, #ec4899, #db2777);
+                color: white;
+                border: none;
+                padding: 14px 20px;
+                border-radius: 50px;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom: 10px;
+                box-shadow: 0 4px 25px rgba(236,72,153,0.2);
+                transition: all 0.3s ease;
+                font-family: 'Lato', sans-serif;
+                letter-spacing: 1px;
+            "
+            onmouseover="this.style.transform='scale(1.02)'"
+            onmouseout="this.style.transform='scale(1)'"
+            onmousedown="this.style.transform='scale(0.97)'"
+            onmouseup="this.style.transform='scale(1)'">
+            📋 Copy Message
+        </button>
+        
+        <!-- Close Button -->
+        <button onclick="this.closest('.share-overlay').remove()" 
+            style="
+                background: transparent;
+                color: #8a6a7a;
+                border: none;
+                padding: 12px;
+                font-size: 13px;
+                cursor: pointer;
+                width: 100%;
+                transition: all 0.3s ease;
+                font-family: 'Lato', sans-serif;
+            "
+            onmouseover="this.style.color='#f9a8d4'"
+            onmouseout="this.style.color='#8a6a7a'">
+            Close
+        </button>
+    `;
+    
+    overlay.appendChild(popup);
+    document.body.appendChild(overlay);
+    
+    // Add animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes shareFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes shareSlideUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ✅ Open WhatsApp (Try App first, then Web)
+function openWhatsApp(webURL, appURL) {
+    // Try WhatsApp App first
+    const appWindow = window.open(appURL, '_blank');
+    
+    // If app doesn't open or user doesn't have app, use web version after delay
+    setTimeout(() => {
+        if (!appWindow || appWindow.closed) {
+            window.open(webURL, '_blank');
+        }
+    }, 300);
+    
+    // Close the share popup
+    const overlay = document.querySelector('.share-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
+// ✅ Copy message function
+function copyMessage(encodedMessage) {
+    const decodedMessage = decodeURIComponent(encodedMessage);
+    
+    // Try using navigator.clipboard
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(decodedMessage).then(() => {
+            showToast('✅ Message copied to clipboard!');
+        }).catch(() => {
+            fallbackCopy(decodedMessage);
+        });
+    } else {
+        fallbackCopy(decodedMessage);
+    }
+    
+    // Close the share popup
+    const overlay = document.querySelector('.share-overlay');
+    if (overlay) {
+        setTimeout(() => {
+            overlay.remove();
+        }, 500);
+    }
+}
+
+// ✅ Fallback copy method
+function fallbackCopy(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.style.position = 'fixed';
+    textarea.style.top = '-9999px';
+    textarea.style.left = '-9999px';
+    textarea.style.opacity = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+    
+    try {
+        document.execCommand('copy');
+        showToast('✅ Message copied to clipboard!');
+    } catch (err) {
+        showToast('❌ Failed to copy. Please copy manually.');
+    }
+    
+    textarea.remove();
+}
+
+// ✅ Toast Notification
+function showToast(message) {
+    const existingToast = document.querySelector('.share-toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'share-toast';
+    toast.style.cssText = `
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0,0,0,0.9);
+        color: white;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-family: 'Lato', sans-serif;
+        z-index: 999999;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        animation: toastSlideUp 0.4s ease;
+        max-width: 90%;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.05);
+    `;
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => toast.remove(), 500);
+    }, 3000);
+}
+
+// Add toast animation
+const toastStyle = document.createElement('style');
+toastStyle.textContent = `
+    @keyframes toastSlideUp {
+        from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+        to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+`;
+document.head.appendChild(toastStyle);
 
 // ================================================================
 // 🚪 SLOW DOOR OPEN ANIMATION - 11 SECONDS TOTAL
@@ -401,9 +658,11 @@ function saveToGoogleSheets(formData) {
     })
     .then(() => {
         console.log('✅ Data sent to Google Sheets!');
+        showToast('✅ RSVP සාර්ථකව ලැබුණා! 💗');
     })
     .catch(error => {
         console.error('❌ Error:', error);
+        showToast('❌ දත්ත සුරැකීම අසාර්ථකයි.');
     });
 }
 
