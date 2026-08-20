@@ -126,9 +126,8 @@ function checkAndHideButtons() {
 // ================================================================
 
 async function shareWithImageAndMessage() {
-    const imageUrl = "https://i.ibb.co/Q78bqW2y/sticker.webp";
+    const imageUrl = "photo18.jpeg";
     
-    // Name එක අහනවා
     let guestName = prompt('👤 ආරාධනාව ලබන පුද්ගලයාගේ නම ඇතුලත් කරන්න:', '');
     
     if (guestName === null) return;
@@ -142,7 +141,6 @@ async function shareWithImageAndMessage() {
     const encodedName = encodeURIComponent(guestName);
     const shareUrl = `${baseUrl}?name=${encodedName}`;
     
-    // Message එක හදන්න
     let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
     message += `✨✨ *A Special Invitation for ${guestName}* ✨✨\n\n`;
     message += `📅 Date: *15 SEPTEMBER 2026*\n`;
@@ -153,7 +151,6 @@ async function shareWithImageAndMessage() {
     message += `💗 *Please confirm your presence by September 5th* 💗\n\n`;
     message += `💗 *අපගේ ආදර කතාවේ අලුත් පරිච්ඡේදයට ඔබත් සෙනෙහසින් එක්වෙන්නයි සාදරයෙන් ඇරයුම් කරමු!* 💗`;
     
-    // Fetch image as blob and share
     try {
         const response = await fetch(imageUrl);
         const blob = await response.blob();
@@ -176,10 +173,6 @@ async function shareWithImageAndMessage() {
         shareFallback(guestName, shareUrl);
     }
 }
-
-// ================================================================
-// 🎯 SHARE FALLBACK (WhatsApp Web - without image)
-// ================================================================
 
 function shareFallback(guestName, shareUrl) {
     let message = `💗💗 *Lahiru & Salomi Homecoming Invitation* 💗💗\n\n`;
@@ -339,7 +332,10 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// ----- GET FORM DATA -----
+// ================================================================
+// 📝 GET FORM DATA
+// ================================================================
+
 function getFormData() {
     const name = document.getElementById('rsvpName').value.trim();
     const phone = document.getElementById('rsvpPhone').value.trim();
@@ -374,8 +370,11 @@ function validateForm() {
 // 📤 SEND RSVP DATA TO GOOGLE SHEETS
 // ================================================================
 
+// ✅ ඔබගේ Web App URL එක මෙතන දමන්න
+const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+
 function saveToGoogleSheets(formData) {
-    const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+    console.log('📤 Sending data to Google Sheets:', formData);
     
     fetch(WEB_APP_URL, {
         method: 'POST',
@@ -386,11 +385,50 @@ function saveToGoogleSheets(formData) {
         body: JSON.stringify(formData)
     })
     .then(() => {
-        console.log('✅ Data sent to Google Sheets!');
+        console.log('✅ Data sent successfully!');
+        showNotification('✅ ඔබගේ RSVP සාර්ථකව ලැබුණා! 💗', 'success');
     })
     .catch(error => {
         console.error('❌ Error:', error);
+        showNotification('❌ දත්ත සුරැකීම අසාර්ථකයි. කරුණාකර නැවත උත්සාහ කරන්න.', 'error');
     });
+}
+
+// ✅ Notification function
+function showNotification(message, type) {
+    const colors = {
+        success: '#22c55e',
+        error: '#ef4444',
+        info: '#f472b6'
+    };
+    
+    const div = document.createElement('div');
+    div.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: ${colors[type] || colors.info};
+        color: white;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 15px;
+        font-family: 'Lato', sans-serif;
+        z-index: 99999;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        animation: slideDown 0.4s ease;
+        max-width: 90%;
+        text-align: center;
+        font-weight: 500;
+    `;
+    div.textContent = message;
+    document.body.appendChild(div);
+    
+    setTimeout(() => {
+        div.style.opacity = '0';
+        div.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => div.remove(), 500);
+    }, 4000);
 }
 
 // ----- SEND VIA WHATSAPP (RSVP) -----
