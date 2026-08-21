@@ -646,7 +646,8 @@ function validateForm() {
 // ================================================================
 
 function saveToGoogleSheets(formData) {
-    const WEB_APP_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+    // 👇 YOUR WEB APP URL - ඔබගේ URL එක මෙතනට දාන්න
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw2f9e5kKJWOzQ1hFo2kSYINe9qMZsQ2zrPTerZ5JvwfcjRYdW8zbNerCV726KJbqZJ/exec";
     
     fetch(WEB_APP_URL, {
         method: 'POST',
