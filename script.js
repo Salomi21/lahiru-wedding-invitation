@@ -477,15 +477,12 @@ toastStyle.textContent = `
 document.head.appendChild(toastStyle);
 
 // ================================================================
-// 🚪 SLOW DOOR OPEN ANIMATION - 11 SECONDS TOTAL
+// 🚪 SLOW DOOR OPEN ANIMATION - 11 SECONDS TOTAL (කලින් ගානම)
 // ================================================================
 
 function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
-    
-    // Mobile detection
-    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
     
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
@@ -494,7 +491,7 @@ function openDoorAnimation() {
     const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
-        bgImage.style.transition = isMobile ? 'opacity 3s ease' : 'opacity 11s ease';
+        bgImage.style.transition = 'opacity 11s ease';
     }
     
     mainCard.style.transition = 'opacity 0.5s ease';
@@ -521,9 +518,6 @@ function openDoorAnimation() {
         
     }, 500);
     
-    // Mobile - faster door open
-    const doorDuration = isMobile ? 3000 : 11000;
-    
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
@@ -531,62 +525,24 @@ function openDoorAnimation() {
             if (bgImage) {
                 bgImage.style.opacity = '0';
             }
-            // Force open invitation with small delay
-            setTimeout(function() {
-                openInvitationVerySlow();
-            }, 200);
+            openInvitationVerySlow();
         }, 400);
-    }, doorDuration);
+    }, 11000);
 }
 
 // ================================================================
-// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (5s) - MOBILE FIXED
+// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (5s)
 // ================================================================
 
 function openInvitationVerySlow() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
-        // Mobile detection
-        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
-        
-        // First - make modal visible
-        modal.style.display = 'flex';
-        modal.style.opacity = '1';
-        modal.style.visibility = 'visible';
         modal.classList.add('show');
-        
         const content = modal.querySelector('.modal-content');
         if (content) {
-            // Force content to be visible
-            content.style.display = 'block';
-            content.style.visibility = 'visible';
-            content.style.opacity = '1';
-            
-            if (isMobile) {
-                // Mobile - no animation, direct show
-                content.style.animation = 'none';
-                content.style.transform = 'none';
-            } else {
-                // Desktop - slow fade in
-                content.style.animation = 'modalVerySlowFadeIn 5s ease forwards';
-            }
+            content.style.animation = 'modalVerySlowFadeIn 5s ease forwards';
         }
-        
-        // Force all images to load
-        const images = modal.querySelectorAll('img');
-        images.forEach(function(img) {
-            // Reload image if needed
-            if (!img.complete || img.naturalWidth === 0) {
-                const src = img.src;
-                img.src = '';
-                setTimeout(function() {
-                    img.src = src;
-                }, 100);
-            }
-        });
-        
         document.body.style.overflow = 'hidden';
-        console.log('📱 Invitation opened - Mobile mode:', isMobile);
     }
 }
 
@@ -600,8 +556,6 @@ function closeInvitationAndGoBack() {
     
     if (modal) {
         modal.classList.remove('show');
-        modal.style.display = 'none';
-        modal.style.opacity = '0';
         document.body.style.overflow = 'auto';
     }
     
@@ -631,8 +585,6 @@ function closeInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
         modal.classList.remove('show');
-        modal.style.display = 'none';
-        modal.style.opacity = '0';
         document.body.style.overflow = 'auto';
     }
 }
