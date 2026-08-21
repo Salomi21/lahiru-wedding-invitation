@@ -122,6 +122,44 @@ function checkAndHideButtons() {
 }
 
 // ================================================================
+// 🎯 QR CODE CHECK - සම්පූර්ණයෙන්ම අක්‍රියයි (AUTO OPEN නැත)
+// ================================================================
+
+function checkQRCode() {
+    // QR code එකෙන් එන අයට කිසිම auto action එකක් නැත
+    // මෙය හිස්ව තබා ඇත - කිසිම auto open එකක් සිදු නොවේ
+    console.log('ℹ️ QR code detection disabled - No auto open');
+    return;
+}
+
+// ================================================================
+// 🚪 RESET DOOR - Fix stuck animation
+// ================================================================
+
+function resetDoor() {
+    const doorOverlay = document.getElementById('doorOverlay');
+    const mainCard = document.getElementById('mainCard');
+    
+    if (doorOverlay) {
+        doorOverlay.classList.remove('open', 'hidden');
+        doorOverlay.style.display = 'none';
+        doorOverlay.style.opacity = '0';
+    }
+    
+    if (mainCard) {
+        mainCard.style.display = 'block';
+        mainCard.style.opacity = '1';
+    }
+    
+    const bgImage = document.querySelector('.door-bg-image');
+    if (bgImage) {
+        bgImage.style.opacity = '0';
+    }
+    
+    console.log('🔄 Door reset completed');
+}
+
+// ================================================================
 // 🎯 SHARE INVITATION - FIXED POPUP BLOCKER (No Popup Issues)
 // ================================================================
 
@@ -798,7 +836,7 @@ function forceAutoPlay() {
 document.addEventListener('DOMContentLoaded', function() {
     displayGuestName();
     checkAndHideButtons();
-    checkQRCode();
+    // checkQRCode(); // ❌ සම්පූර්ණයෙන්ම අක්‍රිය කර ඇත - AUTO OPEN නැත
     
     setTimeout(forceAutoPlay, 100);
     setTimeout(forceAutoPlay, 300);
@@ -876,17 +914,9 @@ document.addEventListener('keydown', function(event) {
 });
 
 // ================================================================
-// 🎯 QR CODE CHECK FUNCTION
+// 🎯 QR CODE CHECK - සම්පූර්ණයෙන්ම අක්‍රියයි
 // ================================================================
 
-function checkQRCode() {
-    const params = new URLSearchParams(window.location.search);
-    const isQR = params.get('qr') === 'true';
-    
-    if (isQR) {
-        // QR code එකෙන් ආවොත් ගේට් එක auto open කරන්න
-        setTimeout(() => {
-            openDoorAnimation();
-        }, 1500);
-    }
-}
+// QR code detection සම්පූර්ණයෙන්ම අක්‍රිය කර ඇත
+// කිසිම auto open, auto redirect, හෝ auto action එකක් සිදු නොවේ
+// checkQRCode() function එක හිස්ව පවතී
