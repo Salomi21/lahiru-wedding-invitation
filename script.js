@@ -127,7 +127,6 @@ function checkAndHideButtons() {
 
 function checkQRCode() {
     // QR code එකෙන් එන අයට කිසිම auto action එකක් නැත
-    // මෙය හිස්ව තබා ඇත - කිසිම auto open එකක් සිදු නොවේ
     return;
 }
 
@@ -485,6 +484,9 @@ function openDoorAnimation() {
     const doorOverlay = document.getElementById('doorOverlay');
     const mainCard = document.getElementById('mainCard');
     
+    // Mobile detection
+    const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
+    
     doorOverlay.classList.remove('open', 'hidden');
     doorOverlay.style.display = 'none';
     doorOverlay.style.opacity = '0';
@@ -492,7 +494,7 @@ function openDoorAnimation() {
     const bgImage = document.querySelector('.door-bg-image');
     if (bgImage) {
         bgImage.style.opacity = '0';
-        bgImage.style.transition = 'opacity 11s ease';
+        bgImage.style.transition = isMobile ? 'opacity 3s ease' : 'opacity 11s ease';
     }
     
     mainCard.style.transition = 'opacity 0.5s ease';
@@ -519,6 +521,9 @@ function openDoorAnimation() {
         
     }, 500);
     
+    // Mobile - faster door open
+    const doorDuration = isMobile ? 3000 : 11000;
+    
     setTimeout(() => {
         doorOverlay.classList.add('hidden');
         setTimeout(() => {
@@ -526,9 +531,12 @@ function openDoorAnimation() {
             if (bgImage) {
                 bgImage.style.opacity = '0';
             }
-            openInvitationVerySlow();
+            // Force open invitation with small delay
+            setTimeout(function() {
+                openInvitationVerySlow();
+            }, 200);
         }, 400);
-    }, 11000);
+    }, doorDuration);
 }
 
 // ================================================================
@@ -541,25 +549,44 @@ function openInvitationVerySlow() {
         // Mobile detection
         const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
         
-        modal.classList.add('show');
-        
-        // Force display for all devices
+        // First - make modal visible
         modal.style.display = 'flex';
         modal.style.opacity = '1';
+        modal.style.visibility = 'visible';
+        modal.classList.add('show');
         
         const content = modal.querySelector('.modal-content');
         if (content) {
+            // Force content to be visible
+            content.style.display = 'block';
+            content.style.visibility = 'visible';
+            content.style.opacity = '1';
+            
             if (isMobile) {
                 // Mobile - no animation, direct show
                 content.style.animation = 'none';
-                content.style.opacity = '1';
                 content.style.transform = 'none';
             } else {
                 // Desktop - slow fade in
                 content.style.animation = 'modalVerySlowFadeIn 5s ease forwards';
             }
         }
+        
+        // Force all images to load
+        const images = modal.querySelectorAll('img');
+        images.forEach(function(img) {
+            // Reload image if needed
+            if (!img.complete || img.naturalWidth === 0) {
+                const src = img.src;
+                img.src = '';
+                setTimeout(function() {
+                    img.src = src;
+                }, 100);
+            }
+        });
+        
         document.body.style.overflow = 'hidden';
+        console.log('📱 Invitation opened - Mobile mode:', isMobile);
     }
 }
 
