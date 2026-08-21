@@ -128,7 +128,6 @@ function checkAndHideButtons() {
 function checkQRCode() {
     // QR code එකෙන් එන අයට කිසිම auto action එකක් නැත
     // මෙය හිස්ව තබා ඇත - කිසිම auto open එකක් සිදු නොවේ
-    console.log('ℹ️ QR code detection disabled - No auto open');
     return;
 }
 
@@ -155,8 +154,6 @@ function resetDoor() {
     if (bgImage) {
         bgImage.style.opacity = '0';
     }
-    
-    console.log('🔄 Door reset completed');
 }
 
 // ================================================================
@@ -535,16 +532,32 @@ function openDoorAnimation() {
 }
 
 // ================================================================
-// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (5s)
+// 🎯 OPEN INVITATION WITH VERY SLOW FADE IN (5s) - MOBILE FIXED
 // ================================================================
 
 function openInvitationVerySlow() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
+        // Mobile detection
+        const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth < 768;
+        
         modal.classList.add('show');
+        
+        // Force display for all devices
+        modal.style.display = 'flex';
+        modal.style.opacity = '1';
+        
         const content = modal.querySelector('.modal-content');
         if (content) {
-            content.style.animation = 'modalVerySlowFadeIn 5s ease forwards';
+            if (isMobile) {
+                // Mobile - no animation, direct show
+                content.style.animation = 'none';
+                content.style.opacity = '1';
+                content.style.transform = 'none';
+            } else {
+                // Desktop - slow fade in
+                content.style.animation = 'modalVerySlowFadeIn 5s ease forwards';
+            }
         }
         document.body.style.overflow = 'hidden';
     }
@@ -560,6 +573,8 @@ function closeInvitationAndGoBack() {
     
     if (modal) {
         modal.classList.remove('show');
+        modal.style.display = 'none';
+        modal.style.opacity = '0';
         document.body.style.overflow = 'auto';
     }
     
@@ -589,6 +604,8 @@ function closeInvitation() {
     const modal = document.getElementById('invitationModal');
     if (modal) {
         modal.classList.remove('show');
+        modal.style.display = 'none';
+        modal.style.opacity = '0';
         document.body.style.overflow = 'auto';
     }
 }
@@ -684,7 +701,6 @@ function validateForm() {
 // ================================================================
 
 function saveToGoogleSheets(formData) {
-    // 👇 YOUR WEB APP URL - ඔබගේ URL එක මෙතනට දාන්න
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw2f9e5kKJWOzQ1hFo2kSYINe9qMZsQ2zrPTerZ5JvwfcjRYdW8zbNerCV726KJbqZJ/exec";
     
     fetch(WEB_APP_URL, {
@@ -912,11 +928,3 @@ document.addEventListener('keydown', function(event) {
         closeLightbox();
     }
 });
-
-// ================================================================
-// 🎯 QR CODE CHECK - සම්පූර්ණයෙන්ම අක්‍රියයි
-// ================================================================
-
-// QR code detection සම්පූර්ණයෙන්ම අක්‍රිය කර ඇත
-// කිසිම auto open, auto redirect, හෝ auto action එකක් සිදු නොවේ
-// checkQRCode() function එක හිස්ව පවතී
